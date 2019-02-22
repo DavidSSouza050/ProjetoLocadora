@@ -113,7 +113,7 @@
 
                     <?php
 
-                        for($i = 0; $i <= 20 ;$i++){
+                        for($i = 0; $i <= 15 ;$i++){
                             echo("
                                     <div class='produto'>
                                         <div class='produto_caixa_imagem'>
