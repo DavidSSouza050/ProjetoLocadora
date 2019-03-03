@@ -1,12 +1,14 @@
 <header>
     <div class="conteudo_header center">
-        <div class="logo" >
-            <figure>
+       
+        <figure class="logo">
+            <div class="logo" >
                 <a href="index.php" class="alinhafigura">
-                    <img class="img-size" src="./img/Ben-10.png" alt="logo bem 10" title="logo bem 10">
+                    <img class="img-size" src="./img/logoAcme.png" alt="logo Acme" title="Voltar para a pagina inicial">
                 </a>                    
-            </figure>
-        </div>
+            </div>
+        </figure>
+        
         <nav class="menu">
             <ul>
                 <li>
@@ -15,8 +17,8 @@
                     </a>
                 </li>
                 <li>
-                     <a href="sobre.php">
-                        Sobre
+                    <a href="">
+                       Lojas
                     </a>
                 </li>
                 <li>
@@ -26,17 +28,17 @@
                 </li>
                 <li>
                     <a href="">
-                        Nossas Lojas
-                    </a>
-                </li>
-                <li>
-                    <a href="">
                         Filme do Mês
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        Fale Conosco
+                       Contatos
+                    </a>
+                </li>
+                <li>
+                    <a href="sobre.php">
+                        Sobre
                     </a>
                 </li>
             </ul>
@@ -44,11 +46,11 @@
         <form name="frm_cadastro">
             <div class="login">
                 <div class="login_usuario">
-                    <h3>Usuario:</h3>
+                    <h2>Usuario:</h2>
                     <input class="caixaTexto" type="text" name="txt_login_usuario">
                 </div>
                 <div class="login_senha">
-                    <h3>Senha:</h3>
+                    <h2>Senha:</h2>
                     <input class="caixaTexto" type="password" name="txt_login_senha">
                     <input type="submit" class="botao_usuario" name="btn_confirmar" value="OK">
                 </div>
@@ -56,3 +58,6 @@
         </form>
     </div>
 </header>
+<div class="segura_conteudo">
+
+</div>

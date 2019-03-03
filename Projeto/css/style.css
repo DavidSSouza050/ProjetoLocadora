@@ -2,7 +2,7 @@
 *,figure{
     margin: 0;
     padding: 0; 
-    font-family: Andalus;
+    
 }
 a{
     text-decoration: none;
@@ -12,6 +12,7 @@ a{
 .formata_atributo{
     font-weight: bold;
     font-size: 20px;
+    font-family: robotoLight;
 }
 
 .center{
@@ -31,6 +32,7 @@ a{
     width: inherit;
     height: inherit;
 }
+
 .back-size{
     background-repeat: no-repeat;
     background-size: cover;
@@ -45,10 +47,6 @@ body{
     background-image: url(../img/bgAcme.jpg);
 }
 
-figure{
-    width: inherit;
-    height: inherit;
-}
 
 header{
     width: 100%;
@@ -100,8 +98,9 @@ header{
     /*font*/
     text-align: center;
     font-weight: bold;
+    font-family: MeganJune;
     color: white;
-    font-size: 21px;
+    font-size: 26px;
 }
 
 .menu li:hover{
@@ -131,6 +130,7 @@ header{
     padding-top: 10px;
     padding-left: 5px;
     background-color: black;
+    font-family: MeganJune;
 }
 
 .login_senha{
@@ -141,6 +141,7 @@ header{
     padding-left: 5px;
     float: left;
     background-color: black;
+    font-family: MeganJune;
 }
 
 .caixaTexto{
@@ -158,13 +159,22 @@ header{
     width: 50px;
     height: 30px;
     margin-left: 5px;
+    margin-top: -5px;
     border-radius: 10px;
     transition: 0.4s;
+    font-size: 15px;
+    background-color: rgb(48, 47, 47);
+    border: solid 1px aliceblue;  
+    color: white;
+    font-family: CabinMedium;
 }
 
 .botao_usuario:hover{
     transition: 0.4s;
     transform: scale(1.1);
+    padding-top: 3px;
+    color: orange;
+    border: solid 3px yellow; 
 }
 
 
@@ -213,7 +223,7 @@ header{
 /*caixa slider*/
 #slider{
     width: 1400px;
-    height: 680px;
+    height: 750px;
     box-sizing: border-box;
     padding-top: 5px;
     z-index: 0;
@@ -272,7 +282,8 @@ header{
     transition: 0.5s;
     text-align: left;
     /*font*/
-    font-size: 20px;
+    font-size: 28px;
+    font-family: MeganJune;
     color: white;
 }
 
@@ -311,6 +322,7 @@ header{
     
     /*font*/
     color:rgb(250, 239, 239);
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 .produto_caixa_imagem{
@@ -339,7 +351,7 @@ header{
     padding-left: 5px;
     box-sizing: border-box;
     /*font*/
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .produto_caixa_detalhes{
@@ -351,7 +363,7 @@ header{
     /*font*/
     font-size: 20px;
     letter-spacing: 1.5px;
-    line-height: 5px;
+    line-height: 8px;
 }
 
 .botao_detalhes{
@@ -372,10 +384,11 @@ p{
     margin-bottom: 5px;
 }
 
+/*FOOTER*/
 footer{
+    margin-top: 50px;
     width: 100%;
     height: 200px;
-    margin-top: 30px;
     background-color: rgb(14, 13, 13);
 }
 
@@ -389,6 +402,7 @@ footer{
     height: inherit;
     margin-left: 50px;
     border-right: solid 2px rgb(51, 51, 50);
+    margin-right: 10px;
     float: left;
 }
 
@@ -403,13 +417,14 @@ footer{
     width: 400px;
     height: 80px;
     padding-left: 10px;
-    padding-top: 20px;
+    padding-top: 5px;
     box-sizing: border-box;
     float: left;
     /*font*/
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     color:  rgba(255, 145, 0, 0.932);
+    font-family: baronBold;
 }
 
 .horarios{
@@ -420,9 +435,9 @@ footer{
     clear: both;
     /**font*/
     font-size: 35px;
-    font-weight: bold;
     text-align: center;
     color:  rgb(238, 147, 29);
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 .caixa_contatos{
@@ -430,6 +445,7 @@ footer{
     height: inherit;
     border-right: solid 2px rgb(51, 51, 50);
     float: left;
+    margin-right: 10px;
 }
 
 .tituloContatos{
@@ -440,8 +456,9 @@ footer{
     padding-top: 16px;
     float: left;
     /**/
-    font-size: 35px;
+    font-size: 26px;
     font-weight: bold;
+    font-family: baronBold;
     color:  rgba(255, 145, 0, 0.932);
 }
 
@@ -453,10 +470,10 @@ footer{
     padding-left: 15px;
     clear: both;
     /*font*/
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 26px;
     text-align: center;
     color:  rgba(255, 145, 0, 0.932);
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 .caixa_endereco{
@@ -475,6 +492,7 @@ footer{
     /**/
     font-size: 35px;
     font-weight: bold;
+    font-family: baronBold; 
     color:  rgba(255, 145, 0, 0.932);
 }
 .enredeco{
@@ -486,8 +504,8 @@ footer{
     clear: both;
     /*font*/
     font-size: 25px;
-    font-weight: bold;
     text-align: center;
+    font-family: 'Arial Narrow', Arial, sans-serif;
     color:  rgba(255, 145, 0, 0.932);
 }
 
@@ -496,23 +514,25 @@ footer{
 
 #conteudo_sobre{
     width: 1400px;
-
-    min-height: 600px;
+    min-height: 800px;
     height: auto;
     overflow: hidden;
     margin-top: 50px;
-    border-radius: 10px;
-    background-color: brown;
+    border-radius: 20px;
 }
 
 #titulo_sobre{
     width: inherit;
     height: 90px;
-
-    background-color: rgb(158, 157, 158);
+    box-sizing: border-box;
+    padding-top: 10px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgb(253, 61, 61);
     /*fonte*/
     text-align: center;
-    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-family: baronBold;
+    font-size: 60px;
     font-weight: bold;
 }
 
@@ -522,17 +542,57 @@ footer{
     min-height: 500px;
     height: auto;
     overflow: hidden;
-
-    background-color: antiquewhite;
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgb(24, 23, 23);
 }
 
 #caixa_texto_quemSomos{
     width: 800px;
-    height: 500px;
-    background-color: darkgreen;
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    /**/
 }
-#imagem_sobre{
-    width: inherit;
-    height: 300px;
+
+#texto_quemSomos{
+    width: 750px;
+    height: 520px;
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgb(107, 109, 109);
+    /**/
+    font-size: 26px;
+    color: white;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+}
+
+#imagem_quemSomos{
+    width: 500px;
+    height: 480px;
+    margin-left: 50px;
+    margin-top: 35px;
+    border-radius: 20px;
+    float: left;
     background-color: darkblue;
+}
+
+#lojaAntiga{
+    border-radius: 20px;
+}
+
+#imagem_sobre_back{
+    width: 1400px;
+    height: 500px;
+    background-image: url(../img/LojasAcime/acmeSobre.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
 }

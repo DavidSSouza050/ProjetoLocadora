@@ -2,17 +2,18 @@
 <footer>
     <div class="caixa_footer center">
         <div class="caixa_horario">
-            <div class="iconFooter">
-                <figure>
+           
+            <figure>
+                <div class="iconFooter">
                     <img class="img-size" src="./img/icon/icons8-alarm-clock-filled-48.png" alt="Horario de trabalho">
-                </figure>
-            </div>
+                </div>
+            </figure>
             <div class="horarioAtendimento">
                 Horario de Atendimento
             </div>
             <div class="horarios">
                <p> 
-                   Terça à Sábado | 08:30h  às 18h 
+                   Terça à Sexta | 08:30h  às 18h 
                </p>
                <p>
                    Sábados | 10h às 14h
@@ -20,11 +21,13 @@
             </div>
         </div>
         <div class="caixa_contatos">
-            <div class="iconFooter">
-                <figure>
+          
+            <figure>
+                <div class="iconFooter">
                     <img class="img-size" src="./img/icon/telefone.png" alt="Contatos">
-                </figure>
-            </div>
+                    </div>
+            </figure>
+       
             <div class="tituloContatos">
                 Contatos
             </div>
@@ -42,11 +45,13 @@
             </div>
         </div>
         <div class="caixa_endereco">
-            <div class="iconFooter">
-                <figure>
+          
+            <figure>
+                <div class="iconFooter">
                     <img class="img-size" src="./img/icon/local.png" alt="Endereco">
-                </figure>
-            </div>
+                    </div>
+            </figure>
+            
             <div class="tituloEndereco">
                 Endereço
             </div>

@@ -1,0 +1,32 @@
+@font-face{
+    font-family: badang;
+    src: url(../fonte/badang/Badang.ttf);
+}
+@font-face{
+    font-family: badangItalic;
+    src: url(../fonte/badang/BadangItalic.ttf);
+}
+@font-face{
+    font-family: badaboom;
+    src: url(../fonte/badaboom_bb/BADABB__.TTF);
+}
+@font-face{
+    font-family: baronBold;
+    src: url(../fonte/baron_neue/Baron\ Neue\ Bold.otf);
+}
+@font-face{
+    font-family: MeganJune;
+    src: url(../fonte/megan_june/Megan\ June.otf);
+}
+@font-face{
+    font-family: CabinMedium;
+    src: url(../fonte/cabin/Cabin-Medium.ttf);
+}
+@font-face{
+    font-family: robotoLight;
+    src: url(../fonte/roboto/Roboto-Light.ttf);
+}
+@font-face{
+    font-family: robotoRegular;
+    src: url(../fonte/roboto/Roboto-Regular.ttf);
+}
