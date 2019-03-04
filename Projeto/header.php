@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="contato.php">
                        Contatos
                     </a>
                 </li>
