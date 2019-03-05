@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Contato</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-            <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
-            <link rel="shortcut icon" href="img/iconeDeAbaACME.jpg" type="image/x-png">
-        <script src="main.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
+        <link rel="shortcut icon" href="img/iconeDeAbaACME.jpg" type="image/x-png">
     </head>
     <body>
        <?php require_once('./header.php')?>
         
-       <div id="caixa_segura_contato" class="center">
+       <section id="caixa_segura_contato" class="center">
            <form name="frm_contato" >
                 <div id="caixa_contato">
                     <div class="caixa_Input_text">
@@ -87,7 +86,7 @@
                     <input id="botao_contato" type="submit" value="Enviar→">
                 </div>
            </form>
-       </div>
+       </section>
 
         <?php require_once('./footer.php')?>
     </body>

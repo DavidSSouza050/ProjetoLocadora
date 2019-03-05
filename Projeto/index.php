@@ -70,7 +70,9 @@
                         </div>
                         <div class='produto_caixa_detalhes'>
                             <div class='botao_detalhes formata_atributo'>
-                                Detalhes
+                                <a href='detalhes.php'>    
+                                    Detalhes
+                                </a>
                             </div>
                         </div>
                     </div>

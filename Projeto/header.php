@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="lojas.php">
                        Lojas
                     </a>
                 </li>
