@@ -1,3 +1,15 @@
+<?php
+    $coordenada = '0, 0';
+
+    if(isset($_GET['coordenada'])){
+        $coordenada = $_GET['coordenada'];
+
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,18 +25,37 @@
         <?php require_once('./header.php')?>
 
         <section id="caixa_lojas" class="center">
+            <h2 hidden>coordenadas</h2>
             <div id="caixa_iFrame_maps">
                 <div id="iFrame_maps">
-                    <iframe src="https://www.google.com/maps/embed?pb=" width="650" height="650" frameborder="0" style="border:solid 2px black" allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($coordenada)?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" width="650" height="650" style="border:solid 2px black" allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">
 
-                <a href=''>
+                <a href='?coordenada=38.838438,-9.168539'>
                     <div class='coodernadas center'>
                         R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
                     </div>
                 </a>    
+                
+                <a href='?coordenada=43.701583,-79.396989'>
+                    <div class='coodernadas center'>
+                        North Toronto, Toronto, ON M4S 2A2, Canadá
+                    </div>
+                </a>  
+
+                <a href='?coordenada=01050-070'>
+                    <div class='coodernadas center'>
+                        R. Avanhandava, 81 - Consolação, São Paulo - SP
+                    </div>
+                </a>  
+
+                <a href='?coordenada=58.572140,25.063491'>
+                    <div class='coodernadas center'>
+                        Vihtra, 87603 Pärnumaa, Estônia
+                    </div>
+                </a>  
             
             </div>
         </section>
