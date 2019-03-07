@@ -65,7 +65,7 @@
                         </div>
                         <div class='produto_caixa_descricao'>
                             <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder.</p>
                             <p><span class='formata_atributo'>Preço:</span> 24,50</p>
                         </div>
                         <div class='produto_caixa_detalhes'>
