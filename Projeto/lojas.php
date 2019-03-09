@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
-        <link rel="shortcut icon" href="img/iconeDeAbaACME.jpg" type="image/x-png">
+        <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
         <?php require_once('./header.php')?>
@@ -56,6 +56,7 @@
                         Vihtra, 87603 Pärnumaa, Estônia
                     </div>
                 </a>  
+                
             
             </div>
         </section>

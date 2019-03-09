@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" type="text/css" media="screen" href="css/styleFooter.css" />
 <footer>
     <div class="caixa_footer center">
         <div class="caixa_horario">
@@ -57,13 +57,13 @@
             </div>
             <div class="enredeco">
                 <p>
-                    Rua Clodomiro Amazonas, 746
+                    Av. Luis Carlos Berrini, nº 666
                 </p>
                 <p>
-                    Itaim - São Paulo - SP
+                    Americanas - São Paulo - SP
                 </p>
                 <p>
-                    CEP: 04537-001
+                    CEP: 05523-001
                 </p>
             </div>
 

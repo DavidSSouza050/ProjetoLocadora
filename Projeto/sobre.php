@@ -3,13 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Locadora Acme Tunes</title>
-        <script  type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-        <script  type="text/javascript" src="js/jssor.slider-27.5.0.min.js"></script>
+        <title>Sobre nós</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
-        <link rel="shortcut icon" href="img/iconeDeAbaACME.jpg" type="image/x-png">
+        <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
         <?php require_once('./header.php');?>

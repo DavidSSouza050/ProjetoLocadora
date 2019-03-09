@@ -1,0 +1,123 @@
+footer{
+    margin-top: 50px;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(14, 13, 13);
+}
+
+.caixa_footer{
+    width: 1400px;
+    height: 200px;
+}
+
+.caixa_horario{
+    width: 500px;
+    height: inherit;
+    margin-left: 50px;
+    border-right: solid 2px rgb(51, 51, 50);
+    margin-right: 10px;
+    float: left;
+}
+
+.iconFooter{
+    width:  80px;
+    height: 80px;
+    border-right: solid 2px rgb(197, 114, 6);
+    float: left;
+}
+
+.horarioAtendimento{
+    width: 400px;
+    height: 80px;
+    padding-left: 10px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    float: left;
+    /*font*/
+    font-size: 30px;
+    font-weight: bold;
+    color:  rgba(255, 145, 0, 0.932);
+    font-family: baronBold;
+}
+
+.horarios{
+    width: 500px;
+    height: 110px;
+    box-sizing: border-box;
+    padding-top: 15px;
+    clear: both;
+    /**font*/
+    font-size: 35px;
+    text-align: center;
+    color:  rgb(238, 147, 29);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.caixa_contatos{
+    width: 400px;
+    height: inherit;
+    border-right: solid 2px rgb(51, 51, 50);
+    float: left;
+    margin-right: 10px;
+}
+
+.tituloContatos{
+    width: 200px;
+    height: 80px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-top: 16px;
+    float: left;
+    /**/
+    font-size: 26px;
+    font-weight: bold;
+    font-family: baronBold;
+    color:  rgba(255, 145, 0, 0.932);
+}
+
+.numeros{
+    width: inherit;
+    height: 120px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 15px;
+    clear: both;
+    /*font*/
+    font-size: 26px;
+    text-align: center;
+    color:  rgba(255, 145, 0, 0.932);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.caixa_endereco{
+    width: 400px;
+    height: inherit;
+    float: left;
+}
+
+.tituloEndereco{
+    width: 300px;
+    height: 80px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 10px;
+    float: left;
+    /**/
+    font-size: 35px;
+    font-weight: bold;
+    font-family: baronBold; 
+    color:  rgba(255, 145, 0, 0.932);
+}
+.enredeco{
+    width: inherit;
+    height: 120px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 10px;
+    clear: both;
+    /*font*/
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    color:  rgba(255, 145, 0, 0.932);
+}

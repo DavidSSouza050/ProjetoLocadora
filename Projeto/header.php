@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" media="screen" href="css/styleHeader.css" />
 <header>
     <div class="conteudo_header center">
        
@@ -11,32 +12,32 @@
         
         <nav class="menu">
             <ul>
-                <li>
-                    <a href="">
-                        Atores
+                <li class="liHeader">
+                    <a href="ator.php">
+                        Ator
                     </a>
                 </li>
-                <li>
+                <li class="liHeader">
                     <a href="lojas.php">
                        Lojas
                     </a>
                 </li>
-                <li>
-                    <a href="">
+                <li class="liHeader">
+                    <a href="promocoes.php">
                         Promoções
                     </a>
                 </li>
-                <li>
-                    <a href="">
+                <li class="liHeader">
+                    <a href="filmeDoMes.php">
                         Filme do Mês
                     </a>
                 </li>
-                <li>
+                <li class="liHeader">
                     <a href="contato.php">
                        Contatos
                     </a>
                 </li>
-                <li>
+                <li class="liHeader">
                     <a href="sobre.php">
                         Sobre
                     </a>

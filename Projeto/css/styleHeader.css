@@ -1,0 +1,129 @@
+header{
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    position: fixed;
+    z-index: 990;
+    background-color: black;
+}
+.segura_conteudo{
+    width: 100%;
+    height: 100px;
+}
+
+.conteudo_header{
+    width: 1400px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.logo{
+    width: 200px;
+    height: 80px;
+    float: left;
+}
+
+.menu{
+    width: 820px;
+    height: 80px;
+    margin-left: 20px;
+    float: left;
+}
+
+.menu ul{
+    width: inherit;
+    height: inherit;
+}
+
+.liHeader{
+    width: 130px;
+    height: 55px;
+    box-sizing: border-box;
+    padding-top: 14px;
+    margin-top: 10px;
+    margin-left: 5px;
+    float: left;
+    list-style: none;
+    /*font*/
+    text-align: center;
+    font-weight: bold;
+    font-family: MeganJune;
+    color: white;
+    font-size: 26px;
+}
+
+.liHeader:hover{
+    transition: 0.5s;
+    transform: scale(1.2);
+    color: rgb(170, 36, 36);
+    border: solid 2px white;
+    cursor: pointer;
+}
+
+
+.login{
+    width: 330px;
+    height: 80px;
+    margin-left: 20px;
+    background-color: darkgreen;
+    float: left;
+    /**/
+    color: white;
+}
+
+.login_usuario{
+    width: 150px;
+    height: inherit;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 5px;
+    background-color: black;
+    font-family: MeganJune;
+}
+
+.login_senha{
+    width: 180px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 5px;
+    float: left;
+    background-color: black;
+    font-family: MeganJune;
+}
+
+.caixaTexto{
+    width: 100px;
+    height: 30px;
+    border: solid 1px rgb(0, 160, 253);
+    box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.459);
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.botao_usuario{
+    width: 50px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: -5px;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-size: 15px;
+    background-color: rgb(48, 47, 47);
+    border: solid 1px aliceblue;  
+    color: white;
+    font-family: CabinMedium;
+}
+
+.botao_usuario:hover{
+    transition: 0.4s;
+    transform: scale(1.1);
+    padding-top: 3px;
+    color: orange;
+    border: solid 3px yellow; 
+}
