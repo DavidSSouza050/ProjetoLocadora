@@ -390,11 +390,11 @@ p{
 #caixa_contato{
     width: 650px;
     height: 550px;
-    border-radius: 30px;
+    border-radius: 15px;
     box-sizing: border-box;
     padding-top: 1px;
     float: left;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(82, 79, 79);
 }
 
 .caixa_Input_text{
@@ -405,7 +405,7 @@ p{
     box-sizing: border-box;
     padding-top: 5px;
     padding-left: 5px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(238, 238, 238);
 }
 .iconContatos{
     width: 50px;
@@ -431,12 +431,12 @@ p{
 #caixa_contato_esquerda{
     width: 650px;
     height: 550px;
-    border-radius: 30px;
+    border-radius: 15px;
     box-sizing: border-box;
     margin-left: 50px;
     padding-top: 1px;
     float: left;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(82, 79, 79);
 }
 
 .caixa_Input_radio{
@@ -447,7 +447,7 @@ p{
     box-sizing: border-box;
     padding-top: 10px;
     padding-left: 100px;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
 }
 
 input[type=radio]{
@@ -504,6 +504,7 @@ input[type=radio]:checked:before {
     padding-top: 5px;
     padding-left: 5px;
     font-family: MeganJune;
+    background-color: rgb(238, 238, 238);
     font-size: 30px;
 }
 
@@ -519,7 +520,7 @@ input[type=radio]:checked:before {
 .botao_contato{
     width: 130px;
     height: 50px;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
     color: black;
     border: solid 1px black;
     margin-right: 30px;
@@ -544,7 +545,7 @@ input[type=radio]:checked:before {
     width: 1400px;
     height: 700px;
     margin-top: 50px;
-    background-color: #2b2a2a;
+
     border-radius: 20px; 
 }
 

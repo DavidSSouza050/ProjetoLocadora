@@ -56,6 +56,107 @@
                         Vihtra, 87603 Pärnumaa, Estônia
                     </div>
                 </a>  
+
+                <a href='?coordenada=38.838438,-9.168539'>
+                    <div class='coodernadas center'>
+                        R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
+                    </div>
+                </a>    
+                
+                <a href='?coordenada=43.701583,-79.396989'>
+                    <div class='coodernadas center'>
+                        North Toronto, Toronto, ON M4S 2A2, Canadá
+                    </div>
+                </a>  
+
+                <a href='?coordenada=01050-070'>
+                    <div class='coodernadas center'>
+                        R. Avanhandava, 81 - Consolação, São Paulo - SP
+                    </div>
+                </a>  
+
+                <a href='?coordenada=58.572140,25.063491'>
+                    <div class='coodernadas center'>
+                        Vihtra, 87603 Pärnumaa, Estônia
+                    </div>
+                </a>  
+
+
+                <a href='?coordenada=38.838438,-9.168539'>
+                    <div class='coodernadas center'>
+                        R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
+                    </div>
+                </a>    
+                
+                <a href='?coordenada=43.701583,-79.396989'>
+                    <div class='coodernadas center'>
+                        North Toronto, Toronto, ON M4S 2A2, Canadá
+                    </div>
+                </a>  
+
+                <a href='?coordenada=01050-070'>
+                    <div class='coodernadas center'>
+                        R. Avanhandava, 81 - Consolação, São Paulo - SP
+                    </div>
+                </a>  
+
+                <a href='?coordenada=58.572140,25.063491'>
+                    <div class='coodernadas center'>
+                        Vihtra, 87603 Pärnumaa, Estônia
+                    </div>
+                </a>  
+
+
+                <a href='?coordenada=38.838438,-9.168539'>
+                    <div class='coodernadas center'>
+                        R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
+                    </div>
+                </a>    
+                
+                <a href='?coordenada=43.701583,-79.396989'>
+                    <div class='coodernadas center'>
+                        North Toronto, Toronto, ON M4S 2A2, Canadá
+                    </div>
+                </a>  
+
+                <a href='?coordenada=01050-070'>
+                    <div class='coodernadas center'>
+                        R. Avanhandava, 81 - Consolação, São Paulo - SP
+                    </div>
+                </a>  
+
+                <a href='?coordenada=58.572140,25.063491'>
+                    <div class='coodernadas center'>
+                        Vihtra, 87603 Pärnumaa, Estônia
+                    </div>
+                </a>  
+
+
+
+                <a href='?coordenada=38.838438,-9.168539'>
+                    <div class='coodernadas center'>
+                        R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
+                    </div>
+                </a>    
+                
+                <a href='?coordenada=43.701583,-79.396989'>
+                    <div class='coodernadas center'>
+                        North Toronto, Toronto, ON M4S 2A2, Canadá
+                    </div>
+                </a>  
+
+                <a href='?coordenada=01050-070'>
+                    <div class='coodernadas center'>
+                        R. Avanhandava, 81 - Consolação, São Paulo - SP
+                    </div>
+                </a>  
+
+                <a href='?coordenada=58.572140,25.063491'>
+                    <div class='coodernadas center'>
+                        Vihtra, 87603 Pärnumaa, Estônia
+                    </div>
+                </a>  
+                
                 
             
             </div>
