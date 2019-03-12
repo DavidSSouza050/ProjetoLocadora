@@ -74,7 +74,7 @@ body{
     width: 160px;
     height: 500px;
     margin-left: 1410px;
-    margin-top: -500px;
+    margin-top: -600px;
     box-sizing: border-box;
     padding-top: 100px;
     position: fixed;
@@ -690,7 +690,7 @@ display: inline;
     width: 350px;
     height: 500px;
     margin-left: 25px;
-    margin-top: 50px;
+    margin-top: 45px;
     margin-bottom: 25px;
     float: left;
     border: solid 4px rgb(177, 13, 13);
@@ -775,4 +775,7 @@ display: inline;
     background-image: url(../img/wifi_ralph.jpg);
     background-attachment: fixed;
     border-radius: 20px;
+}
+del{
+    color: rgb(219, 30, 30);
 }

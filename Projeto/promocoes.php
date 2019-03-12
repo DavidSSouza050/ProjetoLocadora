@@ -28,12 +28,13 @@
                         <ul>
                             <li>Ação</li>
                             <li>Aventura</li>
-                            <li>Suspence</li>
+                            <li>Suspense</li>
                             <li>Terror</li>
                         </ul>
                     </nav>  
                 </div>
                 <div class="caixa_produto">                                    
+                    
                     <div class='produto_promocao'>
                         <div class='produto_caixa_imagem'>
                             <figure>
@@ -62,7 +63,70 @@
                             </div>
                         </div>
                     </div>
-                </div>  
+
+                    <div class='produto_promocao'>
+                        <div class='produto_caixa_imagem'>
+                            <figure>
+                                <div class='produto_imagem center'>
+                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class='produto_caixa_descricao_promocao'>
+                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
+                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                            <div class="preco_promocoes">
+                                <div class='preco_promocoes'>
+                                    <span class='formata_atributo'>Preço:</span> <del>24,50</del>
+                                </div>
+                                <div class='preco_promocoes'>
+                                   <span class='formata_atributo'>Preço:</span> 10,20
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class='produto_caixa_detalhes'>
+                            <div class='botao_detalhes formata_atributo'>
+                                <a href=''>    
+                                    Detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='produto_promocao'>
+                        <div class='produto_caixa_imagem'>
+                            <figure>
+                                <div class='produto_imagem center'>
+                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class='produto_caixa_descricao_promocao'>
+                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
+                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                            <div class="preco_promocoes">
+                                <div class='preco_promocoes'>
+                                    <span class='formata_atributo'>Preço:</span> <del>24,50</del>
+                                </div>
+                                <div class='preco_promocoes'>
+                                   <span class='formata_atributo'>Preço:</span> 10,20
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class='produto_caixa_detalhes'>
+                            <div class='botao_detalhes formata_atributo'>
+                                <a href=''>    
+                                    Detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        
+
+
+                </div>
             </div>
         </section>
 
