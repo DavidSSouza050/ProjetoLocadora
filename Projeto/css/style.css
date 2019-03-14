@@ -507,7 +507,9 @@ input[type=radio]:checked:before {
     background-color: rgb(238, 238, 238);
     font-size: 30px;
 }
-
+.textArea_cotato:focus{
+    outline: none;
+}
 #caixa_boato_contato{
     width: 350px;
     height: 60px;
@@ -615,7 +617,7 @@ input[type=radio]:checked:before {
 
 .imagem_ator{
     width: 650px;
-    height: 700px;
+    height: 650px;
     margin-top: 50px;    
 }
 
