@@ -1,5 +1,5 @@
 <?php
-    $coordenada = '0, 0';
+    $coordenada = '0,0';
 
     if(isset($_GET['coordenada'])){
         $coordenada = $_GET['coordenada'];
@@ -15,6 +15,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no">
         <title>Nossas Lojas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
@@ -28,7 +29,7 @@
             <h2 hidden>coordenadas</h2>
             <div id="caixa_iFrame_maps">
                 <div id="iFrame_maps">
-                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($coordenada)?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" width="650" height="650" style="border:solid 2px black" allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($coordenada)?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">
@@ -56,6 +57,7 @@
                         Vihtra, 87603 Pärnumaa, Estônia
                     </div>
                 </a>  
+                
                 
             
             </div>

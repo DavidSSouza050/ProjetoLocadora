@@ -1,13 +1,43 @@
 <?php
+    require_once('./db/conexao.php');
+    $conexao = conexaoMysql();
 
     if(isset($_POST['btn_limpar_contato'])){
         header('Location: contato.php');
     }
 
     if(isset($_POST['btn_enviar_contato'])){
-        echo("<script>
-            alert('erroooo');
-        </script>");
+       $nome = trim($_POST["txt_nome"]);
+       $telefone = trim($_POST["txt_telefone"]);
+       $nome = trim($_POST["txt_nome"]);
+       $celular = trim($_POST["txt_celular"]);
+       $email = trim($_POST["txt_email"]);
+       $homePage = trim($_POST["txt_home"]);
+       $facebook = trim($_POST["txt_facebook"]);
+       $rdoSexo = trim($_POST["rdo_sexo"]);
+       $profissao = trim($_POST["txt_profissao"]);
+       $sugestaoCritica = trim($_POST["txtArea_sugestao"]);
+       $obs = trim($_POST["txtArea_observacao"]);
+
+       $sql = " INSERT INTO tbl_contato (nome, telefone, celular, email, homePage, facebook, sugestaoCritica, informacoesProduto, sexo, profissao)
+                                    VALUES ('".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."', '".$facebook."', '".$sugestaoCritica."',
+                                    '".$obs."', '".$rdoSexo."', '".$profissao."');";
+
+        echo($sql);
+
+        if(mysqli_query($conexao, $sql)){
+            /*Redireciona para uma nova pagina*/
+            echo("<script>alert('Obrigado por contatar-mos')</script>");
+
+        }else{
+            echo("
+                <script>
+                    alert('erro no Cadastro');
+                </script>
+            ");
+        }
+       
+
     }
 
 ?>
@@ -17,6 +47,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no">
         <title>Contato</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
@@ -28,7 +59,7 @@
         
        <section id="caixa_segura_contato" class="center">
            <h2 hidden>Contato</h2>
-           <form name="frm_contato" method="POST" action="#" >
+           <form name="frm_contato" method="POST" action="contato.php" >
                 <div id="caixa_contato">
                     <div class="caixa_Input_text">
                         <figure>
@@ -93,10 +124,10 @@
                         <input class="inputContato" type="text" name="txt_profissao" required placeholder="Profissão">
                     </div>
                     <div class="caixa_text_area">
-                        <textarea class="textArea_cotato center" name="txtArea_sugestao"  placeholder="Sujestão ou Criticas"></textarea>
+                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_sugestao"  placeholder="Sujestão ou Criticas"></textarea>
                     </div>
                     <div class="caixa_text_area">
-                        <textarea class="textArea_cotato center" name="txtArea_sugestao"  placeholder="Observações do Pruduto"></textarea>
+                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_observacao"  placeholder="Observações do Pruduto"></textarea>
                     </div>
                     <div id="caixa_boato_contato" class="center">
                         <input type="submit"  class="botao_contato" name="btn_enviar_contato"  value="Enviar→">

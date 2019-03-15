@@ -52,7 +52,7 @@ a{
 
 body{
     /* background-image: url(../img/bgAcme.jpg); */
-    background-image:linear-gradient(rgb(18, 18, 18), rgba(50,50,50));
+    background-image:linear-gradient(hsl(0, 0%, 7%), hsl(0, 0%, 20%));
 }
 /*aqui fica o header*/
 
@@ -74,7 +74,7 @@ body{
     width: 160px;
     height: 500px;
     margin-left: 1410px;
-    margin-top: -500px;
+    margin-top: -600px;
     box-sizing: border-box;
     padding-top: 100px;
     position: fixed;
@@ -165,7 +165,7 @@ body{
 
 .menu_item li:hover {
     transition: 0.2s;
-    transform: rotate(5deg) scale(1.1);
+    transform: rotate(5deg) scale(1.05);
     cursor: pointer;
     color: rgb(187, 48, 48);
     border: solid 2px white;  
@@ -218,7 +218,7 @@ body{
 .produto_imagem:hover{
     transition: 0.5s;
     cursor: pointer;
-    transform:  scale(1.2);
+    transform:  scale(1.05);
 }
 
 .produto_caixa_descricao{
@@ -273,7 +273,7 @@ p{
     min-height: 800px;
     height: auto;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 60px;
     border-radius: 20px;
 }
 
@@ -356,7 +356,7 @@ p{
     width: 500px;
     height: 480px;
     margin-left: 50px;
-    margin-top: 35px;
+    margin-top: 40px;
     border-radius: 20px;
     float: left;
 }
@@ -365,14 +365,6 @@ p{
     border-radius: 20px;
 }
 
-#imagem_sobre_back{
-    width: 1400px;
-    height: 800px;
-    background-image: url(../img/LojasAcime/acmeSobre.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
 
 /*Contatos*/
 
@@ -390,11 +382,11 @@ p{
 #caixa_contato{
     width: 650px;
     height: 550px;
-    border-radius: 30px;
+    border-radius: 15px;
     box-sizing: border-box;
     padding-top: 1px;
     float: left;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(82, 79, 79);
 }
 
 .caixa_Input_text{
@@ -405,7 +397,7 @@ p{
     box-sizing: border-box;
     padding-top: 5px;
     padding-left: 5px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(238, 238, 238);
 }
 .iconContatos{
     width: 50px;
@@ -431,12 +423,12 @@ p{
 #caixa_contato_esquerda{
     width: 650px;
     height: 550px;
-    border-radius: 30px;
+    border-radius: 15px;
     box-sizing: border-box;
     margin-left: 50px;
     padding-top: 1px;
     float: left;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(82, 79, 79);
 }
 
 .caixa_Input_radio{
@@ -447,10 +439,10 @@ p{
     box-sizing: border-box;
     padding-top: 10px;
     padding-left: 100px;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
 }
 
-input[type=radio]{
+/* input[type=radio]{
     visibility: hidden;
     margin-right: 5px;
     cursor: pointer;
@@ -474,7 +466,7 @@ input[type=radio]:before {
 input[type=radio]:checked:before {
     background-color: rgb(255, 0, 0);
     box-shadow: 0 0 0px 2px rgb(66, 66, 66);
-}
+} */
 
 .radio_contato{
     font-size: 40px;
@@ -504,9 +496,12 @@ input[type=radio]:checked:before {
     padding-top: 5px;
     padding-left: 5px;
     font-family: MeganJune;
+    background-color: rgb(238, 238, 238);
     font-size: 30px;
 }
-
+.textArea_cotato:focus{
+    outline: none;
+}
 #caixa_boato_contato{
     width: 350px;
     height: 60px;
@@ -519,7 +514,7 @@ input[type=radio]:checked:before {
 .botao_contato{
     width: 130px;
     height: 50px;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
     color: black;
     border: solid 1px black;
     margin-right: 30px;
@@ -544,7 +539,7 @@ input[type=radio]:checked:before {
     width: 1400px;
     height: 700px;
     margin-top: 50px;
-    background-color: #2b2a2a;
+
     border-radius: 20px; 
 }
 
@@ -561,7 +556,11 @@ input[type=radio]:checked:before {
     margin-top: 20px;
     margin-left: 20px;
 }
-
+#maps{
+    width:650px;
+    height:650px; 
+    border:solid 2px black;
+}
 #caixa_coodernadas{
     width: 700px;
     height: inherit;
@@ -614,7 +613,7 @@ input[type=radio]:checked:before {
 
 .imagem_ator{
     width: 650px;
-    height: 700px;
+    height: 650px;
     margin-top: 50px;    
 }
 
@@ -690,7 +689,7 @@ display: inline;
     width: 350px;
     height: 500px;
     margin-left: 25px;
-    margin-top: 50px;
+    margin-top: 45px;
     margin-bottom: 25px;
     float: left;
     border: solid 4px rgb(177, 13, 13);
@@ -775,4 +774,7 @@ display: inline;
     background-image: url(../img/wifi_ralph.jpg);
     background-attachment: fixed;
     border-radius: 20px;
+}
+del{
+    color: rgb(219, 30, 30);
 }

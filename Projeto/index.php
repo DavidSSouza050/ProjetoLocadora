@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no">
         <title>Locadora Acme Tunes</title>
         <script  src="js/jquery-1.11.3.min.js"></script>
         <script  src="js/jssor.slider-27.5.0.min.js"></script>
@@ -48,7 +49,7 @@
                         <ul>
                             <li>Ação</li>
                             <li>Aventura</li>
-                            <li>Suspence</li>
+                            <li>Suspense</li>
                             <li>Terror</li>
                         </ul>
                     </nav>  
@@ -76,6 +77,51 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class='produto'>
+                        <div class='produto_caixa_imagem'>
+                            <figure>
+                                <div class='produto_imagem center'>
+                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class='produto_caixa_descricao'>
+                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
+                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                            <p><span class='formata_atributo'>Preço:</span> 24,50</p>
+                        </div>
+                        <div class='produto_caixa_detalhes'>
+                            <div class='botao_detalhes formata_atributo'>
+                                <a href=''>    
+                                    Detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='produto'>
+                        <div class='produto_caixa_imagem'>
+                            <figure>
+                                <div class='produto_imagem center'>
+                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class='produto_caixa_descricao'>
+                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
+                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                            <p><span class='formata_atributo'>Preço:</span> 24,50</p>
+                        </div>
+                        <div class='produto_caixa_detalhes'>
+                            <div class='botao_detalhes formata_atributo'>
+                                <a href=''>    
+                                    Detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>  
             </section>
         </div>

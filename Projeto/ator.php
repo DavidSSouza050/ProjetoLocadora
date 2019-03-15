@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Atores em Destaque</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
