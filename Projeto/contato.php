@@ -67,7 +67,7 @@
                                 <img class="img-size" src="./img/icon/user.png" alt="Icone de usuario">
                             </div>
                         </figure>
-                        <input class="inputContato" type="text" name="txt_nome" required placeholder="Nome">
+                        <input class="inputContato" type="text" id="txt_nome" name="txt_nome" required placeholder="Nome" onkeypress="return naoPermitirNumero(event);" >
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -75,7 +75,7 @@
                                 <img class="img-size" src="./img/icon/telefoneContato.png" alt="Icone de Telefone">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" name="txt_telefone" placeholder="Telefone">
+                        <input class="inputContato" type="tel" name="txt_telefone" id="txt_telefone" placeholder="Tel.:(00) 0000-0000">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -83,7 +83,7 @@
                                 <img class="img-size" src="./img/icon/celular.png" alt="Icone de Celular">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" name="txt_celular" placeholder="Celular">
+                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:(00) 9000-0000">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -91,7 +91,7 @@
                                 <img class="img-size" src="./img/icon/email.png" alt="Icone de Email">
                             </div>
                         </figure>
-                        <input class="inputContato" type="email" name="txt_email" required placeholder="Email">
+                        <input class="inputContato" type="email" name="txt_email" id="txt_email" required placeholder="Email">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -99,7 +99,7 @@
                                 <img class="img-size" src="./img/icon/home.png" alt="Icone de Home">
                             </div>
                         </figure>
-                        <input class="inputContato" type="url" name="txt_home" placeholder="URL De uma pagina">
+                        <input class="inputContato" type="url" name="txt_home" id="txt_home" placeholder="URL De uma pagina">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -107,7 +107,7 @@
                                 <img class="img-size" src="./img/icon/facebook-logo.png" alt="Icone de facebook">
                             </div>
                         </figure>
-                        <input class="inputContato" type="url" name="txt_facebook" placeholder="URL da pagina facebook">
+                        <input class="inputContato" type="url" name="txt_facebook" id="txt_facebook" placeholder="URL da pagina facebook">
                     </div>
                 </div>
                 <div id="caixa_contato_esquerda">
@@ -121,13 +121,13 @@
                                 <img class="img-size" src="./img/icon/grupo.png" alt="Icone de Profissão">
                             </div>
                         </figure>
-                        <input class="inputContato" type="text" name="txt_profissao" required placeholder="Profissão">
+                        <input class="inputContato" type="text" name="txt_profissao" id="txt_profissao" required placeholder="Profissão">
                     </div>
                     <div class="caixa_text_area">
-                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_sugestao"  placeholder="Sujestão ou Criticas"></textarea>
+                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_sugestao" id="txtArea_sugestao"  placeholder="Sujestão ou Criticas"></textarea>
                     </div>
                     <div class="caixa_text_area">
-                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_observacao"  placeholder="Observações do Pruduto"></textarea>
+                        <textarea class="textArea_cotato center scrollTexto" name="txtArea_observacao" id="txtArea_observacao" placeholder="Observações do Pruduto"></textarea>
                     </div>
                     <div id="caixa_boato_contato" class="center">
                         <input type="submit"  class="botao_contato" name="btn_enviar_contato"  value="Enviar→">
@@ -138,5 +138,6 @@
        </section>
 
         <?php require_once('./footer.php')?>
+        <script src="./js/validacao.js"></script>
     </body>
 </html>
