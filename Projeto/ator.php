@@ -54,24 +54,7 @@
 
                         <p>- Voltou para o Havaí para cursar a faculdade;</p>
                         
-                        <p>- Gosta de escalar montanhas secas e com gelo, de andar de moutain bike, praticar o snowboarding, o surfe com um pranchão (long board) e também de andar de skate e patins;</p>
-                        
                         <p>- No tempo livre dedica parte dele ao estudo do Budismo;</p>
-                        
-                        <p>- Durante sua adolescência foi o mais jovem Guarda-Vidas na história da Costa do Golfo;</p>
-                        
-                        <p>- Sobrinho do famoso surfista havaiano Brian L. Keaulana;</p>
-                        
-                        <p>- Eleito modelo do ano, em 1999, no "Hawaii's Model of the Year";</p>
-                        
-                        <p>- Começou sua carreira artística em 1999, no famoso seriado Baywatch / S.O.S. Malibu, como um dos membros da cultuada equipe de salvamento da praia da Califórnia;</p>
-                        
-                        <p>- Por coincidência, ou não, seu personagem também se chamava Jason;</p>
-                        
-                        <p>- Ainda na televisão, onde participou de outros seriados, ganhou mais notoriedade por seu personagem Ronon Dex, o cabeludão na série Stargate: Atlantis, produzida até 2009;</p>
-                        
-                        <p>- Ficou noivo da atriz Simmone Mackinnon, a Allie de Baywatch / S.O.S. Malibu, de 2004 até 2006;</p>
-                        
                         <p>- Com a atriz e namorada Lisa Bonet (Alta Fidelidade) teve dois filhos: Lola Iolani Momoa (2007) e Nakoa-Wolf, em dezembro de 2008;</p>
                         
                         <p>- Em novembro de 2008, segundo a a agência de notícias Associated Press, Momoa foi atacado com um copo de vidro em West Hollywood, na Califórnia, levando vários pontos e passando por uma cirurgia plástica;</p>

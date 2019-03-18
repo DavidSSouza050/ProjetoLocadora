@@ -23,7 +23,7 @@
                                     VALUES ('".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."', '".$facebook."', '".$sugestaoCritica."',
                                     '".$obs."', '".$rdoSexo."', '".$profissao."');";
 
-        echo($sql);
+        // echo($sql);
 
         if(mysqli_query($conexao, $sql)){
             /*Redireciona para uma nova pagina*/
@@ -67,7 +67,7 @@
                                 <img class="img-size" src="./img/icon/user.png" alt="Icone de usuario">
                             </div>
                         </figure>
-                        <input class="inputContato" type="text" id="txt_nome" name="txt_nome" required placeholder="Nome" onkeypress="return naoPermitirNumero(event);" >
+                        <input class="inputContato" type="text" id="txt_nome" name="txt_nome" required placeholder="Nome"  >
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -83,7 +83,7 @@
                                 <img class="img-size" src="./img/icon/celular.png" alt="Icone de Celular">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:(00) 9000-0000">
+                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:(00) 90000-0000">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>

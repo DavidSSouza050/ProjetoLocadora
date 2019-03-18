@@ -13,7 +13,9 @@ a{
 .espaco_entre_paragrafos{
     margin-bottom: 20px;
 }
-
+.erro{
+    background-color: #f2cdcd;
+}
 .formata_atributo{
     font-weight: bold;
     font-size: 20px;
@@ -578,7 +580,7 @@ input[type=radio]:checked:before {
     padding-top: 20px;
     padding-left: 30px;
     border-radius: 15px;
-    box-shadow: 5px 5px 30px rgb(185, 182, 182);
+    box-shadow: 2px 4px 10px rgb(185, 182, 182);
     /*font*/
     font-size: 20px;
     font-family: robotoLight;
@@ -586,7 +588,7 @@ input[type=radio]:checked:before {
 }
 .coodernadas:hover{
     color: orange;
-    transform: scale(1.1);
+    transform: scale(1.03);
     cursor: pointer;
 }
 
