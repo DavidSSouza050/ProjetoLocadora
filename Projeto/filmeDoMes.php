@@ -12,11 +12,12 @@
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
+        <!-- header em outra pagina -->
         <?php require_once('./header.php')?>
 
-        <section id="caixa_fimel_do_mes" class="center">
-            <h2 hidden>FIlme do mes</h2>
+        <div id="caixa_fimel_do_mes" class="center">
             <div id="caixa_capa_filme_do_mes">
+                <!-- imagem do filme do mês -->
                 <figure>
                     <div id="capa_filme_do_mes" >
                        <img class="img-size" style="border-radius: 20px;" src="./img/wifi_raph_capa.jpg" alt="Filme Do Mês" title="Filme Do Mês">
@@ -24,6 +25,7 @@
                 </figure>
             </div>
             <div id="caixa_informacoes_filme_do_mes">
+                <!-- detalhes do filme do mês -->
                 <div class="informacoes_filme_do_mes center">
                     <span class="titulo_topico">Nome:</span> Wifi Ralph: Quebrando a Internet
                 </div>
@@ -53,12 +55,14 @@
                         </div>
                 </div>
             </div>
-        </section>
+        </div>
+        
         <section id="imagem_destaque_filme_do_mes" class="center back-size">
             <h2 hidden>Imagem de destaque</h2>
             
         </section>
 
+        <!-- footer em outra pagina -->
         <?php require_once('./footer.php')?>
     </body>
 </html>

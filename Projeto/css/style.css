@@ -10,12 +10,11 @@ a{
     text-decoration: none;
     color: white;
 }
+
 .espaco_entre_paragrafos{
     margin-bottom: 20px;
 }
-.erro{
-    background-color: #f2cdcd;
-}
+
 .formata_atributo{
     font-weight: bold;
     font-size: 20px;
@@ -489,6 +488,26 @@ input[type=radio]:checked:before {
     padding-left: 40px;
 }
 
+.caixa_cmb{
+    width: inherit;
+    height: 80px;
+    margin-top: 30px;
+    padding-top: 16px;
+    box-sizing: border-box;
+    border-top: solid 2px  rgb(53, 53, 52);
+    border-bottom: solid 2px rgb(53, 53, 52);
+}
+
+#selectAssunto{
+    width: 250px;
+    height: 40px;
+    padding-left: 5px;
+    margin-left: 190px;
+    border-radius: 10px;
+    font-family:  MeganJune;
+    font-size: 23px;
+}
+
 .textArea_cotato{
     width: 500px;
     height: 120px;
@@ -779,4 +798,8 @@ display: inline;
 }
 del{
     color: rgb(219, 30, 30);
+}
+
+.erro::placeholder{
+    color: rgb(212, 101, 101);
 }

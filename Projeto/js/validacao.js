@@ -1,3 +1,5 @@
+const btn_enviar = document.getElementById('btn_enviar_contato');
+
 const txtNome = document.getElementById('txt_nome');
 const txtTelefone = document.getElementById('txt_telefone');
 const txtCelular = document.getElementById('txt_celular');
@@ -5,10 +7,74 @@ const txtEmail = document.getElementById('txt_email');
 const txthome = document.getElementById('txt_home');
 const txtFacebook = document.getElementById('txt_facebook');
 const txtProfissao = document.getElementById('txt_profissao');
-const txtAreaSugentao = document.getElementById('txtArea_sugestao');
 const txtAreaObs = document.getElementById('txtArea_observacao');
+const cmbAssunto = document.getElementById('selectAssunto');
 
 
+const validacao = () =>{
+    const validarNome = () =>{
+        er = /[^(a-zA-Z Á-ÿ)]+/;
+        return er.test(txtNome.value);
+    }
+    const validarProfissao = () =>{
+        er = /[^(a-zA-Z Á-ÿ)]+/;
+        return er.test(txtProfissao.value);
+    }
+
+    const emailValido = (email) =>{
+        const er = /^([a-zA-z][a-z0-9._-]+@([a-z]+[.]?)+)[a-z]$/;
+        return er.test(email.value);
+    }
+
+    const celularValidado = () =>{
+        const er = /\([0-9]{2}\) [0-9]{5}-[0-9]{4}/;
+        return er.test(txtCelular.value);
+    }
+
+    //(11) 97709-9609
+    
+    if(txtAreaObs.value == ""){
+        txtAreaObs.classList.add('erro');
+        txtAreaObs.placeholder = "Escrava Alguma Mensagem";
+    }else{
+        txtAreaObs.classList.remove('erro');
+    }
+
+    if(cmbAssunto.value == ""){
+        cmbAssunto.style.color = '#ff0000';
+    }else{
+        cmbAssunto.classList.remove('#000000');
+    }
+
+    if(celularValidado() || txtCelular.value == ""){
+        txtCelular.classList.add('erro');
+        txtCelular.placeholder = "Cel.:(00) 90000-0000*";
+    }else{
+        txtCelular.classList.remove('erro');
+    }
+
+    if(validarProfissao() || txtProfissao.value == ""){
+        txtProfissao.classList.add('erro');
+        txtProfissao.placeholder = "Profissão*";
+    }else{
+        txtProfissao.classList.remove('erro');
+    }
+
+    if(!emailValido(txtEmail.value) || txtNome.value == ""){
+        txtEmail.classList.add('erro');
+        txtNome.placeholder = "Email*";
+    }else{
+        txtNome.classList.remove('erro');
+    }
+
+    if(validarNome() || txtNome.value == ""){
+        txtNome.classList.add("erro");
+        txtNome.placeholder = "Nome*";
+    }else{
+        txtNome.classList.remove('erro');
+    }
+
+}
 
 
 
@@ -18,53 +84,49 @@ const txtAreaObs = document.getElementById('txtArea_observacao');
 // mascaras em Expresão regular 
 
 const mascNomeProfissao = () => {
-    let texto = txtNome.value;
-    let textoP = txtProfissao.value;
+    if(event.keyCode != 8 && event.keyCode != 127){    
+        let texto = txtNome.value;
+        let textoP = txtProfissao.value;
 
-    texto = texto.replace(/[^a-zA-Z À-ÿ]/g,"");    
-    textoP = textoP.replace(/[^a-zA-Z À-ÿ]/g,"");
+        texto = texto.replace(/[^a-zA-Z À-ÿ]/g,"");    
+        textoP = textoP.replace(/[^a-zA-Z À-ÿ]/g,"");
 
-    txtNome.value = texto;
-    txtProfissao.value = textoP;
+        txtNome.value = texto;
+        txtProfissao.value = textoP;
+    }
 }
 
 
-const mascTelefone = () =>{
+const mascTelefone = (event) =>{
     txtTelefone.maxLength = "14";
-    let texto = txtTelefone.value;
-    texto = texto.replace(/[^0-9]/g,"");
-    
-    texto = texto.replace(/(.)/,"($1");
-    texto = texto.replace(/(.{3})/,"$1)");
-    texto = texto.replace(/(.{4})/,"$1 ");
-    texto = texto.replace(/(.{9})/,"$1-");
+    if(event.keyCode != 8 && event.keyCode != 127){
+        let texto = txtTelefone.value;
+        texto = texto.replace(/[^0-9]/g,"");
+        
+        texto = texto.replace(/(.)/,"($1");
+        texto = texto.replace(/(.{3})/,"$1)");
+        texto = texto.replace(/(.{4})/,"$1 ");
+        texto = texto.replace(/(.{9})/,"$1-");
 
-    txtTelefone.value = texto;
+        txtTelefone.value = texto;
+    }
+    
 }
 
 
-const mascCelular = () =>{
+const mascCelular = (event) =>{
     txtCelular.maxLength = "15";
-    let texto = txtCelular.value;
-    texto = texto.replace(/[^0-9]/g,"");
+
+    if(event.keyCode != 8 && event.keyCode != 127){
+        let texto = txtCelular.value;
+        texto = texto.replace(/[^0-9]/g,"");
+        texto = texto.replace(/(.)/,"($1");
+        texto = texto.replace(/(.{3})/,"$1)");
+        texto = texto.replace(/(.{4})/,"$1 ");
+        texto = texto.replace(/(.{10})/,"$1-");
+        txtCelular.value = texto;
+    }
     
-    texto = texto.replace(/(.)/,"($1");
-    texto = texto.replace(/(.{3})/,"$1)");
-    texto = texto.replace(/(.{4})/,"$1 ");
-    texto = texto.replace(/(.{10})/,"$1-");
-
-    txtCelular.value = texto;
-}
-
-
-const emailValido = (email) =>{
-    const er = /^([a-zA-z][a-z0-9._-]+@([a-z]+[.]?)+)[a-z]$/;
-    return er.test(email);
-}
-
-
-const removerErro = () =>{
-    elemento.classList.remove ("erro");
 }
 
 
@@ -72,14 +134,19 @@ const removerErro = () =>{
 
 
 
-txtEmail.addEventListener("change", () => removerErro(txtEmail));
-txtCelular.addEventListener("change", () => removerErro(txtCelular));
-txtNome.addEventListener("change", () => removerErro(txtNome));
 
-txtNome.addEventListener("keyup", mascNomeProfissao);
-txtTelefone.addEventListener("keyup", mascTelefone);
-txtCelular.addEventListener("keyup", mascCelular);
-txtProfissao.addEventListener("keyup", mascNomeProfissao);
+
+
+
+
+btn_enviar.addEventListener("click", validacao);
+
+txtNome.addEventListener("keyup", (event) => mascNomeProfissao(event));
+txtTelefone.addEventListener("keyup", (event) => mascTelefone(event));
+txtCelular.addEventListener("keyup", (event) => mascCelular(event));
+txtProfissao.addEventListener("keyup", (event) => mascNomeProfissao(event));
+
+
 
 
 // function naoPermitirNumero(caracter){

@@ -11,11 +11,12 @@
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
 <body>
+    <!-- header em outra pagina -->
     <?php require_once('./header.php')?>
 
 
-    <section class="caixa_atores center">
-        <h2 hidden>Ator</h2>
+    <div class="caixa_atores center">
+        <!-- foto do ator -->
         <div class="caixa_imagem_ator">
             <figure>
                 <div class="imagem_ator center">
@@ -24,6 +25,7 @@
             </figure>
         </div>
         <div class="caixa_historico_ator">
+            <!-- detalhes do ator do mês -->
             <div class="historico_ator center">
                 <span class="titulo_topico">Nome:</span> Joseph Jason Namakaeha Momoa
             </div>
@@ -69,11 +71,11 @@
 
         </div>
         
-    </section>
+    </div>
 
 
 
-
+    <!-- footer em outra pagina -->
     <?php require_once('./footer.php')?>
 </body>
 </html>

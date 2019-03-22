@@ -5,9 +5,10 @@
            
             <figure>
                 <div class="iconFooter">
-                    <img class="img-size" src="./img/icon/icons8-alarm-clock-filled-48.png" alt="Horario de trabalho">
+                    <img class="img-footer" src="./img/icon/icons8-alarm-clock-filled-48.png" alt="Horario de trabalho">
                 </div>
             </figure>
+
             <div class="horarioAtendimento">
                 Horario de Atendimento
             </div>
@@ -24,7 +25,7 @@
           
             <figure>
                 <div class="iconFooter">
-                    <img class="img-size" src="./img/icon/telefone.png" alt="Contatos">
+                    <img class="img-footer" src="./img/icon/telefone.png" alt="Contatos">
                     </div>
             </figure>
        
@@ -48,7 +49,7 @@
           
             <figure>
                 <div class="iconFooter">
-                    <img class="img-size" src="./img/icon/local.png" alt="Endereco">
+                    <img class="img-footer" src="./img/icon/local.png" alt="Endereco">
                     </div>
             </figure>
             

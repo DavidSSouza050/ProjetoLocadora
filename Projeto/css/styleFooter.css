@@ -22,8 +22,15 @@ footer{
 .iconFooter{
     width:  80px;
     height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-right: solid 2px rgb(197, 114, 6);
     float: left;
+}
+.img-footer{
+    width: 50px;
+    height: 50px;
 }
 
 .horarioAtendimento{
@@ -47,7 +54,7 @@ footer{
     padding-top: 15px;
     clear: both;
     /**font*/
-    font-size: 35px;
+    font-size: 28px;
     text-align: center;
     color:  rgb(238, 147, 29);
     font-family: 'Arial Narrow', Arial, sans-serif;
