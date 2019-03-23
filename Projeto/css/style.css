@@ -1,15 +1,18 @@
 /*CSS*/
+/* CLASSES UTEIS*/
 *,figure{
     margin: 0;
     padding: 0; 
     
 }
+
 a{
     width: inherit;
     height: inherit;
     text-decoration: none;
     color: white;
 }
+
 
 .espaco_entre_paragrafos{
     margin-bottom: 20px;
@@ -28,7 +31,7 @@ a{
     margin-right: auto;
 }
 
-.border-img{
+.border-radius-img{
     border-radius: inherit;
 }
 
@@ -52,7 +55,6 @@ a{
 }
 
 body{
-    /* background-image: url(../img/bgAcme.jpg); */
     background-image:linear-gradient(hsl(0, 0%, 7%), hsl(0, 0%, 20%));
 }
 /*aqui fica o header*/
@@ -97,9 +99,12 @@ body{
     cursor: pointer;
 }
 
+/*fIM DAS REDES SOCIAIS*/
 
 
-/*caixa slider*/
+
+
+/* caixa slider*/
 .slider{
     width: 1400px;
     height: 750px;
@@ -109,7 +114,10 @@ body{
     background-color: black;
 }
 
-/*conteudo-item*/
+/*FIM DA CAIXA SLIDER*/
+
+
+/*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
 .item_conteudo{
     width: inherit;
     /***/
@@ -171,6 +179,11 @@ body{
     color: rgb(187, 48, 48);
     border: solid 2px white;  
 }
+/*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
+
+
+
+
 
 .caixa_produto{
     width: 1186px;
@@ -263,11 +276,10 @@ body{
 p{
     margin-bottom: 5px;
 }
+/*FIM DO CAR DOS PRODUTOS E DA PAGINA PRICIPAL*/
 
-/*FOOTER*/
 
-
-/*sobre a locadora*/
+/***************sobre a locadora**********************/
 
 #conteudo_sobre{
     width: 1400px;
@@ -365,9 +377,9 @@ p{
 #lojaAntiga{
     border-radius: 20px;
 }
+/*********************SOBRE*********************************/
 
-
-/*Contatos*/
+/*******************CONTATO********************************/
 
 #caixa_segura_contato{
     width: 1400px;
@@ -552,7 +564,7 @@ input[type=radio]:checked:before {
     border: solid 1px white;
 }
 
-
+/*************************CONTATO*******************/
 
 /*LOJAS*/
 
@@ -612,9 +624,9 @@ input[type=radio]:checked:before {
 }
 
 
-/*Atores do filme*/
+/**********************Atores do filme*************************/
 
-.caixa_atores{
+#caixa_atores{
     width: 1400px;
     min-height: 600px;
     height: auto;
@@ -625,20 +637,20 @@ input[type=radio]:checked:before {
     border-radius: 20px;
 }
 
-.caixa_imagem_ator{
+#caixa_imagem_ator{
     width: 700px;
     box-sizing: border-box;
 
     float: left;
 }
 
-.imagem_ator{
+#imagem_ator{
     width: 650px;
     height: 650px;
     margin-top: 50px;    
 }
 
-.caixa_historico_ator{
+#caixa_historico_ator{
     width: 700px;
 
     float: left;
@@ -686,6 +698,24 @@ input[type=radio]:checked:before {
     font-size: 25px;
     line-height: 40px;
 }
+.filme_participado{
+    width: inherit;
+    min-height: 200px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.filmes_participados{
+    width: 300px;
+    height: 500px;
+    margin-left: 75px;
+    margin-top: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 0px 0px 40px 40px;
+    border: solid 3px rgb(96, 96, 99);
+    float: left;
+}
 .show {
     display: none; 
 }
@@ -698,14 +728,38 @@ display: inline;
 .hide:target ~ .caixa_conteudo_hide {
 	display:inline; 
 }
- @media print{ 
+
+@media print{ 
     .hide, .show{ 
         display: none; 
     }
 }
 
+#caixa_retratio_ator{
+    width: 1400px;
+    min-height: 400px;
+    height: auto;
+    overflow: hidden;
+}
 
-/*card Promoções*/
+.historico_ator_retratio{
+    width: 1200px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-bottom: solid 2px white;
+    /*fonte*/
+    font-size: 25px;
+    color: rgb(212, 211, 211);
+    font-family: baronBold;
+}
+
+
+
+
+/*********************FIM DO ATOR******************/
+
+/****************card Promoções*************************/
 .produto_promocao{
     width: 350px;
     height: 500px;
@@ -722,6 +776,9 @@ display: inline;
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
+
+
+/***************************CAIXA PROMOÇÃO DESCRIÇÃO******************/
 
 .produto_caixa_descricao_promocao{
     width: inherit;
@@ -747,8 +804,10 @@ display: inline;
     padding-top: 4px;
     text-align: center;
 }
+/*******************************FIM DA DESCRIÇÃO**************************/
 
-/*Filme do mes*/
+
+/***********************Filme do mes***********************/
 
 #caixa_fimel_do_mes{
     width: 1400px;
@@ -796,10 +855,14 @@ display: inline;
     background-attachment: fixed;
     border-radius: 20px;
 }
+/*************FIM DO FILME DO MÊS**************/
+
 del{
     color: rgb(219, 30, 30);
 }
 
+
+/*CLASSE UTIL PRA JS*/
 .erro::placeholder{
     color: rgb(212, 101, 101);
 }

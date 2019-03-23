@@ -93,7 +93,7 @@
                                 <img class="img-size" src="./img/icon/telefoneContato.png" alt="Icone de Telefone">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" name="txt_telefone" id="txt_telefone" placeholder="Tel.:(00) 0000-0000">
+                        <input class="inputContato" type="tel" name="txt_telefone" id="txt_telefone" placeholder="Tel.:00 00000000">
                     </div>
                     <div class="caixa_Input_text">
                         <figure>
@@ -101,7 +101,7 @@
                                 <img class="img-size" src="./img/icon/celular.png" alt="Icone de Celular">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:(00) 90000-0000*" maxLength="15" >
+                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:00 900000000*" maxLength="15" >
                     </div>
                     <div class="caixa_Input_text">
                         <figure>

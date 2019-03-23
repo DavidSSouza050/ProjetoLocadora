@@ -1,5 +1,7 @@
+//variavel do botão de enviar
 const btn_enviar = document.getElementById('btn_enviar_contato');
 
+//variaveis das caixas
 const txtNome = document.getElementById('txt_nome');
 const txtTelefone = document.getElementById('txt_telefone');
 const txtCelular = document.getElementById('txt_celular');
@@ -11,6 +13,7 @@ const txtAreaObs = document.getElementById('txtArea_observacao');
 const cmbAssunto = document.getElementById('selectAssunto');
 
 
+//validação das caixas com expressão regular
 const validacao = () =>{
     const validarNome = () =>{
         er = /[^(a-zA-Z Á-ÿ)]+/;
@@ -31,7 +34,9 @@ const validacao = () =>{
         return er.test(txtCelular.value);
     }
 
-    //(11) 97709-9609
+    
+    //verificar se está tudo correto
+    //se não coloca um class erro na caixa requerida
     
     if(txtAreaObs.value == ""){
         txtAreaObs.classList.add('erro');
@@ -75,9 +80,6 @@ const validacao = () =>{
     }
 
 }
-
-
-
 
 
 
@@ -129,16 +131,7 @@ const mascCelular = (event) =>{
     
 }
 
-
-
-
-
-
-
-
-
-
-
+//eventos
 btn_enviar.addEventListener("click", validacao);
 
 txtNome.addEventListener("keyup", (event) => mascNomeProfissao(event));
