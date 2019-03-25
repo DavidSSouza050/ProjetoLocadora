@@ -37,7 +37,7 @@
        $mensagem = trim($_POST["txtArea_mensagem"]);
 
         //  depois execulta o codigo sql   
-        $sql = " INSERT INTO tbl_contato (nome, telefone, celular, email, homePage, facebook, assunto, mensagem, sexo, profissao)
+        $sql = " INSERT INTO tbl_fale_conosco (nome, telefone, celular, email, homePage, facebook, assunto, mensagem, sexo, profissao)
                     VALUES ('".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."', '".$facebook."', '".$cmb_assunto."',
                     '".$mensagem."', '".$rdoSexo."', '".$profissao."');";
 
@@ -65,8 +65,6 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Contato</title>
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
@@ -96,7 +94,7 @@
                                 <img class="img-size" src="./img/icon/telefoneContato.png" alt="Icone de Telefone">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" name="txt_telefone" id="txt_telefone" placeholder="Tel.:00 00000000">
+                        <input class="inputContato" type="tel" name="txt_telefone" id="txt_telefone" placeholder="Tel.:00 00000000"  onkeypress="return PermitirNumero(event);">
                     </div>
                     <div class="caixa_Input_text">
                         <!-- div para cadastrar o celular -->
@@ -105,7 +103,7 @@
                                 <img class="img-size" src="./img/icon/celular.png" alt="Icone de Celular">
                             </div>
                         </figure>
-                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:00 900000000*" maxLength="15" >
+                        <input class="inputContato" type="tel" required name="txt_celular" id="txt_celular" placeholder="Cel.:00 900000000*" maxLength="15"   onkeypress="return PermitirNumero(event);">
                     </div>
                     <div class="caixa_Input_text">
                         <!-- div para cadastrar o email -->

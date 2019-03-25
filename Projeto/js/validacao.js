@@ -15,6 +15,7 @@ const cmbAssunto = document.getElementById('selectAssunto');
 
 //validação das caixas com expressão regular
 const validacao = () =>{
+    
     const validarNome = () =>{//função que verifica que o que está escrito etá correto
         er = /[^(a-zA-Z Á-ÿ)]+/;
         return er.test(txtNome.value);
@@ -144,27 +145,44 @@ txtProfissao.addEventListener("keyup", (event) => mascNomeProfissao(event));// c
 
 
 
+function PermitirNumero(caracter){
+    if(window.event){
+        var numero = caracter.charCode;
+    }else{
+        var numero = caracter.which;
+    };
+    //liberabdo numeros
+    if(numero < 48 || numero > 57){
+        
+        if(numero != 40 && numero != 41 && numero != 45){
+            return false;
+        }
+           
+    };
+}
+
+
 //exemplo de validação sem expressão regular e com tabela ascii
 // function naoPermitirNumero(caracter){
     
-//     if(window.event){
-//         var letra = caracter.charCode;
-//     }else{
-//         var letra = caracter.which;
-//     };
-//     //liberabdo letras maíuscullas
-//     if(letra < 65 || letra > 90){
-//         // alert(letra);
-//         //liberando letras minusculas
-//         if(letra < 97 || letra > 122){
-//             //liberando acentuações 
-//             if(letra != 227 && letra != 225 && letra != 168 && letra != 249 && letra != 32){
-//                 return false;
-//             };
+    // if(window.event){
+    //     var letra = caracter.charCode;
+    // }else{
+    //     var letra = caracter.which;
+    // };
+    // //liberabdo letras maíuscullas
+    // if(letra < 65 || letra > 90){
+    //     // alert(letra);
+    //     //liberando letras minusculas
+    //     if(letra < 97 || letra > 122){
+    //         //liberando acentuações 
+    //         if(letra != 227 && letra != 225 && letra != 168 && letra != 249 && letra != 32){
+    //             return false;
+    //         };
                     
-//         };
+    //     };
 
-//     };
+    // };
 
 // };
 // para colocar no html é : onkeypress="return naoPermitirNumero(event);"

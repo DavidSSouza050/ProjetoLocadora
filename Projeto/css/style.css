@@ -886,3 +886,146 @@ del{
 .erro::placeholder{
     color: rgb(212, 101, 101);
 }
+
+
+
+/*CMS - SISTEMA DE GERENCIAMENTO DO SITE*/
+
+#conteudo_cms{
+    width: 1400px;
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(89, 152, 224);
+}
+
+#headerCMS{
+    width: inherit;
+    height: 200px;
+    background-color: sandybrown;
+}
+
+#titulo_cms{
+    width: 1000px;
+    height: inherit;
+    background-color: snow;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-left: 10px;
+    float: left;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 50px;
+}
+
+#logo_site_cms{
+    width: 400px;
+    height: inherit;
+    background-color: aquamarine;
+    float: left;
+}
+
+#caixa_menu_nome_usuario_cms{
+    width: inherit;
+    height: 200px;
+    background-color: rgb(139, 134, 130);
+}
+
+#caixa_conteudo_menu_cms{
+    width: 1000px;
+    height: inherit;
+    background-color: rgb(151, 101, 101);
+    float: left;
+}
+
+.cardMenu{
+    width: 200px;
+    height: inherit;
+    margin-left: 30px;
+    background-color: aqua;
+    float: left;
+}
+
+.caixa_img_menu{
+    width: inherit;
+    height: 150px;
+    box-sizing: border-box;
+    padding-top: 7px;
+    background-color: cornflowerblue;
+}
+
+.img_menu_cms{
+    width: 135px;
+    height: 135px;
+    background-color: slategray;
+}
+
+.caixa_nome{
+    width: inherit;
+    height: 50px;
+    background-color: aquamarine;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+    /*font*/
+    font-family:MeganJune;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#caixa_nome_usuario{
+    width: 400px;
+    height: inherit;
+    float: left;
+    background-color: rgb(185, 179, 174);
+}
+
+#nome_usuario{
+    width: inherit;
+    height: 50px;
+    background-color: silver;
+    box-sizing: border-box;
+    padding-top: 13px;
+    padding-left: 10px;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 25px;
+    font-weight: bold;
+}
+#logout{
+    width: inherit;
+    height: 50px;
+    margin-top: 100px;
+    box-sizing: border-box;
+    padding-top: 23px;
+    padding-left: 340px;
+    background-color: rgb(141, 112, 112);
+    /*font*/
+    font-family: MeganJune;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+#depoisVe{
+    width: inherit;
+    height: 500px;
+    background-color: seagreen;
+}
+
+#footerCMS{
+    width: inherit;
+    height: 50px;
+    background-color: silver;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 25px;
+    font-weight: bold;
+}
+/*fim da cms*/
