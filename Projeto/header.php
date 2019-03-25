@@ -34,7 +34,7 @@
                 </li>
                 <li class="liHeader">
                     <a href="contato.php">
-                       Contato
+                       Fale Conosco
                     </a>
                 </li>
                 <li class="liHeader">

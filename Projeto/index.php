@@ -56,73 +56,36 @@
                 </div>
                 <!-- caixa que segura as card -->
                 <div class="caixa_produto">
-                    <!-- cards de exemplo -->
-                    <div class='produto'>
-                        <div class='produto_caixa_imagem'>
-                            <figure>
-                                <div class='produto_imagem center'>
-                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class='produto_caixa_descricao'>
-                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
-                            <p><span class='formata_atributo'>Preço:</span> 24,50</p>
-                        </div>
-                        <div class='produto_caixa_detalhes'>
-                            <div class='botao_detalhes formata_atributo'>
-                                <a href=''>    
-                                    Detalhes
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class='produto'>
-                        <div class='produto_caixa_imagem'>
-                            <figure>
-                                <div class='produto_imagem center'>
-                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                    <?php
+                        // for para calocar as cards rapdamente
+                        for($cards = 1; $cards <= 6; $cards++){
+                    ?>
+                        <!-- cards para mostruario -->
+                        <div class='produto'>
+                            <div class='produto_caixa_imagem'>
+                                <figure>
+                                    <div class='produto_imagem center'>
+                                        <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class='produto_caixa_descricao'>
+                                <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
+                                <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                                <p><span class='formata_atributo'>Preço:</span> 24,50</p>
+                            </div>
+                            <div class='produto_caixa_detalhes'>
+                                <div class='botao_detalhes formata_atributo'>
+                                    <a href=''>    
+                                        Detalhes
+                                    </a>
                                 </div>
-                            </figure>
-                        </div>
-                        <div class='produto_caixa_descricao'>
-                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
-                            <p><span class='formata_atributo'>Preço:</span> 24,50</p>
-                        </div>
-                        <div class='produto_caixa_detalhes'>
-                            <div class='botao_detalhes formata_atributo'>
-                                <a href=''>    
-                                    Detalhes
-                                </a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class='produto'>
-                        <div class='produto_caixa_imagem'>
-                            <figure>
-                                <div class='produto_imagem center'>
-                                    <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class='produto_caixa_descricao'>
-                            <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                            <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
-                            <p><span class='formata_atributo'>Preço:</span> 24,50</p>
-                        </div>
-                        <div class='produto_caixa_detalhes'>
-                            <div class='botao_detalhes formata_atributo'>
-                                <a href=''>    
-                                    Detalhes
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- fim das cards de exemplo -->
+                    <?php 
+                        }
+                    ?>
                 </div>  
             </div>
         </div>
