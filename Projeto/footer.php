@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="css/styleFooter.css" />
 <footer>
     <div class="caixa_footer center">
+        <!-- caixas com horario de funcionamento -->
         <div class="caixa_horario">
            
             <figure>
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div class="caixa_contatos">
-          
+          <!-- caixas com os contatos -->
             <figure>
                 <div class="iconFooter">
                     <img class="img-footer" src="./img/icon/telefone.png" alt="Contatos">
@@ -46,7 +47,7 @@
             </div>
         </div>
         <div class="caixa_endereco">
-          
+          <!-- caixa com o lugar da cidade -->
             <figure>
                 <div class="iconFooter">
                     <img class="img-footer" src="./img/icon/local.png" alt="Endereco">

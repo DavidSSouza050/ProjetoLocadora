@@ -6,18 +6,15 @@
 
     }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Nossas Lojas</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
@@ -25,15 +22,15 @@
     <body>
         <?php require_once('./header.php')?>
 
-        <section id="caixa_lojas" class="center">
-            <h2 hidden>coordenadas</h2>
+        <div id="caixa_lojas" class="center">            
             <div id="caixa_iFrame_maps">
+                <!-- coordenadas frame para pqgar as coodenadas -->
                 <div id="iFrame_maps">
                     <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($coordenada)?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">
-
+                <!-- a com cada codernada das lojas cadastradas -->
                 <a href='?coordenada=38.838438,-9.168539'>
                     <div class='coodernadas center'>
                         R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
@@ -57,11 +54,10 @@
                         Vihtra, 87603 Pärnumaa, Estônia
                     </div>
                 </a>  
-                
-                
-            
+                <!-- fim das coodernadas -->
+                       
             </div>
-        </section>
+        </div>
 
 
 

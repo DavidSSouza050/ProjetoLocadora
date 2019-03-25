@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="css/styleHeader.css" />
 <header>
     <div class="conteudo_header center">
-       
+       <!-- logo do site na header -->
         <figure class="logo">
             <div class="logo" >
                 <a href="index.php" class="alinhafigura">
@@ -9,7 +9,7 @@
                 </a>                    
             </div>
         </figure>
-        
+        <!-- menu com os links -->
         <nav class="menu">
             <ul>
                 <li class="liHeader">
@@ -44,6 +44,7 @@
                 </li>
             </ul>
         </nav>
+        <!-- caixas para login -->
         <form name="frm_cadastro">
             <div class="login">
                 <div class="login_usuario">
@@ -59,6 +60,7 @@
         </form>
     </div>
 </header>
+<!-- segurando o conteudo -->
 <div class="segura_conteudo">
 
 </div>

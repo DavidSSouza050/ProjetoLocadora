@@ -2,28 +2,30 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> --> 
         <title>Promoções</title>
         <script  src="js/jquery-1.11.3.min.js"></script>
         <script  src="js/jssor.slider-27.5.0.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
+        <!-- header em outra pagina -->
         <?php require_once('./header.php')?>
         
         <div class="slider center">
-            <h6 hidden>sessão dos sliders de filmes em Promoções</h6>
-            <?php require_once('./sliderPromocoes.html');?>
+           <!-- sessão dos sliders de filmes em Promoções -->
+            <?php require_once('./sliderPromocoes.php');?>
         </div>
 
-        <section class="conteudo center">
+        <div class="conteudo center">
             <!-- aqui começa a sessação dos filmes  -->
             <div class="item_conteudo">
-                <h6 hidden>sessão dos filmes</h6>
+                
+                <!-- caixa de opções de filmes -->
                 <div class="caixa_item">
                     <nav class="menu_item">
                         <ul>
@@ -34,9 +36,11 @@
                         </ul>
                     </nav>  
                 </div>
+
+                <!-- caixa com as cards dos produtos -->
                 <div class="caixa_produto">                                    
                     
-
+                    <!-- cards dos filmes a venda e em promoção -->
                     <div class='produto_promocao'>
                         <div class='produto_caixa_imagem'>
                             <figure>
@@ -128,8 +132,10 @@
 
                 </div>
             </div>
-        </section>
+        </div>
 
+
+        <!-- footer em outra pagina -->
         <?php require_once('./footer.php')?>
     </body>
 

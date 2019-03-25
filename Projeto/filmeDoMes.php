@@ -3,10 +3,9 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Filme do Mês</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
@@ -45,22 +44,27 @@
                 <div class="informacoes_filme_do_mes center">
                     <span class="titulo_topico">Classificação:</span> Livre
                 </div>
-                <div class="informacoes_filme_do_mes center linha_historico">
-                    <a href="#esconde_sinopse_filme_do_mes" class="hide" id="esconde_sinopse_filme_do_mes"><span class="titulo_topico">▼ Sinopse:</span></a>
-                    <a href="#aparece_sinopse_filme_do_mes" class="show" id="aparece_sinopse_filme_do_mes"><span class="titulo_topico">▲ Sinopse:</span></a>
-                    <div class="caixa_conteudo_hide">
-                            <div class="conteudo_topico">
-                                <p>Ralph, o mais famoso vilão dos videogames, e Vanellope, sua companheira atrapalhada, iniciam mais uma arriscada aventura. Após a gloriosa vitória no Fliperama Litwak, a dupla viaja para o universo expansivo e desconhecido da internet. Dessa vez, a missão é achar uma peça reserva para salvar o videogame Corrida Doce, de Vanellope. Para isso, eles contam com a ajuda dos "cidadãos da Internet" e de Yess, a alma por trás do "Buzzztube", um famoso website que dita tendências. Classificação LIVRE, contém violência fantasiosa.</p>
-                            </div>
-                        </div>
-                </div>
+                <!-- fim detalhes -->
+            
             </div>
         </div>
-        
-        <section id="imagem_destaque_filme_do_mes" class="center back-size">
-            <h2 hidden>Imagem de destaque</h2>
+            <!-- caixa com menu retratio -->
+        <div id="menu_retratio_filme_do_mes" class="center">
+
+            <div class="historico_ator_retratio linha_historico center"> <!-- criando uma div 'linha' para concentrar o conteúdo da div retratio -->
+                <a href="#esconde_sinopse" class="hide" id="esconde_sinopse"><span class="titulo_topico">▼ Sinopse</span></a> <!-- a com o link para aparecer o conteúdo -->
+                <a href="#aparece_sinopse" class="show" id="aparece_sinopse"><span class="titulo_topico">▲ Sinopse</span></a><!-- a com o link para tirar o conteúdo -->
+                <div class="caixa_conteudo_hide"><!--Div que vai ser chamado para aparecer-->
+                    <div class="conteudo_topico"><!--Div criada para onganizar os tópicos corretamente-->
+                        <p>Ralph, o mais famoso vilão dos videogames, e Vanellope, sua companheira atrapalhada, iniciam mais uma arriscada aventura. Após a gloriosa vitória no Fliperama Litwak, a dupla viaja para o universo expansivo e desconhecido da internet. Dessa vez, a missão é achar uma peça reserva para salvar o videogame Corrida Doce, de Vanellope. Para isso, eles contam com a ajuda dos "cidadãos da Internet" e de Yess, a alma por trás do "Buzzztube", um famoso website que dita tendências. Classificação LIVRE, contém violência fantasiosa.</p>
+                    </div>
+                </div>
+
+            </div>
             
-        </section>
+
+
+        </div>
 
         <!-- footer em outra pagina -->
         <?php require_once('./footer.php')?>

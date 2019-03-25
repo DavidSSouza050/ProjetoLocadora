@@ -645,7 +645,7 @@ input[type=radio]:checked:before {
 }
 
 #imagem_ator{
-    width: 650px;
+    width: 700px;
     height: 650px;
     margin-top: 50px;    
 }
@@ -677,17 +677,19 @@ input[type=radio]:checked:before {
     font-weight: bold;
 }   
 
-
+/* cass para caixa retratio*/
 .linha_historico{
     vertical-align: top;
     min-height: 80px;
     height: auto !important;
     margin-bottom: 20px;
 }
+/*class que vai tirar o conteúdo*/
 .caixa_conteudo_hide {
     display:none; 
     box-sizing: border-box;
 }
+/*class parar organizar o conteúdo*/
 .conteudo_topico{
     width: inherit;
     height: inherit;
@@ -698,6 +700,7 @@ input[type=radio]:checked:before {
     font-size: 25px;
     line-height: 40px;
 }
+/*caixa que segura os filmes participados*/
 .filme_participado{
     width: inherit;
     min-height: 200px;
@@ -706,6 +709,7 @@ input[type=radio]:checked:before {
     margin-top: 40px;
     margin-bottom: 30px;
 }
+/*filmes de participação em cartaz*/
 .filmes_participados{
     width: 300px;
     height: 500px;
@@ -716,6 +720,9 @@ input[type=radio]:checked:before {
     border: solid 3px rgb(96, 96, 99);
     float: left;
 }
+
+/*Class para menu retratio*/
+
 .show {
     display: none; 
 }
@@ -735,13 +742,18 @@ display: inline;
     }
 }
 
+/*fim de class para menu retratio*/
 #caixa_retratio_ator{
     width: 1400px;
     min-height: 400px;
     height: auto;
     overflow: hidden;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    background-color:  rgb(22, 22, 22);
 }
 
+/*MENU RETRATIO GRANDE*/
 .historico_ator_retratio{
     width: 1200px;
     box-sizing: border-box;
@@ -754,10 +766,10 @@ display: inline;
     font-family: baronBold;
 }
 
-
-
-
 /*********************FIM DO ATOR******************/
+
+
+
 
 /****************card Promoções*************************/
 .produto_promocao{
@@ -848,13 +860,19 @@ display: inline;
     line-height: 1.2;
     color: white;
 }
-#imagem_destaque_filme_do_mes{
+
+#menu_retratio_filme_do_mes{
     width: 1400px;
-    height: 600px;
-    background-image: url(../img/wifi_ralph.jpg);
-    background-attachment: fixed;
+    min-height: 400px;
+    height: auto;
+    overflow: hidden;
+    background-color: rgb(22, 22, 22);
     border-radius: 20px;
 }
+
+
+
+
 /*************FIM DO FILME DO MÊS**************/
 
 del{

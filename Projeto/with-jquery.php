@@ -2,7 +2,7 @@
     <!-- #region Jssor Slider Begin -->
     <!-- Generator: Jssor Slider Maker -->
     <!-- Source: https://www.jssor.com -->
-<link rel="stylesheet" type="text/css" media="screen" href="css/styleSlider.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styleSlider.css" />
     <script>
         jQuery(document).ready(function ($) {
 
@@ -80,37 +80,41 @@
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:500px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" alt="nao sei para que isso serve"/>
+            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/slider/spin.svg" alt="nao sei para que isso serve"/>
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:400px;overflow:hidden;">
-            <div>
-                <img data-u="image" src="img/slider/CapitanMarvel.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/CapitanMarvel190x90.jpg" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/Alita.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/Alita190x90.png" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/ComoTreinarSeuDragão.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/ComoTreinarSeuDragão190x90.jpg" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/deadpool2.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/deadpool2190x90.jpg" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/rocky.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/rocky190x90.jpg" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/LOTReturnOfRei.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/LOTReturnOfRei190x90.jpg" alt="imagem para slider"/>
-            </div>
-            <div>
-                <img data-u="image" src="img/slider/hobbitJornada.jpg" alt="imagem para slider"/>
-                <img data-u="thumb" src="img/slider/hobbitJornada190x90.jpg" alt="imagem para slider"/>
-            </div>
+            <?php
+                //declarando as variaveis 
+                $imagens = (array) null; // array de imagens da pasta
+                $numDeImagens = (int) null; // varivael que vai servir de posicionamento das imagens
+
+                $caminho = "./img/slider";//caminho da pasta onde está as imagens que sarão usadas
+                $diretorio = dir($caminho);//quandando a execulção da dir 
+
+                while($arquivo = $diretorio -> read()){ // acada vez que o while, a variavel arquivo resebe uma imagen        
+
+                    array_push($imagens, $arquivo);// populando a arrey com as imagnes obtidas
+                }
+
+
+                $carregarImagem = array_search('spin.svg', $imagens);//acha o indice da imagem de carregar o slider
+                unset($imagens[$carregarImagem]); // exclui da array o indice da imagem de carregamento
+                $imagens = array_slice($imagens, 2); // Faz que a array comece pela a posição 2 tirando dois itens (./ e ../)
+                $numDeImagens = count($imagens); // conta o total de de numeros da array, que corresponde as imagens
+
+                $diretorio -> close(); // fecha a pasta / diretorio 
+
+
+                for($i = 0; $i < $numDeImagens; $i++){ // Adiciona as imagens no slider
+            ?>
+                <div>
+                    <img data-u="image" src="img/slider/<?php echo($imagens[$i]) ?>" alt="Imagem <?php echo($imagens[$i])?>" />
+                    <img data-u="thumb" src="img/slider/<?php echo($imagens[$i]) ?>" alt="Imagem thumb <?php echo($imagens[$i])?>"/>
+                </div>
+            <?php
+                }          
+                
+            ?>
         </div>
         <!-- Thumbnail Navigator -->
         <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;bottom:0px;width:980px;height:100px;background-color:#000;" data-autocenter="1" data-scale-bottom="0.75">

@@ -2,19 +2,19 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Sobre nós</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
+        <!-- header em otra agina -->
         <?php require_once('./header.php');?>
 
         <div id="conteudo_sobre" class="center"> 
-
+            <!-- div quem somos  contando a história da locadora-->
             <div id="quemSomos_sobre">
                 <div id="titulo_sobre">
                     Quem Somos?
@@ -31,10 +31,9 @@
                     </div>
                 </figure>
             </div>
-        
 
         </div>
-
+        <!-- footer em outra pagina -->
         <?php require_once('./footer.php'); ?>
     </body>
 </html>

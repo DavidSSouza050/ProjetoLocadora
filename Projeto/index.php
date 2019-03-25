@@ -2,28 +2,27 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Locadora Acme Tunes</title>
         <script  src="js/jquery-1.11.3.min.js"></script>
         <script  src="js/jssor.slider-27.5.0.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
+        <!-- header em outra pagina -->
         <?php require_once('./header.php')?>
 
         <div class="slider center">
-            <h2 hidden>Slider inicial</h2>
             <!-- slider -->
-            <?php require_once("with-jquery.html"); ?>
-
+            <?php require_once("with-jquery.php"); ?>
+            <!-- Redes socicais -->
             <div class="caixa_rede_social">
                 <figure>
                     <div class="rede_social">
-                        <img  class="border-img" src="img/facebook.png" alt="Logo do facebook" title="logo do facebook">
+                        <img  class="img-size " src="./img/facebook.png" alt="Logo do facebook" title="logo do facebook">
                     </div>
                 </figure>
                 <figure>
@@ -42,9 +41,10 @@
 
         <div class="conteudo center">
             <!-- aqui começa a sessação dos filmes  -->
-            <section class="item_conteudo">
+            <div class="item_conteudo">
                 <h6 hidden>sessão dos filmes</h6>
                 <div class="caixa_item">
+                    <!-- menu de filtro  -->
                     <nav class="menu_item">
                         <ul>
                             <li>Ação</li>
@@ -54,8 +54,9 @@
                         </ul>
                     </nav>  
                 </div>
+                <!-- caixa que segura as card -->
                 <div class="caixa_produto">
-                    
+                    <!-- cards de exemplo -->
                     <div class='produto'>
                         <div class='produto_caixa_imagem'>
                             <figure>
@@ -121,11 +122,12 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <!-- fim das cards de exemplo -->
                 </div>  
-            </section>
+            </div>
         </div>
         
+        <!-- footer em outra pagina -->
         <?php require_once('./footer.php')?>
 
     </body>
