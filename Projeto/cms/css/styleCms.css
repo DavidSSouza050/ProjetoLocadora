@@ -1,0 +1,191 @@
+/*UTEIS*/
+.img-size-cms{
+
+}
+
+
+/*CMS - SISTEMA DE GERENCIAMENTO DO SITE*/
+
+#conteudo_cms{
+    width: 1400px;
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(89, 152, 224);
+}
+
+#headerCMS{
+    width: inherit;
+    height: 200px;
+    background-color: rgb(221, 218, 218);
+}
+
+#titulo_cms{
+    width: 1000px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-left: 10px;
+    float: left;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 50px;
+}
+
+#logo_site_cms{
+    width: 400px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 20px;
+    float: left;
+}
+
+#caixa_menu_nome_usuario_cms{
+    width: inherit;
+    height: 200px;
+    background-color: rgb(141, 140, 140);
+}
+
+#caixa_conteudo_menu_cms{
+    width: 1000px;
+    height: inherit;
+    float: left;
+}
+
+.cardMenu{
+    width: 200px;
+    height: inherit;
+    margin-left: 30px;
+    float: left;
+}
+.cardMenu:hover{
+    transition: 0.1s;
+    transform: translate(0px, -8px);
+    cursor: pointer;
+}
+
+.caixa_img_menu{
+    width: inherit;
+    height: 150px;
+    box-sizing: border-box;
+    padding-top: 7px;
+}
+
+.img_menu_cms{
+    width: 135px;
+    height: 135px;
+}
+
+.img-header-cms{
+    width: 350px;
+    height: 160px;
+}
+
+.caixa_nome{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+    /*font*/
+    font-family:MeganJune;
+    font-weight: bold;
+    color: rgb(227, 233, 233);
+    font-size: 30px;
+}
+
+#caixa_nome_usuario{
+    width: 400px;
+    height: inherit;
+    float: left;
+}
+
+#nome_usuario{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 13px;
+    padding-left: 10px;
+    /*font*/
+    font-family: MeganJune;
+    color: rgb(235, 233, 231);
+    font-size: 25px;
+    font-weight: bold;
+}
+#logout{
+    width: inherit;
+    height: 50px;
+    margin-top: 90px;
+    box-sizing: border-box;
+    padding-top: 23px;
+    padding-left: 320px;
+    /*Fonte*/
+    
+}
+
+#logout_efeito{
+    color: azure;
+    cursor: pointer;
+    font-family: MeganJune;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#menu_de_adm{
+    width: inherit;
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+    
+    background-color: rgb(65, 64, 64);
+    padding-top: 20px
+}
+
+.conteudo_editavel{
+    width: 600px;
+    height: 150px;
+    box-sizing: border-box;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    float: left;
+    background-color: rgb(190, 186, 186);
+
+}
+
+.img_conteudo_editavel{
+    width: 150px;
+    height: inherit;
+    float: left;
+}
+
+.mensagem_conteudo_editavel{
+    width: 450px;
+    height: inherit;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-left: 20px;
+    background-color: rgb(190, 186, 186);
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+    font-weight: bold;
+}
+
+#footerCMS{
+    width: inherit;
+    height: 50px;
+    background-color: silver;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 25px;
+    font-weight: bold;
+}
+/*fim da cms*/

@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>CMS - SISTEMA DE GERENCIAMENTO DO SITE</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="./css/styleFonte.css" />
-        <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/styleCms.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../css/styleFonte.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+        <link rel="shortcut icon" href="../img/iconeDeAbaACME.png" type="image/x-png">
     </head>
     <body>
         
@@ -15,17 +16,18 @@
             <header id="headerCMS">
                 <div id="titulo_cms">
                     CMS - SISTEMA DE GERENCIAMENTO DO SITE
+                </div> 
+                <div id="logo_site_cms">
+                    <figure>
+                        <img class='img-header-cms' src='../img/logoAcme.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                    </figure>
                 </div>
-               <figure>
-                    <div id="logo_site_cms">
-                        <img class="img-size" src="./img/logoAcme.png" alt="Logo Acme" title="logo Acme">
-                    </div>
-               </figure>
             </header>
+
             <!-- caixa com o menu e o nome do usuario -->
             <div id="caixa_menu_nome_usuario_cms">
                 <!-- caixa que vai quardar só o menu -->
-                <nav id="caixa_conteudo_menu_cms">
+                <div id="caixa_conteudo_menu_cms">
 
                     <!-- cards do menu -->
                     <div class='cardMenu'>  
@@ -33,7 +35,7 @@
                         <div class='caixa_img_menu'>
                             <figure>
                                 <div class='img_menu_cms center'>
-                                    <img class='img-size' src='img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                                    <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
                                 </div>
                             </figure>
                         </div>
@@ -49,7 +51,7 @@
                         <div class='caixa_img_menu'>
                             <figure>
                                 <div class='img_menu_cms center'>
-                                    <img class='img-size' src='img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                                    <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
                                 </div>
                             </figure>
                         </div>
@@ -65,7 +67,7 @@
                         <div class='caixa_img_menu'>
                             <figure>
                                 <div class='img_menu_cms center'>
-                                    <img class='img-size' src='img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                                    <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
                                 </div>
                             </figure>
                         </div>
@@ -81,7 +83,7 @@
                         <div class='caixa_img_menu'>
                             <figure>
                                 <div class='img_menu_cms center'>
-                                    <img class='img-size' src='img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                                    <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
                                 </div>
                             </figure>
                         </div>
@@ -91,7 +93,7 @@
                         </div>
                     </div>
         
-                </nav>
+                </div>
 
                 <!-- caixa que vai ficar com  o nome do usuario -->
                 <div id="caixa_nome_usuario">
@@ -99,15 +101,38 @@
                         Bem Vindo, [xxxxx xxxxx xxxx]
                     </div>
                     <div id="logout">
-                        Logout
+                        <a href="#">
+                            <span id="logout_efeito">Logout</span>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <div id="depoisVe">
+            <!-- conteudo do menu do cms -->
+            <div id="menu_de_adm">
+                <!-- conteudo editavel -->
+                <div class="conteudo_editavel">
+                    <a href="2">
+                        <!-- imagem do conteudo editavel -->
+                        <figure>
+                            <div class="img_conteudo_editavel">
+                                <img class="img-size" src="../img/twitter.png">
+                            </div>
+                        </figure>
+                        
+                        <!-- texto do conteudo editavel -->
+                        <div class="mensagem_conteudo_editavel">
+                            xxxxxxxxxxxxxxxxxxxx
+                        </div>
+                    </a>
+                    
+                </div>
+                
+                   
 
             </div>
 
+            <!-- footer do cms -->
             <footer id="footerCMS">
                 Desenvolvido por: David Silva Souza
             </footer>
