@@ -12,8 +12,6 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Nossas Lojas</title>
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
@@ -31,6 +29,7 @@
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">
                 <!-- a com cada codernada das lojas cadastradas -->
+
                 <a href='?coordenada=38.838438,-9.168539'>
                     <div class='coodernadas center'>
                         R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
