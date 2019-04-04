@@ -1,8 +1,4 @@
 /*UTEIS*/
-.img-size-cms{
-
-}
-
 
 /*CMS - SISTEMA DE GERENCIAMENTO DO SITE*/
 
@@ -151,9 +147,13 @@
     box-sizing: border-box;
     margin-left: 60px;
     margin-bottom: 20px;
-    float: left;
     background-color: rgb(190, 186, 186);
+    float: left;
+}
 
+.conteudo_editavel:hover{
+    cursor: pointer;
+    border-left: solid 10px black;
 }
 
 .img_conteudo_editavel{
@@ -163,17 +163,59 @@
 }
 
 .mensagem_conteudo_editavel{
-    width: 450px;
+    width: 400px;
     height: inherit;
     float: left;
     box-sizing: border-box;
-    padding-top: 50px;
+    padding-top: 55px;
     padding-left: 20px;
     background-color: rgb(190, 186, 186);
     /*font*/
     font-size: 30px;
     font-family: MeganJune;
     font-weight: bold;
+}
+
+
+#cms_table_fale_conosco{
+    width: 1300px;
+    overflow: hidden;
+}
+
+#cms_thead{
+    height: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: MeganJune;
+}
+#cms_thead td{
+    color: white;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#cms_tbody{
+    height: 30px;
+    box-sizing: border-box;
+    background-color: rgb(238, 235, 235);
+    font-family: MeganJune;
+}
+
+td{
+    font-size: 30px;
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.icon{
+    margin-top: 5px;
+    margin-right:  10px;
+}
+.icon:hover{
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 #footerCMS{

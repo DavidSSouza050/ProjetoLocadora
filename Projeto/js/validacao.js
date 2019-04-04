@@ -26,7 +26,7 @@ const validacao = () =>{
     }
 
     const emailValido = (email) =>{//função que verifica que o que está escrito etá correto
-        const er = /^([a-zA-z][a-z0-9._-]+@([a-z]+[.]?)+)[a-z]$/;
+        const er = /^([a-zA-zÁ-ÿ][a-zÁ-ÿ0-9._-]+@([a-z]+[.]?)+)[a-z]$/;
         return er.test(email.value);
     }
 

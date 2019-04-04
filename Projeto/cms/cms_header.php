@@ -4,7 +4,7 @@
     </div> 
     <div id="logo_site_cms">
         <figure>
-            <img class='img-header-cms' src='../img/logoAcme.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+            <img class='img-header-cms' src='../img/logoAcme.png' alt='ACME' title="ACME">
         </figure>
     </div>
 </header>

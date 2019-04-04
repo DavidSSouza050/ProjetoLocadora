@@ -4,34 +4,40 @@
 
         <!-- cards do menu -->
         <div class='cardMenu'>  
-            <!-- imagem da pagina -->
-            <div class='caixa_img_menu'>
-                <figure>
-                    <div class='img_menu_cms center'>
-                        <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
-                    </div>
-                </figure>
-            </div>
-            <!-- titulo da pagina -->
-            <div class='caixa_nome'>
-                Adm. Conteúdo
-            </div>
+            <a href="cms_conteudo.php">
+                <!-- imagem da pagina -->
+                <div class='caixa_img_menu'>
+                    <figure>
+                        <div class='img_menu_cms center'>
+                            <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                        </div>
+                    </figure>
+                </div>
+                <!-- titulo da pagina -->
+                <div class='caixa_nome'>
+                    Adm. Conteúdo
+                </div>
+            </a>
         </div>
 
         <!-- cards do menu -->
         <div class='cardMenu'>  
-            <!-- imagem da pagina -->
-            <div class='caixa_img_menu'>
-                <figure>
-                    <div class='img_menu_cms center'>
-                        <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
-                    </div>
-                </figure>
-            </div>
-            <!-- titulo da pagina -->
-            <div class='caixa_nome'>
-                Adm. Fale conosco
-            </div>
+            
+            <a href="cms_fale_conosco.php">
+                <!-- imagem da pagina -->
+                <div class='caixa_img_menu'>
+                    <figure>
+                        <div class='img_menu_cms center'>
+                            <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                        </div>
+                    </figure>
+                </div>
+                <!-- titulo da pagina -->
+                <div class='caixa_nome'>
+                    Adm. Fale conosco
+                </div>
+            </a>
+
         </div>
     
         <!-- cards do menu -->
