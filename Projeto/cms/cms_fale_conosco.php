@@ -39,9 +39,55 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../css/styleFonte.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
         <link rel="shortcut icon" href="../img/iconeDeAbaACME.png" type="image/x-png">
+        <script src="../js/jquery-1.11.3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#fachar_modal_fale_conosco').click(function(){
+                    $('#conteiner').fadeOut(300);
+                });
+            });
+
+            $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#conteiner').fadeIn(300);
+                });
+            });
+            function visualizardados(idContato){
+                $.ajax({
+                    type: "GET",
+                    url: "cms_modal_fale_conosco.php",
+                    data:{codigo:idContato},
+
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    }
+
+                });
+            }
+        
+        </script>
+
     </head>
     <body>
-        
+        <!-- cnotender da modal que vai abrir para mostrar o cliente por completo -->
+        <div id="conteiner">
+            <!-- div vom o objetivo de fechar a modal -->
+            <div id="segurar_fechar_modal" class="center">
+                <figure>
+                    <div id="fechar_modal">
+                        <a href="#" class="img-size" id="fachar_modal_fale_conosco">
+                            <img   class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
+                        </a>
+                    </div>
+                </figure>
+            </div>
+            <!-- modal que vai suportar tudo o conteudo -->
+            <div id="modal" class="center">
+                
+            </div>
+    
+        </div>
+
         <!-- div que está segurando tudo -->
         <div id="conteudo_cms" class="center">
             <!-- header que está com o logo e o titulo -->
@@ -50,11 +96,7 @@
             <!-- caixa com o menu e o nome do usuario -->
            <?php require_once('./cms_menu_paginas_usuario.php');?>
             
-            
-
-
-
-
+        
             <!-- conteudo do menu do cms -->
             <div id="menu_de_adm">
                
@@ -96,11 +138,12 @@
                         </td>
                         <td>
                            
-                            <img  src="./img/icon_view.png" class="icon img-size" alt="visualização">
+                            <img  src="./img/icon_view.png" onclick="visualizardados(<?php echo($rsContatos['codigo']);?>)" class="icon img-size visualizar" alt="visualização">
                             
                             <a href="cms_fale_conosco.php?modo=excluir&id=<?php echo($rsContatos['codigo']);?>">
                                 <img  src="./img/icon_delete.png" class="icon img-size" alt="Deletar" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsContatos['nome']);?>')">
                             </a>
+
                         </td>
                     </tr>
                     

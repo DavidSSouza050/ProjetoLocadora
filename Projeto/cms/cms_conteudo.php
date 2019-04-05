@@ -53,7 +53,7 @@
                   
                   <!-- texto do conteudo editavel -->
                   <div class="mensagem_conteudo_editavel">
-                      GERENCIAR SOBRE DA EMPRESA
+                        GERENCIAR PROMOÇÕES
                   </div>
                   
               </div>
