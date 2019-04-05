@@ -157,13 +157,6 @@
 
             </div>
 
-
-
-
-
-
-
-
             <!-- footer do cms -->
            <?php require_once('./cms_footer.php');?>
         </div>

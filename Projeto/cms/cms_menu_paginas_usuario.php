@@ -9,7 +9,7 @@
                 <div class='caixa_img_menu'>
                     <figure>
                         <div class='img_menu_cms center'>
-                            <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                            <img class='img-size' src='./img/icon_conteudo.png' alt='Contaudo' title='Contaudo'>
                         </div>
                     </figure>
                 </div>
@@ -28,7 +28,7 @@
                 <div class='caixa_img_menu'>
                     <figure>
                         <div class='img_menu_cms center'>
-                            <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                            <img class='img-size' src='./img/icon_fale_conosco.png' alt='Fale Conosco' title='Fale Conosco'>
                         </div>
                     </figure>
                 </div>
@@ -46,7 +46,7 @@
             <div class='caixa_img_menu'>
                 <figure>
                     <div class='img_menu_cms center'>
-                        <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
+                        <img class='img-size' src='./img/icon_produto.png' alt='Produtos' title='Produtos'>
                     </div>
                 </figure>
             </div>
@@ -58,18 +58,22 @@
 
         <!-- cards do menu -->
         <div class='cardMenu'>  
-            <!-- imagem da pagina -->
-            <div class='caixa_img_menu'>
-                <figure>
-                    <div class='img_menu_cms center'>
-                        <img class='img-size' src='../img/icone_de_representacao_de_imagem.png' alt='aqui tera uma imagem' title='aqui tera uma imagem'>
-                    </div>
-                </figure>
-            </div>
-            <!-- titulo da pagina -->
-            <div class='caixa_nome'>
-                Adm. Usuários
-            </div>
+            
+            <a href="cms_usuario.php">
+                <!-- imagem da pagina -->
+                <div class='caixa_img_menu'>
+                    <figure>
+                        <div class='img_menu_cms center'>
+                            <img class='img-size' src='./img/icon_usuario.png' alt='Usuários' title='Usuário'>
+                        </div>
+                    </figure>
+                </div>
+                <!-- titulo da pagina -->
+                <div class='caixa_nome'>
+                    Adm. Usuários
+                </div>
+            </a>
+
         </div>
 
     </div>

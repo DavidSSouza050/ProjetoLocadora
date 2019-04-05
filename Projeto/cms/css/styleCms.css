@@ -149,7 +149,6 @@
     margin-bottom: 20px;
     background-color: rgb(190, 186, 186);
     float: left;
-    transition: 0.3s;
 }
 
 .conteudo_editavel:hover{
@@ -258,7 +257,7 @@ td{
     height: 40px;
     box-sizing: border-box;
     padding-left: 10px;
-    text-align: center;
+    text-align: left;
 }
 #thead_modal_fale_conosco{
     height: 30px;
@@ -277,6 +276,26 @@ td{
 
 
 /************************************/
+
+/***************USUARIO*********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************/
 
 .icon{
     margin-top: 5px;
