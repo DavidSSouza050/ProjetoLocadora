@@ -36,7 +36,7 @@
         <td colspan='2'>
             <?php echo($assunto)?> de <?php echo($nome)?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Nome:
@@ -44,7 +44,7 @@
         <td>
             <?php echo($nome);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Telefone:
@@ -52,7 +52,7 @@
         <td>
             <?php echo($telefone);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Celular:
@@ -60,7 +60,7 @@
         <td>
             <?php echo($celular);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Email:
@@ -68,7 +68,7 @@
         <td>
             <?php echo($email);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             HomePage:
@@ -76,7 +76,7 @@
         <td>
             <?php echo($homePage);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Facebook:
@@ -84,7 +84,7 @@
         <td>
             <?php echo($facebook);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Sexo:
@@ -92,7 +92,7 @@
         <td>
             <?php echo($sexo);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Profissão:
@@ -100,7 +100,7 @@
         <td>
             <?php echo($profissao);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Assunto:
@@ -108,7 +108,7 @@
         <td>
             <?php echo($assunto);?>
         </td>
-    <tr>
+    </tr>
     <tr class="tbody_modal_fale_conosco">
         <td>
             Messagem:
@@ -116,6 +116,6 @@
         <td>
             <?php echo($mensagem);?>
         </td>
-    <tr>
+    </tr>
 
 </table>

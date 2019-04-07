@@ -24,7 +24,6 @@
     // ao criar o name vai ser execultado esse codigo
     if(isset($_POST['btn_enviar_contato'])){
         // todos as variaveis para o cadastro
-       $nome = trim($_POST["txt_nome"]);
        $telefone = trim($_POST["txt_telefone"]);
        $nome = trim($_POST["txt_nome"]);
        $celular = trim($_POST["txt_celular"]);

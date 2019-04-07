@@ -280,21 +280,107 @@ td{
 /***************USUARIO*********************/
 
 
+#card_criar_usuario{
+    width: 800px;
+    height: 450px;
+    border-radius: 20px;
+    padding-top: 20px;
+    background-color: rgb(141, 140, 140);  
+    margin-bottom: 50px; 
+}
+
+.segura_caixa_usuario{
+    width: inherit;
+    height: 80px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding-left: 250px;
+    padding-top: 30px;
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+    color: aliceblue;
+}
 
 
+.caixa_usuario{
+    width:  280px;
+    height: 35px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    border: none;
+    font-size: 30px;
+    font-family: MeganJune;
+}
+#cmb_nivel_usuario{
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 15px;
+    margin-left: 10px;
+    margin-top: 15px;
+    font-family: MeganJune;
+    font-size: 30px;
+}
 
+#cmb_nivel_usuario:focus{
+    outline: none;
+}
 
+#segura_botao_criar_usuario{
+    width: 270px;
+    height: 50px;
+    margin-left: 530px;
+    margin-top: 55px;
+    box-sizing: border-box;
+    padding-left: 40px;
+}
 
+.botao_cadastro_usuario{
+    width: 100px;
+    height: 50px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: floralwhite;
+    font-size: 25px;
+    font-family: MeganJune;
+    font-weight: bold;
+}
 
+.botao_cadastro_usuario:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
 
+#segura_tabela_usuario{
+    width: inherit;
+    min-height: 400px;
+    height: auto;
+    overflow: hidden;
+}
 
+#table_usuarios{
+    width: 1300px;
+    overflow: hidden;
+}
 
+#thead_usuario{
+    height: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: MeganJune;
+    color:white;
+}
 
-
-
-
-
-
+#tbody_usuario{
+    height: 35px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: MeganJune;
+    color: black;
+}
 /*********************************************/
 
 .icon{
@@ -318,8 +404,5 @@ td{
     font-size: 25px;
     font-weight: bold;
 }
-
-
-
 
 /*fim da cms*/

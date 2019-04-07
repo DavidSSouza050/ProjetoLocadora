@@ -85,7 +85,6 @@
             <div id="modal" class="center">
                 
             </div>
-    
         </div>
 
         <!-- div que está segurando tudo -->
