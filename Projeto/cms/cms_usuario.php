@@ -113,18 +113,30 @@
                     $('#conteiner').fadeIn(300);
                 });
             });
+
             function visualizarUsuario(idUsuario){
                 $.ajax({
                     type: "GET",
                     url: "cms_modal_usuario.php",
                     data:{codigo:idUsuario},
+                    success: function(dados){
+                        //alert(dados);
+                        $('#modal').html(dados);
+                    }
 
+                });
+            };
+
+            function criarNivel(){
+                $.ajax({
+                    type: "GET",
+                    url: "cms_modal_criar_nivel.php",
                     success: function(dados){
                         $('#modal').html(dados);
                     }
 
                 });
-            }
+            };
         </script>
     </head>
     <body>
@@ -135,7 +147,7 @@
                 <figure>
                     <div id="fechar_modal">
                         <a href="#" class="img-size" id="fachar_modal_fale_conosco">
-                            <img   class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
+                            <img class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
                         </a>
                     </div>
                 </figure>
@@ -158,8 +170,14 @@
             <!-- conteudo do menu do cms -->
             <div id="menu_de_adm">
                 
+                
+                <div id="menu_cadastro_nivel" class="visualizar" onclick="criarNivel()">
+                    Cadastrar Nivel 
+                </div>
+            
+
                 <!-- card que segura o a griação do usuario -->
-                <div id="card_criar_usuario" class="center">
+                <div id="card_criar_usuario">
                     <form name="frm_criar_usuario" method="POST" action="cms_usuario.php" >
                         <!-- caixa para alinhar as input  -->
                         <div class="segura_caixa_usuario">
@@ -173,7 +191,7 @@
                         </div>
                         
                         <!-- select para escolher um Nivel para o usuario -->
-                        <select id="cmb_nivel_usuario" name="cmb_nivel_usuario">    
+                        <select  id="cmb_nivel_usuario" name="cmb_nivel_usuario">    
                             <option value="null">Nivel</option>
                             <?php 
                                 $sql = "SELECT * from tbl_nivel_usuario;";
@@ -224,7 +242,7 @@
                             while($rsUsuarios = mysqli_fetch_array($select)){
                                
                         ?>
-                        <tr id="tbody_usuario">
+                        <tr class="tbody_usuario">
                             <td>
                                 <?php echo($rsUsuarios['nome_usuario'])?>
                             </td>

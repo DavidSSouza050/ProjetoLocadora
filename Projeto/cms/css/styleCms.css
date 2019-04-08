@@ -195,7 +195,7 @@
     text-align: left;
 }
 
-#cms_tbody{
+.cms_tbody{
     height: 30px;
     box-sizing: border-box;
     background-color: rgb(238, 235, 235);
@@ -284,9 +284,11 @@ td{
     width: 800px;
     height: 450px;
     border-radius: 20px;
+    margin-left: 120px;
     padding-top: 20px;
     background-color: rgb(141, 140, 140);  
     margin-bottom: 50px; 
+    float: left;
 }
 
 .segura_caixa_usuario{
@@ -318,7 +320,7 @@ td{
     height: 40px;
     border-radius: 20px;
     padding-left: 15px;
-    margin-left: 10px;
+    margin-left: 350px;
     margin-top: 15px;
     font-family: MeganJune;
     font-size: 30px;
@@ -374,15 +376,122 @@ td{
     color:white;
 }
 
-#tbody_usuario{
+.tbody_usuario{
     height: 35px;
     box-sizing: border-box;
     background-color: white;
     font-family: MeganJune;
     color: black;
 }
-/*********************************************/
 
+#menu_cadastro_nivel{
+    width: 200px;
+    height: 50px;
+    border-radius: 0px 20px 20px 0px;
+    box-sizing: border-box;
+    padding-top: 11px;
+    padding-left: 15px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    float: left;
+    /*font*/
+    font-size: 25px;
+    font-family: MeganJune;
+    color: black !important;
+}
+#menu_cadastro_nivel:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 9px rgb(180, 180, 180);
+}
+
+/*********************************************/
+/********modal criando nivel******************/
+#segura_cadastro_nivel{
+    width: inherit;
+    height: 600px;
+}
+#card_cadastro{
+    width: inherit;
+    height: 250px;
+    box-sizing: border-box;
+    padding-top: 5px;
+    border-radius: 10px;
+    background-color: rgb(113, 113, 114);
+}
+.caixa_cadastro_nivel{
+    width: inherit;
+    height: 60px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 150px;
+    /*Fontwe*/
+    font-size: 25px;
+    font-family: MeganJune;
+    color: white;
+}
+
+#txt_nome_nivel{
+    width: 160px;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    font-size: 25px;
+    font-family: MeganJune;
+    border:none;
+}
+#txt_nome_nivel:focus{
+    outline: none;
+}
+#cmb_cadastro_nivel{
+    width: 200px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-left: 80px;
+    padding-left: 5px;
+    border-radius: 15px;
+    font-family: MeganJune;
+    font-size: 25px;
+}
+#segura_table{
+    width: inherit;
+    height: 340px;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: rgb(113, 113, 114);
+}
+#segura_btn_cadastro_nivel{
+    width: 100px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 495px;
+}
+
+#table_modal_nivel{
+    width: 100%;
+}
+
+#thead_nivel{
+    height: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: MeganJune;
+    color:white;
+}
+
+.tbody_nivel{
+    height: 35px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: MeganJune;
+    color: black;
+}
+
+/*****************************************/
 .icon{
     margin-top: 5px;
     margin-right:  10px;

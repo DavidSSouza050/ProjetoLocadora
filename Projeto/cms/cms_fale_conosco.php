@@ -125,7 +125,7 @@
                     
                     ?>
 
-                    <tr id="cms_tbody">
+                    <tr class="cms_tbody">
                         <td>
                            <?php echo($rsContatos['nome']);?>
                         </td>

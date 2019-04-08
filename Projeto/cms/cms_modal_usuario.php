@@ -2,6 +2,7 @@
 
     if(isset($_GET["cod_usuario"])){
         $codigo = $_GET["cod_usuario"];
+       
 
         //conexão com o banco
         require_once('../db/conexao.php');
@@ -10,6 +11,8 @@
         $sql = "SELECT *
                 FROM tbl_usuario AS u LEFT JOIN tbl_nivel_usuario AS n
                 ON u.cod_nivel = n.cod_nivel WHERE u.cod_usuario =".$codigo;
+        
+        
         $select = mysqli_query($conexao, $sql);
 
         if($rsUsuario = mysqli_fetch_array($select)){
