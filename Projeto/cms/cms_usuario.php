@@ -18,6 +18,7 @@
     }
 
 
+    //cadastrar usuario
     if(isset($_POST['botao_salvar_usuario'])){
         // atribuindo caixas as variaveis
         $nome_usuario = trim($_POST['nome_usuario_cadastro']);
@@ -90,6 +91,9 @@
 
     }
 
+    /*************************+++********************************************* */
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -127,16 +131,6 @@
                 });
             };
 
-            function criarNivel(){
-                $.ajax({
-                    type: "GET",
-                    url: "cms_modal_criar_nivel.php",
-                    success: function(dados){
-                        $('#modal').html(dados);
-                    }
-
-                });
-            };
         </script>
     </head>
     <body>
@@ -170,10 +164,11 @@
             <!-- conteudo do menu do cms -->
             <div id="menu_de_adm">
                 
-                
-                <div id="menu_cadastro_nivel" class="visualizar" onclick="criarNivel()">
-                    Cadastrar Nivel 
-                </div>
+                <a href="cms_criar_nivel.php">
+                    <div id="menu_cadastro_nivel">
+                        Cadastrar Nivel 
+                    </div>
+                </a>
             
 
                 <!-- card que segura o a griação do usuario -->

@@ -407,8 +407,10 @@ td{
 /*********************************************/
 /********modal criando nivel******************/
 #segura_cadastro_nivel{
-    width: inherit;
+    width: 600px;
     height: 600px;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 #card_cadastro{
     width: inherit;
@@ -465,10 +467,10 @@ td{
     background-color: rgb(113, 113, 114);
 }
 #segura_btn_cadastro_nivel{
-    width: 100px;
+    width: 225px;
     height: 60px;
     margin-top: 10px;
-    margin-left: 495px;
+    margin-left: 380px;
 }
 
 #table_modal_nivel{
@@ -490,7 +492,12 @@ td{
     font-family: MeganJune;
     color: black;
 }
-
+#segura_icone_sair{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    margin-left: 620px;
+}
 /*****************************************/
 .icon{
     margin-top: 5px;
