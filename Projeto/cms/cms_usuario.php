@@ -249,7 +249,7 @@
                             </td>
                             <td>
 
-                                <img  src="./img/icon_view.png" onclick="visualizarUsuario(<?php echo($rsUsuarios['cod_usuario']);?>)" class="icon img-size visualizar" alt="visualização">                        
+                                <img  src="./img/icon_view.png" onclick="visualizarUsuario(<?php echo($rsUsuarios['cod_usuario'])?>)" class="icon img-size visualizar" alt="visualização">                        
 
                                 <a href="?modo=buscar&id=<?php echo($rsUsuarios['cod_usuario']);?>"> 
                                     <img  src="./img/icon_edit.png" class="icon img-size" alt="Edição">

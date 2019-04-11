@@ -114,7 +114,7 @@
             Messagem:
         </td>
         <td>
-            <?php echo($mensagem);?>
+            <textArea disabled id="textArea_modal_fale_conosco" class="scrollTexto"><?php echo($mensagem)?></textArea>
         </td>
     </tr>
 

@@ -1,7 +1,7 @@
 <?php
 
-    if(isset($_GET["cod_usuario"])){
-        $codigo = $_GET["cod_usuario"];
+    if(isset($_GET["codigo"])){
+        $codigo = $_GET["codigo"];
        
 
         //conexão com o banco

@@ -35,13 +35,17 @@ const validacao = () =>{
         return er.test(txtCelular.value);
     }
 
+    const validarAreaObs = () =>{
+        const er = /[^(a-zA-Z Á-ÿ 0-9)]/;
+        return er.test(txtAreaObs.value);
+    }
     
     //verificar se está tudo correto
     //se não coloca um class erro na caixa requerida
     
-    if(txtAreaObs.value == ""){ // verifica se estão tudo conforme e coloca uma class para demostrar o erro caso esteja erredo
+    if(validarAreaObs() || txtAreaObs.value == ""){ // verifica se estão tudo conforme e coloca uma class para demostrar o erro caso esteja erredo
         txtAreaObs.classList.add('erro');
-        txtAreaObs.placeholder = "Escrava Alguma Mensagem";
+        txtAreaObs.placeholder = "Escrava uma Mensagem corretamente";
     }else{
         txtAreaObs.classList.remove('erro');
     }
