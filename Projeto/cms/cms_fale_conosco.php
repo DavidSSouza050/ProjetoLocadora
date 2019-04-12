@@ -55,7 +55,7 @@
             function visualizardados(idContato){
                 $.ajax({
                     type: "GET",
-                    url: "cms_modal_fale_conosco.php",
+                    url: "./modais/cms_modal_fale_conosco.php",
                     data:{codigo:idContato},
 
                     success: function(dados){

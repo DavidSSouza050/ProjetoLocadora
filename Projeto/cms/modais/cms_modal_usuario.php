@@ -5,7 +5,7 @@
        
 
         //conexão com o banco
-        require_once('../db/conexao.php');
+        require_once('../../db/conexao.php');
         $conexao = conexaoMysql();
        
         $sql = "SELECT *

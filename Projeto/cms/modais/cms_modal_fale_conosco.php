@@ -4,7 +4,7 @@
         $codigo = $_GET["codigo"];
 
         //conexão com o banco
-        require_once('../db/conexao.php');
+        require_once('../../db/conexao.php');
         $conexao = conexaoMysql();
        
         $sql = "SELECT * FROM tbl_fale_conosco WHERE codigo = ".$codigo;

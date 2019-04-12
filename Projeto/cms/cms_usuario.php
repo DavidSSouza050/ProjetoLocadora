@@ -9,7 +9,9 @@
     $nome_usuario = null;
     $email_usuario = null;
     $senha_usuario = null;
-    $nivel_usuario = null;
+    /*Será usada no select para buscar os estados, para trazer todos os estados diferentes de 0.
+    para resolver p bug do editar  */ 
+    $nivel_usuario = 0;
     $batao_salvar = 'Salvar';
     $batao_limpar = 'Limpar';
 
@@ -33,7 +35,8 @@
         }elseif($_POST['botao_salvar_usuario'] == "Editar"){
             $sql = "UPDATE tbl_usuario SET nome_usuario = '".$nome_usuario."', 
                                             email = '".$email_usuario."', 
-                                            senha = '".$senha_usuario."' 
+                                            senha = '".$senha_usuario."',
+                                            cod_nivel=".$nivel_usuario." 
                                             WHERE cod_usuario =".$_SESSION['idRegistro'];
         }
         
@@ -75,7 +78,10 @@
                 ");
             }         
         }elseif($modo == 'buscar'){
-            $sqlBusca = "SELECT * FROM tbl_usuario WHERE cod_usuario=".$id;
+            $sqlBusca = "SELECT usuario.*, nivel.*
+            FROM tbl_usuario as usuario INNER JOIN tbl_nivel_usuario as nivel
+            /*colocar ON*/
+             WHERE usuario.cod_usuario=".$id;
             $select = mysqli_query($conexao, $sqlBusca);
 
             if($rsUsuario = mysqli_fetch_array($select)){
@@ -83,6 +89,9 @@
                 $email_usuario = $rsUsuario['email'];
                 $senha_usuario = $rsUsuario['senha'];
                 
+                $nivel_usuario = $rsUsuario['cod_nivel'];
+                $nivel = $rsUsuario['nome_nivel'];
+
                 $batao_salvar = 'Editar';
                 $batao_limpar = 'Cancelar';
             }
@@ -91,6 +100,22 @@
 
     }
 
+
+    if(isset($_GET['status'])){
+        $status = $_GET['status'];
+        $cod_usuario = $_GET['id'];
+
+        if($status == 0){
+            $sql = "UPDATE tbl_usuario SET usuario_ativo = 1 WHERE cod_usuario =".$cod_usuario;
+        }else{
+            $sql = "UPDATE tbl_usuario SET usuario_ativo = 0 WHERE cod_usuario =".$cod_usuario;
+        }
+        
+        if(mysqli_query($conexao, $sql)){
+            header('Location: cms_usuairo.php');
+        }
+
+    }
     /*************************+++********************************************* */
 
 
@@ -121,7 +146,7 @@
             function visualizarUsuario(idUsuario){
                 $.ajax({
                     type: "GET",
-                    url: "cms_modal_usuario.php",
+                    url: "./modais/cms_modal_usuario.php",
                     data:{codigo:idUsuario},
                     success: function(dados){
                         //alert(dados);
@@ -186,10 +211,19 @@
                         </div>
                         
                         <!-- select para escolher um Nivel para o usuario -->
-                        <select  id="cmb_nivel_usuario" name="cmb_nivel_usuario">    
-                            <option value="null">Nivel</option>
+                        <select  id="cmb_nivel_usuario" name="cmb_nivel_usuario">   
+                            <?php
+
+                                if($modo == 'buscar'){
+                            ?>
+                                <option value="<?php echo($nivel_usuario)?>"><?php echo($nivel)?></option>
+                            <?php
+                                }else{
+                            ?>
+                                <option value="null">Nivel</option>
                             <?php 
-                                $sql = "SELECT * from tbl_nivel_usuario;";
+                                }
+                                $sql = "SELECT * from tbl_nivel_usuario WHERE cod_nivel <> ".$nivel_usuario." ORDER BY cod_nivel";
                                 $select = mysqli_query($conexao, $sql);
                             
                                 while($rsNivelUsuario = mysqli_fetch_array($select)){
@@ -227,9 +261,9 @@
                         </tr>
                         <?php
                             // PEGANDO TODOS OS CAMPOS DAS TABELAS DE USUARIO E NIVEL
-                           $sql = "SELECT *
-                                        FROM tbl_usuario AS u LEFT JOIN tbl_nivel_usuario AS n
-                                          ON u.cod_nivel = n.cod_nivel;";
+                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel
+                                        FROM tbl_usuario AS usuario LEFT JOIN tbl_nivel_usuario AS nivel_usuario
+                                          ON usuario.cod_nivel = nivel_usuario.cod_nivel;";
                             // execultando no mysql
                             $select= mysqli_query($conexao, $sql);
                         
@@ -258,9 +292,22 @@
                                 <a href="?modo=excluir&id=<?php echo($rsUsuarios['cod_usuario']);?>">
                                     <img  src="./img/icon_delete.png" class="icon img-size" alt="Deletar" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsUsuarios['nome_usuario']);?>')">
                                 </a>
-
-                                <img src="./img/icon_ativo.png" alt="Ativo"  class="icon img-size" title="ativo">
-
+                                
+                                <a href="?status=<?php echo($rsUsuarios['usuario_ativo'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?> ">    
+                                    <?php
+                                        if($rsUsuarios['usuario_ativo'] == 0){
+                                            $imgStatus = 'icon_nao_ativo.png';
+                                            $alt = 'Não ativo';
+                                        }else{
+                                            $imgStatus = 'icon_ativo.png';
+                                            $alt = 'Ativo';
+                                        }
+                                    ?>
+                                    <img src="./img/<?php echo($imgStatus)?>" class="icon img-size" alt="<?php echo($alt)?>" title="<?php echo($alt)?>">
+                                    
+                                </a>
+                            
+                            
                             </td>
                         </tr>
                         <?php
