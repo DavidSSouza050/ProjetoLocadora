@@ -13,6 +13,8 @@
     background-color: rgb(89, 152, 224);
 }
 
+
+
 #headerCMS{
     width: inherit;
     height: 200px;
@@ -175,6 +177,7 @@
     font-size: 30px;
     font-family: MeganJune;
     font-weight: bold;
+    color:black !important;
 }
 
 /*TABELA DA PAGINA FALE CONOSCO*/
@@ -472,6 +475,7 @@ td{
     font-family: MeganJune;
     font-size: 25px;
 }
+
 #segura_table{
     width: inherit;
     height: 340px;
@@ -536,4 +540,138 @@ td{
     font-weight: bold;
 }
 
+/****SOBRE DA EMPRESA****/
+
+#conteudo_sobre_empresa{
+    width: inherit;
+    min-height: 500px;
+    height: auto;
+    display:flex;
+    background-color: rgb(65, 64, 64);
+}
+
+#menu_sobre_empresa_cadastros{
+    width: 300px;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.itens_menu_sobre_empresa{
+    width: 250px;
+    height: 70px; 
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    border-radius: 0px 30px 30px 0px;
+    padding-top: 18px;
+    padding-left: 35px;
+    cursor: pointer;
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+    color: black !important;
+}
+.itens_menu_sobre_empresa:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 9px rgb(180, 180, 180);
+    font-weight: bold;
+}
+
+
+#segura_table_de_sobre_empresa{
+    width: 1100px;
+    background-color: rgb(65, 64, 64);
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+
+#table_sobre_empresa{
+    width: 1000px;
+}
+#thead_sobre_empresa{
+    height: 50px;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: MeganJune;
+    color:white;
+}
+#thead_sobre_empresa td{
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.tbody_sobre_empresa{
+    height: 50px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: MeganJune;
+    color:black;
+}
+.tbody_sobre_empresa td{
+    font-size: 35px;
+    padding-left: 20px;
+}
+/**************************/
+/**Cadastrar sobre**/
+#card_cadastrar_sobre{
+    width: 700px;
+    height: 500px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    background-color: rgb(113, 113, 114);
+}
+#segura_titulo_imagem{
+    width: inherit;
+    height: 150px;
+}
+#caixa_titulo{
+    width: 400px;
+    height: inherit;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 60px;
+    padding-left: 20px;
+    /*Font*/
+    font-size: 30px;
+    font-family: baronBold;
+}
+#text_cadastro_titulo{
+    width: 200px;
+    height: 43px;
+    font-size: 30px;
+    font-family: baronBold;
+    border-radius: 15px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+#caixa_imagem{
+    width: 300px;
+    height: inherit;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-left: 25px;
+}
+
+#segura_textArea{
+    width: inherit;
+    height: 260px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 90px;
+}
+
+#textA_sobre{
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    resize: none;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: 25px;
+    font-family:'Arial Narrow Bold', sans-serif;
+}
+/*******************/
 /*fim da cms*/

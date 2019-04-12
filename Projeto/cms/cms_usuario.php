@@ -259,7 +259,8 @@
                                     <img  src="./img/icon_delete.png" class="icon img-size" alt="Deletar" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsUsuarios['nome_usuario']);?>')">
                                 </a>
 
-                                
+                                <img src="./img/icon_ativo.png" alt="Ativo"  class="icon img-size" title="ativo">
+
                             </td>
                         </tr>
                         <?php

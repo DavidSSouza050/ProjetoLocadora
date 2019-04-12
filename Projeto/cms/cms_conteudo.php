@@ -105,19 +105,19 @@
                     </div>
 
                     <div class="conteudo_editavel">
-                            
-                        <!-- imagem do conteudo editavel -->
-                        <figure>
-                            <div class="img_conteudo_editavel">
-                                <img class="img-size" src="../img/instagram.png">
+                        <a href="cms_sobre_empresa.php"> 
+                            <!-- imagem do conteudo editavel -->
+                            <figure>
+                                <div class="img_conteudo_editavel">
+                                    <img class="img-size" src="../img/instagram.png">
+                                </div>
+                            </figure>
+
+                            <!-- texto do conteudo editavel -->
+                            <div class="mensagem_conteudo_editavel">
+                                GERENCIAR SOBRE DA EMPRESA
                             </div>
-                        </figure>
-
-                        <!-- texto do conteudo editavel -->
-                        <div class="mensagem_conteudo_editavel">
-                            GERENCIAR SOBRE DA EMPRESA
-                        </div>
-
+                        </a>
                     </div>
 
                     <div class="conteudo_editavel">

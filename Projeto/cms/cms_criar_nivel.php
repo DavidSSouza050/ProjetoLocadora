@@ -112,11 +112,9 @@
                     <div class="caixa_cadastro_nivel">
                         <select id="cmb_cadastro_nivel" name="cmb_cadastro_nivel">
                             <option>Paginas Modificaveis</option>
-                            <option value="0">Todas</option>
-                            <option value="1">Conteudo</option>
-                            <option value="2">Fale Conosco</option>
-                            <option value="3">Produtos</option>
-                            <option value="4">Usuarios</option>
+                            <option value="0">Administrador</option>
+                            <option value="1">Catalogista</option>
+                            <option value="2">Operador Básico</option>
                         </select>
                     </div>
                     <div id="segura_btn_cadastro_nivel">
@@ -157,6 +155,8 @@
                             <a href="?modoNivel=excluir&id=<?php echo($rsNivel['cod_nivel'])?>">
                                 <img src="./img/icon_delete.png"  onclick="return confirm('Deseja reamente excluir o NIvel <?php echo($rsUsuarios['nome_nivel']);?>')" class="icon img-size" alt="Deletar" title="Deletar">
                             </a>
+
+                            <img src="./img/icon_ativo.png" class="icon img-size" alt="Ativo" title="ativo">
 
                         </td>
                     </tr>
