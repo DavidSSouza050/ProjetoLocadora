@@ -80,8 +80,8 @@
         }elseif($modo == 'buscar'){
             $sqlBusca = "SELECT usuario.*, nivel.*
             FROM tbl_usuario as usuario INNER JOIN tbl_nivel_usuario as nivel
-            /*colocar ON*/
-             WHERE usuario.cod_usuario=".$id;
+            ON usuario.cod_nivel = nivel.cod_nivel
+            WHERE usuario.cod_usuario=".$id;
             $select = mysqli_query($conexao, $sqlBusca);
 
             if($rsUsuario = mysqli_fetch_array($select)){
@@ -89,8 +89,10 @@
                 $email_usuario = $rsUsuario['email'];
                 $senha_usuario = $rsUsuario['senha'];
                 
+                
                 $nivel_usuario = $rsUsuario['cod_nivel'];
                 $nivel = $rsUsuario['nome_nivel'];
+                
 
                 $batao_salvar = 'Editar';
                 $batao_limpar = 'Cancelar';
@@ -112,10 +114,26 @@
         }
         
         if(mysqli_query($conexao, $sql)){
-            header('Location: cms_usuairo.php');
+            header('Location: cms_usuario.php');
         }
 
     }
+
+    if(isset($_SESSION['nivel_desativado'])){
+
+        if($_SESSION['nivel_desativado'] == 0){
+            $sql = "UPDATE tbl_usuario set usuario_ativo = 0, cod_nivel = null 
+            WHERE cod_nivel = ".$_SESSION['cod_nivel'];            
+        }
+
+        if(mysqli_query($conexao, $sql)){
+            header('Location: cms_usuario.php');
+            unset($_SESSION['nivel_desativado']);
+            unset($_SESSION['cod_nivel']);
+        }
+        
+    }
+
     /*************************+++********************************************* */
 
 
@@ -214,7 +232,7 @@
                         <select  id="cmb_nivel_usuario" name="cmb_nivel_usuario">   
                             <?php
 
-                                if($modo == 'buscar'){
+                                if($nivel_usuario != 0){
                             ?>
                                 <option value="<?php echo($nivel_usuario)?>"><?php echo($nivel)?></option>
                             <?php
@@ -223,7 +241,8 @@
                                 <option value="null">Nivel</option>
                             <?php 
                                 }
-                                $sql = "SELECT * from tbl_nivel_usuario WHERE cod_nivel <> ".$nivel_usuario." ORDER BY cod_nivel";
+                                $sql = "SELECT * from tbl_nivel_usuario WHERE cod_nivel <> ".$nivel_usuario." AND ativo <> 0
+                                 ORDER BY cod_nivel";
                                 $select = mysqli_query($conexao, $sql);
                             
                                 while($rsNivelUsuario = mysqli_fetch_array($select)){
@@ -261,7 +280,7 @@
                         </tr>
                         <?php
                             // PEGANDO TODOS OS CAMPOS DAS TABELAS DE USUARIO E NIVEL
-                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel
+                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel, nivel_usuario.ativo
                                         FROM tbl_usuario AS usuario LEFT JOIN tbl_nivel_usuario AS nivel_usuario
                                           ON usuario.cod_nivel = nivel_usuario.cod_nivel;";
                             // execultando no mysql
@@ -295,7 +314,7 @@
                                 
                                 <a href="?status=<?php echo($rsUsuarios['usuario_ativo'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?> ">    
                                     <?php
-                                        if($rsUsuarios['usuario_ativo'] == 0){
+                                        if($rsUsuarios['usuario_ativo'] == 0 || $rsUsuarios['ativo'] == 0){
                                             $imgStatus = 'icon_nao_ativo.png';
                                             $alt = 'Não ativo';
                                         }else{

@@ -1,3 +1,18 @@
+<?php
+    // entrando No banco
+    require_once('./db/conexao.php');
+    $conexao = conexaoMysql();
+
+    $sql = "SELECT * FROM tbl_sobre";
+    $select = mysqli_query($conexao, $sql);
+    while($rsSobre = mysqli_fetch_array($select)){
+        if($rsSobre['ativo'] == 1){
+            $titulo_sobre = $rsSobre['titulo_sobre'];
+            $texto_sobre = $rsSobre['texto_sobre'];
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,12 +32,11 @@
             <!-- div quem somos  contando a história da locadora-->
             <div id="quemSomos_sobre">
                 <div id="titulo_sobre">
-                    Quem Somos?
+                    <?php echo($titulo_sobre);?>
                 </div>
                 <div id="caixa_texto_quemSomos">
                     <div id="texto_quemSomos" class="scrollTexto">
-                       <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
-                       <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.</p>
+                        <?php echo($texto_sobre);?>
                     </div>
                 </div>
                 <figure>

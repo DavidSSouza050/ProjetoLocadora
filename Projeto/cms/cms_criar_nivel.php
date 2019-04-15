@@ -53,7 +53,7 @@
         if($modo_nivel == 'excluir'){
             $sqlDeletarNivel = "DELETE FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
             // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
-//            echo($sqlDeletarNivel);
+
             if(mysqli_query($conexao, $sqlDeletarNivel)){
             /*Redireciona para uma nova pagina*/
                 header("Location: cms_criar_nivel.php");
@@ -80,6 +80,28 @@
     }
 
     //********************************************************* */
+
+
+    if(isset($_GET['statusNivel'])){
+        $status = $_GET['statusNivel'];
+        $cod_nivel = $_GET['id'];
+        /*Vaeiaveis de sessão caso tenha que dasativar o nivel do  usuairo*/
+        $_SESSION['nivel_desativado'] = $status;
+        $_SESSION['cod_nivel'] = $cod_nivel;
+
+        if($status == 0){
+            $sql = "UPDATE tbl_nivel_usuario set ativo = 1 WHERE cod_nivel =".$cod_nivel;
+        }else{
+            $sql = "UPDATE tbl_nivel_usuario set ativo = 0 WHERE cod_nivel =".$cod_nivel;
+        }
+
+        if(mysqli_query($conexao, $sql)){
+            header("Location: cms_usuario.php");
+        }
+
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -156,8 +178,19 @@
                                 <img src="./img/icon_delete.png"  onclick="return confirm('Deseja reamente excluir o NIvel <?php echo($rsUsuarios['nome_nivel']);?>')" class="icon img-size" alt="Deletar" title="Deletar">
                             </a>
 
-                            <img src="./img/icon_ativo.png" class="icon img-size" alt="Ativo" title="ativo">
+                            <a href="?statusNivel=<?php echo($rsNivel['ativo'])?>&id=<?php echo($rsNivel['cod_nivel'])?>">
+                                <?php
+                                    if($rsNivel['ativo'] == 0){
+                                        $img = 'icon_nao_ativo.png';
+                                        $alt = 'não ativo';
+                                    }else{
+                                        $img = 'icon_ativo.png';
+                                        $alt = 'ativo';
+                                    }
+                                ?>
 
+                                <img src="./img/<?php echo($img)?>" class="icon img-size" alt="<?php echo($alt)?>" title="<?php echo($alt)?>">
+                            </a>
                         </td>
                     </tr>
                     <?php
