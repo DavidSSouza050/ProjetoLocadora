@@ -108,9 +108,9 @@
         $cod_usuario = $_GET['id'];
 
         if($status == 0){
-            $sql = "UPDATE tbl_usuario SET usuario_ativo = 1 WHERE cod_usuario =".$cod_usuario;
+            $sql = "UPDATE tbl_usuario SET status = 1 WHERE cod_usuario =".$cod_usuario;
         }else{
-            $sql = "UPDATE tbl_usuario SET usuario_ativo = 0 WHERE cod_usuario =".$cod_usuario;
+            $sql = "UPDATE tbl_usuario SET status = 0 WHERE cod_usuario =".$cod_usuario;
         }
         
         if(mysqli_query($conexao, $sql)){
@@ -122,15 +122,29 @@
     if(isset($_SESSION['nivel_desativado'])){
 
         if($_SESSION['nivel_desativado'] == 0){
-            $sql = "UPDATE tbl_usuario set usuario_ativo = 0, cod_nivel = null 
-            WHERE cod_nivel = ".$_SESSION['cod_nivel'];            
+            $slqVerficar = "SELECT 
+            usuario.nome_usuario AS NOME_USUARIO,
+            usuario.cod_nivel AS COD_NIVEL_USUAIRO,
+            nivel.cod_nivel AS COD_NIVEL_NIVEL,
+            nivel.nome_nivel AS NOME_NIVEL
+            FROM tbl_nivel_usuario as nivel JOIN tbl_usuario as usuario
+            ON nivel.cod_nivel  = usuario.cod_nivel;";
+
+            if(mysqli_query($conexao,$slqVerficar)){
+                $sql = "UPDATE tbl_usuario set status = 0, cod_nivel = null 
+                WHERE cod_nivel = ".$_SESSION['cod_nivel'];    
+                
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_usuario.php');
+                    unset($_SESSION['nivel_desativado']);
+                    unset($_SESSION['cod_nivel']);
+                }        
+        
+            }
+        
         }
 
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_usuario.php');
-            unset($_SESSION['nivel_desativado']);
-            unset($_SESSION['cod_nivel']);
-        }
+        
         
     }
 
@@ -241,7 +255,7 @@
                                 <option value="null">Nivel</option>
                             <?php 
                                 }
-                                $sql = "SELECT * from tbl_nivel_usuario WHERE cod_nivel <> ".$nivel_usuario." AND ativo <> 0
+                                $sql = "SELECT * from tbl_nivel_usuario WHERE cod_nivel <> ".$nivel_usuario." AND status <> 0
                                  ORDER BY cod_nivel";
                                 $select = mysqli_query($conexao, $sql);
                             
@@ -280,7 +294,7 @@
                         </tr>
                         <?php
                             // PEGANDO TODOS OS CAMPOS DAS TABELAS DE USUARIO E NIVEL
-                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel, nivel_usuario.ativo
+                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel, nivel_usuario.status
                                         FROM tbl_usuario AS usuario LEFT JOIN tbl_nivel_usuario AS nivel_usuario
                                           ON usuario.cod_nivel = nivel_usuario.cod_nivel;";
                             // execultando no mysql
@@ -312,9 +326,9 @@
                                     <img  src="./img/icon_delete.png" class="icon img-size" alt="Deletar" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsUsuarios['nome_usuario']);?>')">
                                 </a>
                                 
-                                <a href="?status=<?php echo($rsUsuarios['usuario_ativo'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?> ">    
+                                <a href="?status=<?php echo($rsUsuarios['status'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?> ">    
                                     <?php
-                                        if($rsUsuarios['usuario_ativo'] == 0 || $rsUsuarios['ativo'] == 0){
+                                        if($rsUsuarios['status'] == 0){
                                             $imgStatus = 'icon_nao_ativo.png';
                                             $alt = 'Não ativo';
                                         }else{

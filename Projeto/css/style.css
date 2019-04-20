@@ -606,7 +606,7 @@ input[type=radio]:checked:before {
 
 .coodernadas{
     width: 600px;
-    height: 60px;
+    height: 80px;
     margin-top: 30px;
     margin-bottom: 30px;
     box-sizing: border-box;

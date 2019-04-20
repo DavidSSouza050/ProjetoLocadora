@@ -19,7 +19,7 @@
             $campo_tabela = 'cod_sobre';//passando a coluna que vai servir de referencia para a edição
             $status = 1; //desativando o sobre 
 
-            $sql="UPDATE ".$tabela." SET ativo = 0 WHERE ".$campo_tabela." > 0 ";
+            $sql="UPDATE ".$tabela." SET status = 0 WHERE ".$campo_tabela." > 0 ";
             
             if(mysqli_query($conexao, $sql)){
                 //echo('AEE POXA FOI ESSA PARADA');
@@ -28,11 +28,31 @@
             }            
 
         }
+        
+        if($pagina == 'loja' && $status == 1){
+            $tabela = 'tbl_loja';
+            $codigo = $_GET['codigo'];
+            $campo_tabela = 'cod_loja';
+            $status = 0;
+        }elseif($pagina == 'loja' && $status == 0){
+            $tabela = 'tbl_loja';
+            $codigo = $_GET['codigo'];
+            $campo_tabela = 'cod_loja';
+            $status = 1;
+            
+            $sql="UPDATE ".$tabela." SET status = 0 WHERE ".$campo_tabela." > 0 ";
+            
+            if(mysqli_query($conexao, $sql)){
+                echo('AEE POXA FOI ESSA PARADA');
+            }else{
+                //echo($sql.'\n');
+            }            
+        }
 
-        $sql = "UPDATE ".$tabela." SET ativo = ".$status." WHERE ".$campo_tabela." = ".$codigo;
+        $sql = "UPDATE ".$tabela." SET status = ".$status." WHERE ".$campo_tabela." = ".$codigo;
 
         if(mysqli_query($conexao, $sql)){
-            //echo("nao sei");
+            echo("nao sei");
         }else{
            // echo($sql);
         }

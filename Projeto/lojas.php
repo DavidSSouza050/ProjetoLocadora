@@ -1,8 +1,36 @@
 <?php
-    $coordenada = '0,0';
+    // entrando No banco
+    require_once('./db/conexao.php');
+    $conexao = conexaoMysql();
+ 
+    $logradouro = null;
+    $bairro = null;
+    $cidade = null;
+    $estado = null;
+    $numero = null;
 
-    if(isset($_GET['coordenada'])){
-        $coordenada = $_GET['coordenada'];
+    if(isset($_GET['cod_loja'])){
+        $cod_loja = $_GET['cod_loja'];
+        $sql="SELECT endereco.logradouro,
+                endereco.bairro,
+                cidade.cidade,
+                estado.uf,
+                loja.cod_loja,
+                loja.status,
+                endereco.numero
+                FROM tbl_loja as loja INNER JOIN tbl_endereco AS endereco 
+                ON loja.cod_endereco = endereco.cod_endereco INNER JOIN tbl_cidade as cidade
+                ON endereco.cod_cidade = cidade.cod_cidade INNER JOIN tbl_estado as estado
+                ON cidade.cod_estado = estado.cod_estado WHERE cod_loja =".$cod_loja;
+        $select = mysqli_query($conexao, $sql);
+        if($rsEnderco = mysqli_fetch_array($select)){
+            $logradouro = $rsEnderco['logradouro'];
+            $bairro = $rsEnderco['bairro'];
+            $cidade = $rsEnderco['cidade'];
+            $estado = $rsEnderco['uf'];
+            $numero = $rsEnderco['numero'];
+    
+        }
 
     }
 
@@ -24,35 +52,39 @@
             <div id="caixa_iFrame_maps">
                 <!-- coordenadas frame para pqgar as coodenadas -->
                 <div id="iFrame_maps">
-                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($coordenada)?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($logradouro);echo($bairro);echo($cidade);echo($estado);echo($numero);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">
                 <!-- a com cada codernada das lojas cadastradas -->
+                
+                <?php
+                    $sql = "SELECT endereco.logradouro,
+                                    endereco.bairro,
+                                    cidade.cidade,
+                                    estado.estado,
+                                    loja.cod_loja,
+                                    loja.status,
+                                    endereco.numero
+                                    FROM tbl_loja as loja INNER JOIN tbl_endereco AS endereco 
+                                    ON loja.cod_endereco = endereco.cod_endereco INNER JOIN tbl_cidade as cidade
+                                    ON endereco.cod_cidade = cidade.cod_cidade INNER JOIN tbl_estado as estado
+                                    ON cidade.cod_estado = estado.cod_estado";
 
-                <a href='?coordenada=38.838438,-9.168539'>
+                    $select = mysqli_query($conexao, $sql);
+                while($rsLoja = mysqli_fetch_array($select)){
+                    if($rsLoja['status'] == 1){
+                ?>
+                <a href='?cod_loja=<?php echo($rsLoja['cod_loja'])?>'>
                     <div class='coodernadas center'>
-                        R. Anselmo Braamcamp Freire 4A, 2670-355 Loures, Portugal
+                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($rsLoja['cidade'])?>, <?php echo($rsLoja['estado'])?>, Nº<?php echo($rsLoja['numero'])?>
                     </div>
                 </a>    
-                
-                <a href='?coordenada=43.701583,-79.396989'>
-                    <div class='coodernadas center'>
-                        North Toronto, Toronto, ON M4S 2A2, Canadá
-                    </div>
-                </a>  
-
-                <a href='?coordenada=01050-070'>
-                    <div class='coodernadas center'>
-                        R. Avanhandava, 81 - Consolação, São Paulo - SP
-                    </div>
-                </a>  
-
-                <a href='?coordenada=58.572140,25.063491'>
-                    <div class='coodernadas center'>
-                        Vihtra, 87603 Pärnumaa, Estônia
-                    </div>
-                </a>  
+                <?php
+                    }
+                }
+                ?>
+               
                 <!-- fim das coodernadas -->
                        
             </div>

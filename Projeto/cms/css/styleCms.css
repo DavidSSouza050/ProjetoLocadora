@@ -512,7 +512,7 @@ td{
 
 /****SOBRE DA EMPRESA****/
 
-#conteudo_sobre_empresa{
+#conteudo_paginas_conteudo{
     width: inherit;
     min-height: 500px;
     height: auto;
@@ -520,13 +520,13 @@ td{
     background-color: rgb(65, 64, 64);
 }
 
-#menu_sobre_empresa_cadastros{
+#menu_card_cadastro{
     width: 300px;
     box-sizing: border-box;
     padding-top: 20px;
 }
 
-.itens_menu_sobre_empresa{
+.itens_card_cadastro{
     width: 250px;
     height: 70px; 
     box-sizing: border-box;
@@ -540,43 +540,45 @@ td{
     font-family: MeganJune;
     color: black !important;
 }
-.itens_menu_sobre_empresa:hover{
+.itens_card_cadastro:hover{
     transform: scale(1.01);
     box-shadow: 0px 0px 9px rgb(180, 180, 180);
     font-weight: bold;
 }
 
 
-#segura_table_de_sobre_empresa{
+#segura_table_conteudo{
     width: 1100px;
-    background-color: rgb(65, 64, 64);
     box-sizing: border-box;
     padding-top: 15px;
+    padding-bottom: 20px;
 }
 
-#table_sobre_empresa{
+
+/*table padr*/
+#table{
     width: 1000px;
 }
-#thead_sobre_empresa{
+#thead{
     height: 50px;
     box-sizing: border-box;
     background-color: black;
     font-family: MeganJune;
     color:white;
 }
-#thead_sobre_empresa td{
+#thead td{
     font-size: 30px;
     padding-left: 20px;
 }
 
-.tbody_sobre_empresa{
+.tbody{
     height: 50px;
     box-sizing: border-box;
     background-color: white;
     font-family: MeganJune;
     color:black;
 }
-.tbody_sobre_empresa td{
+.tbody td{
     font-size: 35px;
     padding-left: 20px;
 }
@@ -651,8 +653,69 @@ td{
 }
 
 /*******************/
+/*********LOJAS*******/
 
 
+/*modal cadastrar lojas*/
+#card_cadastrar_loja{
+    width: inherit;
+    height: 420px;
+    padding-top: 20px;
+    border-radius: 15px;
+}
+.card_txt_modal_lojas{
+    width: inherit;
+    height: 100px;
+    overflow: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.segura_txt_1{
+    width: 370px;
+    height: inherit;
+    background-color: rgb(153, 153, 153);
+    float: left;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-top: 25px;
+    /*font*/
+    font-size: 35px;
+    font-family: MeganJune;
+
+}
+.segura_txt_2{
+    width: 330px;
+    height: inherit;
+    background-color: silver;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 25px;
+    /*font*/
+    font-size: 35px;
+    font-family: MeganJune;
+}
+#segura_botao_loja{
+    box-sizing: border-box;
+    float: right;
+}
+.txt_lojas{
+    width: 180px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 15px;
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+}
+.txt_lojas:focus{
+    outline: none;
+}
+/***********************/
+
+/*********************/
 /*MODAL FALE CONOSCO*/
 #conteiner{
     width: 100%;
@@ -673,12 +736,12 @@ td{
 
 #modal_larga{
     width: 700px;
-    height: 500px;
-    min-height: 400px;
+    min-height: 500px;
     height: auto;
     overflow: hidden;
     box-sizing: border-box;
 }
+
 #segurar_fechar_modal{
     width: 600px;
     height: 70px;
@@ -690,7 +753,5 @@ td{
     position: fixed;
     margin-left: 530px;
 }
-
-
 /***************************************/
 /*fim da cms*/

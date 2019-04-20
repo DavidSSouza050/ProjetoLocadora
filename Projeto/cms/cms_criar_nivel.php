@@ -6,7 +6,7 @@
     $conexao = conexaoMysql();
     //atribuindo variaveis
     $nome_nivel = null;
-    $btn_nivel = 'Salva';
+    $btn_nivel = 'Salvar';
     $btn_limpar_nivel = 'limpar';
 
     //limpar caixa
@@ -27,11 +27,11 @@
             $sql = "UPDATE tbl_nivel_usuario SET nome_nivel ='".$nome_nivel."' WHERE cod_nivel =".$_SESSION["id_nivel"];
         }
         
-                // echo($sql);
+           // echo($sql);
         // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
         if(mysqli_query($conexao, $sql)){
         /*Redireciona para uma nova pagina*/
-            header("Location: cms_usuario.php");
+            header("Location: cms_criar_nivel.php");
 
         }else{
             // se não der certo mostra essa mensagem
@@ -90,9 +90,9 @@
         $_SESSION['cod_nivel'] = $cod_nivel;
 
         if($status == 0){
-            $sql = "UPDATE tbl_nivel_usuario set ativo = 1 WHERE cod_nivel =".$cod_nivel;
+            $sql = "UPDATE tbl_nivel_usuario set status = 1 WHERE cod_nivel =".$cod_nivel;
         }else{
-            $sql = "UPDATE tbl_nivel_usuario set ativo = 0 WHERE cod_nivel =".$cod_nivel;
+            $sql = "UPDATE tbl_nivel_usuario set status = 0 WHERE cod_nivel =".$cod_nivel;
         }
 
         if(mysqli_query($conexao, $sql)){
@@ -175,12 +175,12 @@
                             </a>
 
                             <a href="?modoNivel=excluir&id=<?php echo($rsNivel['cod_nivel'])?>">
-                                <img src="./img/icon_delete.png"  onclick="return confirm('Deseja reamente excluir o NIvel <?php echo($rsUsuarios['nome_nivel']);?>')" class="icon img-size" alt="Deletar" title="Deletar">
+                                <img src="./img/icon_delete.png"  onclick="return confirm('Deseja reamente excluir o Nivel <?php echo($rsNivel['nome_nivel']);?>')" class="icon img-size" alt="Deletar" title="Deletar">
                             </a>
 
-                            <a href="?statusNivel=<?php echo($rsNivel['ativo'])?>&id=<?php echo($rsNivel['cod_nivel'])?>">
+                            <a href="?statusNivel=<?php echo($rsNivel['status'])?>&id=<?php echo($rsNivel['cod_nivel'])?>">
                                 <?php
-                                    if($rsNivel['ativo'] == 0){
+                                    if($rsNivel['status'] == 0){
                                         $img = 'icon_nao_ativo.png';
                                         $alt = 'não ativo';
                                     }else{

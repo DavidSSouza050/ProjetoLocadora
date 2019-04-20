@@ -40,17 +40,22 @@
         $cod_sobre = $_GET['id'];
 
         if($modo == 'excluir'){
-            $sql = "SELECT ativo from tbl_sobre WHERE cod_sobre =".$cod_sobre;
+            //verificando se o nivel está no usuario
+            $sql = "SELECT sobre.status from tbl_sobre as sobre WHERE cod_sobre =".$cod_sobre;
             $select=mysqli_query($conexao,$sql);
+            //execultando o sql
             if($rsSobreAtivo = mysqli_fetch_array($select)){
-                if($rsSobreAtivo['ativo'] == 1){
+                //verificando se está ativado
+                if($rsSobreAtivo['status'] == 1){
                     echo("<script>alert('Primeiro ative outro Sobre para excluir este')</script>");
-                }elseif($rsSobreAtivo['ativo'] == 0){
+                    echo("<script>window.location='cms_lojas.php';</script>");
+                }elseif($rsSobreAtivo['status'] == 0){
+                //se não deleta o sobre     
                     $sqlDelete = "DELETE FROM tbl_sobre WHERE cod_sobre = ".$cod_sobre;
             
                     if(mysqli_query($conexao, $sqlDelete)){
                         /*Redireciona para uma nova pagina*/
-                        header("Sobre excluido");
+                        header("Location: cms_sobre_empresa.php");
 
                     }else{
                         // se não der certo mostra essa mensagem
@@ -61,9 +66,7 @@
                         ");
                     }  
                 }
-            }
-
-            
+            }         
         }
     }
 
@@ -110,7 +113,6 @@
                     url: "./util/ativar_desativar.php",
                     data:{pagina:pagina, status:status, codigo:codigo},
                     complete: function(response){
-                        
                         location.reload();
                     },
                 })
@@ -148,18 +150,18 @@
             
         
             <!-- conteudo do menu do cms -->
-            <div id="conteudo_sobre_empresa">
+            <div id="conteudo_paginas_conteudo">
                 <!-- caixa que vai conter outras paginas relacionadas sobre a empresa                 -->
-                <div id="menu_sobre_empresa_cadastros">
-                    <div class="itens_menu_sobre_empresa visualizar" onclick="cadastrar_sobre('Cadastrar', 0)">
+                <div id="menu_card_cadastro">
+                    <div class="itens_card_cadastro visualizar" onclick="cadastrar_sobre('Cadastrar', 0)">
                         Cadastrar sobre
                     </div>      
                 </div>
                 
                 <!-- vai mostrar todos os sobres cadastrados -->
-                <div id="segura_table_de_sobre_empresa">
-                    <table id="table_sobre_empresa">
-                        <tr id="thead_sobre_empresa">
+                <div id="segura_table_conteudo">
+                    <table id="table">
+                        <tr id="thead">
                             <td>
                                 Titulo
                             </td>
@@ -174,7 +176,7 @@
                             $select = mysqli_query($conexao, $sql);
                             while($rsSobre = mysqli_fetch_array($select)){
                         ?>
-                        <tr class="tbody_sobre_empresa">
+                        <tr class="tbody">
                             <td>
                                 <?php echo($rsSobre['titulo_sobre'])?>
                             </td>
@@ -187,10 +189,10 @@
                                 </a>
 
                                 <?php
-                                    $img = $rsSobre['ativo'] == 0 ? 'icon_nao_ativo.png' : 'icon_ativo.png';
-                                    $altEtitle = $rsSobre['ativo'] == 0 ? 'não ativo' : 'ativo';
+                                    $img = $rsSobre['status'] == 0 ? 'icon_nao_ativo.png' : 'icon_ativo.png';
+                                    $altEtitle = $rsSobre['status'] == 0 ? 'não ativo' : 'ativo';
                                 ?>
-                                <img src="./img/<?php echo($img)?>" class="icon img-size" onclick="ativarDesativar('sobre_empresa', <?php echo($rsSobre['ativo'])?>, <?php echo($rsSobre['cod_sobre'])?>)" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
+                                <img src="./img/<?php echo($img)?>" class="icon img-size" onclick="ativarDesativar('sobre_empresa', <?php echo($rsSobre['status'])?>, <?php echo($rsSobre['cod_sobre'])?>)" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
 
                             </td>
                         </tr>

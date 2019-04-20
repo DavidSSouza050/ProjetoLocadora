@@ -6,7 +6,7 @@
     $sql = "SELECT * FROM tbl_sobre";
     $select = mysqli_query($conexao, $sql);
     while($rsSobre = mysqli_fetch_array($select)){
-        if($rsSobre['ativo'] == 1){
+        if($rsSobre['status'] == 1){
             $titulo_sobre = $rsSobre['titulo_sobre'];
             $texto_sobre = $rsSobre['texto_sobre'];
         }

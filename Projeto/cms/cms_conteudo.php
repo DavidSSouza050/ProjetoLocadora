@@ -9,33 +9,6 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
         <link rel="shortcut icon" href="../img/iconeDeAbaACME.png" type="image/x-png">
         <script src="../js/jquery-1.11.3.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('#fachar_modal_fale_conosco').click(function(){
-                    $('#conteiner').fadeOut(300);
-                });
-            });
-
-            $(document).ready(function(){
-                $('.visualizar').click(function(){
-                    $('#conteiner').fadeIn(300);
-                });
-            });
-
-            function visualizarUsuario(idUsuario){
-                $.ajax({
-                    type: "GET",
-                    url: "cms_modal_usuario.php",
-                    data:{codigo:idUsuario},
-                    success: function(dados){
-                        //alert(dados);
-                        $('#modal').html(dados);
-                    }
-
-                });
-            };
-
-        </script>
     </head>
     <body>
         <!-- cnotender da modal que vai abrir para mostrar o cliente por completo -->
@@ -77,7 +50,7 @@
                         <!-- imagem do conteudo editavel -->
                         <figure>
                             <div class="img_conteudo_editavel">
-                                <img class="img-size" src="../img/instagram.png">
+                                <img class="img-size" src="./img/gerenciar_ator.png">
                             </div>
                         </figure>
                         
@@ -93,7 +66,7 @@
                         <!-- imagem do conteudo editavel -->
                         <figure>
                             <div class="img_conteudo_editavel">
-                                <img class="img-size" src="../img/instagram.png">
+                                <img class="img-size" src="./img/promocoes.png">
                             </div>
                         </figure>
                         
@@ -109,7 +82,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="../img/instagram.png">
+                                    <img class="img-size" src="./img/editar_sobre_empresa.png">
                                 </div>
                             </figure>
 
@@ -121,19 +94,19 @@
                     </div>
 
                     <div class="conteudo_editavel">
-                        
-                        <!-- imagem do conteudo editavel -->
-                        <figure>
-                            <div class="img_conteudo_editavel">
-                                <img class="img-size" src="../img/instagram.png">
+                        <a href="cms_lojas.php">
+                            <!-- imagem do conteudo editavel -->
+                            <figure>
+                                <div class="img_conteudo_editavel">
+                                    <img class="img-size" src="./img/lojas.png">
+                                </div>
+                            </figure>
+                            
+                            <!-- texto do conteudo editavel -->
+                            <div class="mensagem_conteudo_editavel">
+                                GERENCIAR LOJAS
                             </div>
-                        </figure>
-                        
-                        <!-- texto do conteudo editavel -->
-                        <div class="mensagem_conteudo_editavel">
-                            GERENCIAR LOJAS
-                        </div>
-                        
+                        </a>
                     </div>
 
                     <div class="conteudo_editavel">
@@ -141,7 +114,7 @@
                         <!-- imagem do conteudo editavel -->
                         <figure>
                             <div class="img_conteudo_editavel">
-                                <img class="img-size" src="../img/instagram.png">
+                                <img class="img-size" src="./img/gerenciar_filme.png">
                             </div>
                         </figure>
                         
