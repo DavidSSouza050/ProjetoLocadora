@@ -19,6 +19,7 @@
         if($rsSobre = mysqli_fetch_array($select)){
             $titulo_sobre = $rsSobre['titulo_sobre'];
             $texto_sobre = $rsSobre['texto_sobre'];
+            $nome_foto_sobre = $rsSobre['imagem_sobre'];
         }
 
 
@@ -28,13 +29,13 @@
   
 ?>        
 <div id="card_cadastrar_sobre" class="center">
-    <form name="frm_cadatrar_sobre" method="POST" action="cms_sobre_empresa.php">
+    <form name="frm_cadatrar_sobre" method="POST" action="cms_sobre_empresa.php" enctype="multipart/form-data">
         <div id="segura_titulo_imagem">
             <div id="caixa_titulo">
                 Titulo:<input type="text" value="<?php echo($titulo_sobre)?>" id="text_cadastro_titulo" name="txt_titulo_sobre">
             </div>
             <div id="caixa_imagem">
-                <input type="button" value="Imagem">
+                <input type="file" name="fle_imagem" >
             </div>
         </div>
         <div id="segura_textArea">
@@ -44,4 +45,13 @@
             <input type="submit" value="<?php echo($btn)?>" name="<?php echo($btn.'_sobre') ?>" id="cadastrar_sobre" class="botao_cadastro_usuario"> 
         </div>
     </form>
+    <?php
+        if(isset($nome_foto_sobre)){      
+    ?>
+    <div id="foto_sobre">
+        <img class="img-size" src="img/imagem_sobre/<?php echo($nome_foto_sobre)?>" alt="<?php echo($nome_foto_sobre);?>" title="<?php echo($nome_foto_sobre);?>">
+    </div>
+    <?php 
+        }
+    ?>
 </div>

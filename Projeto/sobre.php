@@ -9,6 +9,7 @@
         if($rsSobre['status'] == 1){
             $titulo_sobre = $rsSobre['titulo_sobre'];
             $texto_sobre = $rsSobre['texto_sobre'];
+            $nome_imagem_sobre = $rsSobre['imagem_sobre'];
         }
     }
 ?>
@@ -41,7 +42,7 @@
                 </div>
                 <figure>
                     <div id="imagem_quemSomos">
-                       <img id="lojaAntiga" class="img-size" src="./img/LojasAcime/imagemQuemSomos.jpg" alt="Uma das primeiras lojas"> 
+                       <img id="lojaAntiga" class="img-size" src="./cms/img/imagem_sobre/<?php echo($nome_imagem_sobre) ?>" alt="<?php echo($nome_imagem_sobre) ?>"> 
                     </div>
                 </figure>
             </div>

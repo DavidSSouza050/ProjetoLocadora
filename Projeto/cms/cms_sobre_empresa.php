@@ -5,29 +5,68 @@
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
 
-
+   
+    
     if(isset($_POST['Cadastrar_sobre'])){
         $titulo_sobre = $_POST['txt_titulo_sobre'];
-        $texto_sobre =  $_POST['textA_sobre'];
+        $texto_sobre =  $_POST['textA_sobre'];       
+        /*Upload de imagem*/
+        //constantes
+        $arquivos_permitidos = array(".jpg",".jepg", ".png");
+        $diretorio = "img/imagem_sobre/";
+        //pegando o nome da imagem
+        $foto_empresa = $_FILES['fle_imagem']['name'];
+        //tamanho da imagem
+        $tamanho_imagem = $_FILES['fle_imagem']['size'];
+        //tranformando em kbytes 
+        $tamanho_imagem = round($tamanho_imagem/1024);
+        //guardando a extenção do arquivo
+        $extensao_foto = strrchr($foto_empresa, ".");
+        //guardando o nome do arquivo com o pathinfo
+        $nome_foto = pathinfo($foto_empresa, PATHINFO_FILENAME);
+        //criptografando nome com a hora do pc
+        $arquivo_criptografado = sha1(uniqid(time()).$nome_foto);
+        /*CRIAMOS O NOME (JÁ CRIPTOGRAFADO) COM A EXTESÃO COM O NOME DO ARQUIVO QUE SERÁ ENVIADO PARA O SERVIDOR*/
+        $foto = $arquivo_criptografado . $extensao_foto;
 
-        
-        $sql = "INSERT INTO tbl_sobre (texto_sobre, titulo_sobre)
-            VALUES ('".$texto_sobre."','".$titulo_sobre."');" ;
-    
+        //validando a foto com a extasão e o tamanho 
+        if(in_array($extensao_foto, $arquivos_permitidos)){
+            //tamanho do arquivo (não pode ser maior de 10mb)
+            if($nome_foto <= 10000 ){
 
-        //echo($sql);
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_sobre_empresa.php');
+                $arquivo_tmp = $_FILES['fle_imagem']['tmp_name'];
+
+                if(move_uploaded_file($arquivo_tmp, $diretorio.$foto)){
+                    $sql = "INSERT INTO tbl_sobre (texto_sobre, titulo_sobre, imagem_sobre)
+                        VALUES ('".addslashes($texto_sobre)."','".addslashes($titulo_sobre)."', '".addslashes($foto)."');" ;   
+
+                    //echo($sql);
+                    if(mysqli_query($conexao, $sql)){
+                        header('Location: cms_sobre_empresa.php');
+                    }
+                }else{
+                    echo("<script>alert('Não foi possivel mover o arquivo')</script>");
+                    echo("<script>window.location='cms_sobre_empresa.php';</script>");
+                }
+            }else{  
+                echo("<script>alert('Tamanho da imagem maior que o permitido (10MB)')</script>");
+                echo("<script>window.location='cms_sobre_empresa.php';</script>");
+            }
+        }else{
+            echo("<script>alert('Colocar a foto da empresa é obrgatório')</script>");
+            echo("<script>window.location='cms_sobre_empresa.php';</script>");
         }
+
+  
     }elseif(isset($_POST['Atualizar_sobre'])){
         $titulo_sobre = $_POST['txt_titulo_sobre'];
         $texto_sobre =  $_POST['textA_sobre'];
 
         $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
-                                                texto_sobre ='".$texto_sobre."'
-                                                WHERE cod_sobre = ".$_SESSION['id_sobre'];
+                                     texto_sobre ='".$texto_sobre."'
+                                    WHERE cod_sobre = ".$_SESSION['id_sobre'];
     
-
+        
         //echo($sql);
         if(mysqli_query($conexao, $sql)){
             header('Location: cms_sobre_empresa.php');
@@ -48,13 +87,17 @@
                 //verificando se está ativado
                 if($rsSobreAtivo['status'] == 1){
                     echo("<script>alert('Primeiro ative outro Sobre para excluir este')</script>");
-                    echo("<script>window.location='cms_lojas.php';</script>");
+                    echo("<script>window.location='cms_sobre_empresa.php';</script>");
                 }elseif($rsSobreAtivo['status'] == 0){
                 //se não deleta o sobre     
                     $sqlDelete = "DELETE FROM tbl_sobre WHERE cod_sobre = ".$cod_sobre;
             
                     if(mysqli_query($conexao, $sqlDelete)){
                         /*Redireciona para uma nova pagina*/
+                        //apagando a imagem da pasta 
+                        $foto = $_GET['nome_foto'];
+                        $apaga_imagem = "img/imagem_sobre/".$foto;
+                        unlink($apaga_imagem);
                         header("Location: cms_sobre_empresa.php");
 
                     }else{
@@ -184,7 +227,7 @@
                                
                                 <img  src="./img/icon_edit.png" onclick="cadastrar_sobre('Atualizar', <?php echo($rsSobre['cod_sobre']);?>)" class="icon img-size visualizar" alt="Edição">
                             
-                                <a href="?modo=excluir&id=<?php echo($rsSobre['cod_sobre'])?>">
+                                <a href="?modo=excluir&id=<?php echo($rsSobre['cod_sobre'])?>&nome_foto=<?php echo($rsSobre['imagem_sobre'])?>">
                                     <img src="./img/icon_delete.png" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsSobre['titulo_sobre']);?>')" class="icon img-size" alt="Deletar">
                                 </a>
 

@@ -35,23 +35,19 @@
 
         /// ARRUMAR ESSA PARTE
         if(mysqli_query($conexao, $sql)){            
+            $codido_endereco = mysqli_insert_id($conexao);
+            $sql = "INSERT INTO tbl_loja (cod_endereco)
+                    VALUES (".$codido_endereco.");";
 
-            $sql = "SELECT cod_endereco FROM tbl_endereco";
-            $select = mysqli_query($conexao, $sql);
-            
-            if($rsEndereco = mysqli_fetch_array($select)){
-                $sql = "INSERT INTO tbl_loja (cod_endereco)
-                        VALUES (".$rsEndereco['cod_endereco'].");";
-
-                if(mysqli_query($conexao, $sql)){
-                    header('Location: cms_lojas.php');
-                }else{
-                    echo('booakpfksdkf');
-                }
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_lojas.php');
+            }else{
+                echo($sql);
             }
+            
 
         }else{
-            echo 'nãoooo';
+            echo $sql;
         }
         //******************************************************** */
    

@@ -47,13 +47,15 @@ const mascaraCep = (event) =>{
     if(event.keyCode != 8 && event.keyCode != 127){ // liberando a a deletação dos digitos
         let texto = cep.value;// atribuindo o conteudo da caixa para a veriavel texto
         texto = texto.replace(/[^0-9]/g,"");// libera apenas digitos
-        
+     
+        texto = texto.replace(/(.{5})/, "$1-");
+
         cep.value = texto;// a caixa recebe a variavel com a explessão regular para exculta o que é permitido
     }
 }
 
 const mascNumero = (event) => {
-    numero.maxLength = 5;
+    numero.maxLength = 4;
     if(event.keyCode != 8 && event.keyCode != 127){ // liberando a a deletação dos digitos
         let texto = numero.value;// atribuindo o conteudo da caixa para a veriavel texto
         texto = texto.replace(/[^0-9A-Za-z]/g,"");// libera apenas digitos e letras
@@ -69,7 +71,7 @@ const bloquearDigitacao = (caixa) =>{
 //listener da caixa
 cep.addEventListener('change', trazerEndereco);
 //colocando mascara
-//cep.addEventListener("keyup", (event) => mascaraCep(event));
+cep.addEventListener("keyup", (event) => mascaraCep(event));
 numero.addEventListener("keyup", (event) => mascNumero(event));
 //bloquendo as caixas para de ditação
 // logradouro.addEventListener('change', bloquearDigitacao(logradouro));

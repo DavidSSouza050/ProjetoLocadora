@@ -77,7 +77,7 @@
                 ?>
                 <a href='?cod_loja=<?php echo($rsLoja['cod_loja'])?>'>
                     <div class='coodernadas center'>
-                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($rsLoja['cidade'])?>, <?php echo($rsLoja['estado'])?>, Nº<?php echo($rsLoja['numero'])?>
+                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($rsLoja['cidade'])?>, <?php echo($rsLoja['estado'])?>, Nº <?php echo($rsLoja['numero'])?>
                     </div>
                 </a>    
                 <?php
