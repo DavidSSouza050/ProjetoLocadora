@@ -1,3 +1,7 @@
+<?php
+    //varivel de sessão
+    //session_start()
+?>
 <div id="caixa_menu_nome_usuario_cms">
     <!-- caixa que vai quardar só o menu -->
     <div id="caixa_conteudo_menu_cms">

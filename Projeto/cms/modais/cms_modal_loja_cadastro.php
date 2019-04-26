@@ -58,18 +58,18 @@
         <div class="card_txt_modal_lojas">
             <!-- divs que vai ter as caixas de texto e vão se trocar de lugar para estilização -->
             <div class="segura_txt_2">
-                logradouro:<input type="text"  value="<?php echo($logradouro);?>" class="txt_lojas"  name="txt_logradouro" id="txt_logradouro">     
+                logradouro:<input  type="text"  value="<?php echo($logradouro);?>" class="txt_lojas"  name="txt_logradouro" id="txt_logradouro">     
             </div>
 
             <div class="segura_txt_1">
-                Bairro: <input type="text" value="<?php echo($bairro);?>" class="txt_lojas"   name="txt_bairro" id="txt_bairro" >        
+                Bairro: <input type="text"  value="<?php echo($bairro);?>" class="txt_lojas"   name="txt_bairro" id="txt_bairro" >        
             </div>
             
         </div>
         <div class="card_txt_modal_lojas">
             <!-- divs que vai ter as caixas de texto e vão se trocar de lugar para estilização -->
             <div class="segura_txt_1">
-                Cidade: <input type="text" value="<?php echo($cidade);?>" class="txt_lojas"  name="txt_cidade" id="txt_cidade" >
+                Cidade: <input type="text"  value="<?php echo($cidade);?>" class="txt_lojas"  name="txt_cidade" id="txt_cidade" >
             </div>
 
             <div class="segura_txt_2">

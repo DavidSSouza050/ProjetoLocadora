@@ -4,72 +4,48 @@
     //pegando a conexão de outra pasta
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
+    //pegando a pagina para a função da imagem
+    require_once('./util/upload_imagem.php');
 
    
     
     if(isset($_POST['Cadastrar_sobre'])){
         $titulo_sobre = $_POST['txt_titulo_sobre'];
         $texto_sobre =  $_POST['textA_sobre'];       
-        /*Upload de imagem*/
-        //constantes
-        $arquivos_permitidos = array(".jpg",".jepg", ".png");
-        $diretorio = "img/imagem_sobre/";
-        //pegando o nome da imagem
-        $foto_empresa = $_FILES['fle_imagem']['name'];
-        //tamanho da imagem
-        $tamanho_imagem = $_FILES['fle_imagem']['size'];
-        //tranformando em kbytes 
-        $tamanho_imagem = round($tamanho_imagem/1024);
-        //guardando a extenção do arquivo
-        $extensao_foto = strrchr($foto_empresa, ".");
-        //guardando o nome do arquivo com o pathinfo
-        $nome_foto = pathinfo($foto_empresa, PATHINFO_FILENAME);
-        //criptografando nome com a hora do pc
-        $arquivo_criptografado = sha1(uniqid(time()).$nome_foto);
-        /*CRIAMOS O NOME (JÁ CRIPTOGRAFADO) COM A EXTESÃO COM O NOME DO ARQUIVO QUE SERÁ ENVIADO PARA O SERVIDOR*/
-        $foto = $arquivo_criptografado . $extensao_foto;
 
-        //validando a foto com a extasão e o tamanho 
-        if(in_array($extensao_foto, $arquivos_permitidos)){
-            //tamanho do arquivo (não pode ser maior de 10mb)
-            if($nome_foto <= 10000 ){
+       $foto_pronta = move_image($_FILES['fle_imagem'], './img/imagem_sobre/');
 
-                $arquivo_tmp = $_FILES['fle_imagem']['tmp_name'];
-
-                if(move_uploaded_file($arquivo_tmp, $diretorio.$foto)){
-                    $sql = "INSERT INTO tbl_sobre (texto_sobre, titulo_sobre, imagem_sobre)
-                        VALUES ('".addslashes($texto_sobre)."','".addslashes($titulo_sobre)."', '".addslashes($foto)."');" ;   
-
-                    //echo($sql);
-                    if(mysqli_query($conexao, $sql)){
-                        header('Location: cms_sobre_empresa.php');
-                    }
-                }else{
-                    echo("<script>alert('Não foi possivel mover o arquivo')</script>");
-                    echo("<script>window.location='cms_sobre_empresa.php';</script>");
-                }
-            }else{  
-                echo("<script>alert('Tamanho da imagem maior que o permitido (10MB)')</script>");
-                echo("<script>window.location='cms_sobre_empresa.php';</script>");
+       if($foto_pronta != null){
+                $sql = "INSERT INTO tbl_sobre (texto_sobre, titulo_sobre, imagem_sobre)
+                VALUES ('".addslashes($texto_sobre)."','".addslashes($titulo_sobre)."', '".addslashes($foto_pronta)."');" ;   
+                
+            //echo($sql);
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_sobre_empresa.php');
             }
-        }else{
-            echo("<script>alert('Colocar a foto da empresa é obrgatório')</script>");
+       }else{
+            echo("<script>alert('Erro ao mover a imagem para o Servidor')</script>");
             echo("<script>window.location='cms_sobre_empresa.php';</script>");
-        }
-
+       }
+        
+               
   
     }elseif(isset($_POST['Atualizar_sobre'])){
         $titulo_sobre = $_POST['txt_titulo_sobre'];
         $texto_sobre =  $_POST['textA_sobre'];
 
+        $foto_pronta = move_image($_FILES['fle_imagem'], './img/imagem_sobre/');
+
         $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
-                                     texto_sobre ='".$texto_sobre."'
+                                    texto_sobre ='".$texto_sobre."',
+                                    imagem_sobre = '".$foto_pronta."'
                                     WHERE cod_sobre = ".$_SESSION['id_sobre'];
     
         
         //echo($sql);
         if(mysqli_query($conexao, $sql)){
             header('Location: cms_sobre_empresa.php');
+            unlink('./img/imagem_sobre/'.$_SESSION['nome_img']);
             unset($_SESSION['id_sobre']);
         }
     }

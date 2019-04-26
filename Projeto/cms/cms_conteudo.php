@@ -46,18 +46,19 @@
                 <div id="menu_de_adm">
                     <!-- conteudo editavel -->
                     <div class="conteudo_editavel">
-                        
-                        <!-- imagem do conteudo editavel -->
-                        <figure>
-                            <div class="img_conteudo_editavel">
-                                <img class="img-size" src="./img/gerenciar_ator.png">
+                       <a href="cms_atores.php"> 
+                            <!-- imagem do conteudo editavel -->
+                            <figure>
+                                <div class="img_conteudo_editavel">
+                                    <img class="img-size" src="./img/gerenciar_ator.png">
+                                </div>
+                            </figure>
+                            
+                            <!-- texto do conteudo editavel -->
+                            <div class="mensagem_conteudo_editavel">
+                                GERENCIAR ATOR EM DESTAQUE
                             </div>
-                        </figure>
-                        
-                        <!-- texto do conteudo editavel -->
-                        <div class="mensagem_conteudo_editavel">
-                            GERENCIAR ATOR EM DESTAQUE
-                        </div>
+                        </a>
                         
                     </div>
 

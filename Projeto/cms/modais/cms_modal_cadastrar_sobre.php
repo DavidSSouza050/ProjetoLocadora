@@ -20,6 +20,8 @@
             $titulo_sobre = $rsSobre['titulo_sobre'];
             $texto_sobre = $rsSobre['texto_sobre'];
             $nome_foto_sobre = $rsSobre['imagem_sobre'];
+
+            $_SESSION['nome_img'] = $nome_foto_sobre;
         }
 
 

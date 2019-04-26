@@ -65,7 +65,7 @@ const mascNumero = (event) => {
 }
 
 const bloquearDigitacao = (caixa) =>{
-    caixa.disabled = true;
+    caixa.readonly = true;
 }
 
 //listener da caixa

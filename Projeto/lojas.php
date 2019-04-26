@@ -29,7 +29,14 @@
             $cidade = $rsEnderco['cidade'];
             $estado = $rsEnderco['uf'];
             $numero = $rsEnderco['numero'];
-    
+
+            $endereco = $logradouro.$bairro.$cidade.$estado.$numero;
+            
+            $endereco = explode(" ", $endereco);
+            for($i = 0; $i < count($endereco); $i++){
+                $endereco_pronto .= $endereco[$i];
+            }
+            
         }
 
     }
@@ -52,7 +59,7 @@
             <div id="caixa_iFrame_maps">
                 <!-- coordenadas frame para pqgar as coodenadas -->
                 <div id="iFrame_maps">
-                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($logradouro);echo($bairro);echo($cidade);echo($estado);echo($numero);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($endereco_pronto);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas" class="scrollTexto">

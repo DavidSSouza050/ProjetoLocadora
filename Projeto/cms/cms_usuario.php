@@ -78,10 +78,12 @@
                 ");
             }         
         }elseif($modo == 'buscar'){
+
             $sqlBusca = "SELECT usuario.*, nivel.*
             FROM tbl_usuario as usuario INNER JOIN tbl_nivel_usuario as nivel
             ON usuario.cod_nivel = nivel.cod_nivel
             WHERE usuario.cod_usuario=".$id;
+
             $select = mysqli_query($conexao, $sqlBusca);
 
             if($rsUsuario = mysqli_fetch_array($select)){
@@ -106,7 +108,7 @@
     if(isset($_GET['status'])){
         $status = $_GET['status'];
         $cod_usuario = $_GET['id'];
-
+        
         if($status == 0){
             $sql = "UPDATE tbl_usuario SET status = 1 WHERE cod_usuario =".$cod_usuario;
         }else{
@@ -114,7 +116,8 @@
         }
         
         if(mysqli_query($conexao, $sql)){
-            header('Location: cms_usuario.php');
+            echo $sql;
+            //header('Location: cms_usuario.php');
         }
 
     }
@@ -122,6 +125,7 @@
     if(isset($_SESSION['nivel_desativado'])){
 
         if($_SESSION['nivel_desativado'] == 0){
+
             $slqVerficar = "SELECT 
             usuario.nome_usuario AS NOME_USUARIO,
             usuario.cod_nivel AS COD_NIVEL_USUAIRO,
@@ -131,8 +135,7 @@
             ON nivel.cod_nivel  = usuario.cod_nivel;";
 
             if(mysqli_query($conexao,$slqVerficar)){
-                $sql = "UPDATE tbl_usuario set status = 0, cod_nivel = null 
-                WHERE cod_nivel = ".$_SESSION['cod_nivel'];    
+                $sql = "UPDATE tbl_usuario set status = 0  WHERE cod_nivel = ".$_SESSION['cod_nivel'];    
                 
                 if(mysqli_query($conexao, $sql)){
                     header('Location: cms_usuario.php');
@@ -294,7 +297,7 @@
                         </tr>
                         <?php
                             // PEGANDO TODOS OS CAMPOS DAS TABELAS DE USUARIO E NIVEL
-                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel, nivel_usuario.status
+                           $sql = "SELECT usuario.*, nivel_usuario.nome_nivel, nivel_usuario.status as nivel_status
                                         FROM tbl_usuario AS usuario LEFT JOIN tbl_nivel_usuario AS nivel_usuario
                                           ON usuario.cod_nivel = nivel_usuario.cod_nivel;";
                             // execultando no mysql

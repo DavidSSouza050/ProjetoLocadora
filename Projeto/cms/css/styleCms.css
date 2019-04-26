@@ -349,6 +349,7 @@ td{
     min-height: 400px;
     height: auto;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 #table_usuarios{
@@ -529,6 +530,7 @@ td{
 .itens_card_cadastro{
     width: 250px;
     height: 70px; 
+    margin-top: 15px;
     box-sizing: border-box;
     background-color: whitesmoke;
     border-radius: 0px 30px 30px 0px;
@@ -722,6 +724,48 @@ td{
 /***********************/
 
 /*********************/
+/*GERENCIAR ATOR*/
+.card_ator{
+    width: 1000px;
+    height: 200px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    background-color: rgb(235, 233, 231);
+}
+.imagem_ator{
+    width: 200px;
+    height: 180px;
+    margin-left: 10px;
+    background-color: aqua;
+    float: left;
+}
+.nome_ator{
+    width: 470px;
+    height: 180px;
+    background-color: peachpuff;
+    float: left; 
+}
+.caixa_opcoes{
+    width: 90px;
+    height: 100px;
+    margin-top: 35px;
+    margin-left: 15px;
+    float: left;
+    background-color: brown;
+}
+/***************/
+/*MODAL CADASTRAR ATOR*/
+#card_cadastrar_ator{
+    width: 700px;
+    height: 500px;
+    background-color: paleturquoise;
+}
+#caixa_name_ator{
+    
+}
+
+
+
 /*MODAL FALE CONOSCO*/
 #conteiner{
     width: 100%;
@@ -746,6 +790,7 @@ td{
     height: auto;
     overflow: hidden;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 #segurar_fechar_modal{
