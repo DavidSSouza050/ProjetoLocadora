@@ -1,5 +1,4 @@
 /*UTEIS*/
-
 /*CMS - SISTEMA DE GERENCIAMENTO DO SITE*/
 
 #conteudo_cms{
@@ -666,7 +665,7 @@ td{
 
 /*modal cadastrar lojas*/
 #card_cadastrar_loja{
-    width: inherit;
+    width: 700px;
     height: 420px;
     padding-top: 20px;
     border-radius: 15px;
@@ -730,19 +729,18 @@ td{
     height: 200px;
     box-sizing: border-box;
     padding-top: 10px;
+    margin-bottom: 20px;
     background-color: rgb(235, 233, 231);
 }
 .imagem_ator{
     width: 200px;
     height: 180px;
     margin-left: 10px;
-    background-color: aqua;
     float: left;
 }
-.nome_ator{
+.nome_bio_ator{
     width: 470px;
     height: 180px;
-    background-color: peachpuff;
     float: left; 
 }
 .caixa_opcoes{
@@ -751,20 +749,164 @@ td{
     margin-top: 35px;
     margin-left: 15px;
     float: left;
-    background-color: brown;
 }
+.nome_ator{
+    width: inherit;
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-left: 10px; 
+    padding-right: 20px; 
+    /*Limitando tamanho de caracateres*/
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    /*font*/
+    font-size: 35px;
+    font-family: MeganJune;
+}
+.bio_ator{
+    width: inherit;
+    height: 130px;
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+
+    /*Limitando tamanho de caracateres*/
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: unset;
+    /*Pergunta para o prefesor como limeitar com altura da div*/
+    
+
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+}
+
 /***************/
 /*MODAL CADASTRAR ATOR*/
 #card_cadastrar_ator{
     width: 700px;
-    height: 500px;
-    background-color: paleturquoise;
+    min-height: 500px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 10px;
 }
-#caixa_name_ator{
-    
+.segura_caixa_ator{
+    width: inherit;
+    height: 100px;
+    margin-top: 15px;
+    background-color: rgb(82, 82, 82);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.caixa_ator{
+    width: 350px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 10px;
+    float: left;
+    /*Font*/
+    font-size: 35px;
+    font-family: MeganJune;
+    color: white;
+}
+#segura_textArea_ator{
+    width: inherit;
+    height: 200px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: rgb(82, 82, 82);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*Font*/
+    font-size: 35px;
+    font-family: MeganJune;
+    color: white;
+}
+.txt_ator{
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 15px;
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
+}
+.txt_ator:focus{
+    outline: none;
+}
+#textArea_ator{
+    resize: none;
+    width: 300px;
+    height: 120px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+    /*font*/
+    font-size: 30px;
+    font-family: MeganJune;
 }
 
-
+#segura_imagem_ator{
+    width: 300px;
+    height: 300px;   
+    background-color: burlywood;
+    position: fixed;
+    margin-left: 730px;
+    margin-top: -300px;
+}
+#segura_table_ator{
+    width: 300px;
+    height: 100px;
+    overflow: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+/*MODAL COLOCAR ATOR EM FILME*/
+#card_colocar_ator{
+    width: 500px;
+    height: 300px;
+    box-sizing: border-box;
+}
+.segura_combo_colocar_ator_filme{
+    width: inherit;
+    height: 90px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-left: 150px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+.botao_adicionar_filme{
+    width: 100px;
+    height: 50px;
+    border: none;
+    margin-right: 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: floralwhite;
+    /*font*/
+    font-size: 25px;
+    font-family: MeganJune;
+    font-weight: bold;
+    margin-left: 230px;
+}
+.botao_adicionar_filme:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+/**/
 
 /*MODAL FALE CONOSCO*/
 #conteiner{
@@ -785,7 +927,7 @@ td{
 }
 
 #modal_larga{
-    width: 700px;
+    width: 1000px;
     min-height: 500px;
     height: auto;
     overflow: hidden;

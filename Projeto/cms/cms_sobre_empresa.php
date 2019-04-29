@@ -23,31 +23,45 @@
             if(mysqli_query($conexao, $sql)){
                 header('Location: cms_sobre_empresa.php');
             }
-       }else{
-            echo("<script>alert('Erro ao mover a imagem para o Servidor')</script>");
+        }else{
+            echo("<script>alert('Erro ao mover a imagem para o Servidor Obs:Lembre-se de escolher uma imagem com as exteções corrtas (jpg, png, jpeg) e preencha todas as caixas.')</script>");
             echo("<script>window.location='cms_sobre_empresa.php';</script>");
-       }
+        }
         
                
   
     }elseif(isset($_POST['Atualizar_sobre'])){
         $titulo_sobre = $_POST['txt_titulo_sobre'];
         $texto_sobre =  $_POST['textA_sobre'];
-
+        
         $foto_pronta = move_image($_FILES['fle_imagem'], './img/imagem_sobre/');
 
-        $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
+        if($foto_pronta != null){
+            $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
                                     texto_sobre ='".$texto_sobre."',
                                     imagem_sobre = '".$foto_pronta."'
                                     WHERE cod_sobre = ".$_SESSION['id_sobre'];
+
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_sobre_empresa.php');
+                unlink('./img/imagem_sobre/'.$_SESSION['nome_img']);
+                unset($_SESSION['id_sobre']);
+            }
     
+        }else{
+            $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
+                                    texto_sobre ='".$texto_sobre."'
+                                    WHERE cod_sobre = ".$_SESSION['id_sobre'];
+
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_sobre_empresa.php');
+                unset($_SESSION['id_sobre']);
+            }
+        }
+        
         
         //echo($sql);
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_sobre_empresa.php');
-            unlink('./img/imagem_sobre/'.$_SESSION['nome_img']);
-            unset($_SESSION['id_sobre']);
-        }
+      
     }
 
     if(isset($_GET['modo'])){

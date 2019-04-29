@@ -42,7 +42,7 @@
 
 
 ?>
-<div id="card_cadastrar_loja">
+<div id="card_cadastrar_loja" class="center">
     <form name="frm_loja" method="post" action="cms_lojas.php">    
         <div class="card_txt_modal_lojas">
             <!-- divs que vai ter as caixas de texto e vão se trocar de lugar para estilização -->

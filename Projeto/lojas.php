@@ -8,6 +8,7 @@
     $cidade = null;
     $estado = null;
     $numero = null;
+    $endereco_pronto = null;
 
     if(isset($_GET['cod_loja'])){
         $cod_loja = $_GET['cod_loja'];
@@ -29,15 +30,19 @@
             $cidade = $rsEnderco['cidade'];
             $estado = $rsEnderco['uf'];
             $numero = $rsEnderco['numero'];
-
-            $endereco = $logradouro.$bairro.$cidade.$estado.$numero;
             
+            $cidade = strtolower($cidade);
+            $cidade = ucwords($cidade);
+
+            $endereco = $logradouro.$bairro.$numero.$cidade.$estado;    
             $endereco = explode(" ", $endereco);
             for($i = 0; $i < count($endereco); $i++){
                 $endereco_pronto .= $endereco[$i];
             }
-            
+           //echo($endereco);
         }
+
+        
 
     }
 
@@ -81,10 +86,12 @@
                     $select = mysqli_query($conexao, $sql);
                 while($rsLoja = mysqli_fetch_array($select)){
                     if($rsLoja['status'] == 1){
+                        $cidade = strtolower($rsLoja['cidade']);
+                        $cidade = ucwords($cidade);            
                 ?>
                 <a href='?cod_loja=<?php echo($rsLoja['cod_loja'])?>'>
                     <div class='coodernadas center'>
-                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($rsLoja['cidade'])?>, <?php echo($rsLoja['estado'])?>, Nº <?php echo($rsLoja['numero'])?>
+                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($cidade)?>, <?php echo($rsLoja['estado'])?>, Nº <?php echo($rsLoja['numero'])?>
                     </div>
                 </a>    
                 <?php

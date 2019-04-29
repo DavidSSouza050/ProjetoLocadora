@@ -23,7 +23,7 @@ function move_image($foto, $diretorio){
     //validando a foto com a extasão e o tamanho 
     if(in_array($extensao_foto, $arquivos_permitidos)){
         //tamanho do arquivo (não pode ser maior de 10mb)
-        if($nome_foto <= 10000 ){
+        if($tamanho_imagem <= 10000 ){
 
             $arquivo_tmp = $foto['tmp_name'];
 
@@ -37,8 +37,7 @@ function move_image($foto, $diretorio){
             echo("<script>window.location='cms_sobre_empresa.php';</script>");
         }
     }else{
-        echo("<script>alert('Colocar a foto da empresa é obrgatório')</script>");
-        echo("<script>window.location='cms_sobre_empresa.php';</script>");
+        return null;
     }
 }
     

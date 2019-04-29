@@ -1,3 +1,32 @@
+<?php
+    //banco
+    require_once('./db/conexao.php');
+    $conexao = conexaoMysql();
+
+    $sql =  "SELECT * FROM tbl_ator";
+    $select = mysqli_query($conexao, $sql);
+
+    $data = date('Y');
+
+    while($rsAtor = mysqli_fetch_array($select)){    
+        // pegando o ator ativo
+        if($rsAtor['status'] == 1){
+            // pegando tudo do ator
+            $cod_ator = $rsAtor['cod_ator'];
+            $nome = $rsAtor['nome_ator'];
+            $atividade = $rsAtor['atividade'];
+            $nascionalidade = $rsAtor['nascionalidade'];
+            $data_naci = explode("-", $rsAtor['data_nacimento']);
+            $data_naci_certo = $data_naci[2]."/".$data_naci[1]."/".$data_naci[0];
+            $idade =  $data - $data_naci[0];
+            $imagem_ator = $rsAtor['imagem_ator'];
+            $bio = $rsAtor['biografia'];
+        }
+        
+    }    
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,30 +46,30 @@
         <div id="caixa_imagem_ator">
             <figure>
                 <div id="imagem_ator" class="center">
-                    <img class="img-size" style="border-radius: 20px;" src="./img/ator/Arold/Arnold_Schwarzenegger.jpg" alt="Foto do ator" title="foto do ator"> 
+                    <img class="img-size" style="border-radius: 20px;" src="./cms/img/imagem_ator/<?php echo($imagem_ator)?>" alt="Foto do ator" title="foto do ator"> 
                 </div>
             </figure>
         </div>
         <div id="caixa_historico_ator">
             <!-- detalhes do ator do mês -->
             <div class="historico_ator center">
-                <span class="titulo_topico">Nome:</span> Arnold Alois Schwarzenegger
+                <span class="titulo_topico">Nome:</span> <?php echo($nome);?>
             </div>
 
             <div class="historico_ator center">
-                <span class="titulo_topico">Atividade:</span> fisiculturista, ator, empresário e político.
+                <span class="titulo_topico">Atividade:</span> <?php echo($atividade);?>
             </div>
 
             <div class="historico_ator center">
-                <span class="titulo_topico">Nacionalidade:</span>  Austríaco, Americano
+                <span class="titulo_topico">Nacionalidade:</span>  <?php echo($nascionalidade);?>
             </div>
 
             <div class="historico_ator center">
-                <span class="titulo_topico">Nascimento:</span> 30 de julho de 1947 (Graz, Thal, Styria, Áustria)
+                <span class="titulo_topico">Nascimento:</span> <?php echo($data_naci_certo);?>
             </div>
 
             <div class="historico_ator center">
-                <span class="titulo_topico">Idade:</span> 72 Anos
+                <span class="titulo_topico">Idade:</span> <?php echo($idade);?> Anos
             </div>
            
            <!-- fim do detalhes -->
@@ -57,10 +86,7 @@
             <a href="#entravida" class="show" id="entravida"><span class="titulo_topico">▲ Biografia</span></a>
             <div class="caixa_conteudo_hide">
                 <div class="conteudo_topico">
-                    <p>- É uma grande celebridade na Áustria.  Um dos maiores estádios de futebol do país tem o seu nome;</p>
-                    <p>- Descrito pelo Guiness como "o homem com o desenvolvimento mais perfeito na história do mundo";</p>    
-                    <p>- Foi eleito Governador da California em 2003; </p>
-                    <p>- Possui uma estrela na Calçada da Fama, localizada em 6764 Hollywood Boulevard.</p>                
+                    <?php echo($bio)?>
                 </div>
 
             </div>
@@ -68,28 +94,33 @@
         </div>
 
         <div class="historico_ator_retratio linha_historico center">
-            <a href="#saiFoto" class="hide" id="saiFoto"><span class="titulo_topico">▼ Principais Participações</span></a>
-            <a href="#entrafoto" class="show" id="entrafoto"><span class="titulo_topico">▲ Principais Participações</span></a>
+            <a href="#saiFoto" class="hide" id="saiFoto"><span class="titulo_topico">▼ Participações</span></a>
+            <a href="#entrafoto" class="show" id="entrafoto"><span class="titulo_topico">▲ Participações</span></a>
             <div class="caixa_conteudo_hide">
                 <div class="filme_participado">
+                    <!-- pegando a imagem de participações dos filmes desse ator -->
+                    <?php 
+          
+                        $sql = "SELECT filme.cod_filme,
+                                filme.imagem_filme,
+                                filme_ator.cod_ator
+                                FROM tbl_filme AS filme INNER JOIN tbl_filme_ator AS filme_ator
+                                ON filme.cod_filme = filme_ator.cod_filme INNER JOIN tbl_ator AS ator
+                                ON ator.cod_ator = filme_ator.cod_ator WHERE filme_ator.cod_ator =".$cod_ator; 
+
+                    if($select = mysqli_query($conexao, $sql)){
+                        while($rsImagem_filme = mysqli_fetch_array($select)){
+                    ?>
 
                     <figure> 
                         <div class="filmes_participados">
-                            <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/esterminador_do_futuro.png" alt="Exterminador do Futoro 1 de 1985" title="Exterminador do Futoro 1 de 1985">
+                            <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/<?php echo($rsImagem_filme['imagem_filme'])?>" alt="<?php echo($rsImagem_filme['imagem_filme'])?>" title="<?php echo($rsImagem_filme['imagem_filme'])?>">
                         </div>
                     </figure>
-                   
-                    <figure> 
-                        <div class="filmes_participados">
-                            <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/exterminador_do_futuro_2.jpg" alt="Exterminador do Futoro 1 de 1985" title="Exterminador do Futoro 2 de 1991">
-                        </div>
-                    </figure>
-
-                    <figure> 
-                        <div class="filmes_participados">
-                            <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/o_predador.jpg" alt="O Predador de 1985" title="O Predador de 1987">
-                        </div>
-                    </figure>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             
