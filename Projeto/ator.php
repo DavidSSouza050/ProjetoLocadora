@@ -2,11 +2,15 @@
     //banco
     require_once('./db/conexao.php');
     $conexao = conexaoMysql();
+    // variais para formatação
+    
 
+    //pegar data para calcular a idade do ator
+    $ano = date('Y');
+    $mes = date('m');
+    // SELECT PARA PEDAR TODOS OS ATORES
     $sql =  "SELECT * FROM tbl_ator";
     $select = mysqli_query($conexao, $sql);
-
-    $data = date('Y');
 
     while($rsAtor = mysqli_fetch_array($select)){    
         // pegando o ator ativo
@@ -18,7 +22,14 @@
             $nascionalidade = $rsAtor['nascionalidade'];
             $data_naci = explode("-", $rsAtor['data_nacimento']);
             $data_naci_certo = $data_naci[2]."/".$data_naci[1]."/".$data_naci[0];
-            $idade =  $data - $data_naci[0];
+            
+            if($mes < $data_naci[1]){
+                $idade =  ($ano - $data_naci[0])-1;
+            }else{
+                $idade =  $ano - $data_naci[0];
+            }
+                
+            
             $imagem_ator = $rsAtor['imagem_ator'];
             $bio = $rsAtor['biografia'];
         }

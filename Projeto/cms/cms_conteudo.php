@@ -111,18 +111,19 @@
                     </div>
 
                     <div class="conteudo_editavel">
-                        
-                        <!-- imagem do conteudo editavel -->
-                        <figure>
-                            <div class="img_conteudo_editavel">
-                                <img class="img-size" src="./img/gerenciar_filme.png">
+                        <a href="cms_filme_mes.php">
+                            <!-- imagem do conteudo editavel -->
+                            <figure>
+                                <div class="img_conteudo_editavel">
+                                    <img class="img-size" src="./img/gerenciar_filme.png">
+                                </div>
+                            </figure>
+                            
+                            <!-- texto do conteudo editavel -->
+                            <div class="mensagem_conteudo_editavel">
+                                GERENCIAR FILME DO MÊS
                             </div>
-                        </figure>
-                        
-                        <!-- texto do conteudo editavel -->
-                        <div class="mensagem_conteudo_editavel">
-                            GERENCIAR FILME DO MÊS
-                        </div>
+                        </a>
                         
                     </div>
                 </div>

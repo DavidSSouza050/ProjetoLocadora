@@ -515,6 +515,7 @@ td{
 #conteudo_paginas_conteudo{
     width: inherit;
     min-height: 500px;
+    padding-top: 1px;
     height: auto;
     display:flex;
     background-color: rgb(65, 64, 64);
@@ -653,15 +654,14 @@ td{
     padding-top: 33px;
 }
 #foto_sobre{
-    width: 500px;
-    height: 480px;
+    width: 400px;
+    height: 350px;
     position: fixed;
     margin-left: 800px;
-    margin-top: -500px;
+    margin-top: -430px;
 }
 /*******************/
 /*********LOJAS*******/
-
 
 /*modal cadastrar lojas*/
 #card_cadastrar_loja{
@@ -799,7 +799,7 @@ td{
 .segura_caixa_ator{
     width: inherit;
     height: 100px;
-    margin-top: 15px;
+    margin-top: 10px;
     background-color: rgb(82, 82, 82);
     border-radius: 20px;
     overflow: hidden;
@@ -863,28 +863,36 @@ td{
     background-color: burlywood;
     position: fixed;
     margin-left: 730px;
-    margin-top: -300px;
+    margin-top: -450px;
 }
 #segura_table_ator{
-    width: 300px;
+    width: 500px;
     height: 100px;
     overflow: auto;
     border-radius: 20px;
     box-sizing: border-box;
-    margin-top: 5px;
 }
+#segura_botao_ator{
+    box-sizing: border-box;
+    float: right;
+    margin-top: 25px;
+    margin-right: 35px;
+}
+
 /*MODAL COLOCAR ATOR EM FILME*/
 #card_colocar_ator{
-    width: 500px;
+    width: 400px;
     height: 300px;
     box-sizing: border-box;
+    border-radius: 25px;
+    background-color: rgb(153, 152, 150);
 }
 .segura_combo_colocar_ator_filme{
     width: inherit;
     height: 90px;
     border-radius: 20px;
     box-sizing: border-box;
-    padding-left: 150px;
+    padding-left: 65px;
     padding-top: 20px;
     margin-bottom: 10px;
 }
@@ -892,7 +900,6 @@ td{
     width: 100px;
     height: 50px;
     border: none;
-    margin-right: 10px;
     margin-top: 15px;
     border-radius: 10px;
     background-color: floralwhite;
@@ -906,7 +913,53 @@ td{
     cursor: pointer;
     transform: scale(1.02);
 }
-/**/
+/*****************************************/
+
+/**PAGINA FILME DO MES**/
+
+#card_filme_mes{
+    width: 1100px;
+    height: 200px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding-top: 5px;
+    background-color: saddlebrown;
+}
+
+#img_filme_mes{
+    width: 180px;
+    height: 190px;
+    margin-left: 5px;
+    float: left;
+    background-color: slategray;
+}
+
+#atributos_filme_mes{
+    width: 910px;
+    height: 190px;
+    float: left;
+    background-color: sandybrown;
+}
+
+#titulo_filme_mes{
+    width: inherit;
+    height: 50px;
+    background-color: paleturquoise;
+    box-sizing: border-box;
+    padding-top: 7px;
+    /*font*/
+    text-align: center;
+    font-size: 30px;
+    font-family:  baronBold;
+}
+.segura_atributos_filme{
+    width: 350px;
+    height: 140px;
+    margin-left: 5px;
+    box-sizing: border-box;
+    background-color: rebeccapurple;
+    float: left;
+}
 
 /*MODAL FALE CONOSCO*/
 #conteiner{

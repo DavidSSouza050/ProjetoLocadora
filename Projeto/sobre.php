@@ -2,6 +2,9 @@
     // entrando No banco
     require_once('./db/conexao.php');
     $conexao = conexaoMysql();
+    $titulo_sobre = null;
+    $texto_sobre = null;
+    $nome_imagem_sobre = null;
 
     $sql = "SELECT * FROM tbl_sobre";
     $select = mysqli_query($conexao, $sql);
@@ -33,7 +36,13 @@
             <!-- div quem somos  contando a história da locadora-->
             <div id="quemSomos_sobre">
                 <div id="titulo_sobre">
-                    <?php echo($titulo_sobre);?>
+                    <?php 
+                        if($titulo_sobre != null){
+                            echo($titulo_sobre);
+                        }else{
+                            echo("Nenhum sobre definido");
+                        }
+                    ?>
                 </div>
                 <div id="caixa_texto_quemSomos">
                     <div id="texto_quemSomos" class="scrollTexto">

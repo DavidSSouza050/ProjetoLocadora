@@ -31,8 +31,8 @@
             //usando explode para formatar a data
             $data_nasci = explode("-", $rsAtor['data_nacimento']);
             $data_nasci_certo = $data_nasci[2]."/".$data_nasci[1]."/".$data_nasci[0];
-            //**************** */
-            $bio =  $rsAtor['biografia'];   
+            //**************** 
+            $bio = $rsAtor['biografia'];   
             $imagem_ator = $rsAtor['imagem_ator'];    
             
             $_SESSION['foto_antiga_ator'] = $imagem_ator;
@@ -79,74 +79,86 @@
                 <h5>Imagem:</h5>
                 <input type="file" name="fle_ator" id="fle-ator" >
 
+            </div>
+        </div>
+        
+
+        <div class="segura_caixa_ator">
+
+            <div id="segura_botao_ator">
+                <input type="submit" value="<?php echo($btn);?>" name="<?php echo($btn.'_ator'); ?>" id="cadastrar_ator" class="botao_cadastro_usuario"> 
+            </div>
+
+
+            <div id="segura_table_ator" class="scrollTexto">
                 
-                <div id="segura_table_ator" class="scrollTexto">
-                
-                    <table id="table_modal_nivel">
+                <table id="table_modal_nivel">
+                <?php
+                    //SELECT para verificar se exister filme adicionado neste ator
+                    $sql = "SELECT filme.titulo_filme,
+                                    filme.cod_filme,
+                                    ator.cod_ator
+                            FROM tbl_filme AS filme INNER JOIN tbl_filme_ator as filme_ator
+                            ON filme.cod_filme = filme_ator.cod_filme JOIN tbl_ator AS ator
+                            ON 	ator.cod_ator = filme_ator.cod_ator WHERE ator.cod_ator =".$codigo;
+                    $select = mysqli_query($conexao, $sql);
+
+                    while($rsFilmeAtor = mysqli_fetch_array($select)){
+
+                        if($rsFilmeAtor['titulo_filme'] != ""){
+                ?>
+
+
+                    <tr id="thead_nivel">
+                        <td>
+                            Filme Participado
+                        </td>
+                        <td>
+                            opções
+                        </td>
+                    </tr>
+            
+
+                    <tr class="tbody_nivel">
+                        <td>
+                            <?php echo($rsFilmeAtor['titulo_filme'])?>
+                        </td>
+                        <td>
+                            
+                            <a href="?modo=excluirRelacao&id=<?php echo($rsFilmeAtor['cod_ator']);?>&id_filme=<?php  echo($rsFilmeAtor['cod_filme']);?>">
+                                <img src="./img/icon_delete.png" class="img-size icon" onclick="return confirm('Deseja reamente excluir essa relação?')" alt="Excluir Relação" title="Excluir Relação">
+                            </a>
+
+                            <img src="./img/icon_edit.png"  onclick="colocarAtor_filme('Atualizar', <?php echo($rsFilmeAtor['cod_ator'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
+
+                        </td>
+                    </tr>
+
                     <?php
-                        //SELECT para verificar se exister filme adicionado neste ator
-                        $sql = "SELECT filme.titulo_filme,
-                                       filme.cod_filme,
-                                       ator.cod_ator
-                                FROM tbl_filme AS filme INNER JOIN tbl_filme_ator as filme_ator
-                                ON filme.cod_filme = filme_ator.cod_filme JOIN tbl_ator AS ator
-                                ON 	ator.cod_ator = filme_ator.cod_ator WHERE ator.cod_ator =".$codigo;
-                        $select = mysqli_query($conexao, $sql);
-
-                        while($rsFilmeAtor = mysqli_fetch_array($select)){
-
-                            if($rsFilmeAtor['titulo_filme'] != ""){
-                    ?>
-
-
-                        <tr id="thead_nivel">
-                            <td>
-                                Filme Participado
-                            </td>
-                            <td>
-                                opções
-                            </td>
-                        </tr>
-                
-
-                        <tr class="tbody_nivel">
-                            <td>
-                               <?php echo($rsFilmeAtor['titulo_filme'])?>
-                            </td>
-                            <td>
-                                
-                                <a href="?modo=excluirRelacao&id=<?php echo($rsFilmeAtor['cod_ator']);?>&id_filme=<?php  echo($rsFilmeAtor['cod_filme']);?>">
-                                    <img src="./img/icon_delete.png" class="img-size icon" onclick="return confirm('Deseja reamente excluir essa relação?')" alt="Excluir Relação" title="Excluir Relação">
-                                </a>
-
-                                <img src="./img/icon_edit.png"  onclick="colocarAtor_filme('Atualizar', <?php echo($rsFilmeAtor['cod_ator'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
-
-                            </td>
-                        </tr>
-
-                        <?php
-                            }
                         }
-                        ?>
-                    </table>
-                  
-                </div>
-              
+                    }
+                    ?>
+                </table>
+                
+            </div>
 
-            </div>
+            
+            
         </div>
-        <div id="segura_botao_loja">
-            <input type="submit" value="<?php echo($btn);?>" name="<?php echo($btn.'_ator'); ?>" id="cadastrar_ator" class="botao_cadastro_usuario"> 
-        </div>
+        
+
     </form>
+    
+    
+          
  
-        <?php
-            if($imagem_ator != null){
-        ?>
-            <div id="segura_imagem_ator">
-                <img src="./img/imagem_ator/<?php echo($imagem_ator)?>" class="img-size" alt="<?php echo($imagem_ator)?>">
-            </div>
-        <?php
-            }
-        ?>
+    <?php
+        if($imagem_ator != null){
+    ?>
+        <div id="segura_imagem_ator">
+            <img src="./img/imagem_ator/<?php echo($imagem_ator)?>" class="img-size" alt="<?php echo($imagem_ator)?>">
+        </div>
+    <?php
+        }
+    ?>
 </div>
