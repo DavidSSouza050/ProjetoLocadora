@@ -1,3 +1,8 @@
+<?php
+    //banco
+    require_once('../db/conexao.php');
+    $conexao = conexaoMysql();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -9,43 +14,8 @@
         <link rel="shortcut icon" href="../img/iconeDeAbaACME.png" type="image/x-png">
         <script src="../js/jquery-1.11.3.min.js"></script>
         <script>
-            //desativando modal
-            $(document).ready(function(){
-                $('#fachar_modal_fale_conosco').click(function(){
-                    $('#conteiner').fadeOut(300);
-                });
-            });
-            // ativando modal
-            $(document).ready(function(){
-                $('.visualizar').click(function(){
-                    $('#conteiner').fadeIn(300);
-                });
-            });
 
-//          cadastrando um ator
-            function cadastrarEvisualizarator(modo, codigo){
-                $.ajax({
-                    type: "GET",
-                    url: "./modais/cms_modal_cadastrar_ator.php",
-                    data:{modo:modo, codigo:codigo},
-                    success: function(dados){
-                        $('#modal_larga').html(dados);
-                    }
-
-                });
-            }
-//          atribuindo um filme a um ator
-            function colocarAtor_filme(modo, codigo_ator){
-                $.ajax({
-                    type:'GET',
-                    url: "./modais/cms_modal_colocar_ator_filme.php",
-                    data:{modo:modo, codigo_ator:codigo_ator},
-                    success: function(dados){
-                        $('#modal_larga').html(dados);
-                    },
-                })
-            }
-//             ativando e desativando ator
+//             ativando e desativando filme
             function ativarDesativar(pagina, status, codigo){
                 $.ajax({
                     type:'GET',
@@ -92,29 +62,88 @@
            
             <!-- conteudo do menu do cms -->
             <div id="conteudo_paginas_conteudo">
-               <!-- card e vai mostrar os filmes cadastrados -->
-                <div id="card_filme_mes" class="center">
-                    <figure>
-                        <div id="img_filme_mes">
-                            <img src="./img/gerenciar_ator.png" class="img-size" alt="gerenciar ator">
-                        </div>
-                    </figure>
-                    
-                    <div id="atributos_filme_mes">
-                        <div id="titulo_filme_mes">
-                            Vingadores: Ultimato 
-                        </div>
-                        <div class="segura_atributos_filme">
 
-                        </div>
-                        <div class="segura_atributos_filme">
+                <div id="segura_pagina_filme_mes">
 
+                <!-- //fazendo o select para pegar todas os filmes e suas informações necessarias -->
+                    <?php
+                    //fazendo o select para pegar todas os filmes e suas informações necessarias
+                        $sql = "SELECT filme.titulo_filme as titulo,
+                        filme.cod_filme as cod_filme,
+                        filme.duracao as duracao,
+                        filme.status as status,
+                        diretor.diretor as diretor,
+                        group_concat(genero.genero SEPARATOR '/') as generos_filme,
+                        filme.imagem_filme as imagem_filme,
+                        distribuidora.distribuidora as distribuidora
+                        FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
+                        ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
+                        ON filme_diretor.cod_diretor = diretor.cod_diretor INNER JOIN tbl_filme_genero as filme_genero
+                        ON filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero as genero
+                        ON filme_genero.cod_genero =  genero.cod_genero INNER JOIN	tbl_ditribuidora as distribuidora
+                        ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme; ";
+                        $select = mysqli_query($conexao, $sql);
+                        while($rsFilme_mes = mysqli_fetch_array($select)){
+                    ?>
+
+                <!-- card e vai mostrar os filmes cadastrados -->
+                    <div class="card_filme_mes center">
+                        <figure>
+                            <div class="img_filme_mes">
+                                <img src="../img/ator/Arold/participacoes/<?php echo($rsFilme_mes['imagem_filme'])?>" class="img-size" alt="gerenciar ator">
+                            </div>
+                        </figure>
+                        <!-- div que vai segurar os atributos da filme -->
+                        <div class="atributos_filme_mes">
+                            <!-- div com o titulo do filme -->
+                            <div class="titulo_filme_mes center">
+                                <?php echo($rsFilme_mes['titulo'])?>
+                            </div>
+                            <!-- divs que estarão o diretor, genero, classificacao e distribuidora -->
+                            <div class="segura_atributos_filme">
+                                <div class="atributos_filme">
+                                    Diretor: <?php echo($rsFilme_mes['diretor'])?>
+                                </div>
+                                <div class="atributos_filme">
+                                    Duração: <?php echo($rsFilme_mes['duracao'])?>
+                                </div>
+                            </div>
+                            <div class="segura_atributos_filme">
+                                <div class="atributos_filme">
+                                    Gênero: <?php echo($rsFilme_mes['generos_filme'])?>
+                                </div>
+                                <div class="atributos_filme">
+                                    Distribuidora: <?php echo($rsFilme_mes['distribuidora'])?>
+                                </div>
+                            </div>
+                            <?php
+                                $img = $rsFilme_mes['status'] == 0 ? 'icon_nao_ativo.png' : 'icon_ativo.png';
+                                $altEtitle = $rsFilme_mes['status'] == 0 ? 'Não ativo' : 'Ativo';
+                            ?>
+                            <figure>
+                                <div class="ativar_desativar_filme_mes">
+                                    <img src="./img/<?php echo($img)?>" onclick="ativarDesativar('filme_mes', <?php echo($rsFilme_mes['status'])?>,<?php echo($rsFilme_mes['cod_filme'])?>)" class="img-size border-radius-img icon iconSemMargin" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
+                                </div>
+                            </figure>
+                            
                         </div>
+
                     </div>
 
-                </div>
 
+
+    
+               
+                <?php
+                    }
+                ?>
+                </div>
             </div>
+
+
+
+
+
 
             <!-- footer do cms -->
            <?php require_once('./cms_footer.php');?>

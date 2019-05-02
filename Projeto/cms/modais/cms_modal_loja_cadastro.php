@@ -81,4 +81,4 @@
         </div>
     </form>
 </div>
-<script src="./js/geral.js"></script>
+<script src="./js/validaEendereco.js"></script>

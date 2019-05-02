@@ -5,6 +5,9 @@ const cidade = document.getElementById('txt_cidade');
 const numero = document.getElementById('txt_numero');
 const estado = document.getElementById('txt_estado');
 
+//promoçõa
+
+
 const btn_cadastrar_loja = document.getElementById('cadastrar_sobre');
 
 // MANIPULANDO URL
@@ -53,6 +56,8 @@ const mascaraCep = (event) =>{
         cep.value = texto;// a caixa recebe a variavel com a explessão regular para exculta o que é permitido
     }
 }
+
+
 
 const mascNumero = (event) => {
     numero.maxLength = 4;

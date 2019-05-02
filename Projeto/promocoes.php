@@ -1,10 +1,12 @@
+<?php
+    //
+    require_once('./db/conexao.php');
+    $conexao = conexaoMysql();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="utf-8" />
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta charset="UTF-8" name="format-detection" content="telephone=no">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> --> 
         <title>Promoções</title>
         <script  src="js/jquery-1.11.3.min.js"></script>
         <script  src="js/jssor.slider-27.5.0.min.js"></script>
@@ -42,27 +44,51 @@
                     
     
                     <?php
+                        $sql = "SELECT filme.titulo_filme,
+                                filme.preco_filme,
+                                concat(SUBSTRING(filme.descricao, 1, 134), ' ...') as descricao,
+                                filme.imagem_filme,
+                                promocao.status,
+                                promocao.porcentagem_desconto as desconto
+                                FROM tbl_promocao as promocao INNER JOIN tbl_filme as filme
+                                ON filme.cod_filme = promocao.cod_filme";
+                        $select = mysqli_query($conexao, $sql);
                         //for para colocar as cards rapidamente
-                        for($cards = 1; $cards <= 6; $cards++){
+                        while($rsPromocao = mysqli_fetch_array($select)){
                     ?>
                         <!-- cards dos filmes a venda e em promoção -->
                         <div class='produto_promocao'>
                             <div class='produto_caixa_imagem'>
                                 <figure>
                                     <div class='produto_imagem center'>
-                                        <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>
                             <div class='produto_caixa_descricao_promocao'>
-                                <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                                <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
+                                <p><span class='formata_atributo'>Nome:</span> <?php echo($rsPromocao['titulo_filme'])?></p>
+                                <p><span class='formata_atributo'>Descrição:</span> <?php echo($rsPromocao['descricao'])?></p>
                                 <div class='preco_promocoes'>
                                     <div class='preco_promocoes'>
-                                        <span class='formata_atributo'>De:</span> <del>24,50</del>
+                                        <?php
+                                    
+                                            //Tirando o ponto e adicionando a virgula
+                                            $preco_com_ponto = explode(".",$rsPromocao['preco_filme']);
+                                            $preco_sem_ponto = $preco_com_ponto[0].",".$preco_com_ponto[1];
+       
+                                        ?>
+                                        <span class='formata_atributo'>De:</span> <del><?php echo($preco_sem_ponto);?></del>
                                     </div>
                                     <div class='preco_promocoes'>
-                                    <span class='formata_atributo'>Por:</span> 10,20
+                                        <?php 
+                                            // calculando desconto
+                                            $preco_descontado = $rsPromocao['preco_filme'] * ($rsPromocao['desconto']/100);
+                                            $desconto = $rsPromocao['preco_filme'] - $preco_descontado;
+                                            //Tirando o ponto e adicionando a virgula
+                                            $desconto_com_ponto = explode(".",$desconto);
+                                            $desconto_sem_ponto = $desconto_com_ponto[0].",".$desconto_com_ponto[1];                                            
+                                        ?>
+                                        <span class='formata_atributo'>Por:</span> <?php echo($desconto_sem_ponto);?>
                                     </div>                            
                                 </div>
                             </div>

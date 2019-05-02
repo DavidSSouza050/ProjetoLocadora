@@ -132,12 +132,11 @@
                         Nome do Nivel: <input type="text" value="<?php echo($nome_nivel)?>" id="txt_nome_nivel" name="txt_nome_nivel">
                     </div>
                     <div class="caixa_cadastro_nivel">
-                        <select id="cmb_cadastro_nivel" name="cmb_cadastro_nivel">
-                            <option>Paginas Modificaveis</option>
-                            <option value="0">Administrador</option>
-                            <option value="1">Catalogista</option>
-                            <option value="2">Operador Básico</option>
-                        </select>
+                        <h4><input type="checkbox" name="chec_conteudo" value="1"> Adm.Conteudo<h4>
+                        <h4><input type="checkbox" name="chec_fale_conosco" value="1"> Adm.Fale_conosco<h4>
+                        <h4><input type="checkbox" name="chec_produtos" value="1"> Adm.Produtos<h4>
+                        <h4><input type="checkbox" name="chec_usuarios" value="1"> Adm.Usuarios<h4>
+
                     </div>
                     <div id="segura_btn_cadastro_nivel">
                         <input type="submit" value="<?php echo($btn_limpar_nivel)?>" class="botao_cadastro_usuario" name="btn_limpar_nivel">

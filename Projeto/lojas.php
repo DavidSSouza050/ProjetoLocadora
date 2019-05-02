@@ -34,7 +34,7 @@
             $cidade = strtolower($cidade);
             $cidade = ucwords($cidade);
 
-            $endereco = $logradouro.$bairro.$numero.$cidade.$estado;    
+            $endereco = $numero.$logradouro.$bairro.$cidade.$estado;    
             $endereco = explode(" ", $endereco);
             for($i = 0; $i < count($endereco); $i++){
                 $endereco_pronto .= $endereco[$i];

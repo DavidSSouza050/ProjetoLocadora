@@ -11,24 +11,6 @@
         <script src="../js/jquery-1.11.3.min.js"></script>
     </head>
     <body>
-        <!-- cnotender da modal que vai abrir para mostrar o cliente por completo -->
-        <div id="conteiner">
-            <!-- div vom o objetivo de fechar a modal -->
-            <div id="segurar_fechar_modal" class="center">
-                <figure>
-                    <div id="fechar_modal">
-                        <a href="#" class="img-size" id="fachar_modal_fale_conosco">
-                            <img class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
-                        </a>
-                    </div>
-                </figure>
-            </div>
-            <!-- modal que vai suportar tudo o conteudo -->
-            <div id="modal" class="center">
-                
-            </div>
-        </div>
-
         <!-- div que está segurando tudo -->
         <div id="conteudo_cms" class="center">
             <!-- header que está com o logo e o titulo -->
@@ -63,19 +45,19 @@
                     </div>
 
                     <div class="conteudo_editavel">
-                        
-                        <!-- imagem do conteudo editavel -->
-                        <figure>
-                            <div class="img_conteudo_editavel">
-                                <img class="img-size" src="./img/promocoes.png">
+                        <a href="cms_promocao.php">
+                            <!-- imagem do conteudo editavel -->
+                            <figure>
+                                <div class="img_conteudo_editavel">
+                                    <img class="img-size" src="./img/promocoes.png">
+                                </div>
+                            </figure>
+                            
+                            <!-- texto do conteudo editavel -->
+                            <div class="mensagem_conteudo_editavel">
+                                GERENCIAR PROMOÇÕES
                             </div>
-                        </figure>
-                        
-                        <!-- texto do conteudo editavel -->
-                        <div class="mensagem_conteudo_editavel">
-                            GERENCIAR PROMOÇÕES
-                        </div>
-                        
+                        </a>
                     </div>
 
                     <div class="conteudo_editavel">

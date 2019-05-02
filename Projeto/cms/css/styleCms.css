@@ -396,13 +396,13 @@ td{
 /********modal criando nivel******************/
 #segura_cadastro_nivel{
     width: 600px;
-    height: 600px;
+    height: 800px;
     margin-top: 50px;
     margin-bottom: 40px;
 }
 #card_cadastro{
     width: inherit;
-    height: 250px;
+    height: 355px;
     box-sizing: border-box;
     padding-top: 5px;
     border-radius: 10px;
@@ -410,11 +410,10 @@ td{
 }
 .caixa_cadastro_nivel{
     width: inherit;
-    height: 60px;
-    margin-top: 30px;
+    height: 120px;
+    margin-top: 20px;
     box-sizing: border-box;
-    padding-top: 10px;
-    padding-left: 150px;
+    padding-left: 15px;
     /*Fontwe*/
     font-size: 25px;
     font-family: MeganJune;
@@ -425,7 +424,7 @@ td{
     width: 160px;
     height: 35px;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
     box-sizing: border-box;
     padding-left: 5px;
     font-size: 25px;
@@ -495,6 +494,9 @@ td{
 .icon:hover{
     transform: scale(1.05);
     cursor: pointer;
+}
+.iconSemMargin{
+    margin: 0 !important;
 }
 
 #footerCMS{
@@ -916,35 +918,39 @@ td{
 /*****************************************/
 
 /**PAGINA FILME DO MES**/
+#segura_pagina_filme_mes{
+    width: inherit; 
+}
 
-#card_filme_mes{
+.card_filme_mes{
     width: 1100px;
     height: 200px;
     margin-top: 30px;
+    margin-bottom: 30px;
     box-sizing: border-box;
     padding-top: 5px;
-    background-color: saddlebrown;
+    background-color: rgb(24, 24, 24);
 }
 
-#img_filme_mes{
+.img_filme_mes{
     width: 180px;
     height: 190px;
     margin-left: 5px;
     float: left;
-    background-color: slategray;
+    background-color: rgb(147, 151, 155);
 }
 
-#atributos_filme_mes{
+.atributos_filme_mes{
     width: 910px;
     height: 190px;
     float: left;
-    background-color: sandybrown;
 }
 
-#titulo_filme_mes{
-    width: inherit;
+.titulo_filme_mes{
+    width: 890px;
     height: 50px;
-    background-color: paleturquoise;
+    border-radius: 10px;
+    background-color: rgb(212, 214, 214);
     box-sizing: border-box;
     padding-top: 7px;
     /*font*/
@@ -953,14 +959,106 @@ td{
     font-family:  baronBold;
 }
 .segura_atributos_filme{
-    width: 350px;
-    height: 140px;
-    margin-left: 5px;
+    width: 400px;
+    height: 120px;
+    margin-left: 10px;
+    margin-top: 10px;
     box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
     background-color: rebeccapurple;
     float: left;
 }
+.atributos_filme{
+    width: inherit;
+    height: 60px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 5px;
+    background-color: rgb(212, 214, 214);
+    /*font*/
+    font-family: baronBold;
+    font-size: 20px;
+}
 
+.ativar_desativar_filme_mes{
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
+    margin-left: 7px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-bottom: 550;
+    background-color: rgb(255, 255, 255);
+    float: left;
+}
+/*************************************/
+
+/********PROMOCOES*************/
+
+#card_promocoes{
+    width: 450px;
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    background-color: rgb(184, 182, 182);
+}
+
+.segura_caixas_promocao{
+    width: 350px;
+    height: 100px;
+    margin-top: 70px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-left: 10px;
+    float: left;
+}
+#segura_caixa_promocao_percentagem{
+    width: 100px;
+    height: 100px;
+    margin-top: 70px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-left: 10px;
+    float: left;
+}
+#combo_promocao{
+    width: 340px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background-color:aliceblue;
+    box-sizing: border-box;
+    padding-left: 10px;
+    /*font*/
+    font-family: MeganJune;
+    font-weight: bold;
+    font-size: 20px;
+}
+#combo_promocao:focus{
+    outline: none;
+}
+#txt_promocao{
+    width: 55px;
+    height: 50px;
+    border: solid 1px black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-left: 6px;
+    /*font*/
+    font-family: MeganJune;
+    font-size: 30px;
+}
+#txt_promocao{
+    outline: none;
+}
+#porcentagem{
+    font-size: 30px;
+}
+/**************************************/
 /*MODAL FALE CONOSCO*/
 #conteiner{
     width: 100%;

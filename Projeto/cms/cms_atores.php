@@ -97,7 +97,7 @@
 
         if($modo == 'excluir'){
             //verificando se o ator está ativo
-            $sql = "SELECT status FROM tbl_ator";
+            $sql = "SELECT imagem_ator, status FROM tbl_ator WHERE cod_ator =".$codigo;
             $select = mysqli_query($conexao, $sql);
 
             if($rsExcluirAtor = mysqli_fetch_array($select)){
@@ -107,6 +107,7 @@
                     $sql = "DELETE FROM tbl_ator WHERE cod_ator =".$codigo;
 
                     if(mysqli_query($conexao, $sql)){
+                        unlink('./img/imagem_ator/'.$rsExcluirAtor['imagem_ator']);
                         header('Location: cms_atores.php');
                     }
                 }else{
