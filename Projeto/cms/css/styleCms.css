@@ -269,7 +269,9 @@ td{
 
 #card_criar_usuario{
     width: 800px;
-    height: 450px;
+    min-height: 450px;
+    height: auto;
+    overflow: hidden;
     border-radius: 20px;
     margin-left: 120px;
     padding-top: 20px;
@@ -395,14 +397,14 @@ td{
 /*********************************************/
 /********modal criando nivel******************/
 #segura_cadastro_nivel{
-    width: 600px;
+    width: 1000px;
     height: 800px;
     margin-top: 50px;
     margin-bottom: 40px;
 }
 #card_cadastro{
-    width: inherit;
-    height: 355px;
+    width: 600px;
+    height: 340px;
     box-sizing: border-box;
     padding-top: 5px;
     border-radius: 10px;
@@ -411,7 +413,7 @@ td{
 .caixa_cadastro_nivel{
     width: inherit;
     height: 120px;
-    margin-top: 20px;
+    margin-top: 15px;
     box-sizing: border-box;
     padding-left: 15px;
     /*Fontwe*/
@@ -450,7 +452,7 @@ td{
     height: 340px;
     overflow: auto;
     box-sizing: border-box;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 20px;
     background-color: rgb(113, 113, 114);
 }

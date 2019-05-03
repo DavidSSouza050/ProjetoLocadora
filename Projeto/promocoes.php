@@ -48,13 +48,14 @@
                                 filme.preco_filme,
                                 concat(SUBSTRING(filme.descricao, 1, 134), ' ...') as descricao,
                                 filme.imagem_filme,
-                                promocao.status,
+                                promocao.status as status_promocao,
                                 promocao.porcentagem_desconto as desconto
                                 FROM tbl_promocao as promocao INNER JOIN tbl_filme as filme
                                 ON filme.cod_filme = promocao.cod_filme";
                         $select = mysqli_query($conexao, $sql);
                         //for para colocar as cards rapidamente
                         while($rsPromocao = mysqli_fetch_array($select)){
+                            if($rsPromocao['status_promocao'] == 1){
                     ?>
                         <!-- cards dos filmes a venda e em promoção -->
                         <div class='produto_promocao'>
@@ -101,6 +102,7 @@
                             </div>
                         </div>
                     <?php
+                            }
                         }
                     ?>
 

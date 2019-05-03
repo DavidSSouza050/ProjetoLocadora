@@ -6,7 +6,7 @@
     $sql = "SELECT filme.titulo_filme, 
             filme.descricao,
             filme.imagem_filme,
-            filme.status,
+            filme.status as status_filme,
             filme.duracao,
             diretor.diretor,
             group_concat(genero.genero separator '/') as genero,
@@ -23,7 +23,7 @@
     $select = mysqli_query($conexao, $sql);
 
     while($rsFilmeMes = mysqli_fetch_array($select)){
-        if($rsFilmeMes['status'] == 1){
+        if($rsFilmeMes['status_filme'] == 1){
             $titulo = $rsFilmeMes['titulo_filme'];
             $descricao = $rsFilmeMes['descricao'];
             $duracao = $rsFilmeMes['duracao'];

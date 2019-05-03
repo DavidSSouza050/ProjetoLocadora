@@ -6,8 +6,6 @@ const numero = document.getElementById('txt_numero');
 const estado = document.getElementById('txt_estado');
 
 //promoçõa
-
-
 const btn_cadastrar_loja = document.getElementById('cadastrar_sobre');
 
 // MANIPULANDO URL
@@ -17,22 +15,37 @@ const trazerEndereco = () =>{
    // alert(numeroCep);
    //ultilizando ajax para mandar dados para o php
     $.ajax({
-        type:"GET",
-        url:"./util/getEndereco.php",
-        data:{numeroCep:numeroCep},
-        complete: function(response){
-            let json_endereco = JSON.parse(response.responseText);
-            console.log(json_endereco);
-            preencherEndereco(json_endereco);
-            numero.focus();            
-        },
-        error:function(){
-            alert("Cep insuficiente");
+        type:'GET',
+        url: 'https://viacep.com.br/ws/'+numeroCep+'/json/',
+        success: function(data){
+            alert(data);
+            pegarEndereco(data);
         }
     });
 
-   
+    const pegarEndereco = (endereco) => {
+        //trazendo endereco 
+        $.ajax({
+            type:"GET",
+            url:"./util/getEndereco.php",
+            data:{endereco:endereco},
+            complete: function(response){
+                let json_endereco = JSON.parse(response.responseText);
+                console.log(json_endereco);
+                preencherEndereco(json_endereco);
+                numero.focus();            
+            },
+            error:function(){
+                alert("Cep insuficiente");
+            }
+        });
+    }
+
 };
+
+
+
+
 
 //função que está preenchendo os campos de endereço
 const preencherEndereco= (dadosJson) =>{
@@ -60,7 +73,7 @@ const mascaraCep = (event) =>{
 
 
 const mascNumero = (event) => {
-    numero.maxLength = 4;
+    numero.maxLength = 5;
     if(event.keyCode != 8 && event.keyCode != 127){ // liberando a a deletação dos digitos
         let texto = numero.value;// atribuindo o conteudo da caixa para a veriavel texto
         texto = texto.replace(/[^0-9A-Za-z]/g,"");// libera apenas digitos e letras

@@ -23,6 +23,7 @@
                 ON loja.cod_endereco = endereco.cod_endereco INNER JOIN tbl_cidade as cidade
                 ON endereco.cod_cidade = cidade.cod_cidade INNER JOIN tbl_estado as estado
                 ON cidade.cod_estado = estado.cod_estado WHERE cod_loja =".$cod_loja;
+                
         $select = mysqli_query($conexao, $sql);
         if($rsEnderco = mysqli_fetch_array($select)){
             $logradouro = $rsEnderco['logradouro'];

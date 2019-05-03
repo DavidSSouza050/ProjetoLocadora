@@ -3,20 +3,16 @@
     require_once('../../db/conexao.php');
     $conexao = conexaoMysql();
 
-    if(isset($_GET['numeroCep'])){
-        // pegando o cep que foi passado pelo ajax
-        $numeroCep = $_GET['numeroCep'];
-        //pegando a API viacep
-        $url = 'https://viacep.com.br/ws/'.$numeroCep.'/json/';
-        // transformando a api para json
-        $endereco_json = file_get_contents($url);
+    if(isset($_GET['endereco'])){
+
         // tratando para Array
-        $endereco_json_para_array= json_decode($endereco_json, true);
+        $arrayEndereco= $_GET['endereco'];
         // atribuindo a variaveis os atributos
-        $logradouro = $endereco_json_para_array['logradouro'];
-        $bairro = $endereco_json_para_array['bairro'];
-        $uf = $endereco_json_para_array['uf'];
-        $cidade = $endereco_json_para_array['localidade'];
+        $numeroCep = $arrayEndereco['cep'];
+        $logradouro = $arrayEndereco['logradouro'];
+        $bairro = $arrayEndereco['bairro'];
+        $uf = $arrayEndereco['uf'];
+        $cidade = $arrayEndereco['localidade'];
         
         //fazendo select para verificar o estado e a cidade
         $sql = "SELECT e.cod_estado, e.estado,

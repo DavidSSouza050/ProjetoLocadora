@@ -244,7 +244,15 @@
                         <div class="segura_caixa_usuario" >
                             Senha:<input type="text" value="<?php echo($senha_usuario)?>" class="caixa_usuario" name="senha_usuario_cadastro" id="senha_usuario_cadastro">
                         </div>
-                        
+                        <?php
+                            if(isset($modo) == 'buscar'){
+                        ?>
+                        <div class="segura_caixa_usuario segura_caixa_usuario_confirmar" >
+                            Confirmar Senha:<input type="text" value="<?php echo($senha_usuario)?>" class="caixa_usuario" name="senha_usuario_cadastro" id="senha_usuario_cadastro">
+                        </div>
+                        <?php
+                            }
+                        ?>
                         <!-- select para escolher um Nivel para o usuario -->
                         <select  id="cmb_nivel_usuario" name="cmb_nivel_usuario">   
                             <?php
