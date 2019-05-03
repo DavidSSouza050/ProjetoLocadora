@@ -22,9 +22,8 @@
                 filme.cod_filme
                 FROM tbl_ator AS ator INNER JOIN tbl_filme_ator as filme_ator
                 ON ator.cod_ator = filme_ator.cod_ator INNER JOIN tbl_filme AS filme
-                ON filme.cod_filme = filme_ator.cod_filme";
+                ON filme.cod_filme = filme_ator.cod_filme WHERE ator.cod_ator =".$id_ator;
         $select = mysqli_query($conexao, $sql);
-
         if($rsFilme_ator = mysqli_fetch_array($select)){
             $cod_ator = $rsFilme_ator['cod_ator'];
             $nome_ator = $rsFilme_ator['nome_ator'];

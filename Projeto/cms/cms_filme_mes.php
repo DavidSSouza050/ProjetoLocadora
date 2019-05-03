@@ -69,19 +69,19 @@
                     <?php
                     //fazendo o select para pegar todas os filmes e suas informações necessarias
                         $sql = "SELECT filme.titulo_filme as titulo,
-                        filme.cod_filme as cod_filme,
-                        filme.duracao as duracao,
-                        filme.status as status,
-                        diretor.diretor as diretor,
-                        group_concat(genero.genero SEPARATOR '/') as generos_filme,
-                        filme.imagem_filme as imagem_filme,
-                        distribuidora.distribuidora as distribuidora
-                        FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
-                        ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
-                        ON filme_diretor.cod_diretor = diretor.cod_diretor INNER JOIN tbl_filme_genero as filme_genero
-                        ON filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero as genero
-                        ON filme_genero.cod_genero =  genero.cod_genero INNER JOIN	tbl_ditribuidora as distribuidora
-                        ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme; ";
+                                filme.cod_filme as cod_filme,
+                                filme.duracao as duracao,
+                                filme.status as status,
+                                diretor.diretor as diretor,
+                                group_concat(genero.genero SEPARATOR '/') as generos_filme,
+                                filme.imagem_filme as imagem_filme,
+                                distribuidora.distribuidora as distribuidora
+                                FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
+                                ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
+                                ON filme_diretor.cod_diretor = diretor.cod_diretor INNER JOIN tbl_filme_genero as filme_genero
+                                ON filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero as genero
+                                ON filme_genero.cod_genero =  genero.cod_genero INNER JOIN	tbl_ditribuidora as distribuidora
+                                ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme; ";
                         $select = mysqli_query($conexao, $sql);
                         while($rsFilme_mes = mysqli_fetch_array($select)){
                     ?>

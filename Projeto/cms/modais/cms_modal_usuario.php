@@ -8,7 +8,10 @@
         require_once('../../db/conexao.php');
         $conexao = conexaoMysql();
        
-        $sql = "SELECT *
+        $sql = "SELECT u.nome_usuario, 
+                       u.email,
+                      u.status,
+                      n.nome_nivel
                 FROM tbl_usuario AS u LEFT JOIN tbl_nivel_usuario AS n
                 ON u.cod_nivel = n.cod_nivel WHERE u.cod_usuario =".$codigo;
         
@@ -19,7 +22,6 @@
             
             $nome_usuario = $rsUsuario['nome_usuario'];
             $email_usuario = $rsUsuario['email'];
-            $senha_usuario = $rsUsuario['senha'];
             $nivel = $rsUsuario['nome_nivel'] == '' ? 'Não tem nivel' : $rsUsuario['nome_nivel'];
             $ativo = $rsUsuario['status'] == 0 ? 'Não está ativo' : 'Ativo';
            
@@ -49,14 +51,6 @@
         </td>
         <td>
             <?php echo($email_usuario);?>
-        </td>
-    </tr>
-    <tr class="tbody_modal_fale_conosco">
-        <td>
-            Senha:
-        </td>
-        <td>
-            <?php echo($senha_usuario);?>
         </td>
     </tr>
     <tr class="tbody_modal_fale_conosco">

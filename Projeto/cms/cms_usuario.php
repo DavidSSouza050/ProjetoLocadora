@@ -9,6 +9,7 @@
     $nome_usuario = null;
     $email_usuario = null;
     $senha_usuario = null;
+    $modo = 'novo';
     /*Será usada no select para buscar os estados, para trazer todos os estados diferentes de 0.
     para resolver p bug do editar  */ 
     $nivel_usuario = 0;
@@ -25,35 +26,77 @@
         // atribuindo caixas as variaveis
         $nome_usuario = trim($_POST['nome_usuario_cadastro']);
         $email_usuario = trim($_POST['email_usuario_cadatro']);
-        $senha_usuario = trim($_POST['senha_usuario_cadastro']);
+        //se a senha estivar vazia ela guanha vazio para validação
+        $senha_usuario = $_POST['senha_usuario_cadastro'] == "" ? "" : trim(md5($_POST['senha_usuario_cadastro']));
+        $confirmar_senha = trim(md5($_POST['confirmar_senha_usuario_cadastro']));
         $nivel_usuario = trim($_POST['cmb_nivel_usuario']);
-
+       
         if($_POST['botao_salvar_usuario'] == "Salvar"){
             // execultando sql
             $sql = "INSERT INTO tbl_usuario (nome_usuario, email, senha, cod_nivel)
             VALUES  ('".$nome_usuario."', '".$email_usuario."', '".$senha_usuario."',".$nivel_usuario.");";
+
+            // echo($sql);
+            // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
+            if(mysqli_query($conexao, $sql)){
+            /*Redireciona para uma nova pagina*/
+                header("Location: cms_usuario.php");
+
+            }else{
+                // se não der certo mostra essa mensagem
+                echo("
+                    <script>
+                        alert('erro no Cadastro');
+                    </script>
+                ");
+            }
+
         }elseif($_POST['botao_salvar_usuario'] == "Editar"){
-            $sql = "UPDATE tbl_usuario SET nome_usuario = '".$nome_usuario."', 
+            // verificando se a senhar está correta para a aedição
+            $sqlBuscarSenha = "SELECT senha FROM tbl_usuario WHERE senha ='".$confirmar_senha."' AND cod_usuario =".$_SESSION['idRegistro'];
+            $select = mysqli_query($conexao, $sqlBuscarSenha);
+
+            if($rsConfirmasenhar = mysqli_fetch_array($select)){
+                //verificando se o usuario não mudou a senha
+                    if($senha_usuario != ""){
+                        //fazendo update com senha
+                        $sql = "UPDATE tbl_usuario SET nome_usuario = '".$nome_usuario."', 
                                             email = '".$email_usuario."', 
                                             senha = '".$senha_usuario."',
                                             cod_nivel=".$nivel_usuario." 
-                                            WHERE cod_usuario =".$_SESSION['idRegistro'];
-        }
-        
-        // echo($sql);
-             // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
-        if(mysqli_query($conexao, $sql)){
-        /*Redireciona para uma nova pagina*/
-            header("Location: cms_usuario.php");
+                                            WHERE cod_usuario =".$_SESSION['idRegistro'];   
+                    }else{
+                        //fazendo update sem senha
+                        $sql = "UPDATE tbl_usuario SET nome_usuario = '".$nome_usuario."', 
+                                            email = '".$email_usuario."', 
+                                            cod_nivel=".$nivel_usuario." 
+                                            WHERE cod_usuario =".$_SESSION['idRegistro'];   
+                    }
+                    
+                                            
+//                    echo($sql);
+                   //     execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
+                    if(mysqli_query($conexao, $sql)){
+                    /*Redireciona para uma nova pagina*/
+                        header("Location: cms_usuario.php");
 
-        }else{
-            // se não der certo mostra essa mensagem
-            echo("
-                <script>
-                    alert('erro no Cadastro');
-                </script>
-            ");
-        }         
+                    }else{
+                        // se não der certo mostra essa mensagem
+                        echo("
+                            <script>
+                                alert('erro no Cadastro');
+                            </script>
+                        ");
+   
+                    }
+            }else{
+                echo "<script>
+                    alert('Confirmar senha está errdo obs:Coloque a senha antiga');
+                    window.location.href = 'cms_usuario.php';
+                </script>";
+            }
+        }
+                
 
     }
 
@@ -78,12 +121,11 @@
                 ");
             }         
         }elseif($modo == 'buscar'){
-
-            $sqlBusca = "SELECT usuario.*, nivel.*
-            FROM tbl_usuario as usuario INNER JOIN tbl_nivel_usuario as nivel
+            
+            $sqlBusca = "SELECT usuario.*, nivel.cod_nivel, nivel.nome_nivel
+            FROM tbl_usuario as usuario LEFT JOIN tbl_nivel_usuario as nivel
             ON usuario.cod_nivel = nivel.cod_nivel
             WHERE usuario.cod_usuario=".$id;
-
             $select = mysqli_query($conexao, $sqlBusca);
 
             if($rsUsuario = mysqli_fetch_array($select)){
@@ -91,11 +133,13 @@
                 $email_usuario = $rsUsuario['email'];
                 $senha_usuario = $rsUsuario['senha'];
                 
+                if($rsUsuario['cod_nivel'] != null){
+                    $nivel_usuario = $rsUsuario['cod_nivel'];
+                    $nivel = $rsUsuario['nome_nivel'];
+                }else{
+                    $nivel_usuario = 0;
+                }
                 
-                $nivel_usuario = $rsUsuario['cod_nivel'];
-                $nivel = $rsUsuario['nome_nivel'];
-                
-
                 $batao_salvar = 'Editar';
                 $batao_limpar = 'Cancelar';
             }
@@ -242,13 +286,13 @@
                             Email: <input type="email" value="<?php echo($email_usuario)?>" class="caixa_usuario" name="email_usuario_cadatro" id="email_usuario_cadatro">
                         </div>
                         <div class="segura_caixa_usuario" >
-                            Senha:<input type="text" value="<?php echo($senha_usuario)?>" class="caixa_usuario" name="senha_usuario_cadastro" id="senha_usuario_cadastro">
+                            <?php echo($modo == "buscar" ? "Mudar Senha:" : "Senha")?><input type="password" class="caixa_usuario" name="senha_usuario_cadastro" id="senha_usuario_cadastro">
                         </div>
                         <?php
-                            if(isset($modo) == 'buscar'){
+                            if($modo == 'buscar'){
                         ?>
                         <div class="segura_caixa_usuario segura_caixa_usuario_confirmar" >
-                            Confirmar Senha:<input type="text" value="<?php echo($senha_usuario)?>" class="caixa_usuario" name="senha_usuario_cadastro" id="senha_usuario_cadastro">
+                            Senha Antiga:<input type="password" class="caixa_usuario" name="confirmar_senha_usuario_cadastro" id="senha_usuario_cadastro">
                         </div>
                         <?php
                             }

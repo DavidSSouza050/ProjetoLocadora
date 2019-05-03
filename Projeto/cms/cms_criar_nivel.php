@@ -8,6 +8,10 @@
     $nome_nivel = null;
     $btn_nivel = 'Salvar';
     $btn_limpar_nivel = 'limpar';
+    $chec_conteudo = 0;
+    $chec_fale_conosco = 0;
+    $chec_produto = 0;
+    $chec_usuario = 0;
 
     //limpar caixa
     if(isset($_POST['btn_limpar_nivel'])){
@@ -18,19 +22,25 @@
     if(isset($_POST['btn_cadastro_nivel'])){
         //variaveis da modal
         $nome_nivel = trim($_POST['txt_nome_nivel']);
-        $adm_conteudo = $_POST['chec_conteudo'];
-        $adm_fale_conosco = $_POST['chec_fale_conosco'];
-        $adm_produto = $_POST['chec_produtos'];
-        $adm_usuario = $_POST['chec_usuarios'];
+        $adm_conteudo = $_POST['chec_conteudo'] == 1 ? 1 : 0;
+        $adm_fale_conosco = $_POST['chec_fale_conosco'] == 1 ? 1 : 0;
+        $adm_produto = $_POST['chec_produtos'] == 1 ? 1 : 0;
+        $adm_usuario = $_POST['chec_usuarios'] == 1 ? 1 : 0;
 
 
         if($_POST['btn_cadastro_nivel'] == 'Salvar'){
             
-            $sql = "INSERT INTO tbl_nivel_ushg', ".$adm_conteudo.", ".$adm_fale_conosco.", ".$adm_produto.", ".$adm_usuario.");";
+            $sql = "INSERT INTO tbl_nivel_usuario (nome_nivel, adm_conteudo, adm_fale_conosco, adm_produto, adm_usuario) 
+                    VALUES('".$nome_nivel."', ".$adm_conteudo.", ".$adm_fale_conosco.", ".$adm_produto.", ".$adm_usuario.");";
 
 
         }elseif($_POST['btn_cadastro_nivel'] == 'Editar'){
-            $sql = "UPDATE tbl_nivel_usuario SET nome_nivel ='".$nome_nivel."' WHERE cod_nivel =".$_SESSION["id_nivel"];
+            $sql = "UPDATE tbl_nivel_usuario SET nome_nivel ='".$nome_nivel."',
+                                                adm_conteudo = ".$adm_conteudo.",
+                                                adm_fale_conosco = ".$adm_fale_conosco.",
+                                                adm_produto = ".$adm_produto.",
+                                                adm_usuario = ".$adm_usuario."
+                                                WHERE cod_nivel =".$_SESSION["id_nivel"];
         }
         
            // echo($sql);
@@ -41,11 +51,7 @@
 
         }else{
             // se não der certo mostra essa mensagem
-            echo("
-                <script>
-                    alert('erro no Cadastro');
-                </script>
-            ");
+            echo $sql;
         }     
     }
 
@@ -78,6 +84,10 @@
 
             if($rsNivel = mysqli_fetch_array($select)){
                 $nome_nivel = $rsNivel['nome_nivel'];
+                $chec_conteudo = $rsNivel['adm_conteudo'] == 1 ? 'checked' : "";
+                $chec_fale_conosco = $rsNivel['adm_fale_conosco'] == 1 ? 'checked' : "";
+                $chec_produto = $rsNivel['adm_produto'] == 1 ? 'checked' : "";
+                $chec_usuario = $rsNivel['adm_usuario'] == 1 ? 'checked' : "";
                  
                 $btn_nivel = 'Editar';
                 $btn_limpar_nivel = 'Cancelar';
@@ -138,10 +148,10 @@
                         Nome do Nivel: <input type="text" value="<?php echo($nome_nivel)?>" id="txt_nome_nivel" name="txt_nome_nivel">
                     </div>
                     <div class="caixa_cadastro_nivel">
-                        <h4><input type="checkbox" name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label><h4>
-                        <h4><input type="checkbox" name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label><h4>
-                        <h4><input type="checkbox" name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label><h4>
-                        <h4><input type="checkbox" name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label><h4>
+                        <h4><input type="checkbox" <?php echo($chec_conteudo)?> name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label><h4>
+                        <h4><input type="checkbox"  <?php echo($chec_fale_conosco)?> name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label><h4>
+                        <h4><input type="checkbox" <?php echo($chec_produto)?> name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label><h4>
+                        <h4><input type="checkbox" <?php echo($chec_usuario)?> name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label><h4>
                     </div>
                     <div id="segura_btn_cadastro_nivel">
                         <input type="submit" value="<?php echo($btn_limpar_nivel)?>" class="botao_cadastro_usuario" name="btn_limpar_nivel">
@@ -158,16 +168,16 @@
                             Nome
                         </td>
                         <td>
-                            Amd Conteudo
+                            Adm Conteudo
                         </td>
                         <td>
-                            Amd Fale conosco
+                            Adm Fale conosco
                         </td>
                         <td>
-                            Amd Produto
+                            Adm Produto
                         </td>
                         <td>
-                            Amd Usuarios
+                            Adm Usuarios
                         </td>
                         <td>
                             Opções
@@ -187,7 +197,7 @@
                         <td>
                             <?php 
                                 //Editando variavel vindo do banco
-                                $adm_conteudo_table = $rsNivel['adm_conteudo'] == 1 ? 'Abilitado' : 'Desabilitado' ;
+                                $adm_conteudo_table = $rsNivel['adm_conteudo'] == 1 ? 'Habilitado' : 'Desabilitado' ;
                             
                                 echo($adm_conteudo_table);
                             ?>
@@ -195,14 +205,14 @@
                         <td>
                             <?php 
                              //Editando variavel vindo do banco
-                                $adm_fale_conosco_table = $rsNivel['adm_fale_conosco'] == 1 ? 'Abilitado' : 'Desabilitado';
+                                $adm_fale_conosco_table = $rsNivel['adm_fale_conosco'] == 1 ? 'Habilitado' : 'Desabilitado';
                                 echo($adm_fale_conosco_table);
                             ?>
                         </td>
                         <td>
                             <?php 
                              //Editando variavel vindo do banco
-                                $adm_produto_table = $rsNivel['adm_produto'] == 1 ? 'Abilitado' : 'Desabilitado';
+                                $adm_produto_table = $rsNivel['adm_produto'] == 1 ? 'Habilitado' : 'Desabilitado';
                                 echo($adm_produto_table);
 
                             ?>
@@ -210,7 +220,7 @@
                         <td>
                             <?php 
                                 //Editando variavel vindo do banco
-                                $adm_usuario_table = $rsNivel['adm_usuario'] == 1 ? 'Abilitado' : 'Desabilitado';
+                                $adm_usuario_table = $rsNivel['adm_usuario'] == 1 ? 'Habilitado' : 'Desabilitado';
                                 echo($adm_usuario_table);
                             ?>
                         </td>

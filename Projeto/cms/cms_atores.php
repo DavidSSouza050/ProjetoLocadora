@@ -133,18 +133,23 @@
     if(isset($_POST['Salvar_adicionar'])){
         $cod_filme = $_POST['sle_filme'];
         $cod_ator = $_POST['sle_ator'];
+        
+        //Verificando se o ator já está com aquele filme
+        $sqlBuscarFilmeAotr = "SELECT cod_filme, cod_ator FROM tbl_filme_ator WHERE cod_filme =".$cod_filme." AND cod_ator =".$cod_ator;
+        $select = mysqli_query($conexao, $sqlBuscarFilmeAotr);
+        if($rsResposta = mysqli_fetch_array($select)){
+            if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_ator'] == $cod_ator){  
+                echo("<script>
+                        alert('FON.'); 
+                        window.location='cms_atores.php';        
+                    </script>");
+            } 
 
-        if($cod_filme == null && $cod_ator == null ){
-            echo("<script>alert('Tem que haver um filme e um ator para ser cadastrado.')</script>");
-            echo("<script>window.location='cms_atores.php';</script>");
-        }elseif($cod_filme == null ||  $cod_ator == null){
-            echo("<script>alert('Tem que haver um filme e um ator para ser cadastrado.')</script>");
-            echo("<script>window.location='cms_atores.php';</script>");
         }else{
             $sql = "INSERT INTO tbl_filme_ator (cod_filme, cod_ator) 
-                            VALUES  (".$cod_filme.",".$cod_ator.")";
+                                VALUES  (".$cod_filme.",".$cod_ator.")";
             if(mysqli_query($conexao, $sql)){
-                header('Location: cms_atores.php');
+                // header('Location: cms_atores.php');
             }else{
                 echo $sql;
             }
