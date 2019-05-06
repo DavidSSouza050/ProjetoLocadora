@@ -45,8 +45,9 @@ INSERT INTO tbl_genero (genero) VALUES ('Terror (ou horror)');
 INSERT INTO tbl_ditribuidora (distribuidora) VALUES ('Orion Pictures'); -- EXTERMINADOR 1
 INSERT INTO tbl_ditribuidora (distribuidora) VALUES ('TriStar Pictures'); -- EXTERMINADOR 2
 INSERT INTO tbl_ditribuidora (distribuidora) VALUES ('20th Century Fox'); -- PRERADADOR
+INSERT INTO tbl_ditribuidora (distribuidora) VALUES ('Walt Disney Studios Motion Pictures'); -- Vingadores
 
-
+SELECT * FROM tbl_ditribuidora;
 -- EXTERMINADOR DO FUTURO 1
 
 INSERT INTO tbl_filme (titulo_filme, descricao, preco_filme, imagem_filme, duracao, cod_classificacao, cod_distribuidora) 
@@ -60,12 +61,20 @@ INSERT INTO tbl_filme (titulo_filme, descricao, preco_filme, imagem_filme, durac
 			Values    ('O Exterminador do Futuro 2', 
 						'Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de "metal líquido", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',
                         preco_filme = REPLACE( '50,80', ',', '.' ), 'exterminador_do_futuro_2.jpg', '136 minutos', 3, 2); 
+                        
+INSERT INTO tbl_filme (titulo_filme, descricao, preco_filme, imagem_filme, duracao, cod_classificacao, cod_distribuidora) 
+			Values    ('Vingadores: Guerra Infinita', 
+						'O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',
+                        preco_filme = REPLACE( '100,60', ',', '.' ), 'vingadoresguerrainfinita.jpg', '149 minutos', 3, 4); 
+UPDATE tbl_filme set preco_filme =  100.60 WHERE cod_filme = 4;
 
 
+SELECT * FroM tbl_genero;
 
 -- colocando os generos
 INSERT INTO tbl_filme_genero (cod_filme, cod_genero) VALUES (1, 18);
 INSERT INTO tbl_filme_genero (cod_filme, cod_genero) VALUES (1, 24);
+
 INSERT INTO tbl_filme_genero (cod_filme, cod_genero) VALUES (2, 18);
 INSERT INTO tbl_filme_genero (cod_filme, cod_genero) VALUES (2, 24);
 

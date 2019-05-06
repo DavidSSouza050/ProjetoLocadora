@@ -87,7 +87,11 @@
                                             $desconto = $rsPromocao['preco_filme'] - $preco_descontado;
                                             //Tirando o ponto e adicionando a virgula
                                             $desconto_com_ponto = explode(".",$desconto);
-                                            $desconto_sem_ponto = $desconto_com_ponto[0].",".$desconto_com_ponto[1];                                            
+                                            if(!isset($desconto_com_ponto[1])){
+                                                $desconto_sem_ponto = $desconto_com_ponto[0].",00"; 
+                                            }else{
+                                                $desconto_sem_ponto = $desconto_com_ponto[0].",".substr($desconto_com_ponto[1], 0, 2);
+                                            }
                                         ?>
                                         <span class='formata_atributo'>Por:</span> <?php echo($desconto_sem_ponto);?>
                                     </div>                            

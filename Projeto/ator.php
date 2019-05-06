@@ -3,8 +3,14 @@
     require_once('./db/conexao.php');
     $conexao = conexaoMysql();
     // variais para formatação
-    
-
+    $cod_ator = null;
+    $nome = null;
+    $atividade = null;
+    $nascionalidade = null;
+    $data_naci_certo = null;    
+    $idade =  null;
+    $imagem_ator = null;
+    $bio = null;
     //pegar data para calcular a idade do ator
     $ano = date('Y');
     $mes = date('m');

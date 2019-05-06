@@ -247,7 +247,7 @@
                                     <?php 
                                         //Tirando o ponto e adicionando a virgula
                                         $preco_com_ponto = explode(".",$rsPromocao['preco']);
-                                        $preco_sem_ponto = $preco_com_ponto[0].",".$preco_com_ponto[1];
+                                        $preco_sem_ponto = $preco_com_ponto[0].",".substr($desconto_com_ponto[1], 0, 2);
                                         echo($preco_sem_ponto);
                                     ?>
                                 </td>
@@ -258,7 +258,12 @@
                                         $desconto = $rsPromocao['preco'] - $preco_descontado;
                                         //Tirando o ponto e adicionando a virgula
                                         $desconto_com_ponto = explode(".",$desconto);
-                                        $desconto_sem_ponto = $desconto_com_ponto[0].",".$desconto_com_ponto[1];
+                                        
+                                        if(!isset($desconto_com_ponto[1])){
+                                            $desconto_sem_ponto = $desconto_com_ponto[0].",00"; 
+                                        }else{
+                                            $desconto_sem_ponto = $desconto_com_ponto[0].",".substr($desconto_com_ponto[1], 0, 2);
+                                        }
                                         echo($desconto_sem_ponto);
                                     ?>
                                 </td>

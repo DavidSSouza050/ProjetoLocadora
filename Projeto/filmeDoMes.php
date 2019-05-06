@@ -2,19 +2,26 @@
 //  pegando conexão com o banco
     require_once('./db/conexao.php');
     $conexao = conexaoMysql();
+    //variaveis
+    $titulo = null;
+    $descricao = null;
+    $duracao = null;
+    $diretor = null;
+    $genero = null;
+    $distribuidora = null;
+    $classificacao = null;
+    $imagem = null;
 
     $sql = "SELECT filme.titulo_filme, 
+            filme.cod_filme, 
             filme.descricao,
             filme.imagem_filme,
             filme.status as status_filme,
             filme.duracao,
-            diretor.diretor,
             group_concat(genero.genero separator '/') as genero,
             distribuidora.distribuidora,
             classificacao.classificacao
-            FROM tbl_filme as filme INNER JOIN tbl_filme_diretor AS filme_diretor
-            ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
-            ON filme_diretor.cod_diretor = diretor.cod_diretor INNER JOIN tbl_filme_genero as filme_genero
+            FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
             ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
             ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
             ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
@@ -25,9 +32,9 @@
     while($rsFilmeMes = mysqli_fetch_array($select)){
         if($rsFilmeMes['status_filme'] == 1){
             $titulo = $rsFilmeMes['titulo_filme'];
+            $cod_filme = $rsFilmeMes['cod_filme'];
             $descricao = $rsFilmeMes['descricao'];
             $duracao = $rsFilmeMes['duracao'];
-            $diretor = $rsFilmeMes['diretor'];
             $genero = $rsFilmeMes['genero'];
             $distribuidora = $rsFilmeMes['distribuidora'];
             $classificacao = $rsFilmeMes['classificacao'];
@@ -67,7 +74,18 @@
                     <span class="titulo_topico">Duração:</span> <?php echo($duracao)?>
                 </div>
                 <div class="informacoes_filme_do_mes center">
-                    <span class="titulo_topico">Diretor:</span>  <?php echo($diretor)?>
+                    <span class="titulo_topico">Diretor:</span>  
+                        <?php
+                            $sqlDiretor = "SELECT group_concat(diretor.diretor SEPARATOR '/')  as diretor_filme FROM tbl_diretor as diretor
+                            INNER JOIN tbl_filme_diretor as filme_diretor
+                            ON diretor.cod_diretor = filme_diretor.cod_diretor WHERE filme_diretor.cod_filme =".$cod_filme;
+                            $selectDiretor = mysqli_query($conexao, $sqlDiretor);
+                            while($rsdiretor_filme_mes = mysqli_fetch_array($selectDiretor)){
+                        ?>
+                        <?php echo($rsdiretor_filme_mes['diretor_filme'])?>
+                        <?php
+                            }
+                        ?>
                 </div>
                 <div class="informacoes_filme_do_mes center">
                     <span class="titulo_topico">Gênero:</span> <?php echo($genero)?>
