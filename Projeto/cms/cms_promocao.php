@@ -1,6 +1,6 @@
 <?php
     //ligando varivael de sessão
-    session_start();
+    require_once('./usuario_verificado.php');
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
@@ -10,7 +10,7 @@
     $btn_limpar ="Limpar";
     $porcentagem = null;
     $cod_filme = 0;
-
+    $modo = null;
     if(isset($_POST['botao_limpar_usuario'])){
         header("Location: cms_promocao.php");
     }
@@ -19,15 +19,25 @@
         $cod_filme = $_POST['sle_filme_promocao'];
         $porcentagem = $_POST['promocao'];  
 
-
-        $sql = "INSERT INTO tbl_promocao (porcentagem_desconto, cod_filme)
+        //varificanso se as caixas estáo sem conteudo
+        if($cod_filme == null || $porcentagem == ""){
+            echo("<script>
+                alert('Tem que Haver um filme e uma porcentagem para cadastrar');
+                window.location.href = 'cms_promocao.php';
+            </script>");
+        }else{
+            // se tudo estiver certo cadastra a promocao
+            $sql = "INSERT INTO tbl_promocao (porcentagem_desconto, cod_filme)
                             VALUES        (".$porcentagem.", ".$cod_filme.") ";
 
-        if(mysqli_query($conexao, $sql)){
-            header("Location: cms_promocao.php");
-        }else{
-            echo $sql;
+            if(mysqli_query($conexao, $sql)){
+                header("Location: cms_promocao.php");
+            }else{
+                echo $sql;
+            }
+
         }
+        
 
         
     }elseif(isset($_POST['Editar_promocao'])){
@@ -266,7 +276,7 @@
                                         $img = $rsPromocao['status_promocao'] == 0 ? "icon_nao_ativo.png" : "icon_ativo.png";
                                         $altEtitle = $rsPromocao['status_promocao'] == 0 ? "Não ativo" : "Ativo";
                                     ?>    
-                                    <img src="./img/<?php echo($img)?>" class="icon img-size" onclick="ativarDesativar('promocao', <?php echo($rsPromocao['status_promocao'])?>,<?php echo($rsPromocao['cod_promocao'])?>)"alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
+                                    <img src="./img/<?php echo($img)?>" class="icon img-size" onclick="ativarDesativar('promocao', <?php echo($rsPromocao['status_promocao'])?>,<?php echo($rsPromocao['cod_promocao'])?>)" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
                                       
                                 </td>
                             </tr>

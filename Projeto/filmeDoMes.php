@@ -90,7 +90,7 @@
                 <a href="#aparece_sinopse" class="show" id="aparece_sinopse"><span class="titulo_topico">▲ Sinopse</span></a><!-- a com o link para tirar o conteúdo -->
                 <div class="caixa_conteudo_hide"><!--Div que vai ser chamado para aparecer-->
                     <div class="conteudo_topico"><!--Div criada para onganizar os tópicos corretamente-->
-                        <p><?php echo($descricao)?></p>
+                        <p><?php echo(nl2br($descricao))?></p>
                     </div>
                 </div>
 

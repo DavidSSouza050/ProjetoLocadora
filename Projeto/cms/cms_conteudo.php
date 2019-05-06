@@ -1,4 +1,7 @@
-
+<?php
+  //Ativa o recurso de variavel de sessão
+  require_once('./usuario_verificado.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -21,7 +24,7 @@
         
 
             <!-- conteudo do menu do cms -->
-            <div id="menu_de_adm">
+            <div  id="conteudo_paginas_conteudo">
                
                 
                 <!-- conteudo do menu do cms -->
@@ -32,7 +35,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="./img/gerenciar_ator.png">
+                                    <img class="img-size" src="./img/gerenciar_ator.png" alt="Gerenciar Ator">
                                 </div>
                             </figure>
                             
@@ -49,7 +52,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="./img/promocoes.png">
+                                    <img class="img-size" src="./img/promocoes.png" alt="Gerenciar Promoções">
                                 </div>
                             </figure>
                             
@@ -65,7 +68,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="./img/editar_sobre_empresa.png">
+                                    <img class="img-size" src="./img/editar_sobre_empresa.png" alt="Gerenciar Sobre da Empresa">
                                 </div>
                             </figure>
 
@@ -81,7 +84,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="./img/lojas.png">
+                                    <img class="img-size" src="./img/lojas.png" alt="Gerenciar Lojas">
                                 </div>
                             </figure>
                             
@@ -97,7 +100,7 @@
                             <!-- imagem do conteudo editavel -->
                             <figure>
                                 <div class="img_conteudo_editavel">
-                                    <img class="img-size" src="./img/gerenciar_filme.png">
+                                    <img class="img-size" src="./img/gerenciar_filme.png" alt="Gerenciar Filme do mês">
                                 </div>
                             </figure>
                             

@@ -1,6 +1,6 @@
 <?php
     //Ativa o recurso de variavel de sessão
-    session_start();
+    require_once('../usuario_verificado.php');
     /*pagangando o banco*/
     require_once('../../db/conexao.php');
     $conexao = conexaoMysql();
@@ -14,10 +14,10 @@
     $bio = null;
     $imagem_ator = null;
 
-    if($modo == 'Cadastrar'){
+    if($modo == 'Cadastrar'){ // ← passando a modal para  cadastrar
         $btn = $modo;
 
-    }elseif($modo == 'Atualizar'){
+    }elseif($modo == 'Atualizar'){// ← passando a modal para  Atualizar
         $btn = $modo;
 
         $_SESSION['cod_ator'] = $codigo;
@@ -51,29 +51,29 @@
         <div class="segura_caixa_ator">
             <div class="caixa_ator">
                 <h5>Nome:</h5>
-                <input type="text" value="<?php echo($nome)?>" class="txt_ator" name="nome_ator" id="nome-ator">
+                <input type="text" maxLength='40'  value="<?php echo($nome)?>" class="txt_ator" name="nome_ator" id="nome-ator">
             </div>
             <div class="caixa_ator">
                 <h5>Nacionalidade:</h5>
-                <input type="text" class="txt_ator" value="<?php echo($nascionalidade)?>" name="nascionalidade_ator" id="nascionalidade-ator">
+                <input type="text" class="txt_ator"  maxLength='40' value="<?php echo($nascionalidade)?>" name="nascionalidade_ator" id="nascionalidade-ator">
             </div>
         </div>
         <!-- caixa com Atividades e data de nascimento do ator -->
         <div class="segura_caixa_ator">
             <div class="caixa_ator">
                 <h5>Atividades:</h5>
-                <input type="text" class="txt_ator" value="<?php echo($atividade)?>" name="ativadade_ator" id="atividade-ator">
+                <input type="text" class="txt_ator" maxLength='90' value="<?php echo($atividade)?>" name="ativadade_ator" id="atividade-ator">
             </div>
             <div class="caixa_ator">
                 <h5>Data de Nascimento:</h5>
-                <input type="text" class="txt_ator" value="<?php echo($data_nasci_certo)?>" name="data_naci_ator" id="data_naci-ator">
+                <input type="text" class="txt_ator" maxLength='10' placeholder="EX.:00/00/0000" value="<?php echo($data_nasci_certo)?>" name="data_naci_ator" id="data_naci_ator">
             </div>
         </div>
         <!-- caixa com a biografia e a imagem do ator -->
         <div id="segura_textArea_ator">
             <div class="caixa_ator">    
                 <h5>Biografia:</h5>
-                <textArea id="textArea_ator" class="scrollTexto"  name="biografia_ator" id="biografia-ator" ><?php echo($bio)?></textArea>
+                <textArea id="textArea_ator" maxLength='6000'  class="scrollTexto"  name="biografia_ator" id="biografia-ator" ><?php echo($bio)?></textArea>
             </div>
             <div class="caixa_ator">    
                 <h5>Imagem:</h5>
@@ -162,3 +162,4 @@
         }
     ?>
 </div>
+<script src="./js/validarData.js"></script>

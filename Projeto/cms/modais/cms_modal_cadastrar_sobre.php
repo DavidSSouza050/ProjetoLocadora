@@ -1,6 +1,6 @@
 <?php
     //Ativa o recurso de variavel de sessão
-    session_start();
+    require_once('../usuario_verificado.php');
     /*pagangando o banco*/
     require_once('../../db/conexao.php');
     $conexao = conexaoMysql();
@@ -34,14 +34,14 @@
     <form name="frm_cadatrar_sobre" method="POST" action="cms_sobre_empresa.php" enctype="multipart/form-data">
         <div id="segura_titulo_imagem">
             <div id="caixa_titulo">
-                Titulo:<input type="text" value="<?php echo($titulo_sobre)?>" id="text_cadastro_titulo" name="txt_titulo_sobre">
+                Titulo:<input type="text" maxLength='30' value="<?php echo($titulo_sobre)?>" id="text_cadastro_titulo" name="txt_titulo_sobre">
             </div>
             <div id="caixa_imagem">
                 <input type="file" name="fle_imagem" >
             </div>
         </div>
         <div id="segura_textArea">
-            <textArea class="scrollTexto" placeholder="Texto Sobre" id="textA_sobre" name="textA_sobre"><?php echo($texto_sobre)?></textArea>
+            <textArea class="scrollTexto" maxLength='6000' placeholder="Texto Sobre" id="textA_sobre" name="textA_sobre"><?php echo($texto_sobre)?></textArea>
         </div>
         <div id="segura_botao_sobre">
             <input type="submit" value="<?php echo($btn)?>" name="<?php echo($btn.'_sobre') ?>" id="cadastrar_sobre" class="botao_cadastro_usuario"> 

@@ -1,41 +1,52 @@
 <?php   
     //varivel de sessão
-    session_start();
+    require_once('./usuario_verificado.php');
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
     //move foto
     require_once('./util/upload_imagem.php');
 
+
+    //CADASTRAR E ATUALIZAR ATOR
     if(isset($_POST['Cadastrar_ator'])){
         //pegando o ator cadastrado
-        $nome = $_POST['nome_ator'];
-        $nascionalidade = $_POST['nascionalidade_ator'];
-        $atividade = $_POST['ativadade_ator'];
+        $nome = trim($_POST['nome_ator']);
+        $nascionalidade = trim($_POST['nascionalidade_ator']);
+        $atividade = trim($_POST['ativadade_ator']);
         /** usando o explode para formatar a data*/
-        $dataNasci = explode("/", $_POST['data_naci_ator']);
+        $dataNasci = explode("/", $_POST['data_naci_ator']) == true ? explode("/", $_POST['data_naci_ator']) : false;
         $dataNasci_certo = $dataNasci[2]."-".$dataNasci[1]."-".$dataNasci[0];
         //*****/
-        $bio = $_POST['biografia_ator'];
+        $bio = trim($_POST['biografia_ator']);
         
         // usando uma função para cadastrar a imagem
         $foto_ator = move_image($_FILES['fle_ator'], './img/imagem_ator/');
 
-        if($foto_ator != null){
-            // se tudo correr como planejado, ele inserie na tabela
-            $sql = "INSERT INTO tbl_ator (nome_ator, nascionalidade, atividade, data_nacimento, biografia, imagem_ator)
-            VALUES ('".$nome."', '".$nascionalidade."', '".$atividade."', '".$dataNasci_certo."' ,'".$bio."', '".$foto_ator."')";
-
-            if(mysqli_query($conexao, $sql)){
-                header('Location: cms_atores.php');
-            }else{
-                echo($sql);
-            }
+        //Verificando se todas as caixas estão preenchidas corretamente
+        if($nome == "" || $nascionalidade == "" || $atividade  == "" || $dataNasci == false || $bio == ""){
+            echo("<script>
+                alert('Preencha todas as caixas necessárias e corretamente. Lembre-se de colocar a data na metodologia Brasileira');
+                window.location.href = 'cms_atores.php';
+            </script>");
         }else{
-            //
-            echo("<script>alert('Erro ao mover a imagem para o Servidor Obs:Lembre-se de escolher uma imagem com as exteções corrtas (jpg, png, jpeg) e preencha todas as caixas.')</script>");
-            echo("<script>window.location='cms_atores.php';</script>");
+            if($foto_ator != null){
+                // se tudo correr como planejado, ele inserie na tabela
+                $sql = "INSERT INTO tbl_ator (nome_ator, nascionalidade, atividade, data_nacimento, biografia, imagem_ator)
+                VALUES ('".$nome."', '".$nascionalidade."', '".$atividade."', '".$dataNasci_certo."' ,'".$bio."', '".$foto_ator."')";
+    
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_atores.php');
+                }else{
+                    echo($sql);
+                }
+            }else{
+                //
+                echo("<script>alert('Erro ao mover a imagem para o Servidor Obs:Lembre-se de escolher uma imagem com as exteções corrtas (jpg, png, jpeg,  jfif) e preencha todas as caixas.')</script>");
+                echo("<script>window.location='cms_atores.php';</script>");
+            }
         }
+  
 
     }elseif(isset($_POST['Atualizar_ator'])){
 
@@ -90,12 +101,13 @@
 
     }
 
+    //APADAR O ATOR OU SUA RELAÇÃO COM O FILME
     if(isset($_GET['modo'])){
         $modo = $_GET['modo'];
         $codigo = $_GET['id'];
         $codigo_filme = $_GET['id_filme'];
 
-        if($modo == 'excluir'){
+        if($modo == 'excluir'){ // ← excluir ator
             //verificando se o ator está ativo
             $sql = "SELECT imagem_ator, status FROM tbl_ator WHERE cod_ator =".$codigo;
             $select = mysqli_query($conexao, $sql);
@@ -116,8 +128,8 @@
                 }
 
             }
-
-        }elseif($modo == 'excluirRelacao'){
+            
+        }elseif($modo == 'excluirRelacao'){ //← RELAÇÃO COM O FILME
             
             $sql = "DELETE FROM tbl_filme_ator WHERE cod_ator =".$codigo." AND cod_filme =".$codigo_filme;  
             
@@ -130,18 +142,19 @@
 
     }
 
-    if(isset($_POST['Salvar_adicionar'])){
+    // ADICIONAR E ATUALIZAR A RELAÇÃO COM O FILME
+    if(isset($_POST['Salvar_adicionar'])){ // ← ADICIONAR FILME AO ATOR 
         $cod_filme = $_POST['sle_filme'];
         $cod_ator = $_POST['sle_ator'];
-        
+       
         //Verificando se o ator já está com aquele filme
         $sqlBuscarFilmeAotr = "SELECT cod_filme, cod_ator FROM tbl_filme_ator WHERE cod_filme =".$cod_filme." AND cod_ator =".$cod_ator;
         $select = mysqli_query($conexao, $sqlBuscarFilmeAotr);
         if($rsResposta = mysqli_fetch_array($select)){
             if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_ator'] == $cod_ator){  
                 echo("<script>
-                        alert('FON.'); 
-                        window.location='cms_atores.php';        
+                        alert('Não pode cadastrar o mesmo filme.'); 
+                        window.location ='cms_atores.php';        
                     </script>");
             } 
 
@@ -149,25 +162,55 @@
             $sql = "INSERT INTO tbl_filme_ator (cod_filme, cod_ator) 
                                 VALUES  (".$cod_filme.",".$cod_ator.")";
             if(mysqli_query($conexao, $sql)){
-                // header('Location: cms_atores.php');
+                    header('Location: cms_atores.php');
             }else{
-                echo $sql;
+                //se nada disso for ele valida o cadastramento que deu invalido
+                echo("<script>
+                    alert('Selecione um ator e um filme que não estejam adastrados');
+                    window.location.href = 'cms_atores.php';
+                </script>");
             }
         }
-
-    }elseif(isset($_POST['Atualizar_adicionar'])){
+         
+        
+    }elseif(isset($_POST['Atualizar_adicionar'])){ // ← Atualizar relçao com o filme  
         $cod_filme = $_POST['sle_filme'];
         $cod_ator = $_POST['sle_ator'];
 
-        $sql = "UPDATE tbl_filme_ator SET cod_ator =".$cod_ator.",
-                                          cod_filme =".$cod_filme."
-                                          WHERE cod_ator =".$_SESSION['cod_ator'];
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_atores.php');
-            unset($_SESSION['cod_ator']);
+        //varificando se as caixas estão vazias
+        if($cod_filme == null || $cod_ator == null){
+                echo("<script>
+                    alert('Selecione um filme e um ator');
+                    window.location.href = 'cms_atores.php';
+                </script>");
         }else{
-            echo $sql;
-        }                     
+            //Verificando se ja essiste essa relação do a ator com o filme
+            $sqlBuscarFilmeAotr = "SELECT cod_filme, cod_ator FROM tbl_filme_ator WHERE cod_filme =".$cod_filme." AND cod_ator =".$cod_ator;
+            $select = mysqli_query($conexao, $sqlBuscarFilmeAotr);
+            if($rsResposta = mysqli_fetch_array($select)){
+                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_ator'] == $cod_ator){  
+                echo("<script>
+                        alert('Não pode atualizar com o mesmo filme.'); 
+                        window.location='cms_atores.php';        
+                    </script>");
+                } 
+            }else{
+                $sql = "UPDATE tbl_filme_ator SET cod_filme =".$cod_filme."
+                                                WHERE cod_ator =".$_SESSION['id_ator']." AND cod_filme =". $_SESSION['id_filme'];
+
+                if(mysqli_query($conexao, $sql)){
+                    //Limpando as variaveis de sessão apos o up date
+                    header('Location: cms_atores.php');
+                    unset($_SESSION['id_ator']);
+                    unset($_SESSION['id_filme']);
+                    
+                }else{
+                    echo $sql;
+                }  
+            }                          
+
+        }
+                     
     }
 
 ?>

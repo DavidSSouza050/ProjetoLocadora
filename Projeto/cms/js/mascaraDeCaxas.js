@@ -1,5 +1,14 @@
+
 //atribuição de variaveis
 const txt_promocao = document.getElementById('txt_promocao');
+
+
+
+
+
+
+
+
 
 //mascaras
 const mascaraPorcentagem = (event) =>{
@@ -8,7 +17,6 @@ const mascaraPorcentagem = (event) =>{
         let texto = txt_promocao.value;// atribuindo o conteudo da caixa para a veriavel texto
       
         texto = texto.replace(/[^0-9]/g,"");// libera apenas digitos e letras
-    
 
         txt_promocao.value = texto;// a caixa recebe a variavel com a explessão regular para exculta o que é permitido
     }
@@ -17,5 +25,9 @@ const mascaraPorcentagem = (event) =>{
 
 
 
-//ouvintes
+
+
+
+//ouvintes para mascaras
 txt_promocao.addEventListener("keyup", (event) => mascaraPorcentagem(event));
+

@@ -1,0 +1,7 @@
+USUARIO ROOT = 	David Silva Email =david_silva@gmail.com senha:david123
+
+OPERADOR BASICO = Magna Cassia Email = magna_cassia@gmail.com senha:magna123
+
+CATALOGUISTA = David Silva Souza Email = david_silva_souza@gmail.com senha:abc123
+
+FUNCIONARIO = Jeremias Souza Santos Email = jeremias_santos@gmail.com senha:jere123456

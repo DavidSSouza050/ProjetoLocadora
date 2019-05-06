@@ -1,3 +1,8 @@
+<?php
+    require_once('./db/conexao.php');
+    $conexao =  conexaoMysql();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -58,22 +63,33 @@
                 <div class="caixa_produto">
 
                     <?php
+                          $sql = "SELECT filme.titulo_filme,
+                          filme.preco_filme,
+                          concat(SUBSTRING(filme.descricao, 1, 120), ' ...') as descricao,
+                          filme.imagem_filme,
+                          promocao.status as status_promocao
+                          FROM tbl_promocao as promocao right JOIN tbl_filme as filme
+                          ON filme.cod_filme = promocao.cod_filme";
+                  $select = mysqli_query($conexao, $sql);
+                  //for para colocar as cards rapidamente
+                    while($rsFilme = mysqli_fetch_array($select)){
+                      if($rsFilme['status_promocao'] == null || $rsFilme['status_promocao'] == 0){
                         // for para calocar as cards rapdamente
-                        for($cards = 1; $cards <= 6; $cards++){
+                        
                     ?>
                         <!-- cards para mostruario -->
                         <div class='produto'>
                             <div class='produto_caixa_imagem'>
                                 <figure>
                                     <div class='produto_imagem center'>
-                                        <img class='img-size' src='img/senhorDosAneisASociedade.jpg' alt='O Senhor Dos Anéis: A Sociedade Do Anel' title='O Senhor Dos Anéis: A Sociedade Do Anel'>
+                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>
                             <div class='produto_caixa_descricao'>
-                                <p><span class='formata_atributo'>Nome:</span> O senho dos anéis: A sociedade do anel</p>
-                                <p><span class='formata_atributo'>Descrição:</span> Frodo entra em uma jornada para destruir o anel do poder herdado do seu tio Bilbo Bolseiro... </p>
-                                <p><span class='formata_atributo'>Preço:</span> 24,50</p>
+                                <p><span class='formata_atributo'>Nome:</span> <?php echo($rsFilme['titulo_filme'])?> </p>
+                                <p><span class='formata_atributo'>Descrição:</span> <?php echo($rsFilme['descricao'])?> </p>
+                                <p><span class='formata_atributo'>Preço:</span> <?php echo($rsFilme['preco_filme'])?></p>
                             </div>
                             <div class='produto_caixa_detalhes'>
                                 <div class='botao_detalhes formata_atributo'>
@@ -85,6 +101,7 @@
                         </div>
                     <?php 
                         }
+                    }
                     ?>
                 </div>  
             </div>

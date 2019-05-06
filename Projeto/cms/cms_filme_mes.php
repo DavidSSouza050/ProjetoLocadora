@@ -1,4 +1,6 @@
 <?php
+    //Ativa o recurso de variavel de sessão
+     require_once('./usuario_verificado.php');
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();

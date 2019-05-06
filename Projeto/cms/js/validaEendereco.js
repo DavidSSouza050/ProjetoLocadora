@@ -18,7 +18,6 @@ const trazerEndereco = () =>{
         type:'GET',
         url: 'https://viacep.com.br/ws/'+numeroCep+'/json/',
         success: function(data){
-            alert(data);
             pegarEndereco(data);
         }
     });
@@ -82,17 +81,9 @@ const mascNumero = (event) => {
     }
 }
 
-const bloquearDigitacao = (caixa) =>{
-    caixa.readonly = true;
-}
 
 //listener da caixa
 cep.addEventListener('change', trazerEndereco);
 //colocando mascara
 cep.addEventListener("keyup", (event) => mascaraCep(event));
 numero.addEventListener("keyup", (event) => mascNumero(event));
-//bloquendo as caixas para de ditação
-// logradouro.addEventListener('change', bloquearDigitacao(logradouro));
-// bairro.addEventListener('change', bloquearDigitacao(bairro));
-// estado.addEventListener('change', bloquearDigitacao(estado));
-// cidade.addEventListener('change', bloquearDigitacao(cidade));

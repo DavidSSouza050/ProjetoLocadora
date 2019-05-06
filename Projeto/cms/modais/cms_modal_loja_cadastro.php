@@ -1,6 +1,6 @@
 <?php
     //Ativar varivael de sessão
-    session_start();
+    require_once('../usuario_verificado.php');
     //pegando o banco 
     require_once('../../db/conexao.php');
     $conexao = conexaoMysql();
@@ -48,11 +48,11 @@
         <div class="card_txt_modal_lojas">
             <!-- divs que vai ter as caixas de texto e vão se trocar de lugar para estilização -->
             <div class="segura_txt_1">
-                Cep: <input type="text"  value="<?php echo($cep);?>" class="txt_lojas" name="txt_cep" id="txt_cep">    
+                Cep: <input type="text" maxLength='9' value="<?php echo($cep);?>" class="txt_lojas" name="txt_cep" id="txt_cep">    
             </div>
 
             <div class="segura_txt_2">
-                Numero: <input type="text"  value="<?php echo($numero);?>"  class="txt_lojas"  name="txt_numero" id="txt_numero"> 
+                Numero: <input type="text" maxLength='5' value="<?php echo($numero);?>"  class="txt_lojas"  name="txt_numero" id="txt_numero"> 
             </div>
             
         </div>

@@ -1,6 +1,6 @@
 <?php
     //Ativa o recurso de variavel de sessão
-    session_start();
+    require_once('./usuario_verificado.php');
     //pegando a conexão de outra pasta
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
@@ -10,22 +10,30 @@
    
     
     if(isset($_POST['Cadastrar_sobre'])){
-        $titulo_sobre = $_POST['txt_titulo_sobre'];
-        $texto_sobre =  $_POST['textA_sobre'];       
+        $titulo_sobre = trim($_POST['txt_titulo_sobre']);
+        $texto_sobre =  trim($_POST['textA_sobre']);       
 
        $foto_pronta = move_image($_FILES['fle_imagem'], './img/imagem_sobre/');
+        //verificando se as caixas estão vazias
+       if($titulo_sobre == "" || $texto_sobre == ""){
+            echo("<script>alert('Preencha os Campos')</script>");
+            echo("<script>window.location='cms_sobre_empresa.php';</script>");
 
-       if($foto_pronta != null){
+        }else{   
+           //verificando se ha imagem
+            if($foto_pronta != null){
                 $sql = "INSERT INTO tbl_sobre (texto_sobre, titulo_sobre, imagem_sobre)
                 VALUES ('".addslashes($texto_sobre)."','".addslashes($titulo_sobre)."', '".addslashes($foto_pronta)."');" ;   
                 
-            //echo($sql);
-            if(mysqli_query($conexao, $sql)){
-                header('Location: cms_sobre_empresa.php');
+                //echo($sql);
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_sobre_empresa.php');
+                }
+            }else{
+                echo("<script>alert('Erro ao mover a imagem para o Servidor Obs:Lembre-se de escolher uma imagem com as exteções corrtas (jpg, png, jpeg) e preencha todas as caixas.')</script>");
+                echo("<script>window.location='cms_sobre_empresa.php';</script>");
             }
-        }else{
-            echo("<script>alert('Erro ao mover a imagem para o Servidor Obs:Lembre-se de escolher uma imagem com as exteções corrtas (jpg, png, jpeg) e preencha todas as caixas.')</script>");
-            echo("<script>window.location='cms_sobre_empresa.php';</script>");
+
         }
         
                

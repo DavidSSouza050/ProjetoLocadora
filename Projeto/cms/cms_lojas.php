@@ -1,54 +1,60 @@
 <?php   
     //varivel de sessão
-    session_start();
+    require_once('./usuario_verificado.php');
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
 
 
     if(isset($_POST['Cadastrar_loja'])){
-        $cep = $_POST['txt_cep'];
-        $numero = $_POST['txt_numero'];
-        $logradouro = $_POST['txt_logradouro'];
-        $bairro = $_POST['txt_bairro'];
-        $cidade = $_POST['txt_cidade'];
+        $cep = trim($_POST['txt_cep']);
+        $numero = trim($_POST['txt_numero']);
+        $logradouro = trim($_POST['txt_logradouro']);
+        $bairro = trim($_POST['txt_bairro']);
+        $cidade = trim($_POST['txt_cidade']);
 
-        //fazendo conexao para verificar se a um cep para não posibilitar a entrarda de um mesmo cep
-        $sql = "SELECT * FROM tbl_endereco";
-        $select = mysqli_query($conexao, $sql);
-        // trazendo todos os enderesos para verificar se tem o meus cep
-        if($rsEndereco = mysqli_fetch_array($select)){
-            //virificando se é o mesmo cep
-            if($rsEndereco['cep'] == $cep){
-                //alertando o usuario e atualizando a pagina para não cadastrar um ultro endereco
-                echo("<script>alert('Não pode aver Mais de um cep')</script>");
-                echo("<script>window.location='cms_lojas.php';</script>");
-            }
-        }
-        //cadastrando o indereco
-        $sql = "INSERT INTO tbl_endereco (logradouro, cep, bairro, numero, cod_cidade)
-        VALUES ('".$logradouro."', 
-            '".$cep."', 
-            '".$bairro."', 
-            '".$numero."', 
-            (SELECT cod_cidade FROM tbl_cidade WHERE cidade = '".$cidade."'));"; 
-
-        /// ARRUMAR ESSA PARTE
-        if(mysqli_query($conexao, $sql)){            
-            $codido_endereco = mysqli_insert_id($conexao);
-            $sql = "INSERT INTO tbl_loja (cod_endereco)
-                    VALUES (".$codido_endereco.");";
-
-            if(mysqli_query($conexao, $sql)){
-                header('Location: cms_lojas.php');
-            }else{
-                echo($sql);
-            }
-            
-
+        //verificando se nemuma coixa está vazia
+        if($cep == "" || $numero == ""){
+            echo("<script>
+                        alert('Preencha todas as caixas necessárias');
+                        window.location.href = 'cms_lojas.php';
+                    </script>");
         }else{
-            echo $sql;
-        }
+    
+            //fazendo  conexao para verificar se a um cep para não posibilitar a entrarda de um mesmo cep
+            $sql = "SELECT * FROM tbl_endereco WHERE cep ='".$cep."' ";
+            $select = mysqli_query($conexao, $sql);
+            // trazendo todos os enderesos para verificar se tem o meus cep
+            if($rsEndereco = mysqli_fetch_array($select)){
+                //verificando se é o mesmo cep
+                if($rsEndereco['cep'] == $cep){
+                    //alertando o usuario e atualizando a pagina para não cadastrar um ultro endereco
+                    echo("<script>alert('Não pode haver Mais de um cep')</script>");
+                    echo("<script>window.location='cms_lojas.php';</script>");
+                }
+            }else{
+                //cadastrando o indereco
+                $sql = "INSERT INTO tbl_endereco (logradouro, cep, bairro, numero, cod_cidade)
+                VALUES ('".$logradouro."', 
+                    '".$cep."', 
+                    '".$bairro."', 
+                    '".$numero."', 
+                    (SELECT cod_cidade FROM tbl_cidade WHERE cidade = '".$cidade."'));"; 
+
+                if(mysqli_query($conexao, $sql)){            
+                    $codido_endereco = mysqli_insert_id($conexao);
+                    $sql = "INSERT INTO tbl_loja (cod_endereco)
+                        VALUES (".$codido_endereco.");";
+                }
+
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_lojas.php');
+                }else{
+                    echo($sql);
+                }
+            }
+        }  
+            
         //******************************************************** */
    
 

@@ -45,7 +45,7 @@
             </ul>
         </nav>
         <!-- caixas para login -->
-        <form name="frm_cadastro">
+        <form name="frm_cadastro" method="POST" action="./login/login.php">
             <div class="login">
                 <div class="login_usuario">
                     <h2>Usuario:</h2>

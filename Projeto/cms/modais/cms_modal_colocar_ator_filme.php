@@ -1,4 +1,6 @@
 <?php
+    //startando a varivael de sessa
+    require_once('../usuario_verificado.php');
     //pegando o banco 
     require_once('../../db/conexao.php');
     $conexao = conexaoMysql();
@@ -9,13 +11,13 @@
     $cod_ator = 0;
     $cod_filme = 0;
 
-    if($modo == 'Salvar'){
+    if($modo == 'Salvar'){ // passando modal para cadastra
         $btn = $modo;
     }elseif($modo == 'Atualizar'){
         $btn = $modo;
         $id_ator = $_GET['codigo_ator'];
-        //selecionando ator e filme para edição
-        $_SESSION['cod_ator'] = $id_ator;
+
+        //fazendo select para trazer o ator eo filme
         $sql = "SELECT ator.cod_ator,
                 ator.nome_ator,
                 filme.titulo_filme,
@@ -24,11 +26,15 @@
                 ON ator.cod_ator = filme_ator.cod_ator INNER JOIN tbl_filme AS filme
                 ON filme.cod_filme = filme_ator.cod_filme WHERE ator.cod_ator =".$id_ator;
         $select = mysqli_query($conexao, $sql);
-        if($rsFilme_ator = mysqli_fetch_array($select)){
+        if($rsFilme_ator = mysqli_fetch_array($select)){//← pegando o ator e o filme
             $cod_ator = $rsFilme_ator['cod_ator'];
             $nome_ator = $rsFilme_ator['nome_ator'];
-            $cod_filme = $rsFilme_ator['cod_filme'];
+            $cod_filme = $rsFilme_ator['cod_filme'];          
             $titulo_filme = $rsFilme_ator['titulo_filme'];
+
+            //selecionando ator e filme para edição
+            $_SESSION['id_ator'] = $cod_ator;
+            $_SESSION['id_filme'] = $cod_filme;
         }
 
     }
@@ -76,6 +82,7 @@
                     <option value=null>Selecione um(a) ator(a)</option>
                 <?php
                     }
+                    //verificando se não é para atualizar para atualizar se for para atulizar ele coloca o id que vem da modal cms_modal_cadastrar_ator.php
                     if($modo != 'Atualizar'){
                 //trzendo os atores do banco
                     $sqlAtor = "SELECT cod_ator,nome_ator FROM tbl_ator WHERE cod_ator <> ".$cod_ator;

@@ -22,7 +22,7 @@
             
             $nome_usuario = $rsUsuario['nome_usuario'];
             $email_usuario = $rsUsuario['email'];
-            $nivel = $rsUsuario['nome_nivel'] == '' ? 'Não tem nivel' : $rsUsuario['nome_nivel'];
+            $nivel = $rsUsuario['nome_nivel'] == null ? 'Não tem nivel' : $rsUsuario['nome_nivel'];
             $ativo = $rsUsuario['status'] == 0 ? 'Não está ativo' : 'Ativo';
            
         }

@@ -3,7 +3,7 @@
 function move_image($foto, $diretorio){
     /*Upload de imagem*/
     //constantes
-    $arquivos_permitidos = array(".jpg",".jpeg", ".png");
+    $arquivos_permitidos = array(".jpg",".jpeg", ".png", ".jfif");
     
     //pegando o nome da imagem
     $foto_empresa = $foto['name'];

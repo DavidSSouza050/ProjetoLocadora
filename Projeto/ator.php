@@ -8,6 +8,7 @@
     //pegar data para calcular a idade do ator
     $ano = date('Y');
     $mes = date('m');
+    $dia = date('d');
     // SELECT PARA PEDAR TODOS OS ATORES
     $sql =  "SELECT * FROM tbl_ator";
     $select = mysqli_query($conexao, $sql);
@@ -23,7 +24,7 @@
             $data_naci = explode("-", $rsAtor['data_nacimento']);
             $data_naci_certo = $data_naci[2]."/".$data_naci[1]."/".$data_naci[0];
             
-            if($mes < $data_naci[1]){
+            if($mes < $data_naci[1] && $dia < $data_naci[2]){
                 $idade =  ($ano - $data_naci[0])-1;
             }else{
                 $idade =  $ano - $data_naci[0];
@@ -97,7 +98,7 @@
             <a href="#entravida" class="show" id="entravida"><span class="titulo_topico">▲ Biografia</span></a>
             <div class="caixa_conteudo_hide">
                 <div class="conteudo_topico">
-                    <?php echo($bio)?>
+                    <?php echo(nl2br($bio))?>
                 </div>
 
             </div>

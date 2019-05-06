@@ -1,6 +1,6 @@
 <?php
     //Ativa o recurso de variavel de sessão
-    session_start();
+    require_once('./usuario_verificado.php');
     //pegando a conexão de outra pasta
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
@@ -8,10 +8,10 @@
     $nome_nivel = null;
     $btn_nivel = 'Salvar';
     $btn_limpar_nivel = 'limpar';
-    $chec_conteudo = 0;
-    $chec_fale_conosco = 0;
-    $chec_produto = 0;
-    $chec_usuario = 0;
+    $chec_conteudo = "";
+    $chec_fale_conosco ="";
+    $chec_produto = "";
+    $chec_usuario = "";
 
     //limpar caixa
     if(isset($_POST['btn_limpar_nivel'])){
@@ -59,24 +59,16 @@
         $modo_nivel = $_GET['modoNivel'];
         $id_nivel = $_GET['id'];
 
-        //variavel de sessão
-        $_SESSION['id_nivel'] = $id_nivel;
-
         if($modo_nivel == 'excluir'){
             $sqlDeletarNivel = "DELETE FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
             // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
-
             if(mysqli_query($conexao, $sqlDeletarNivel)){
             /*Redireciona para uma nova pagina*/
                 header("Location: cms_criar_nivel.php");
     
             }else{
                 // se não der certo mostra essa mensagem
-                echo("
-                    <script>
-                        alert('erro no Cadastro');
-                    </script>
-                ");
+                echo $sqlDeletarNivel;
             }   
         }elseif($modo_nivel == 'buscar'){
             $sqlBuscarNivel ="SELECT * FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
@@ -89,6 +81,9 @@
                 $chec_produto = $rsNivel['adm_produto'] == 1 ? 'checked' : "";
                 $chec_usuario = $rsNivel['adm_usuario'] == 1 ? 'checked' : "";
                  
+                //varivaei de sessão para edição
+                $_SESSION["id_nivel"] = $rsNivel['cod_nivel'];
+
                 $btn_nivel = 'Editar';
                 $btn_limpar_nivel = 'Cancelar';
             }
@@ -148,10 +143,10 @@
                         Nome do Nivel: <input type="text" value="<?php echo($nome_nivel)?>" id="txt_nome_nivel" name="txt_nome_nivel">
                     </div>
                     <div class="caixa_cadastro_nivel">
-                        <h4><input type="checkbox" <?php echo($chec_conteudo)?> name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label><h4>
-                        <h4><input type="checkbox"  <?php echo($chec_fale_conosco)?> name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label><h4>
-                        <h4><input type="checkbox" <?php echo($chec_produto)?> name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label><h4>
-                        <h4><input type="checkbox" <?php echo($chec_usuario)?> name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label><h4>
+                        <h4><input type="checkbox" <?php echo($chec_conteudo)?> name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label></h4>
+                        <h4><input type="checkbox"  <?php echo($chec_fale_conosco)?> name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label></h4>
+                        <h4><input type="checkbox" <?php echo($chec_produto)?> name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label></h4>
+                        <h4><input type="checkbox" <?php echo($chec_usuario)?> name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label></h4>
                     </div>
                     <div id="segura_btn_cadastro_nivel">
                         <input type="submit" value="<?php echo($btn_limpar_nivel)?>" class="botao_cadastro_usuario" name="btn_limpar_nivel">

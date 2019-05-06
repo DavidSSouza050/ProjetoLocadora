@@ -21,8 +21,6 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="UTF-8" name="format-detection" content="telephone=no"> -->
         <title>Sobre nós</title>
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
@@ -46,7 +44,7 @@
                 </div>
                 <div id="caixa_texto_quemSomos">
                     <div id="texto_quemSomos" class="scrollTexto">
-                        <?php echo($texto_sobre);?>
+                        <?php echo(nl2br($texto_sobre));?>
                     </div>
                 </div>
                 <figure>
