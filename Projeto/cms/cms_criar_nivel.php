@@ -143,10 +143,10 @@
                         Nome do Nivel: <input type="text" value="<?php echo($nome_nivel)?>" id="txt_nome_nivel" name="txt_nome_nivel">
                     </div>
                     <div class="caixa_cadastro_nivel">
-                        <h4><input type="checkbox" <?php echo($chec_conteudo)?> name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label></h4>
-                        <h4><input type="checkbox"  <?php echo($chec_fale_conosco)?> name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label></h4>
-                        <h4><input type="checkbox" <?php echo($chec_produto)?> name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label></h4>
-                        <h4><input type="checkbox" <?php echo($chec_usuario)?> name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label></h4>
+                       <h4><input type="checkbox"  <?php echo($chec_conteudo)?> name="chec_conteudo" id="chec-conteudo" value="1"> <label for="chec-conteudo">Adm.Conteudo</label></h4>
+                       <h4><input type="checkbox"  <?php echo($chec_fale_conosco)?> name="chec_fale_conosco" id="chec-fale-conosco" value="1"> <label for="chec-fale-conosco">Adm.Fale_conosco</label></h4>
+                       <h4><input type="checkbox"  <?php echo($chec_produto)?> name="chec_produtos" id="chec-produtos" value="1"> <label for="chec-produtos">Adm.Produtos</label></h4>
+                       <h4><input type="checkbox"  <?php echo($chec_usuario)?> name="chec_usuarios" id="chec-usuarios" value="1"> <label for="chec-usuarios">Adm.Usuarios</label></h4>
                     </div>
                     <div id="segura_btn_cadastro_nivel">
                         <input type="submit" value="<?php echo($btn_limpar_nivel)?>" class="botao_cadastro_usuario" name="btn_limpar_nivel">

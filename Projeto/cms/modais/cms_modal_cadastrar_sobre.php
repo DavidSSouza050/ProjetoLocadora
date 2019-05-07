@@ -41,7 +41,7 @@
             </div>
         </div>
         <div id="segura_textArea">
-            <textArea class="scrollTexto" maxLength='6000' placeholder="Texto Sobre" id="textA_sobre" name="textA_sobre"><?php echo($texto_sobre)?></textArea>
+            <textArea class="scrollTexto" maxLength='60000' placeholder="Texto Sobre" id="textA_sobre" name="textA_sobre"><?php echo($texto_sobre)?></textArea>
         </div>
         <div id="segura_botao_sobre">
             <input type="submit" value="<?php echo($btn)?>" name="<?php echo($btn.'_sobre') ?>" id="cadastrar_sobre" class="botao_cadastro_usuario"> 

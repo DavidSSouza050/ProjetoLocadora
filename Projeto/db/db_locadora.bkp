@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_locadora
 -- ------------------------------------------------------
--- Server version	8.0.15
+-- Server version	8.0.11
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_ator` (
   `biografia` text NOT NULL,
   `imagem_ator` varchar(150) NOT NULL,
   PRIMARY KEY (`cod_ator`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_ator` (
 
 LOCK TABLES `tbl_ator` WRITE;
 /*!40000 ALTER TABLE `tbl_ator` DISABLE KEYS */;
-INSERT INTO `tbl_ator` VALUES (3,'Arnold Alois Schwarzenegger','Austríaco, Norte-Americano','Ator, Produtor, Produtor Executivo','1947-06-03',1,' É uma grande celebridade na Áustria.  Um dos maiores estádios de futebol do país tem o seu nome; - Descrito pelo Guiness como \"o homem com o desenvolvimento mais perfeito na história do mundo\"; - Foi eleito Governador da California em 2003; - Possui uma estrela na Calçada da Fama, localizada em 6764 Hollywood Boulevard.','856322e61878bc24dc5768190eac842ed06111fb.jpg'),(7,'Dwayne Douglas Johnson','Norte Americano','	Ator, produtor e lutador profissional','1972-05-02',0,'Dwayne Douglas Johnson (Hayward, 2 de maio de 1972), também conhecido pelo seu nome no ringue The Rock, é um ator. Johnson também foi um jogador de futebol americano universitário pela Universidade de Miami, vencendo o campeonato nacional em 1991 pelo Miami Hurricanes. Também atuou pelo Calgary Stampeders na Liga Canadense de Futebol, sendo cortado após dois meses durante a temporada de 1995. Mais tarde tornou-se lutador profissional como seu avô, Peter Maivia, e seu pai, Rocky Johnson.[8]\r\n\r\nOriginalmente anunciado como \"Rocky Maivia\", ele ganhou fama nacional durante sua passagem pela World Wrestling Federation (WWF/E) entre 1996 e 2004 como a principal figura da empresa durante a Attitude Era, se tornando no primeiro lutador de terceira geração a competir na companhia. Ele retornou como um lutador ocasional entre 2011 e 2013, continuando a fazer aparições esporádicas após isso. Em maio de 2019, ele ganhou 17 títulos na WWE, incluindo dez reinados como campeão mundial, tendo ganhado o WWF/E Championship oito vezes e o WCW World Championship em duas ocasiões. Ele também ganhou o Intercontinental Championship duas vezes e o WWF Tag Team Championship cinco vezes, sendo por isso o sexto lutador da história a completar a tríplice coroa da WWE. Na empresa, ele ainda ganhou o Royal Rumble de 2000. The Rock é considerado por críticos e fãs como um dos maiores lutadores na história da WWE,[9][10] bem como o lutador que arrecadou mais bilheteria na história da luta livre.','b42292d91d13d623f7d0acf2aa933da687cf9520.jpg');
+INSERT INTO `tbl_ator` VALUES (3,'Arnold Alois Schwarzenegger','Austríaco, Norte-Americano','Ator, Produtor, Produtor Executivo','1947-06-03',1,' É uma grande celebridade na Áustria.  Um dos maiores estádios de futebol do país tem o seu nome; - Descrito pelo Guiness como \"o homem com o desenvolvimento mais perfeito na história do mundo\"; - Foi eleito Governador da California em 2003; - Possui uma estrela na Calçada da Fama, localizada em 6764 Hollywood Boulevard.','ffa8fa44c7fcd51f67dd5ab5061ce853c5249b76.jpg'),(7,'Dwayne Douglas Johnson','Norte Americano','	Ator, produtor e lutador profissional','1972-05-02',0,'Dwayne Douglas Johnson (Hayward, 2 de maio de 1972), também conhecido pelo seu nome no ringue The Rock, é um ator. Johnson também foi um jogador de futebol americano universitário pela Universidade de Miami, vencendo o campeonato nacional em 1991 pelo Miami Hurricanes. Também atuou pelo Calgary Stampeders na Liga Canadense de Futebol, sendo cortado após dois meses durante a temporada de 1995. Mais tarde tornou-se lutador profissional como seu avô, Peter Maivia, e seu pai, Rocky Johnson.[8]\r\n\r\nOriginalmente anunciado como \"Rocky Maivia\", ele ganhou fama nacional durante sua passagem pela World Wrestling Federation (WWF/E) entre 1996 e 2004 como a principal figura da empresa durante a Attitude Era, se tornando no primeiro lutador de terceira geração a competir na companhia. Ele retornou como um lutador ocasional entre 2011 e 2013, continuando a fazer aparições esporádicas após isso. Em maio de 2019, ele ganhou 17 títulos na WWE, incluindo dez reinados como campeão mundial, tendo ganhado o WWF/E Championship oito vezes e o WCW World Championship em duas ocasiões. Ele também ganhou o Intercontinental Championship duas vezes e o WWF Tag Team Championship cinco vezes, sendo por isso o sexto lutador da história a completar a tríplice coroa da WWE. Na empresa, ele ainda ganhou o Royal Rumble de 2000. The Rock é considerado por críticos e fãs como um dos maiores lutadores na história da WWE,[9][10] bem como o lutador que arrecadou mais bilheteria na história da luta livre.','b42292d91d13d623f7d0acf2aa933da687cf9520.jpg');
 /*!40000 ALTER TABLE `tbl_ator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +107,7 @@ CREATE TABLE `tbl_diretor` (
   `cod_diretor` int(11) NOT NULL AUTO_INCREMENT,
   `diretor` varchar(70) NOT NULL,
   PRIMARY KEY (`cod_diretor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `tbl_diretor` (
 
 LOCK TABLES `tbl_diretor` WRITE;
 /*!40000 ALTER TABLE `tbl_diretor` DISABLE KEYS */;
-INSERT INTO `tbl_diretor` VALUES (1,'James Cameron'),(2,'John McTiernan');
+INSERT INTO `tbl_diretor` VALUES (1,'James Cameron'),(2,'John McTiernan'),(3,'Anthony Russo'),(4,'Joe Russo');
 /*!40000 ALTER TABLE `tbl_diretor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `tbl_ditribuidora` (
   `cod_distribuidora` int(11) NOT NULL AUTO_INCREMENT,
   `distribuidora` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_distribuidora`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `tbl_ditribuidora` (
 
 LOCK TABLES `tbl_ditribuidora` WRITE;
 /*!40000 ALTER TABLE `tbl_ditribuidora` DISABLE KEYS */;
-INSERT INTO `tbl_ditribuidora` VALUES (1,'Orion Pictures'),(2,'TriStar Pictures'),(3,'20th Century Fox');
+INSERT INTO `tbl_ditribuidora` VALUES (1,'Orion Pictures'),(2,'TriStar Pictures'),(3,'20th Century Fox'),(4,'Walt Disney Studios Motion Pictures');
 /*!40000 ALTER TABLE `tbl_ditribuidora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ CREATE TABLE `tbl_endereco` (
   PRIMARY KEY (`cod_endereco`),
   KEY `fk_endereco_cidade_idx` (`cod_cidade`),
   CONSTRAINT `fk_endereco_cidade` FOREIGN KEY (`cod_cidade`) REFERENCES `tbl_cidade` (`cod_cidade`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +170,7 @@ CREATE TABLE `tbl_endereco` (
 
 LOCK TABLES `tbl_endereco` WRITE;
 /*!40000 ALTER TABLE `tbl_endereco` DISABLE KEYS */;
-INSERT INTO `tbl_endereco` VALUES (34,'Rua Porto Alegre','06622-220','Parque Santa Tereza','335',3550),(36,'Rua Natividade da Serra','06361-230','Jardim Ana Estela','50',3388);
+INSERT INTO `tbl_endereco` VALUES (34,'Rua Porto Alegre','06622-220','Parque Santa Tereza','335',3550),(36,'Rua Natividade da Serra','06361-230','Jardim Ana Estela','50',3388),(44,'Rua Carapicuíba','06622-160','Jardim das Margaridas','16',3550);
 /*!40000 ALTER TABLE `tbl_endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `tbl_fale_conosco` (
   `sexo` char(1) NOT NULL,
   `profissao` varchar(100) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +242,7 @@ CREATE TABLE `tbl_filme` (
   `cod_filme` int(11) NOT NULL AUTO_INCREMENT,
   `titulo_filme` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
-  `preco_filme` decimal(5,2) NOT NULL,
+  `preco_filme` decimal(6,3) NOT NULL,
   `imagem_filme` varchar(150) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `duracao` varchar(30) NOT NULL,
@@ -253,7 +253,7 @@ CREATE TABLE `tbl_filme` (
   KEY `fk_filme_distribuidora_idx` (`cod_distribuidora`),
   CONSTRAINT `fk_filme_classificacao` FOREIGN KEY (`cod_classificacao`) REFERENCES `tbl_classificacao` (`cod_classificacao`),
   CONSTRAINT `fk_filme_distribuidora` FOREIGN KEY (`cod_distribuidora`) REFERENCES `tbl_ditribuidora` (`cod_distribuidora`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +262,7 @@ CREATE TABLE `tbl_filme` (
 
 LOCK TABLES `tbl_filme` WRITE;
 /*!40000 ALTER TABLE `tbl_filme` DISABLE KEYS */;
-INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.80,'esterminador_do_futuro.png',1,'107 minutos',4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.30,'exterminador_do_futuro_2.jpg',0,'136 minutos',3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.00,'o_predador.jpg',0,'107 minutos',5,3);
+INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.800,'esterminador_do_futuro.png',0,'107 minutos',4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.300,'exterminador_do_futuro_2.jpg',0,'136 minutos',3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.000,'o_predador.jpg',0,'107 minutos',5,3),(4,'Vingadores: Guerra Infinita','O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',100.600,'vingadoresguerrainfinita.jpg',1,'149 minutos',3,4);
 /*!40000 ALTER TABLE `tbl_filme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +316,7 @@ CREATE TABLE `tbl_filme_diretor` (
 
 LOCK TABLES `tbl_filme_diretor` WRITE;
 /*!40000 ALTER TABLE `tbl_filme_diretor` DISABLE KEYS */;
-INSERT INTO `tbl_filme_diretor` VALUES (1,1),(2,1),(3,2);
+INSERT INTO `tbl_filme_diretor` VALUES (1,1),(2,1),(3,2),(4,3),(4,4);
 /*!40000 ALTER TABLE `tbl_filme_diretor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +343,7 @@ CREATE TABLE `tbl_filme_genero` (
 
 LOCK TABLES `tbl_filme_genero` WRITE;
 /*!40000 ALTER TABLE `tbl_filme_genero` DISABLE KEYS */;
-INSERT INTO `tbl_filme_genero` VALUES (1,18),(1,24),(2,18),(2,25),(3,25),(3,24),(3,18),(3,23);
+INSERT INTO `tbl_filme_genero` VALUES (1,18),(1,24),(2,18),(2,25),(3,25),(3,24),(3,18),(3,23),(4,25),(4,3),(4,17),(4,18);
 /*!40000 ALTER TABLE `tbl_filme_genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,7 +367,7 @@ CREATE TABLE `tbl_genero` (
 
 LOCK TABLES `tbl_genero` WRITE;
 /*!40000 ALTER TABLE `tbl_genero` DISABLE KEYS */;
-INSERT INTO `tbl_genero` VALUES (1,'Animação'),(2,'Filmes de guerra'),(3,'Aventura'),(4,'Cinema de arte'),(5,'Chanchada'),(6,'Cinema catástrofe'),(7,'Comédia'),(8,'Comédia romântica'),(9,'Comédia dramática'),(10,'Comédia de ação'),(11,'Dança'),(12,'Documentário'),(13,'Docuficção'),(14,'Drama'),(15,'Espionagem'),(16,'Faroeste (ou western)'),(17,'Fantasia científica'),(18,'Ficção científica'),(19,'Musical'),(20,'Filme policial'),(21,'Romance'),(22,'Seriado'),(23,'Terror (ou horror)'),(24,'Suspense'),(25,'Ação');
+INSERT INTO `tbl_genero` VALUES (1,'Animação'),(2,'Filmes de guerra'),(3,'Aventura'),(4,'Cinema de arte'),(5,'Chanchada'),(6,'Cinema catástrofe'),(7,'Comédia'),(8,'Comédia romântica'),(9,'Comédia dramática'),(10,'Comédia de ação'),(11,'Dança'),(12,'Documentário'),(13,'Docuficção'),(14,'Drama'),(15,'Espionagem'),(16,'Faroeste (ou western)'),(17,'Fantasia'),(18,'Ficção científica'),(19,'Musical'),(20,'Filme policial'),(21,'Romance'),(22,'Seriado'),(23,'Terror (ou horror)'),(24,'Suspense'),(25,'Ação');
 /*!40000 ALTER TABLE `tbl_genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +385,7 @@ CREATE TABLE `tbl_loja` (
   PRIMARY KEY (`cod_loja`),
   KEY `fk_loja_endereco` (`cod_endereco`),
   CONSTRAINT `fk_loja_endereco` FOREIGN KEY (`cod_endereco`) REFERENCES `tbl_endereco` (`cod_endereco`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +394,7 @@ CREATE TABLE `tbl_loja` (
 
 LOCK TABLES `tbl_loja` WRITE;
 /*!40000 ALTER TABLE `tbl_loja` DISABLE KEYS */;
-INSERT INTO `tbl_loja` VALUES (32,1,34),(34,1,36);
+INSERT INTO `tbl_loja` VALUES (32,1,34),(34,1,36),(42,1,44);
 /*!40000 ALTER TABLE `tbl_loja` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -442,7 +442,7 @@ CREATE TABLE `tbl_promocao` (
   PRIMARY KEY (`cod_promocao`),
   KEY `fk_promocao_filme_idx` (`cod_filme`),
   CONSTRAINT `fk_promocao_filme` FOREIGN KEY (`cod_filme`) REFERENCES `tbl_filme` (`cod_filme`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,7 +451,7 @@ CREATE TABLE `tbl_promocao` (
 
 LOCK TABLES `tbl_promocao` WRITE;
 /*!40000 ALTER TABLE `tbl_promocao` DISABLE KEYS */;
-INSERT INTO `tbl_promocao` VALUES (1,1,30,1),(5,1,15,2);
+INSERT INTO `tbl_promocao` VALUES (1,1,50,1),(5,1,15,2),(8,0,5,3);
 /*!40000 ALTER TABLE `tbl_promocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -498,8 +498,8 @@ CREATE TABLE `tbl_usuario` (
   `cod_nivel` int(11) DEFAULT NULL,
   PRIMARY KEY (`cod_usuario`),
   KEY `cod_nivel` (`cod_nivel`),
-  CONSTRAINT `tbl_usuario_ibfk_1` FOREIGN KEY (`cod_nivel`) REFERENCES `tbl_nivel_usuario` (`cod_nivel`) ON DELETE SET NULL ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `tbl_usuario_ibfk_1` FOREIGN KEY (`cod_nivel`) REFERENCES `tbl_nivel_usuario` (`cod_nivel`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,4 +521,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-05 22:13:53
+-- Dump completed on 2019-05-06 16:52:22

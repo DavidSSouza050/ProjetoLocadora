@@ -74,18 +74,16 @@
                                 filme.cod_filme as cod_filme,
                                 filme.duracao as duracao,
                                 filme.status as status,
-                                diretor.diretor as diretor,
-                                group_concat(genero.genero SEPARATOR '/') as generos_filme,
+                                concat(SUBSTRING(group_concat(genero.genero SEPARATOR '/'), 1, 35), '...')as generos_filme,
                                 filme.imagem_filme as imagem_filme,
                                 distribuidora.distribuidora as distribuidora
-                                FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
-                                ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
-                                ON filme_diretor.cod_diretor = diretor.cod_diretor INNER JOIN tbl_filme_genero as filme_genero
+                                FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
                                 ON filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero as genero
                                 ON filme_genero.cod_genero =  genero.cod_genero INNER JOIN	tbl_ditribuidora as distribuidora
                                 ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme; ";
                         $select = mysqli_query($conexao, $sql);
                         while($rsFilme_mes = mysqli_fetch_array($select)){
+                            $cod_filme = $rsFilme_mes['cod_filme'];
                     ?>
 
                 <!-- card e vai mostrar os filmes cadastrados -->
@@ -104,7 +102,18 @@
                             <!-- divs que estarão o diretor, genero, classificacao e distribuidora -->
                             <div class="segura_atributos_filme">
                                 <div class="atributos_filme">
-                                    Diretor: <?php echo($rsFilme_mes['diretor'])?>
+                                Diretor:
+                                    <?php
+                                        $sqlDiretor = "SELECT group_concat(diretor.diretor SEPARATOR '/')  as diretor_filme FROM tbl_diretor as diretor
+                                        INNER JOIN tbl_filme_diretor as filme_diretor
+                                        ON diretor.cod_diretor = filme_diretor.cod_diretor WHERE filme_diretor.cod_filme =".$cod_filme;
+                                        $selectDiretor = mysqli_query($conexao, $sqlDiretor);
+                                        while($rsdiretor_filme_mes = mysqli_fetch_array($selectDiretor)){
+                                    ?>
+                                        <?php echo($rsdiretor_filme_mes['diretor_filme'])?>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                                 <div class="atributos_filme">
                                     Duração: <?php echo($rsFilme_mes['duracao'])?>

@@ -4,6 +4,8 @@
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
+    //pegando a função de desconto
+    require_once('./util/formatar_preco.php');
 
     //valiaveis
     $btn ="Cadastrar";
@@ -246,20 +248,16 @@
                                 <td>
                                     <?php 
                                         //Tirando o ponto e adicionando a virgula
-                                        $preco_com_ponto = explode(".",$rsPromocao['preco']);
-                                        $preco_sem_ponto = $preco_com_ponto[0].",".$preco_com_ponto[1];
-                                        echo($preco_sem_ponto);
+                                       $preco = colocar_virgula($rsPromocao['preco']);
+                                        echo($preco);
+                                        
                                     ?>
                                 </td>
                                 <td>
                                     <?php 
                                         // calculando desconto
-                                        $preco_descontado = $rsPromocao['preco'] * ($rsPromocao['desconto']/100);
-                                        $desconto = $rsPromocao['preco'] - $preco_descontado;
-                                        //Tirando o ponto e adicionando a virgula
-                                        $desconto_com_ponto = explode(".",$desconto);
-                                        $desconto_sem_ponto = $desconto_com_ponto[0].",".$desconto_com_ponto[1];
-                                        echo($desconto_sem_ponto);
+                                        $preco_com_desconto = calcular_preco($rsPromocao['desconto'], $rsPromocao['preco']);
+                                        echo($preco_com_desconto);
                                     ?>
                                 </td>
                                 <td>

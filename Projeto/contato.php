@@ -120,7 +120,7 @@
                                 <img class="img-size" src="./img/icon/home.png" alt="Icone de Home">
                             </div>
                         </figure>
-                        <input class="inputContato" type="url" name="txt_home" id="txt_home" placeholder="URL De uma pagina">
+                        <input class="inputContato" type="url" maxLength="140" name="txt_home" id="txt_home" placeholder="URL De uma pagina">
                     </div>
                     <div class="caixa_Input_text">
                         <!-- div para cadastrar o facebook -->
@@ -129,7 +129,7 @@
                                 <img class="img-size" src="./img/icon/facebook-logo.png" alt="Icone de facebook">
                             </div>
                         </figure>
-                        <input class="inputContato" type="url" name="txt_facebook" id="txt_facebook" placeholder="URL da pagina facebook">
+                        <input class="inputContato" type="url" maxLength="140" name="txt_facebook" id="txt_facebook" placeholder="URL da pagina facebook">
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@
                                 <img class="img-size" src="./img/icon/grupo.png" alt="Icone de Profissão">
                             </div>
                         </figure>
-                        <input class="inputContato" type="text" name="txt_profissao" id="txt_profissao" required placeholder="Profissão*">
+                        <input class="inputContato" type="text" maxLength="90" name="txt_profissao" id="txt_profissao" required placeholder="Profissão*">
                     </div>
                     <div class="caixa_cmb">
                         <!-- select para saber o tipo da mensagem -->

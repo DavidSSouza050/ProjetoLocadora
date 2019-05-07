@@ -2,6 +2,8 @@
     //
     require_once('./db/conexao.php');
     $conexao = conexaoMysql();
+    //pegando a função de desconto
+    require_once('./cms/util/formatar_preco.php');
 
 ?>
 <!DOCTYPE html>
@@ -72,24 +74,18 @@
                                 <div class='preco_promocoes'>
                                     <div class='preco_promocoes'>
                                         <?php
-                                    
                                             //Tirando o ponto e adicionando a virgula
-                                            $preco_com_ponto = explode(".",$rsPromocao['preco_filme']);
-                                            $preco_sem_ponto = $preco_com_ponto[0].",".$preco_com_ponto[1];
-       
+                                            $preco = colocar_virgula($rsPromocao['preco_filme']);
+                                            
                                         ?>
-                                        <span class='formata_atributo'>De:</span> <del><?php echo($preco_sem_ponto);?></del>
+                                        <span class='formata_atributo'>De:</span> <del><?php echo($preco);?></del>
                                     </div>
                                     <div class='preco_promocoes'>
                                         <?php 
-                                            // calculando desconto
-                                            $preco_descontado = $rsPromocao['preco_filme'] * ($rsPromocao['desconto']/100);
-                                            $desconto = $rsPromocao['preco_filme'] - $preco_descontado;
-                                            //Tirando o ponto e adicionando a virgula
-                                            $desconto_com_ponto = explode(".",$desconto);
-                                            $desconto_sem_ponto = $desconto_com_ponto[0].",".$desconto_com_ponto[1];                                            
+                                            //atribuindo o desconto para o preco do produtop
+                                            $preco_com_desconto = calcular_preco($rsPromocao['desconto'], $rsPromocao['preco_filme']);
                                         ?>
-                                        <span class='formata_atributo'>Por:</span> <?php echo($desconto_sem_ponto);?>
+                                        <span class='formata_atributo'>Por:</span> <?php echo( $preco_com_desconto);?>
                                     </div>                            
                                 </div>
                             </div>

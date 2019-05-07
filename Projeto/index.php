@@ -1,7 +1,8 @@
 <?php
     require_once('./db/conexao.php');
     $conexao =  conexaoMysql();
-
+    //pegando a função de desconto
+    require_once('./cms/util/formatar_preco.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,11 +71,10 @@
                           promocao.status as status_promocao
                           FROM tbl_promocao as promocao right JOIN tbl_filme as filme
                           ON filme.cod_filme = promocao.cod_filme";
-                  $select = mysqli_query($conexao, $sql);
-                  //for para colocar as cards rapidamente
+                            $select = mysqli_query($conexao, $sql);
+                  
                     while($rsFilme = mysqli_fetch_array($select)){
-                      if($rsFilme['status_promocao'] == null || $rsFilme['status_promocao'] == 0){
-                        // for para calocar as cards rapdamente
+                      if($rsFilme['status_promocao'] == null || $rsFilme['status_promocao'] == 0){        
                         
                     ?>
                         <!-- cards para mostruario -->
@@ -89,7 +89,11 @@
                             <div class='produto_caixa_descricao'>
                                 <p><span class='formata_atributo'>Nome:</span> <?php echo($rsFilme['titulo_filme'])?> </p>
                                 <p><span class='formata_atributo'>Descrição:</span> <?php echo($rsFilme['descricao'])?> </p>
-                                <p><span class='formata_atributo'>Preço:</span> <?php echo($rsFilme['preco_filme'])?></p>
+                                <p><span class='formata_atributo'>Preço:</span> <?php 
+                                    //formatando o preco
+                                    $preco = colocar_virgula($rsFilme['preco_filme']);
+                                    echo($preco);
+                                 ?></p>
                             </div>
                             <div class='produto_caixa_detalhes'>
                                 <div class='botao_detalhes formata_atributo'>

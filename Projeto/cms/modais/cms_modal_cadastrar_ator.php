@@ -73,7 +73,7 @@
         <div id="segura_textArea_ator">
             <div class="caixa_ator">    
                 <h5>Biografia:</h5>
-                <textArea id="textArea_ator" maxLength='6000'  class="scrollTexto"  name="biografia_ator" id="biografia-ator" ><?php echo($bio)?></textArea>
+                <textArea id="textArea_ator" maxLength='60000'  class="scrollTexto"  name="biografia_ator" id="biografia-ator" ><?php echo($bio)?></textArea>
             </div>
             <div class="caixa_ator">    
                 <h5>Imagem:</h5>
