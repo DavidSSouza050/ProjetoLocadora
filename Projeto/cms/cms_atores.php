@@ -7,6 +7,15 @@
     //move foto
     require_once('./util/upload_imagem.php');
 
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
+
 
     //CADASTRAR E ATUALIZAR ATOR
     if(isset($_POST['Cadastrar_ator'])){

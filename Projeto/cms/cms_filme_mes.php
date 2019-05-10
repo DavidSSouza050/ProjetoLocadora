@@ -4,6 +4,14 @@
     //banco
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

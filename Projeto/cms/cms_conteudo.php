@@ -1,6 +1,14 @@
 <?php
-  //Ativa o recurso de variavel de sessão
-  require_once('./usuario_verificado.php');
+    //Ativa o recurso de variavel de sessão
+    require_once('./usuario_verificado.php');
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+
+if($permissoes['conteudo'] == 0){
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

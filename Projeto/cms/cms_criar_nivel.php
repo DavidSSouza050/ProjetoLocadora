@@ -4,6 +4,10 @@
     //pegando a conexão de outra pasta
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
     //atribuindo variaveis
     $nome_nivel = null;
     $btn_nivel = 'Salvar';
@@ -12,6 +16,15 @@
     $chec_fale_conosco ="";
     $chec_produto = "";
     $chec_usuario = "";
+
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['usuario'] == 0){
+        header("Location: index.php");
+    }
 
     //limpar caixa
     if(isset($_POST['btn_limpar_nivel'])){
@@ -62,16 +75,25 @@
         $id_nivel = $_GET['id'];
 
         if($modo_nivel == 'excluir'){
-            $sqlDeletarNivel = "DELETE FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
-            // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
-            if(mysqli_query($conexao, $sqlDeletarNivel)){
-            /*Redireciona para uma nova pagina*/
-                header("Location: cms_criar_nivel.php");
-    
+            if($permissoes['cod_nivel_logado'] != $id_nivel){
+                $sqlDeletarNivel = "DELETE FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
+                // execulta o sql com a conexão e ver se ta tudo certo para colocar no banco
+                if(mysqli_query($conexao, $sqlDeletarNivel)){
+                /*Redireciona para uma nova pagina*/
+                    header("Location: cms_criar_nivel.php");
+        
+                }else{
+                    // se não der certo mostra essa mensagem
+                    echo $sqlDeletarNivel;
+                }   
+
             }else{
-                // se não der certo mostra essa mensagem
-                echo $sqlDeletarNivel;
-            }   
+                echo("<script>
+                    alert('Você não pode excluir este nivel. Pois o mesmo pertence ao usuario que está logado neste momento');
+                    window.location.href = 'cms_criar_nivel.php';
+                </script>");
+            }
+           
         }elseif($modo_nivel == 'buscar'){
             $sqlBuscarNivel ="SELECT * FROM tbl_nivel_usuario WHERE cod_nivel = ".$id_nivel;
             $select = mysqli_query($conexao, $sqlBuscarNivel);
@@ -102,15 +124,24 @@
         $_SESSION['nivel_desativado'] = $status;
         $_SESSION['cod_nivel'] = $cod_nivel;
 
-        if($status == 0){
-            $sql = "UPDATE tbl_nivel_usuario set status = 1 WHERE cod_nivel =".$cod_nivel;
+        if($permissoes['cod_nivel_logado'] != $cod_nivel){
+            
+            if($status == 0){
+                $sql = "UPDATE tbl_nivel_usuario set status = 1 WHERE cod_nivel =".$cod_nivel;
+            }else{
+                $sql = "UPDATE tbl_nivel_usuario set status = 0 WHERE cod_nivel =".$cod_nivel;
+            }
+
+            if(mysqli_query($conexao, $sql)){
+                header("Location: cms_usuario.php");
+            }
         }else{
-            $sql = "UPDATE tbl_nivel_usuario set status = 0 WHERE cod_nivel =".$cod_nivel;
+            echo("<script>
+                alert('Você não pode desativar este nivel. Pois o mesmo pertence ao usuario que está logado neste momento');
+                window.location.href = 'cms_criar_nivel.php';
+            </script>");
         }
 
-        if(mysqli_query($conexao, $sql)){
-            header("Location: cms_usuario.php");
-        }
 
     }
 

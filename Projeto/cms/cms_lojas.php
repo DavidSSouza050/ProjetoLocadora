@@ -5,7 +5,15 @@
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
 
-
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
+    
     if(isset($_POST['Cadastrar_loja'])){// ← Cadastrando a loja 
         $cep = trim($_POST['txt_cep']);
         $numero = trim($_POST['txt_numero']);

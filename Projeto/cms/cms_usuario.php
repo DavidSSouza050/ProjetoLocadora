@@ -1,9 +1,19 @@
 <?php
+
     //Ativa o recurso de variavel de sessão
     require_once('./usuario_verificado.php');
     //pegando a conexão de outra pasta
    require_once('../db/conexao.php');
     $conexao = conexaoMysql(); 
+
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
 
     //Atribuindo variaveis
     $nome_usuario_buscado = null;
@@ -121,20 +131,28 @@
         //variavel de sessão
         $_SESSION['idRegistro'] = $id;
         if($modo == 'excluir'){ // deletando os usuairos
-            $sqlDelete = "DELETE FROM tbl_usuario WHERE cod_usuario= ".$id;
+            if($permissoes['cod_logado'] != $id){
+                $sqlDelete = "DELETE FROM tbl_usuario WHERE cod_usuario= ".$id;
 
-            if(mysqli_query($conexao, $sqlDelete)){
-                /*Redireciona para uma nova pagina*/
-                header("Location: cms_usuario.php");
+                if(mysqli_query($conexao, $sqlDelete)){
+                    /*Redireciona para uma nova pagina*/
+                    header("Location: cms_usuario.php");
 
+                }else{
+                    // se não der certo mostra essa mensagem
+                    echo("
+                        <script>
+                            alert('erro na exclusão');
+                        </script>
+                    ");
+                }         
             }else{
-                // se não der certo mostra essa mensagem
-                echo("
-                    <script>
-                        alert('erro na exclusão');
-                    </script>
-                ");
-            }         
+                echo("<script>
+                    alert('Você não pode excluir este usuario. Pois o mesmo está logado neste momento');
+                    window.location.href = 'cms_usuario.php';
+                </script>");
+            }
+            
         }elseif($modo == 'buscar'){// Buscando os usuairo os usuairos
             
             $sqlBusca = "SELECT usuario.*, nivel.cod_nivel, nivel.nome_nivel
@@ -167,20 +185,27 @@
         $status = $_GET['status'];
         $cod_usuario = $_GET['id'];
         
-        if($status == 0){
-            $sql = "UPDATE tbl_usuario SET status = 1 WHERE cod_usuario =".$cod_usuario;
+        if($permissoes['cod_logado'] != $cod_usuario){
+            if($status == 0){
+                $sql = "UPDATE tbl_usuario SET status = 1 WHERE cod_usuario =".$cod_usuario;
+            }else{
+                $sql = "UPDATE tbl_usuario SET status = 0 WHERE cod_usuario =".$cod_usuario;
+            }
+            
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_usuario.php');
+            }
         }else{
-            $sql = "UPDATE tbl_usuario SET status = 0 WHERE cod_usuario =".$cod_usuario;
+            echo("<script>
+                alert('Você não pode desativar este usuario. Pois o mesmo está logado n este momento');
+                window.location.href = 'cms_usuario.php';
+            </script>");
         }
         
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_usuario.php');
-        }
 
     }
     //atualizando os status do nivel (primeira pagina criada obs:coloquei como exemplo)
     if(isset($_SESSION['nivel_desativado'])){ 
-
         $slqVerficarNivel = "SELECT nivel.status
             FROM tbl_nivel_usuario as nivel JOIN tbl_usuario as usuario
             ON nivel.cod_nivel  = usuario.cod_nivel WHERE usuario.cod_nivel = ".$_SESSION['cod_nivel']; ;
@@ -250,6 +275,18 @@
 
                 });
             };
+
+//             ativando e desativando ator
+            function ativarDesativar(pagina, status, codigo){
+                $.ajax({
+                    type:'GET',
+                    url: "./util/ativar_desativar.php",
+                    data:{pagina:pagina, status:status, codigo:codigo},
+                    complete: function(response){
+                        location.reload();
+                    },
+                })
+            }
 
         </script>
     </head>
@@ -387,22 +424,16 @@
                                 <a href="?modo=excluir&id=<?php echo($rsUsuarios['cod_usuario']);?>">
                                     <img  src="./img/icon_delete.png" class="icon img-size" alt="Deletar" onclick="return confirm('Deseja reamente excluir o(a) <?php echo($rsUsuarios['nome_usuario']);?>')">
                                 </a>
-                                
-                                <a href="?status=<?php echo($rsUsuarios['status'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?> ">    
+                            
+                                <a href="?status=<?php echo($rsUsuarios['status'])?>&id=<?php echo($rsUsuarios['cod_usuario'])?>">    
                                     <?php
-                                        if($rsUsuarios['status'] == 0){
-                                            $imgStatus = 'icon_nao_ativo.png';
-                                            $alt = 'Não ativo';
-                                        }else{
-                                            $imgStatus = 'icon_ativo.png';
-                                            $alt = 'Ativo';
-                                        }
+                                        $imgStatus = $rsUsuarios['status'] == 0 ? 'icon_nao_ativo.png' : 'icon_ativo.png';
+                                        $altEtitle = $rsUsuarios['status'] == 0 ? 'Não ativo' : 'ativo';  
                                     ?>
-                                    <img src="./img/<?php echo($imgStatus)?>" class="icon img-size" alt="<?php echo($alt)?>" title="<?php echo($alt)?>">
+                                    <img src="./img/<?php echo($imgStatus)?>" class="icon img-size" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
                                     
                                 </a>
-                            
-                            
+                               
                             </td>
                         </tr>
                         <?php

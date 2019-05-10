@@ -6,7 +6,14 @@
     $conexao = conexaoMysql();
     //pegando a pagina para a função da imagem
     require_once('./util/upload_imagem.php');
-
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
    
     
     if(isset($_POST['Cadastrar_sobre'])){// ← cadastrando o sobre da empresa

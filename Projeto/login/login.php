@@ -17,8 +17,7 @@
             $sql = "SELECT usuario.cod_usuario, usuario.nome_usuario, usuario.status as status_usuario, nivel.status as status_nivel
                     FROM tbl_usuario as usuario LEFT JOIN tbl_nivel_usuario as nivel
                     ON usuario.cod_nivel = nivel.cod_nivel
-                    WHERE email = '".addslashes($login_nome_email)."' 
-                    OR nome_usuario = '".addslashes($login_nome_email)."'
+                    WHERE (email = '".addslashes($login_nome_email)."' OR nome_usuario = '".addslashes($login_nome_email)."')
                     AND senha = '".addslashes($senha)."'";
     
             $select = mysqli_query($conexao,$sql);

@@ -4,7 +4,15 @@
     //pegando a conexão de outra pasta
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
-
+    
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['fale_conosco'] == 0){
+        header("Location: index.php");
+    }
 
     //ação que excluir um registro 
     if(isset($_GET['modo'])){

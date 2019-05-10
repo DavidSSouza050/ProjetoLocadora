@@ -14,6 +14,15 @@
     $cod_filme = 0;
     $modo = null;
 
+    //pegando as permissões
+    require_once('./util/consultar_permissoes.php');
+    //chamando a função para validação
+    $permissoes = consultarPermissoes();
+    //validando usuario
+    if($permissoes['conteudo'] == 0){
+        header("Location: index.php");
+    }
+
     if(isset($_POST['botao_limpar_usuario'])){//← Atualizando a pagina para limpar as caixas
         header("Location: cms_promocao.php");
     }
