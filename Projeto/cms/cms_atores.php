@@ -61,43 +61,52 @@
         $bio = $_POST['biografia_ator'];
         //usando uma função para cadastrar a imagem do atoe
         $foto_ator = move_image($_FILES['fle_ator'], './img/imagem_ator/');
-        
-        if($foto_ator != null){
-            //atulizando com a imagem do ator 
-            $sql = "UPDATE tbl_ator SET nome_ator='".$nome."',
-                                        nascionalidade ='".$nascionalidade."',
-                                        atividade = '".$atividade."',
-                                        data_nacimento = '".$dataNasci_certo."',
-                                        biografia = '".$bio."',
-                                        imagem_ator = '".$foto_ator."'
-                                        WHERE cod_ator =".$_SESSION['cod_ator'];
-           
-           if(mysqli_query($conexao, $sql)){
-                header('Location: cms_atores.php');
-                unlink('./img/imagem_ator/'.$_SESSION['foto_antiga_ator']);
-                unset($_SESSION['cod_ator']);
-            }else{
-                echo($sql);
-            }
-        
-        
-        }else{
-            //Atulizando ator sem imagem
-            $sql = "UPDATE tbl_ator SET nome_ator='".$nome."',
-                                        nascionalidade ='".$nascionalidade."',
-                                        atividade = '".$atividade."',
-                                        data_nacimento = '".$dataNasci_certo."',
-                                        biografia = '".$bio."'
-                                        WHERE cod_ator =".$_SESSION['cod_ator'];
-           
-           if(mysqli_query($conexao, $sql)){
-                header('Location: cms_atores.php');
-                unset($_SESSION['cod_ator']);
-            }else{
-                echo($sql);
-            }
-        }
 
+        if($nome == "" || $nascionalidade == "" || $atividade  == "" || $dataNasci == false || $bio == ""){
+            echo("<script>
+                alert('Preencha todas as caixas necessárias e corretamente. Lembre-se de colocar a data na metodologia Brasileira');
+                window.location.href = 'cms_atores.php';
+            </script>");
+        }else{
+            
+            if($foto_ator != null){
+                //atulizando com a imagem do ator 
+                $sql = "UPDATE tbl_ator SET nome_ator='".$nome."',
+                                            nascionalidade ='".$nascionalidade."',
+                                            atividade = '".$atividade."',
+                                            data_nacimento = '".$dataNasci_certo."',
+                                            biografia = '".$bio."',
+                                            imagem_ator = '".$foto_ator."'
+                                            WHERE cod_ator =".$_SESSION['cod_ator'];
+            
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_atores.php');
+                    unlink('./img/imagem_ator/'.$_SESSION['foto_antiga_ator']);
+                    unset($_SESSION['cod_ator']);
+                }else{
+                    echo($sql);
+                }
+            
+            
+            }else{
+                //Atulizando ator sem imagem
+                $sql = "UPDATE tbl_ator SET nome_ator='".$nome."',
+                                            nascionalidade ='".$nascionalidade."',
+                                            atividade = '".$atividade."',
+                                            data_nacimento = '".$dataNasci_certo."',
+                                            biografia = '".$bio."'
+                                            WHERE cod_ator =".$_SESSION['cod_ator'];
+            
+                 if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_atores.php');
+                    unset($_SESSION['cod_ator']);
+                }else{
+                    echo($sql);
+                }
+            }
+
+        }
+        
 
     }
 
@@ -130,7 +139,7 @@
             }
             
         }elseif($modo == 'excluirRelacao'){ //← RELAÇÃO COM O FILME
-            
+            //excluindo a relção entre filme e ator
             $sql = "DELETE FROM tbl_filme_ator WHERE cod_ator =".$codigo." AND cod_filme =".$codigo_filme;  
             
             if(mysqli_query($conexao, $sql)){
@@ -159,6 +168,7 @@
             } 
 
         }else{
+
             $sql = "INSERT INTO tbl_filme_ator (cod_filme, cod_ator) 
                                 VALUES  (".$cod_filme.",".$cod_ator.")";
             if(mysqli_query($conexao, $sql)){

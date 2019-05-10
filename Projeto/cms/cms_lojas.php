@@ -6,7 +6,7 @@
     $conexao = conexaoMysql();
 
 
-    if(isset($_POST['Cadastrar_loja'])){
+    if(isset($_POST['Cadastrar_loja'])){// ← Cadastrando a loja 
         $cep = trim($_POST['txt_cep']);
         $numero = trim($_POST['txt_numero']);
         $logradouro = trim($_POST['txt_logradouro']);
@@ -58,24 +58,32 @@
         //******************************************************** */
    
 
-    }elseif(isset($_POST['Atualizar_loja'])){
+    }elseif(isset($_POST['Atualizar_loja'])){// ← Atualizando a loja
         $cep = $_POST['txt_cep'];
         $numero = $_POST['txt_numero'];
         $logradouro = $_POST['txt_logradouro'];
         $bairro = $_POST['txt_bairro'];
         $cidade = $_POST['txt_cidade'];
+        
+        //verificando se nemuma coixa está vazia
+        if($cep == "" || $numero == ""){
+            echo("<script>
+                        alert('Preencha todas as caixas necessárias');
+                        window.location.href = 'cms_lojas.php';
+                    </script>");
+        }else{
+            $sql = "UPDATE tbl_endereco 
+                    SET cep ='".$cep."',
+                    numero = '".$numero."',
+                    logradouro = '".$logradouro."',
+                    bairro = '".$bairro."',
+                    cod_cidade = (SELECT cod_cidade FROM tbl_cidade WHERE cidade ='".$cidade."')
+                    WHERE cod_endereco = ". $_SESSION['atulizar_endereco'];
 
-        $sql = "UPDATE tbl_endereco 
-                SET cep ='".$cep."',
-                numero = '".$numero."',
-                logradouro = '".$logradouro."',
-                bairro = '".$bairro."',
-                cod_cidade = (SELECT cod_cidade FROM tbl_cidade WHERE cidade ='".$cidade."')
-                WHERE cod_endereco = ". $_SESSION['atulizar_endereco'];
-
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_lojas.php');
-            echo($_SESSION['atulizar_endereco']);
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_lojas.php');
+                echo($_SESSION['atulizar_endereco']);
+            }
         }
     }
 

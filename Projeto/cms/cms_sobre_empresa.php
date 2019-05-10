@@ -9,7 +9,7 @@
 
    
     
-    if(isset($_POST['Cadastrar_sobre'])){
+    if(isset($_POST['Cadastrar_sobre'])){// ← cadastrando o sobre da empresa
         $titulo_sobre = trim($_POST['txt_titulo_sobre']);
         $texto_sobre =  trim($_POST['textA_sobre']);       
 
@@ -38,41 +38,47 @@
         
                
   
-    }elseif(isset($_POST['Atualizar_sobre'])){
+    }elseif(isset($_POST['Atualizar_sobre'])){// ← atualizando o sobre da empresa
         $titulo_sobre = $_POST['txt_titulo_sobre'];
         $texto_sobre =  $_POST['textA_sobre'];
         
         $foto_pronta = move_image($_FILES['fle_imagem'], './img/imagem_sobre/');
 
-        if($foto_pronta != null){
-            $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
-                                    texto_sobre ='".$texto_sobre."',
-                                    imagem_sobre = '".$foto_pronta."'
-                                    WHERE cod_sobre = ".$_SESSION['id_sobre'];
+          //verificando se as caixas estão vazias
+        if($titulo_sobre == "" || $texto_sobre == ""){
+        echo("<script>alert('Preencha os Campos')</script>");
+        echo("<script>window.location='cms_sobre_empresa.php';</script>");
 
-            if(mysqli_query($conexao, $sql)){
-                header('Location: cms_sobre_empresa.php');
-                unlink('./img/imagem_sobre/'.$_SESSION['nome_img']);
-                unset($_SESSION['id_sobre']);
-            }
-    
-        }else{
-            $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
-                                    texto_sobre ='".$texto_sobre."'
-                                    WHERE cod_sobre = ".$_SESSION['id_sobre'];
+        }else{ 
+            if($foto_pronta != null){
+                $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
+                                        texto_sobre ='".$texto_sobre."',
+                                        imagem_sobre = '".$foto_pronta."'
+                                        WHERE cod_sobre = ".$_SESSION['id_sobre'];
 
-            if(mysqli_query($conexao, $sql)){
-                header('Location: cms_sobre_empresa.php');
-                unset($_SESSION['id_sobre']);
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_sobre_empresa.php');
+                    unlink('./img/imagem_sobre/'.$_SESSION['nome_img']);
+                    unset($_SESSION['id_sobre']);
+                }
+        
+            }else{
+                $sql = "UPDATE tbl_sobre set titulo_sobre ='".$titulo_sobre."', 
+                                        texto_sobre ='".$texto_sobre."'
+                                        WHERE cod_sobre = ".$_SESSION['id_sobre'];
+
+                if(mysqli_query($conexao, $sql)){
+                    header('Location: cms_sobre_empresa.php');
+                    unset($_SESSION['id_sobre']);
+                }
             }
+            
         }
-        
-        
         //echo($sql);
       
     }
 
-    if(isset($_GET['modo'])){
+    if(isset($_GET['modo'])){ // ← passando o modo para exclusão
         $modo = $_GET['modo'];
         $cod_sobre = $_GET['id'];
 

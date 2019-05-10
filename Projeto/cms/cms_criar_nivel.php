@@ -55,6 +55,8 @@
         }     
     }
 
+
+    //pegando o modo do nivel para buscar ou excluir
     if(isset($_GET['modoNivel'])){
         $modo_nivel = $_GET['modoNivel'];
         $id_nivel = $_GET['id'];

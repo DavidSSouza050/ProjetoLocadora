@@ -4,14 +4,14 @@
     /*pagangando o banco*/
     require_once('../db/conexao.php');
     $conexao = conexaoMysql();
-
+    //atribuindo varivais
     $adm_conteudo = 0;
     $adm_fale_conosco = 0;
     $adm_produto = 0;
     $adm_usuario = 0;
     $nome_usuario = "";
 
-    if(isset($_SESSION['cod_usuario_logado'])){
+    if(isset($_SESSION['cod_usuario_logado'])){// Peganso as caracteristicas do usuario logado
 
         //select para verificar quais são as permissães deste usuario
         $sql = "SELECT usuario.nome_usuario,
@@ -41,6 +41,8 @@
     <!-- caixa que vai quardar só o menu -->
     <div id="caixa_conteudo_menu_cms">
         <?php
+
+            //verificando se o usuario pode usar usa parte do conteudo 
             if($adm_conteudo == 1){
         ?>
         <!-- cards do menu -->
@@ -62,7 +64,7 @@
         </div>
         <?php
             }
-
+            //verificando se o usuario pode usar usa parte do conteudo 
             if($adm_fale_conosco == 1){
         ?>
         <!-- cards do menu -->
@@ -86,7 +88,7 @@
         </div>
         <?php
             }
-
+            //verificando se o usuario pode usar usa parte do conteudo 
             if($adm_produto == 1){
         ?>
         <!-- cards do menu -->
@@ -106,7 +108,7 @@
         </div>
         <?php
             }
-
+            //verificando se o usuario pode usar usa parte do conteudo 
             if($adm_usuario == 1){
         ?>
         <!-- cards do menu -->

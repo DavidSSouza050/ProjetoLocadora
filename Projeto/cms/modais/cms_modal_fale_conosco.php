@@ -10,7 +10,7 @@
         $sql = "SELECT * FROM tbl_fale_conosco WHERE codigo = ".$codigo;
         $select = mysqli_query($conexao, $sql);
 
-        if($rsContato=mysqli_fetch_array($select)){
+        if($rsContato=mysqli_fetch_array($select)){// tratando o fale conosco
             
             $nome = $rsContato['nome'];
             $telefone = $rsContato['telefone'] == "" ? "Não colocou": $rsContato['telefone'];

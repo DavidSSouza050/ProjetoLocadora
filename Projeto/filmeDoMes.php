@@ -11,7 +11,9 @@
     $distribuidora = null;
     $classificacao = null;
     $imagem = null;
-
+    $cod_filme = null;
+    $rsdiretor_filme_mes = null;
+    
     $sql = "SELECT filme.titulo_filme, 
             filme.cod_filme, 
             filme.descricao,
@@ -60,7 +62,7 @@
                 <!-- imagem do filme do mês -->
                 <figure>
                     <div id="capa_filme_do_mes" >
-                       <img class="img-size" style="border-radius: 20px;" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="Filme Do Mês" title="Filme Do Mês">
+                       <img class="img-size" style="border-radius: 20px;" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
                     </div>
                 </figure>
             </div>
@@ -81,8 +83,9 @@
                             ON diretor.cod_diretor = filme_diretor.cod_diretor WHERE filme_diretor.cod_filme =".$cod_filme;
                             $selectDiretor = mysqli_query($conexao, $sqlDiretor);
                             while($rsdiretor_filme_mes = mysqli_fetch_array($selectDiretor)){
+                                $diretor = $rsdiretor_filme_mes['diretor_filme'];
                         ?>
-                        <?php echo($rsdiretor_filme_mes['diretor_filme'])?>
+                        <?php echo($diretor)?>
                         <?php
                             }
                         ?>

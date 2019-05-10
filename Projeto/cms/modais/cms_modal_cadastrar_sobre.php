@@ -10,7 +10,7 @@
     $titulo_sobre = null;
     $texto_sobre = null;
 
-    if($modo == 'Atualizar'){
+    if($modo == 'Atualizar'){// ← buscando para atualizar
         $btn = 'Atualizar';
         
         $_SESSION['id_sobre'] = $id;

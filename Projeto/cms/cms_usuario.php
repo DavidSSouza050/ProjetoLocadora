@@ -114,6 +114,7 @@
 
     }
 
+    //pegando o modo para buscar ou excluir
     if(isset($_GET['modo'])){
         $modo = $_GET['modo'];
         $id = $_GET['id'];
@@ -161,7 +162,7 @@
 
     }
 
-
+    //atualizando os status do usuario (primeira pagina criada obs:coloquei como exemplo)
     if(isset($_GET['status'])){
         $status = $_GET['status'];
         $cod_usuario = $_GET['id'];
@@ -177,7 +178,7 @@
         }
 
     }
-
+    //atualizando os status do nivel (primeira pagina criada obs:coloquei como exemplo)
     if(isset($_SESSION['nivel_desativado'])){ 
 
         $slqVerficarNivel = "SELECT nivel.status

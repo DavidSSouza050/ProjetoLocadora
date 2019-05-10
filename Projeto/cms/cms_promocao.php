@@ -13,16 +13,17 @@
     $porcentagem = null;
     $cod_filme = 0;
     $modo = null;
-    if(isset($_POST['botao_limpar_usuario'])){
+
+    if(isset($_POST['botao_limpar_usuario'])){//← Atualizando a pagina para limpar as caixas
         header("Location: cms_promocao.php");
     }
 
-    if(isset($_POST['Cadastrar_promocao'])){
+    if(isset($_POST['Cadastrar_promocao'])){// ← cadastrando a promoção 
         $cod_filme = $_POST['sle_filme_promocao'];
         $porcentagem = $_POST['promocao'];  
 
         //varificanso se as caixas estáo sem conteudo
-        if($cod_filme == null || $porcentagem == ""){
+        if($cod_filme == "null" || $porcentagem == ""){
             echo("<script>
                 alert('Tem que Haver um filme e uma porcentagem para cadastrar');
                 window.location.href = 'cms_promocao.php';
@@ -42,13 +43,20 @@
         
 
         
-    }elseif(isset($_POST['Editar_promocao'])){
+    }elseif(isset($_POST['Editar_promocao'])){// ← Editando a promocao
         $cod_filme = $_POST['sle_filme_promocao'];
         $porcentagem = $_POST['promocao'];  
         
-        $sql="UPDATE tbl_promocao SET cod_filme=".$cod_filme.",
-                                       porcentagem_desconto = ".$porcentagem."                                      
-                                        WHERE cod_promocao =".$_SESSION['mudar_promocao'];
+        if($cod_filme == null || $porcentagem == ""){
+            echo("<script>
+                alert('Tem que Haver um filme e uma porcentagem para Atualisar');
+                window.location.href = 'cms_promocao.php';
+            </script>");
+        }else{
+            $sql="UPDATE tbl_promocao SET cod_filme=".$cod_filme.",
+                                        porcentagem_desconto = ".$porcentagem."                                      
+                                            WHERE cod_promocao =".$_SESSION['mudar_promocao'];
+        }
 
         if(mysqli_query($conexao, $sql)){
             header("location: cms_promocao.php");
@@ -59,11 +67,11 @@
     }
 
 
-    if(isset($_GET['modo'])){
+    if(isset($_GET['modo'])){ // ← excluindo e buscando a promocoa
         $modo = $_GET['modo'];
         $cod_promocao = $_GET['id'];
 
-        if($modo == 'excluir'){
+        if($modo == 'excluir'){// excluindo a promocao
             $sql =  "DELETE FROM tbl_promocao WHERE cod_promocao =".$cod_promocao;
 
             if(mysqli_query($conexao, $sql)){
@@ -71,7 +79,8 @@
             }else{
                 echo($sql);
             }
-        }elseif($modo == 'buscar'){
+
+        }elseif($modo == 'buscar'){//← buncando a promocao
             $_SESSION['mudar_promocao'] = $cod_promocao;
 
             //fazer select para pergar os dados da tabela filme e tabela promocao
@@ -175,17 +184,22 @@
                                     <?php
                                         }
                                         // pegando filmes
+                                        //if para verificar se não está buscando para o usuario atualizar só a promoção do filme que 
+                                        // está sendo editado
+                                        if($modo != 'buscar'){
                                         $sql=" SELECT filme.titulo_filme, filme.cod_filme as filme_cod, 
                                                 promocao.cod_filme as promocao_cod_filme 
                                                 FROM tbl_filme as filme left JOIN tbl_promocao as promocao 
                                                 ON filme.cod_filme = promocao.cod_filme WHERE filme.cod_filme <> ".$cod_filme." ORDER BY filme.cod_filme;";
                                         $select = mysqli_query($conexao, $sql);
 
-                                        while($rsfilmepromocao = mysqli_fetch_array($select)){
-                                            if($rsfilmepromocao['filme_cod'] != $rsfilmepromocao['promocao_cod_filme'] ){
+                                            while($rsfilmepromocao = mysqli_fetch_array($select)){
+                                                //pegando os filme que não estão cadastrados
+                                                if($rsfilmepromocao['filme_cod'] != $rsfilmepromocao['promocao_cod_filme'] ){
                                     ?>
                                     <option value="<?php echo($rsfilmepromocao['filme_cod'])?>"><?php echo($rsfilmepromocao['titulo_filme']);?></option>
                                     <?php
+                                                }
                                             }
                                         }
                                     ?>
@@ -243,7 +257,7 @@
                                    <?php echo($rsPromocao['titulo'])?>
                                 </td>
                                 <td>
-                                    <?php echo($rsPromocao['desconto'])?>
+                                    <?php echo($rsPromocao['desconto'])?> %
                                 </td>
                                 <td>
                                     <?php 

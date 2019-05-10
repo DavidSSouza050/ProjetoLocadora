@@ -17,7 +17,7 @@
 
     if($modo == 'Cadastrar'){
         $btn = 'Cadastrar';
-    }elseif($modo == 'Atualizar'){
+    }elseif($modo == 'Atualizar'){// ← passando modal para atualização
         $btn = 'Atualizar';
 
         $_SESSION['atulizar_endereco'] = $codigo;

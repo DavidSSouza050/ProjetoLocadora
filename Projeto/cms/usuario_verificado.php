@@ -8,6 +8,7 @@
             header('location: ../');
         }
     }else{
+        //se não for nada redireciona para a pagina principal
         session_destroy();
        header('location: ../');
     }

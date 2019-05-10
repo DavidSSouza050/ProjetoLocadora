@@ -18,7 +18,7 @@
         
         $select = mysqli_query($conexao, $sql);
 
-        if($rsUsuario = mysqli_fetch_array($select)){
+        if($rsUsuario = mysqli_fetch_array($select)){// buscando o usuario
             
             $nome_usuario = $rsUsuario['nome_usuario'];
             $email_usuario = $rsUsuario['email'];

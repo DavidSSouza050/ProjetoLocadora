@@ -13,7 +13,7 @@
 
     if($modo == 'Salvar'){ // passando modal para cadastra
         $btn = $modo;
-    }elseif($modo == 'Atualizar'){
+    }elseif($modo == 'Atualizar'){// passando modal para atualizar primeiro ele busca depois na pagina que a modal foi chamada ele atualiza
         $btn = $modo;
         $id_ator = $_GET['codigo_ator'];
 
