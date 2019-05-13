@@ -27,21 +27,19 @@
             ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
             ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
             ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
-            ON filme.cod_classificacao = classificacao.cod_classificacao group by filme.cod_filme; ";
+            ON filme.cod_classificacao = classificacao.cod_classificacao WHERE filme.status = 1";
 
     $select = mysqli_query($conexao, $sql);
 
-    while($rsFilmeMes = mysqli_fetch_array($select)){
-        if($rsFilmeMes['status_filme'] == 1){
-            $titulo = $rsFilmeMes['titulo_filme'];
-            $cod_filme = $rsFilmeMes['cod_filme'];
-            $descricao = $rsFilmeMes['descricao'];
-            $duracao = $rsFilmeMes['duracao'];
-            $genero = $rsFilmeMes['genero'];
-            $distribuidora = $rsFilmeMes['distribuidora'];
-            $classificacao = $rsFilmeMes['classificacao'];
-            $imagem = $rsFilmeMes['imagem_filme'];
-        }
+    if($rsFilmeMes = mysqli_fetch_array($select)){
+        $titulo = $rsFilmeMes['titulo_filme'];
+        $cod_filme = $rsFilmeMes['cod_filme'];
+        $descricao = $rsFilmeMes['descricao'];
+        $duracao = $rsFilmeMes['duracao'];
+        $genero = $rsFilmeMes['genero'];
+        $distribuidora = $rsFilmeMes['distribuidora'];
+        $classificacao = $rsFilmeMes['classificacao'];
+        $imagem = $rsFilmeMes['imagem_filme'];
     }
 ?>
 <!DOCTYPE html>

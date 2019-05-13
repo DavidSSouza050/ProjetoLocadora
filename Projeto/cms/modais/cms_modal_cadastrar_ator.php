@@ -77,7 +77,8 @@
             </div>
             <div class="caixa_ator">    
                 <h5>Imagem:</h5>
-                <input type="file" name="fle_ator" id="fle-ator" >
+                <?php $required = $modo != 'Atualizar' ? 'required' : ''?>
+                <input type="file" <?php echo $required ?> name="fle_ator" id="fle-ator" >
 
             </div>
         </div>

@@ -6,14 +6,12 @@
     $texto_sobre = null;
     $nome_imagem_sobre = null;
 
-    $sql = "SELECT * FROM tbl_sobre";
+    $sql = "SELECT * FROM tbl_sobre WHERE status = 1";
     $select = mysqli_query($conexao, $sql);
-    while($rsSobre = mysqli_fetch_array($select)){
-        if($rsSobre['status'] == 1){
-            $titulo_sobre = $rsSobre['titulo_sobre'];
-            $texto_sobre = $rsSobre['texto_sobre'];
-            $nome_imagem_sobre = $rsSobre['imagem_sobre'];
-        }
+    if($rsSobre = mysqli_fetch_array($select)){
+        $titulo_sobre = $rsSobre['titulo_sobre'];
+        $texto_sobre = $rsSobre['texto_sobre'];
+        $nome_imagem_sobre = $rsSobre['imagem_sobre'];
     }
 ?>
 
