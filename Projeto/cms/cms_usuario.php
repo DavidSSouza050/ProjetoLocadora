@@ -132,20 +132,38 @@
         $_SESSION['idRegistro'] = $id;
         if($modo == 'excluir'){ // deletando os usuairos
             if($permissoes['cod_logado'] != $id){
-                $sqlDelete = "DELETE FROM tbl_usuario WHERE cod_usuario= ".$id;
+                
+                // fazendo verificação para excluir o usuario que não esteja ativo
+                $sqlVerficarAtivo = "SELECT * FROM tbl_usuario WHERE cod_usuario=".$id;
+                $selectVerficado = mysqli_query($conexao, $sqlVerficarAtivo);
 
-                if(mysqli_query($conexao, $sqlDelete)){
-                    /*Redireciona para uma nova pagina*/
-                    header("Location: cms_usuario.php");
+                if($rsVerificarAtivo = mysqli_fetch_array($selectVerficado)){
+                    if($rsVerificarAtivo['status'] == 1){
+                        echo("<script>
+                            alert('Você não pode excluir este usuario. Pois ele está ativo!');
+                            window.location.href = 'cms_usuario.php';
+                        </script>");
+                    }else{
+                        $sqlDelete = "DELETE FROM tbl_usuario WHERE cod_usuario= ".$id;
 
-                }else{
-                    // se não der certo mostra essa mensagem
-                    echo("
-                        <script>
-                            alert('erro na exclusão');
-                        </script>
-                    ");
-                }         
+                        if(mysqli_query($conexao, $sqlDelete)){
+                            /*Redireciona para uma nova pagina*/
+                            header("Location: cms_usuario.php");
+
+                        }else{
+                            // se não der certo mostra essa mensagem
+                            echo("
+                                <script>
+                                    alert('erro na exclusão');
+                                </script>
+                            ");
+                        }    
+                    }
+                }
+
+                
+                
+
             }else{
                 echo("<script>
                     alert('Você não pode excluir este usuario. Pois o mesmo está logado neste momento');
