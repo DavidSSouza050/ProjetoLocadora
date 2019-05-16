@@ -1,130 +1,352 @@
-footer{
-    margin-top: 50px;
-    width: 100%;
-    height: 200px;
-    background-color: rgb(14, 13, 13);
+    
+
+
+@media screen and (min-device-width:1000px){
+    #footer_pc{
+        margin-top: 50px;
+        width: 100%;
+        height: 200px;
+        background-color: rgb(14, 13, 13);
+    }
+    
+    .caixa_footer{
+        width: 1400px;
+        height: 200px;
+    }
+    
+    .caixa_horario{
+        width: 500px;
+        height: inherit;
+        margin-left: 50px;
+        border-right: solid 2px rgb(51, 51, 50);
+        margin-right: 10px;
+        float: left;
+    }
+    .img-footer{
+        width: 50px;
+        height: 50px;
+    }
+    .iconFooter{
+        width:  80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: solid 2px rgb(197, 114, 6);
+        float: left;
+    }
+    
+    .horarioAtendimento{
+        width: 400px;
+        height: 90px;
+        padding-left: 10px;
+        padding-top: 5px;
+        box-sizing: border-box;
+        float: left;
+        /*font*/
+        font-size: 30px;
+        font-weight: bold;
+        color:  rgba(255, 145, 0, 0.932);
+        font-family: baronBold;
+    }
+    
+    .horarios{
+        width: 500px;
+        height: 110px;
+        box-sizing: border-box;
+        padding-top: 15px;
+        clear: both;
+        /**font*/
+        font-size: 28px;
+        text-align: center;
+        color:  rgb(238, 147, 29);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .caixa_contatos{
+        width: 400px;
+        height: inherit;
+        border-right: solid 2px rgb(51, 51, 50);
+        float: left;
+        margin-right: 10px;
+    }
+    
+    .tituloContatos{
+        width: 200px;
+        height: 80px;
+        box-sizing: border-box;
+        padding-left: 15px;
+        padding-top: 16px;
+        float: left;
+        /**/
+        font-size: 26px;
+        font-weight: bold;
+        font-family: baronBold;
+        color:  rgba(255, 145, 0, 0.932);
+    }
+    
+    .numeros{
+        width: inherit;
+        height: 120px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 15px;
+        clear: both;
+        /*font*/
+        font-size: 26px;
+        text-align: center;
+        color:  rgba(255, 145, 0, 0.932);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .caixa_endereco{
+        width: 400px;
+        height: inherit;
+        float: left;
+    }
+    
+    .tituloEndereco{
+        width: 300px;
+        height: 80px;
+        box-sizing: border-box;
+        padding-top: 20px;
+        padding-left: 10px;
+        float: left;
+        /**/
+        font-size: 35px;
+        font-weight: bold;
+        font-family: baronBold; 
+        color:  rgba(255, 145, 0, 0.932);
+    }
+    .enredeco{
+        width: inherit;
+        height: 120px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 10px;
+        clear: both;
+        /*font*/
+        font-size: 25px;
+        text-align: center;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        color:  rgba(255, 145, 0, 0.932);
+    }
+
+    .caixa_horario_mobile{
+        display: none;
+    }
+    .horarioAtendimento_mobile{
+        display: none;
+    }
+    .horarios_mobile{
+        display: none;
+    }
+    .caixa_contatos_mobile{
+        display: none;
+    }
+    .iconFooter_mobile{
+        display: none;
+    }
+    .tituloContatos_mobile{
+        display: none;
+    }
+    .numeros_mobile{
+        display: none;
+    }
+    .caixa_endereco_mobile{
+        display: none;
+    }
+    .caixa_endereco_mobile{
+        display: none;
+    }
+    .enredeco_mobile{
+        display: none;
+    }
 }
 
-.caixa_footer{
-    width: 1400px;
-    height: 200px;
-}
 
-.caixa_horario{
-    width: 500px;
-    height: inherit;
-    margin-left: 50px;
-    border-right: solid 2px rgb(51, 51, 50);
-    margin-right: 10px;
-    float: left;
-}
+@media screen and (max-device-width:680px){
+    #footer_pc{
+        display: none;
+    }
+    
+    .caixa_footer{
+        display: none;
+    }
+    
+    .caixa_horario{
+        display: none;
+    }
+    .caixa_horario_mobile{
+        width: 830px;
+        height: 350px;
+        margin-top: 10px;
+    }
+    .img-footer-mobile{
+        width: 100px;
+        height: 100px;
+    }
+    .iconFooter{
+        display: none;
+    }
+    .iconFooter_mobile{
+        width:  120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: solid 2px rgb(197, 114, 6);
+        float: left;
+    }
+    
+    .horarioAtendimento{
+       display: none;
+    }
+    .horarioAtendimento_mobile{
+        width: 700px;
+        height: 90px;
+        padding-left: 10px;
+        padding-top: 5px;
+        box-sizing: border-box;
+        float: left;
+        /*font*/
+        font-size: 50px;
+        font-weight: bold;
+        color:  rgba(255, 145, 0, 0.932);
+        font-family: baronBold;
+    }
+    
+    .horarios{
+       display: none;
+    }
+    .horarios_mobile{
+        width: 825px;
+        height: 234px;
+        box-sizing: border-box;
+        padding-top: 15px;
+        clear: both;
+        /**font*/
+        font-size: 65px;
+        text-align: center;
+        color:  rgb(238, 147, 29);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
 
-.iconFooter{
-    width:  80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: solid 2px rgb(197, 114, 6);
-    float: left;
-}
-.img-footer{
-    width: 50px;
-    height: 50px;
-}
+    .caixa_contatos{
+       display: none;
+    }
+    
+    .caixa_contatos_mobile{
+        width: 824px;
+        height: 350px;
+        margin-top: 10px;
+    }
 
-.horarioAtendimento{
-    width: 400px;
-    height: 90px;
-    padding-left: 10px;
-    padding-top: 5px;
-    box-sizing: border-box;
-    float: left;
-    /*font*/
-    font-size: 30px;
-    font-weight: bold;
-    color:  rgba(255, 145, 0, 0.932);
-    font-family: baronBold;
-}
+    .tituloContatos{
+        display: none;
+    }
+    .tituloContatos_mobile{
+        width: 700px;
+        height: 100px;
+        box-sizing: border-box;
+        padding-left: 15px;
+        padding-top: 16px;
+        float: left;
+        /**/
+        font-size: 50px;
+        font-weight: bold;
+        font-family: baronBold;
+        color:  rgba(255, 145, 0, 0.932);
+    }
+    
+    .numeros{
+        display:none;
+    }
+    .numeros_mobile{
+        width: inherit;
+        height: 225px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 15px;
+        clear: both;
+        /*font*/
+        font-size: 55px;
+        text-align: center;
+        color:  rgba(255, 145, 0, 0.932);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
 
-.horarios{
-    width: 500px;
-    height: 110px;
-    box-sizing: border-box;
-    padding-top: 15px;
-    clear: both;
-    /**font*/
-    font-size: 28px;
-    text-align: center;
-    color:  rgb(238, 147, 29);
-    font-family: 'Arial Narrow', Arial, sans-serif;
-}
 
-.caixa_contatos{
-    width: 400px;
-    height: inherit;
-    border-right: solid 2px rgb(51, 51, 50);
-    float: left;
-    margin-right: 10px;
-}
+    .caixa_endereco_mobile{
+        width: 824px;
+        height: 350px;
+        margin-top: 10px;
+    }
+    .tituloEndereco{
+        display: none;
+    }
+    .tituloEndereco_mobile{
+        width: 700px;
+        height: 100px;
+        box-sizing: border-box;
+        padding-top: 20px;
+        padding-left: 10px;
+        float: left;
+        /**/
+        font-size: 50px;
+        font-weight: bold;
+        font-family: baronBold; 
+        color:  rgba(255, 145, 0, 0.932);
+    }
+    .enredeco{
+       display: none;
+    }
+    .enredeco_mobile{
+        width: inherit;
+        height: 250px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 10px;
+        clear: both;
+        /*font*/
+        font-size: 60px;
+        text-align: center;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        color:  rgba(255, 145, 0, 0.932);
+    }
+    #footer_mobile{
+        width: 1400px;
+        height: 1150px;
+        padding-top: 20px;
+        box-sizing: border-box;
+        background-color: rgb(14, 13, 13);
+    }
 
-.tituloContatos{
-    width: 200px;
-    height: 80px;
-    box-sizing: border-box;
-    padding-left: 15px;
-    padding-top: 16px;
-    float: left;
-    /**/
-    font-size: 26px;
-    font-weight: bold;
-    font-family: baronBold;
-    color:  rgba(255, 145, 0, 0.932);
-}
+    .caixa_rede_social_mobile{
+        width: 300px;
+        height: 850px;
+        margin-left: 800px;
+        margin-top: 200px;
+        box-sizing: border-box;
+        position: absolute;
+    }
 
-.numeros{
-    width: inherit;
-    height: 120px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    padding-left: 15px;
-    clear: both;
-    /*font*/
-    font-size: 26px;
-    text-align: center;
-    color:  rgba(255, 145, 0, 0.932);
-    font-family: 'Arial Narrow', Arial, sans-serif;
-}
+    .rede_social_mobile{
+        width: 265px;
+        height: 250px;
+        margin-top: 20px;
+        margin-left: 20px;
+        background-color: black;
+        border: solid 2px black;
+        border-radius: 100%;
+        transition: 0.5s;
+    }
 
-.caixa_endereco{
-    width: 400px;
-    height: inherit;
-    float: left;
-}
+    .rede_social_mobile:hover{
+        transition: 0.5s;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 
-.tituloEndereco{
-    width: 300px;
-    height: 80px;
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-left: 10px;
-    float: left;
-    /**/
-    font-size: 35px;
-    font-weight: bold;
-    font-family: baronBold; 
-    color:  rgba(255, 145, 0, 0.932);
-}
-.enredeco{
-    width: inherit;
-    height: 120px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    padding-left: 10px;
-    clear: both;
-    /*font*/
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    color:  rgba(255, 145, 0, 0.932);
+
 }

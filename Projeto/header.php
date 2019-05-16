@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" media="screen" href="css/styleHeader.css" />
-<header>
+<header id="header_computador">
     <div class="conteudo_header center">
        <!-- logo do site na header -->
         <figure class="logo">
@@ -60,7 +60,25 @@
         </form>
     </div>
 </header>
+
+<!-- esponsivo -->
+<header id="header_modile">
+
+    <nav class="segura_menu_mobile back-size">
+        <!-- <ul id="ul_menu_mobile">
+           
+        </ul> -->
+    </nav>
+    
+    <figure>
+        <div class="logo_site_mobile">
+            <img class="img-size zindexzero" src="./img/logoAcme.png" alt="logo Acme" title="Voltar para a pagina inicial">
+        </div>
+    </figure>
+</header>
+
 <!-- segurando o conteudo -->
-<div class="segura_conteudo">
+<div class="segura_conteudo ">
 
 </div>
+

@@ -59,7 +59,7 @@
 
     <div id="caixa_atores" class="center">
         <!-- foto do ator -->
-        <div id="caixa_imagem_ator">
+        <div id="caixa_imagem_ator" >
             <figure>
                 <div id="imagem_ator" class="center">
                     <img class="img-size" style="border-radius: 20px;" src="./cms/img/imagem_ator/<?php echo($imagem_ator)?>" alt="Foto do ator" title="foto do ator"> 
@@ -130,6 +130,95 @@
 
                     <figure> 
                         <div class="filmes_participados">
+                            <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/<?php echo($rsImagem_filme['imagem_filme'])?>" alt="<?php echo($rsImagem_filme['imagem_filme'])?>" title="<?php echo($rsImagem_filme['imagem_filme'])?>">
+                        </div>
+                    </figure>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+    
+    <div id="caixa_atores_mobile" class="center">
+        <!-- foto do ator -->
+        <div id="caixa_imagem_ator_mobile" class="center">
+            <figure>
+                <div id="imagem_ator_mobile">
+                    <img class="img-size img_mobile" src="./cms/img/imagem_ator/<?php echo($imagem_ator)?>" alt="Foto do ator" title="foto do ator"> 
+                </div>
+            </figure>
+        </div>
+        <div id="caixa_historico_ator_mobile">
+            <!-- detalhes do ator do mês -->
+            <div class="historico_ator_mobile center">
+                <span class="titulo_topico_mobile">Nome:</span> <?php echo($nome);?>
+            </div>
+
+            <div class="historico_ator_mobile center">
+                <span class="titulo_topico_mobile">Atividade:</span> <?php echo($atividade);?>
+            </div>
+
+            <div class="historico_ator_mobile center">
+                <span class="titulo_topico_mobile">Nacionalidade:</span>  <?php echo($nascionalidade);?>
+            </div>
+
+            <div class="historico_ator_mobile center">
+                <span class="titulo_topico_mobile">Nascimento:</span> <?php echo($data_naci_certo);?>
+            </div>
+
+            <div class="historico_ator_mobile center">
+                <span class="titulo_topico_mobile">Idade:</span> <?php echo($idade);?> Anos
+            </div>
+           
+           <!-- fim do detalhes -->
+
+        </div>
+       
+    </div>
+ 
+    <!-- DIV COM MENU RETRATIO -->
+    <div id="caixa_retratio_ator_mobile" class="center">
+
+        <div class="historico_ator_retratio_mobile linha_historico center">
+            <a href="#saividamobile" class="hide" id="saividamobile"><span class="titulo_topico_mobile">▼ Biografia</span></a>
+            <a href="#entravidamobile" class="show" id="entravidamobile"><span class="titulo_topico_mobile">▲ Biografia</span></a>
+            <div class="caixa_conteudo_hide">
+                <div class="conteudo_topico_mobile">
+                    <?php echo(nl2br($bio))?>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="historico_ator_retratio_mobile linha_historico center">
+            <a href="#saiFotomobile" class="hide" id="saiFotomobile"><span class="titulo_topico_mobile">▼ Participações</span></a>
+            <a href="#entrafotomobile" class="show" id="entrafotomobile"><span class="titulo_topico_mobile">▲ Participações</span></a>
+            <div class="caixa_conteudo_hide">
+                <div class="filme_participado">
+                    <!-- pegando a imagem de participações dos filmes desse ator -->
+                    <?php 
+          
+                        $sql = "SELECT filme.cod_filme,
+                                filme.imagem_filme,
+                                filme_ator.cod_ator
+                                FROM tbl_filme AS filme INNER JOIN tbl_filme_ator AS filme_ator
+                                ON filme.cod_filme = filme_ator.cod_filme INNER JOIN tbl_ator AS ator
+                                ON ator.cod_ator = filme_ator.cod_ator WHERE filme_ator.cod_ator =".$cod_ator; 
+
+                    if($select = mysqli_query($conexao, $sql)){
+                        while($rsImagem_filme = mysqli_fetch_array($select)){
+                    ?>
+
+                    <figure> 
+                        <div class="filmes_participados_mobile center">
                             <img class="img-size border-radius-img" src="./img/ator/Arold/participacoes/<?php echo($rsImagem_filme['imagem_filme'])?>" alt="<?php echo($rsImagem_filme['imagem_filme'])?>" title="<?php echo($rsImagem_filme['imagem_filme'])?>">
                         </div>
                     </figure>

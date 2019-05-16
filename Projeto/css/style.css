@@ -2,10 +2,20 @@
 title{
     padding: 0;
 }
+
 *,figure{
     margin: 0;
     padding: 0; 
     
+}
+
+del{
+    color: rgb(219, 30, 30);
+}
+
+/*CLASSE UTIL PRA JS*/
+.erro::placeholder{
+    color: rgb(212, 101, 101);
 }
 
 a{
@@ -15,6 +25,10 @@ a{
     color: white;
 }
 
+.zindexzero{
+    z-index: 2 !important;
+    
+}
 
 .espaco_entre_paragrafos{
     margin-bottom: 20px;
@@ -23,6 +37,14 @@ a{
 .formata_atributo{
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 5px;
+    font-family: robotoLight;
+    color: rgb(199, 199, 199);    
+}
+
+.formata_atributo_mobile{
+    font-weight: bold;
+    font-size: 45px;
     margin-bottom: 5px;
     font-family: robotoLight;
     color: rgb(199, 199, 199);    
@@ -51,845 +73,1307 @@ a{
     background-size: cover;
 }
 
-.alinhafigura{
-    width: inherit;
-    height: inherit;
-}
 
 body{
     background-image:linear-gradient(hsl(0, 0%, 7%), hsl(0, 0%, 20%));
 }
 /*aqui fica o header*/
 
-/*conteudo*/
 
-.conteudo{
-    width: 1400px;
-    /*para a div espandir*/
-    min-height: 700px;
-    height: auto;
-    overflow: hidden;
-    margin-top: 0px;
-    box-sizing: border-box;
+@media screen and (min-device-width:1000px){
 
-}
+    /*conteudo*/
 
-/*redes sociais*/
-.caixa_rede_social{
-    width: 160px;
-    height: 500px;
-    margin-left: 1410px;
-    margin-top: -600px;
-    box-sizing: border-box;
-    padding-top: 100px;
-    position: fixed;
-}
+    .conteudo{
+        width: 1400px;
+        /*para a div espandir*/
+        min-height: 700px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 0px;
+        box-sizing: border-box;
 
-.rede_social{
-    width: 100px;
-    height: 100px;
-    margin-left: 4px;
-    margin-top: 20px; 
-    border: solid 2px black;
-    border-radius: 50px;
-    transition: 0.5s;
-}
+    }
 
-.rede_social:hover{
-    transition: 0.5s;
-    transform: scale(1.1);
-    cursor: pointer;
-}
+    /*redes sociais*/
+    .caixa_rede_social{
+        width: 160px;
+        height: 500px;
+        margin-left: 1410px;
+        margin-top: -600px;
+        box-sizing: border-box;
+        padding-top: 100px;
+        position: fixed;
+    }
 
-/*fIM DAS REDES SOCIAIS*/
+    .rede_social{
+        width: 100px;
+        height: 100px;
+        margin-left: 4px;
+        margin-top: 20px; 
+        border: solid 2px black;
+        border-radius: 50px;
+        transition: 0.5s;
+    }
 
+    .rede_social:hover{
+        transition: 0.5s;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 
-
-
-/* caixa slider*/
-.slider{
-    width: 1400px;
-    height: 750px;
-    box-sizing: border-box;
-    padding-top: 5px;
-    z-index: 0;
-    background-color: black;
-}
-
-/*FIM DA CAIXA SLIDER*/
+    /*fIM DAS REDES SOCIAIS*/
 
 
-/*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
-.item_conteudo{
-    width: inherit;
-    /***/
-    min-height: 700px;
-    height: auto;
-    /* overflow: hidden; */
 
-    display: flex;
 
-}
+    /* caixa slider*/
+    .slider{
+        width: 1400px;
+        height: 745px;
+        box-sizing: border-box;
+        padding-top: 5px;
+        z-index: 0;
+        background-color: black;
+    }
+    #imagem_mobile{
+        display: none;
+    }
 
-.caixa_item{
-    width: 200px;
+    /*FIM DA CAIXA SLIDER*/
 
-    float: left;
-    border: solid 3px rgba(122, 15, 15, 0.801);
-}
 
-.menu_item{
-    width: inherit;
-    min-height: 450px;
-    height: 100%;
-    overflow: hidden;
-}
+    /*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
+    .item_conteudo{
+        width: inherit;
+        /***/
+        min-height: 700px;
+        height: auto;
+        /* overflow: hidden; */
 
-.menu_item ul{
-    width: inherit;
+        display: flex;
+
+    }
+
+    .caixa_item{
+        width: 200px;
+
+        float: left;
+        border: solid 3px rgba(122, 15, 15, 0.801);
+    }
+
+    .menu_item{
+        width: inherit;
+        min-height: 450px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .menu_item ul{
+        width: inherit;
+        
+        min-height: 450px;
+        height: 100%;
+        overflow: hidden;
+        
+        background-color: rgb(14, 13, 13);
+    }
+
+    .menu_item li{
+        width: 170px;
+        height: 50px;
+        margin-top: 20px;
+        list-style: none;
+        box-sizing: border-box;
+        padding-left:20px;
+        padding-top: 10px;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        border: solid 1px rgb(39, 39, 39);
+        transition: 0.5s;
+        text-align: left;
+        /*font*/
+        font-size: 28px;
+        font-family: MeganJune;
+        color: white;
+    }
+
+    .menu_item li:hover {
+        transition: 0.2s;
+        transform: rotate(5deg) scale(1.05);
+        cursor: pointer;
+        color: rgb(187, 48, 48);
+        border: solid 2px white;  
+    }
+    /*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
+
+
+
+
+
+    .caixa_produto{
+        width: 1186px;
+        /**/
+        min-height: 451px;
+        height: auto;
+        overflow: hidden;
+        
+        margin-left: 5px;
+        float: left;
+        border: solid 3px rgba(138, 7, 7, 0.589);
+        background-color: rgb(14, 13, 13);
+    }
+
+    /*Card dos produtos*/    
+    .produto{
+        width: 350px;
+        height: 450px;
+        margin-left: 25px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        float: left;
+        border: solid 4px rgb(177, 13, 13);
+        border-radius: 15px; 
+        background-color: rgb(34, 33, 33);
+        
+        /*font*/
+        color:rgb(250, 239, 239);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .produto_mobile{
+     display: none;
+    }
+    .produto_caixa_imagem{
+        width: inherit;
+        height: 250px;
+        padding-top: 24px;
+        box-sizing: border-box;
+    }
+    .produto_caixa_imagem_mobile{
+        display: none;
+    }
+
+    .produto_imagem{
+        width: 180px;
+        height: 200px;
+        background-color: gray;
+        transition: 0.5s;
+    }
+    .produto_imagem_mobile{
+        display: none;
+    }
+
+    .produto_imagem:hover{
+        transition: 0.5s;
+        cursor: pointer;
+        transform:  scale(1.05);
+    }
+
+    .produto_caixa_descricao{
+        width: inherit;
+        height: 160px;
+        padding-left: 5px;
+        box-sizing: border-box;
+        /*font*/
+        font-size: 21px;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        line-height: 1.3;
+    }
+    .produto_caixa_descricao_mobile{
+        display: none;
+    }
+    .produto_caixa_detalhes{
+        width: inherit;
+        height: 40px;
+        padding-left: 230px;
+        box-sizing: border-box;
+        padding-top: 5px;
+
+        /*font*/
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        line-height: 8px;
+    }
+    .produto_caixa_detalhes_mobile{
+        display: none;
+    }
+    .botao_detalhes{
+        width: 90px;
+        height: 30px;
+        border-radius: 10px; 
+        padding-top: 15px;
+        box-sizing: border-box;
+        /* background-color: chocolate; */
+    }
+    .botao_detalhes_mobile{
+        display: none;
+    }
+    .botao_detalhes:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }   
+
+    p{
+        margin-bottom: 5px;
+    }
+    /*FIM DO CAR DOS PRODUTOS E DA PAGINA PRICIPAL*/
+
+
+    /***************sobre a locadora**********************/
+
+    #conteudo_sobre{
+        width: 1400px;
+        min-height: 800px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 60px;
+        border-radius: 20px;
+    }
+
+    #titulo_sobre{
+        width: inherit;
+        height: 90px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        border-radius: 20px 20px 0px 0px;
+        background-color: rgb(253, 61, 61);
+        /*fonte*/
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: baronBold;
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    #quemSomos_sobre{
+        width: inherit;
+
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 20px 20px 0px 0px;
+        background-color: rgb(24, 23, 23);
+    }
+
+    #caixa_texto_quemSomos{
+        width: 800px;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        float: left;
+        /**/
+    }
+
+    #texto_quemSomos{
+        width: 750px;
+        height: 520px;
+        overflow: auto;
+        box-sizing: border-box;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: rgb(107, 109, 109);
+        word-wrap: break-word;
+        /**/
+        font-size: 26px;
+        color: white;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        text-align: justify;
+    }
+
+    .scrollTexto::-webkit-scrollbar {
+        width: 15px;
+    }
     
-    min-height: 450px;
-    height: 100%;
-    overflow: hidden;
-    
-    background-color: rgb(14, 13, 13);
-}
-
-.menu_item li{
-    width: 170px;
-    height: 50px;
-    margin-top: 20px;
-    list-style: none;
-    box-sizing: border-box;
-    padding-left:20px;
-    padding-top: 10px;
-    margin-left: 15px;
-    margin-bottom: 15px;
-    border: solid 1px rgb(39, 39, 39);
-    transition: 0.5s;
-    text-align: left;
-    /*font*/
-    font-size: 28px;
-    font-family: MeganJune;
-    color: white;
-}
-
-.menu_item li:hover {
-    transition: 0.2s;
-    transform: rotate(5deg) scale(1.05);
-    cursor: pointer;
-    color: rgb(187, 48, 48);
-    border: solid 2px white;  
-}
-/*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
-
-
-
-
-
-.caixa_produto{
-    width: 1186px;
-    /**/
-    min-height: 451px;
-    height: auto;
-    overflow: hidden;
-    
-    margin-left: 5px;
-    float: left;
-    border: solid 3px rgba(138, 7, 7, 0.589);
-    background-color: rgb(14, 13, 13);
-}
-
-/*Card dos produtos*/
-.produto{
-    width: 350px;
-    height: 450px;
-    margin-left: 25px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    float: left;
-    border: solid 4px rgb(177, 13, 13);
-    border-radius: 15px; 
-    background-color: rgb(34, 33, 33);
-    
-    /*font*/
-    color:rgb(250, 239, 239);
-    font-family: 'Arial Narrow', Arial, sans-serif;
-}
-
-.produto_caixa_imagem{
-    width: inherit;
-    height: 250px;
-    padding-top: 24px;
-    box-sizing: border-box;
-}
-
-.produto_imagem{
-    width: 180px;
-    height: 200px;
-    background-color: gray;
-    transition: 0.5s;
-}
-
-.produto_imagem:hover{
-    transition: 0.5s;
-    cursor: pointer;
-    transform:  scale(1.05);
-}
-
-.produto_caixa_descricao{
-    width: inherit;
-    height: 160px;
-    padding-left: 5px;
-    box-sizing: border-box;
-    /*font*/
-    font-size: 21px;
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.3;
-}
-
-.produto_caixa_detalhes{
-    width: inherit;
-    height: 40px;
-    padding-left: 230px;
-    box-sizing: border-box;
-    padding-top: 5px;
-
-    /*font*/
-    font-size: 20px;
-    letter-spacing: 1.5px;
-    line-height: 8px;
-}
-
-.botao_detalhes{
-    width: 90px;
-    height: 30px;
-    border-radius: 10px; 
-    padding-top: 15px;
-    box-sizing: border-box;
-    /* background-color: chocolate; */
-}
-
-.botao_detalhes:hover{
-    transform: scale(1.2);
-    cursor: pointer;
-}   
-
-p{
-    margin-bottom: 5px;
-}
-/*FIM DO CAR DOS PRODUTOS E DA PAGINA PRICIPAL*/
-
-
-/***************sobre a locadora**********************/
-
-#conteudo_sobre{
-    width: 1400px;
-    min-height: 800px;
-    height: auto;
-    overflow: hidden;
-    margin-top: 60px;
-    border-radius: 20px;
-}
-
-#titulo_sobre{
-    width: inherit;
-    height: 90px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    border-radius: 20px 20px 0px 0px;
-    background-color: rgb(253, 61, 61);
-    /*fonte*/
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-family: baronBold;
-    font-size: 60px;
-    font-weight: bold;
-}
-
-#quemSomos_sobre{
-    width: inherit;
-
-    min-height: 500px;
-    height: auto;
-    overflow: hidden;
-    border-radius: 20px 20px 0px 0px;
-    background-color: rgb(24, 23, 23);
-}
-
-#caixa_texto_quemSomos{
-    width: 800px;
-    min-height: 500px;
-    height: auto;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    float: left;
-    /**/
-}
-
-#texto_quemSomos{
-    width: 750px;
-    height: 520px;
-    overflow: auto;
-    box-sizing: border-box;
-    padding: 30px;
-    border-radius: 20px;
-    background-color: rgb(107, 109, 109);
-    word-wrap: break-word;
-    /**/
-    font-size: 26px;
-    color: white;
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    text-align: justify;
-}
-
-.scrollTexto::-webkit-scrollbar {
-    width: 15px;
-  }
-  
-  /* Track */
-.scrollTexto::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 50px rgb(255, 255, 255); 
-    border-radius: 0px 30px 30px 0px;
-}
-
-/* Handle */
-.scrollTexto::-webkit-scrollbar-thumb {
-    background: red; 
-    border-radius: 0px 30px 30px 0px;
-}
-
-/* Handle on hover */
-.scrollTexto::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-}
-
-
-#imagem_quemSomos{
-    width: 500px;
-    height: 480px;
-    margin-left: 50px;
-    margin-top: 40px;
-    border-radius: 20px;
-    float: left;
-}
-
-#lojaAntiga{
-    border-radius: 20px;
-}
-/*********************SOBRE*********************************/
-
-/*******************CONTATO********************************/
-
-#caixa_segura_contato{
-    width: 1400px;
-    height: 600px;
-    margin-top: 80px;
-    margin-bottom: 125px;
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-left: 20px;
-    border-radius: 20px;
-}
-
-#caixa_contato{
-    width: 650px;
-    height: 550px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    padding-top: 1px;
-    float: left;
-    background-color: rgb(82, 79, 79);
-}
-
-.caixa_Input_text{
-    width: 600px;
-    height: 60px;
-    margin-left: 20px;
-    margin-top: 25px;
-    box-sizing: border-box;
-    padding-top: 5px;
-    padding-left: 5px;
-    background-color: rgb(238, 238, 238);
-}
-.iconContatos{
-    width: 50px;
-    height: 50px;
-    box-sizing: border-box;
-    float: left;
-}
-.inputContato{
-    width: 500px;
-    height: 50px;
-    float: left;
-    border: none;
-    margin-left: 5px;
-    /*font*/
-    font-family: MeganJune;
-    font-size: 30px;
-    background-color:inherit;
-}
-.inputContato:focus{
-    outline: none;
-}
-
-#caixa_contato_esquerda{
-    width: 650px;
-    height: 550px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    margin-left: 50px;
-    padding-top: 1px;
-    float: left;
-    background-color: rgb(82, 79, 79);
-}
-
-.caixa_Input_radio{
-    width: 600px;
-    height: 70px;
-    margin-left: 20px;
-    margin-top: 25px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    padding-left: 100px;
-    background-color: rgb(238, 238, 238);
-}
-
-/* input[type=radio]{
-    visibility: hidden;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-input[type=radio]:before {
-    content: " ";
-    background-color:  rgb(66, 66, 66);
-    display: inline-block;
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 15px;
-    visibility: visible;
-    box-shadow: 0 0 0px 2px rgb(250, 0, 0);
-}
-
-input[type=radio]:checked:before {
-    background-color: rgb(255, 0, 0);
-    box-shadow: 0 0 0px 2px rgb(66, 66, 66);
-} */
-
-.radio_contato{
-    font-size: 40px;
-    margin-left: 20px;
-    font-weight: bold;
-    font-family: MeganJune;
-    cursor: pointer;
-    margin-right: 60px;
-}
-
-.caixa_text_area{
-    width: 600px;
-    height: 120px;
-    margin-top: 20px;
-    margin-left: 20px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    padding-left: 40px;
-}
-
-.caixa_cmb{
-    width: inherit;
-    height: 80px;
-    margin-top: 30px;
-    padding-top: 16px;
-    box-sizing: border-box;
-    border-top: solid 2px  rgb(53, 53, 52);
-    border-bottom: solid 2px rgb(53, 53, 52);
-}
-
-#selectAssunto{
-    width: 250px;
-    height: 40px;
-    padding-left: 5px;
-    margin-left: 190px;
-    border-radius: 10px;
-    font-family:  MeganJune;
-    font-size: 23px;
-}
-
-.textArea_cotato{
-    width: 500px;
-    height: 120px;
-    resize: none;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding-top: 5px;
-    padding-left: 5px;
-    font-family: MeganJune;
-    background-color: rgb(238, 238, 238);
-    font-size: 30px;
-}
-.textArea_cotato:focus{
-    outline: none;
-}
-#caixa_boato_contato{
-    width: 350px;
-    height: 60px;
-    margin-top: 20px;
-    box-sizing: border-box;
-    padding-top: 5px;
-    padding-left: 25px;
-}
-
-.botao_contato{
-    width: 130px;
-    height: 50px;
-    background-color: rgb(238, 238, 238);
-    color: black;
-    border: solid 1px black;
-    margin-right: 30px;
-    font-family: MeganJune;
-    font-size: 25px;
-    transition: 0.2s;
-}
-
-.botao_contato:hover{
-    transition: 0.3s;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: solid 1px white;
-}
-
-/*************************CONTATO*******************/
-
-/*LOJAS*/
-
-#caixa_lojas{
-    width: 1400px;
-    height: 700px;
-    margin-top: 50px;
-
-    border-radius: 20px; 
-}
-
-#caixa_iFrame_maps{
-    width: 700px;
-    height: inherit;
-    box-sizing: border-box;
-    float: left;
-}
-
-#iFrame_maps{
-    width: 650px;
-    height: 650px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-#maps{
-    width:650px;
-    height:650px; 
-    border:solid 2px black;
-}
-#caixa_coodernadas{
-    width: 700px;
-    height: inherit;
-    overflow: auto;
-    box-sizing: border-box;
-    float: left;
-}
-
-.coodernadas{
-    width: 600px;
-    height: 80px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-left: 30px;
-    border-radius: 15px;
-    box-shadow: 2px 4px 10px rgb(185, 182, 182);
-    /*font*/
-    font-size: 20px;
-    font-family: robotoLight;
-    color: white;
-}
-.coodernadas:hover{
-    color: orange;
-    transform: scale(1.03);
-    cursor: pointer;
-}
-
-
-/**********************Atores do filme*************************/
-
-#caixa_atores{
-    width: 1400px;
-    min-height: 600px;
-    height: auto;
-    display: flex;
-    margin-top: 50px;
-    box-sizing: border-box;
-    padding-bottom: 40px;
-    border-radius: 20px;
-}
-
-#caixa_imagem_ator{
-    width: 700px;
-    box-sizing: border-box;
-
-    float: left;
-}
-
-#imagem_ator{
-    width: 700px;
-    height: 650px;
-    margin-top: 50px;    
-}
-
-#caixa_historico_ator{
-    width: 700px;
-
-    float: left;
-    box-sizing: border-box;
-}
-
-.historico_ator{
-    width: 600px;
-    height: 90px;
-    box-sizing: border-box;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-bottom: solid 2px white;
-    /*fonte*/
-    font-size: 25px;
-    color: rgb(212, 211, 211);
-    font-family: baronBold;
-}
-
-.titulo_topico{
-    font-size: 30px;
-    color: rgb(226, 223, 223);
-    font-family: baronBold;
-    font-weight: bold;
-}   
-
-/* cass para caixa retratio*/
-.linha_historico{
-    vertical-align: top;
-    min-height: 80px;
-    height: auto !important;
-    margin-bottom: 20px;
-}
-/*class que vai tirar o conteúdo*/
-.caixa_conteudo_hide {
-    display:none; 
-    box-sizing: border-box;
-}
-/*class parar organizar o conteúdo*/
-.conteudo_topico{
-    width: inherit;
-    height: inherit;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    text-align: justify;
-    word-wrap: break-word;
-    font-family: CabinMedium;
-    font-size: 25px;
-    line-height: 40px;
-}
-/*caixa que segura os filmes participados*/
-.filme_participado{
-    width: inherit;
-    min-height: 200px;
-    height: auto;
-    overflow: hidden;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-/*filmes de participação em cartaz*/
-.filmes_participados{
-    width: 300px;
-    height: 500px;
-    margin-left: 75px;
-    margin-top: 20px;
-    background-color: rgb(0, 0, 0);
-    border-radius: 0px 0px 40px 40px;
-    border: solid 3px rgb(96, 96, 99);
-    float: left;
-}
-
-/*Class para menu retratio*/
-
-.show {
-    display: none; 
-}
-.hide:target + .show {
-display: inline; 
-}
-.hide:target {
-	display: none; 
-}
-.hide:target ~ .caixa_conteudo_hide {
-	display:inline; 
-}
-
-@media print{ 
-    .hide, .show{ 
+    /* Track */
+    .scrollTexto::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 50px rgb(255, 255, 255); 
+        border-radius: 0px 30px 30px 0px;
+    }
+
+    /* Handle */
+    .scrollTexto::-webkit-scrollbar-thumb {
+        background: red; 
+        border-radius: 0px 30px 30px 0px;
+    }
+
+    /* Handle on hover */
+    .scrollTexto::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+    }
+
+
+    #imagem_quemSomos{
+        width: 500px;
+        height: 480px;
+        margin-left: 50px;
+        margin-top: 40px;
+        border-radius: 20px;
+        float: left;
+    }
+
+    #lojaAntiga{
+        border-radius: 20px;
+    }
+    /*********************SOBRE*********************************/
+
+    /*******************CONTATO********************************/
+
+    #caixa_segura_contato{
+        width: 1400px;
+        height: 600px;
+        margin-top: 80px;
+        margin-bottom: 125px;
+        box-sizing: border-box;
+        padding-top: 20px;
+        padding-left: 20px;
+        border-radius: 20px;
+    }
+
+    #caixa_contato{
+        width: 650px;
+        height: 550px;
+        border-radius: 15px;
+        box-sizing: border-box;
+        padding-top: 1px;
+        float: left;
+        background-color: rgb(82, 79, 79);
+    }
+
+    .caixa_Input_text{
+        width: 600px;
+        height: 60px;
+        margin-left: 20px;
+        margin-top: 25px;
+        box-sizing: border-box;
+        padding-top: 5px;
+        padding-left: 5px;
+        background-color: rgb(238, 238, 238);
+    }
+    .iconContatos{
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        float: left;
+    }
+    .inputContato{
+        width: 500px;
+        height: 50px;
+        float: left;
+        border: none;
+        margin-left: 5px;
+        /*font*/
+        font-family: MeganJune;
+        font-size: 30px;
+        background-color:inherit;
+    }
+    .inputContato:focus{
+        outline: none;
+    }
+
+    #caixa_contato_esquerda{
+        width: 650px;
+        height: 550px;
+        border-radius: 15px;
+        box-sizing: border-box;
+        margin-left: 50px;
+        padding-top: 1px;
+        float: left;
+        background-color: rgb(82, 79, 79);
+    }
+
+    .caixa_Input_radio{
+        width: 600px;
+        height: 70px;
+        margin-left: 20px;
+        margin-top: 25px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 100px;
+        background-color: rgb(238, 238, 238);
+    }
+
+    /* input[type=radio]{
+        visibility: hidden;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+    input[type=radio]:before {
+        content: " ";
+        background-color:  rgb(66, 66, 66);
+        display: inline-block;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #fff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 15px;
+        visibility: visible;
+        box-shadow: 0 0 0px 2px rgb(250, 0, 0);
+    }
+
+    input[type=radio]:checked:before {
+        background-color: rgb(255, 0, 0);
+        box-shadow: 0 0 0px 2px rgb(66, 66, 66);
+    } */
+
+    .radio_contato{
+        font-size: 40px;
+        margin-left: 20px;
+        font-weight: bold;
+        font-family: MeganJune;
+        cursor: pointer;
+        margin-right: 60px;
+    }
+
+    .caixa_text_area{
+        width: 600px;
+        height: 120px;
+        margin-top: 20px;
+        margin-left: 20px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 40px;
+    }
+
+    .caixa_cmb{
+        width: inherit;
+        height: 80px;
+        margin-top: 30px;
+        padding-top: 16px;
+        box-sizing: border-box;
+        border-top: solid 2px  rgb(53, 53, 52);
+        border-bottom: solid 2px rgb(53, 53, 52);
+    }
+
+    #selectAssunto{
+        width: 250px;
+        height: 40px;
+        padding-left: 5px;
+        margin-left: 190px;
+        border-radius: 10px;
+        font-family:  MeganJune;
+        font-size: 23px;
+    }
+
+    .textArea_cotato{
+        width: 500px;
+        height: 120px;
+        resize: none;
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding-top: 5px;
+        padding-left: 5px;
+        font-family: MeganJune;
+        background-color: rgb(238, 238, 238);
+        font-size: 30px;
+    }
+    .textArea_cotato:focus{
+        outline: none;
+    }
+    #caixa_boato_contato{
+        width: 350px;
+        height: 60px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        padding-top: 5px;
+        padding-left: 25px;
+    }
+
+    .botao_contato{
+        width: 130px;
+        height: 50px;
+        background-color: rgb(238, 238, 238);
+        color: black;
+        border: solid 1px black;
+        margin-right: 30px;
+        font-family: MeganJune;
+        font-size: 25px;
+        transition: 0.2s;
+    }
+
+    .botao_contato:hover{
+        transition: 0.3s;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        border: solid 1px white;
+    }
+
+    /*************************CONTATO*******************/
+
+    /*LOJAS*/
+
+    #caixa_lojas{
+        width: 1400px;
+        height: 700px;
+        margin-top: 50px;
+
+        border-radius: 20px; 
+    }
+
+    #caixa_iFrame_maps{
+        width: 700px;
+        height: inherit;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    #iFrame_maps{
+        width: 650px;
+        height: 650px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    #maps{
+        width:650px;
+        height:650px; 
+        border:solid 2px black;
+    }
+    #caixa_coodernadas{
+        width: 700px;
+        height: inherit;
+        overflow: auto;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .coodernadas{
+        width: 600px;
+        height: 80px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        box-sizing: border-box;
+        padding-top: 20px;
+        padding-left: 30px;
+        border-radius: 15px;
+        box-shadow: 2px 4px 10px rgb(185, 182, 182);
+        /*font*/
+        font-size: 20px;
+        font-family: robotoLight;
+        color: white;
+    }
+    .coodernadas:hover{
+        color: orange;
+        transform: scale(1.03);
+        cursor: pointer;
+    }
+
+
+    /**********************Atores do filme*************************/
+
+    #caixa_atores{
+        width: 1400px;
+        min-height: 600px;
+        height: auto;
+        display: flex;
+        margin-top: 50px;
+        box-sizing: border-box;
+        padding-bottom: 40px;
+        border-radius: 20px;
+    }
+
+    #caixa_imagem_ator{
+        width: 700px;
+        box-sizing: border-box;
+
+        float: left;
+    }
+
+    #imagem_ator{
+        width: 700px;
+        height: 650px;
+        margin-top: 50px;    
+    }
+
+    #caixa_historico_ator{
+        width: 700px;
+
+        float: left;
+        box-sizing: border-box;
+    }
+
+    .historico_ator{
+        width: 600px;
+        height: 90px;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-bottom: solid 2px white;
+        /*fonte*/
+        font-size: 25px;
+        color: rgb(212, 211, 211);
+        font-family: baronBold;
+    }
+
+    .titulo_topico{
+        font-size: 30px;
+        color: rgb(226, 223, 223);
+        font-family: baronBold;
+        font-weight: bold;
+    }   
+
+    /* cass para caixa retratio*/
+    .linha_historico{
+        vertical-align: top;
+        min-height: 80px;
+        height: auto !important;
+        margin-bottom: 20px;
+    }
+    /*class que vai tirar o conteúdo*/
+    .caixa_conteudo_hide {
+        display:none; 
+        box-sizing: border-box;
+    }
+    /*class parar organizar o conteúdo*/
+    .conteudo_topico{
+        width: inherit;
+        height: inherit;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        text-align: justify;
+        word-wrap: break-word;
+        font-family: CabinMedium;
+        font-size: 35px;
+        line-height: 50px;;
+    }
+    .conteudo_topico_mobile{
+       display: none;
+    }
+    /*caixa que segura os filmes participados*/
+    .filme_participado{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    /*filmes de participação em cartaz*/
+    .filmes_participados{
+        width: 300px;
+        height: 500px;
+        margin-left: 75px;
+        margin-top: 20px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 0px 0px 40px 40px;
+        border: solid 3px rgb(96, 96, 99);
+        float: left;
+    }
+
+    /*Class para menu retratio*/
+
+    .show {
         display: none; 
     }
-}
+    .hide:target + .show {
+    display: inline; 
+    }
+    .hide:target {
+        display: none; 
+    }
+    .hide:target ~ .caixa_conteudo_hide {
+        display:inline; 
+    }
 
-/*fim de class para menu retratio*/
-#caixa_retratio_ator{
-    width: 1400px;
-    min-height: 400px;
-    height: auto;
-    overflow: hidden;
-    padding-bottom: 20px;
-    border-radius: 20px;
-    background-color:  rgb(22, 22, 22);
-}
+    @media print{ 
+        .hide, .show{ 
+            display: none; 
+        }
+    }
 
-/*MENU RETRATIO GRANDE*/
-.historico_ator_retratio{
-    width: 1200px;
-    box-sizing: border-box;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-bottom: solid 2px white;
-    /*fonte*/
-    font-size: 25px;
-    color: rgb(212, 211, 211);
-    font-family: baronBold;
-}
+    /*fim de class para menu retratio*/
+    #caixa_retratio_ator{
+        width: 1400px;
+        min-height: 400px;
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        border-radius: 20px;
+        background-color:  rgb(22, 22, 22);
+    }
 
-/*********************FIM DO ATOR******************/
+    /*MENU RETRATIO GRANDE*/
+    .historico_ator_retratio{
+        width: 1200px;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-bottom: solid 2px white;
+        /*fonte*/
+        font-size: 25px;
+        color: rgb(212, 211, 211);
+        font-family: baronBold;
+    }
+    /*DANDO DISPLAY NONE NO MOBILE*/
+    .caixa_atores_mobile{
+        display: none;
+    }
+    .caixa_imagem_ator_mobile{
+        display: none;
+    }
+    .img_mobile{
+        display: none;
+    }
+    .imagem_ator_mobile{
+        display: none;
+    }
+    .caixa_historico_ator_mobile{
+        display: none;
+    }
+    .historico_ator_mobile{
+        display: none;
+    }
+    .caixa_retratio_ator_mobile{
+        display: none;
+    }
+    .historico_ator_retratio_mobile{
+        display: none;
+    }
+    .titulo_topico_mobile{
+        display: none;
+    }
+    .caixa_retratio_ator_mobile{
+        display: none;
+    }
+    .historico_ator_retratio_mobile{
+        display: none;
+    }
+    .titulo_topico_mobile{
+        display: none;
+    }
+    .conteudo_topico_mobile{
+        display: none;
+    }
 
-
-
-
-/****************card Promoções*************************/
-.produto_promocao{
-    width: 350px;
-    height: 500px;
-    margin-left: 25px;
-    margin-top: 45px;
-    margin-bottom: 25px;
-    float: left;
-    border: solid 4px rgb(177, 13, 13);
-    border-radius: 15px; 
-    background-color: rgb(34, 33, 33);
-    
-    /*font*/
-    color:rgb(250, 239, 239);
-    font-family: 'Arial Narrow', Arial, sans-serif;
-}
-
-
-
-/***************************CAIXA PROMOÇÃO DESCRIÇÃO******************/
-
-.produto_caixa_descricao_promocao{
-    width: inherit;
-    height: 210px;
-    padding-left: 5px;
-    box-sizing: border-box;
-    padding-right: 10px;
-    /*font*/
-    font-size: 21px;
-    text-align: justify;
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.3;
-}
-.preco_promocoes{
-    width: inherit;
-    height: 70px;
-    margin-left: -5px;
-    box-sizing: border-box;
-}
-.preco_promocoes{
-    width: inherit;
-    height: 35px;
-    box-sizing: border-box;
-    padding-left: 5px;
-    padding-top: 4px;
-    text-align: center;
-}
-/*******************************FIM DA DESCRIÇÃO**************************/
+    .filmes_participados_mobile{
+        display: none;
+    }
 
 
-/***********************Filme do mes***********************/
 
-#caixa_fimel_do_mes{
-    width: 1400px;
-    min-height: 800px;
-    height: auto;
-    overflow: hidden;
-    display: flex;
-
-}
-#caixa_capa_filme_do_mes{
-    width: 700px; 
-    float: left;
-    box-sizing: border-box;
-    padding-top: 50px;
-}
-#capa_filme_do_mes{
-    width: 650px;
-    height: 700px;
-    margin-left: 20px;
-    border-radius: 20px;
-}
-#caixa_informacoes_filme_do_mes{
-    width: 700px;
-    float: left;
-    box-sizing: border-box;
-    padding-bottom: 50px;
-}
-.informacoes_filme_do_mes{
-    width: 600px;
-    height: 90px;
-    margin-top: 35px;
-    box-sizing: border-box;
-    padding-top: 20px;
-    border-bottom: solid 2px white; 
-    /*font*/
-    font-family: baronBold;
-    font-size: 25px;
-    line-height: 1.2;
-    color: white;
-}
-
-#menu_retratio_filme_do_mes{
-    width: 1400px;
-    min-height: 400px;
-    height: auto;
-    overflow: hidden;
-    background-color: rgb(22, 22, 22);
-    border-radius: 20px;
-}
+    /*********************FIM DO ATOR******************/
 
 
 
 
+    /****************card Promoções*************************/
+    .produto_promocao{
+        width: 350px;
+        height: 500px;
+        margin-left: 25px;
+        margin-top: 45px;
+        margin-bottom: 25px;
+        float: left;
+        border: solid 4px rgb(177, 13, 13);
+        border-radius: 15px; 
+        background-color: rgb(34, 33, 33);
+        
+        /*font*/
+        color:rgb(250, 239, 239);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+
+
+    /***************************CAIXA PROMOÇÃO DESCRIÇÃO******************/
+
+    .produto_caixa_descricao_promocao{
+        width: inherit;
+        height: 210px;
+        padding-left: 5px;
+        box-sizing: border-box;
+        padding-right: 10px;
+        /*font*/
+        font-size: 21px;
+        text-align: justify;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        line-height: 1.3;
+    }
+    .preco_promocoes{
+        width: inherit;
+        height: 70px;
+        margin-left: -5px;
+        box-sizing: border-box;
+    }
+    .preco_promocoes{
+        width: inherit;
+        height: 35px;
+        box-sizing: border-box;
+        padding-left: 5px;
+        padding-top: 4px;
+        text-align: center;
+    }
+    /*******************************FIM DA DESCRIÇÃO**************************/
+
+
+    /***********************Filme do mes***********************/
+
+    #caixa_fimel_do_mes{
+        width: 1400px;
+        min-height: 800px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+
+    }
+    #caixa_capa_filme_do_mes{
+        width: 700px; 
+        float: left;
+        box-sizing: border-box;
+        padding-top: 50px;
+    }
+    #capa_filme_do_mes{
+        width: 650px;
+        height: 700px;
+        margin-left: 20px;
+        border-radius: 20px;
+    }
+    #caixa_informacoes_filme_do_mes{
+        width: 700px;
+        float: left;
+        box-sizing: border-box;
+        padding-bottom: 50px;
+    }
+    .informacoes_filme_do_mes{
+        width: 600px;
+        height: 90px;
+        margin-top: 35px;
+        box-sizing: border-box;
+        padding-top: 20px;
+        border-bottom: solid 2px white; 
+        /*font*/
+        font-family: baronBold;
+        font-size: 25px;
+        line-height: 1.2;
+        color: white;
+    }
+
+    #menu_retratio_filme_do_mes{
+        width: 1400px;
+        min-height: 400px;
+        height: auto;
+        overflow: hidden;
+        background-color: rgb(22, 22, 22);
+        border-radius: 20px;
+    }
 /*************FIM DO FILME DO MÊS**************/
 
-del{
-    color: rgb(219, 30, 30);
 }
 
 
-/*CLASSE UTIL PRA JS*/
-.erro::placeholder{
-    color: rgb(212, 101, 101);
-}
+@media screen and (max-device-width:680px){
+ /*conteudo*/
 
+    .conteudo{
+        width: 1400px;
+        /*para a div espandir*/
+        min-height: 700px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 0px;
+        box-sizing: border-box;
+
+    }
+
+    /*redes sociais*/
+    .caixa_rede_social{
+        display: none;
+    }
+
+    .rede_social{
+        display: none;
+    }
+
+    .rede_social:hover{
+        display: none;
+    }
+
+    /*fIM DAS REDES SOCIAIS*/
+
+
+
+
+    /* caixa slider*/
+    .slider{
+    display: none;
+    }
+
+    #imagem_mobile{
+        width: 1400px;
+        height: 800px;
+    }
+    /*FIM DA CAIXA SLIDER*/
+
+
+    /*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
+    .item_conteudo{
+        width: inherit;
+        /***/
+        min-height: 700px;
+        height: auto;
+        /* overflow: hidden; */
+
+        display: flex;
+
+    }
+
+    .caixa_item{
+        width: 200px;
+
+        float: left;
+        border: solid 3px rgba(122, 15, 15, 0.801);
+    }
+
+    .menu_item{
+        width: inherit;
+        min-height: 450px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .menu_item ul{
+        width: inherit;
+        
+        min-height: 450px;
+        height: 100%;
+        overflow: hidden;
+        
+        background-color: rgb(14, 13, 13);
+    }
+
+    .menu_item li{
+        width: 170px;
+        height: 50px;
+        margin-top: 20px;
+        list-style: none;
+        box-sizing: border-box;
+        padding-left:20px;
+        padding-top: 10px;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        border: solid 1px rgb(39, 39, 39);
+        transition: 0.5s;
+        text-align: left;
+        /*font*/
+        font-size: 28px;
+        font-family: MeganJune;
+        color: white;
+    }
+
+    .menu_item li:hover {
+        transition: 0.2s;
+        transform: rotate(5deg) scale(1.05);
+        cursor: pointer;
+        color: rgb(187, 48, 48);
+        border: solid 2px white;  
+    }
+    /*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
+    .caixa_produto{
+        width: 1186px;
+        /**/
+        min-height: 451px;
+        height: auto;
+        overflow: hidden;
+        
+        margin-left: 5px;
+        float: left;
+        border: solid 3px rgba(138, 7, 7, 0.589);
+        background-color: rgb(14, 13, 13);
+    }
+
+    /*Card dos produtos*/
+    .produto{
+       display: none;
+    }
+    .produto_mobile{
+        width: 1000px;
+        height: 1100px;
+        margin-left: 120px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        border: solid 4px rgb(177, 13, 13);
+        border-radius: 15px; 
+        background-color: rgb(34, 33, 33);
+        
+        /*font*/
+        color:rgb(250, 239, 239);
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .produto_caixa_imagem{
+        display: none;
+    }
+    .produto_caixa_imagem_mobile{
+        width: inherit;
+        height: 600px;
+        padding-top: 24px;
+        box-sizing: border-box;
+    }
+
+    .produto_imagem{
+       display: none;
+    }
+    .produto_imagem_mobile{
+        width: 460px;
+        height: 550px;
+        background-color: gray;
+        transition: 0.5s;
+    }
+
+    .produto_imagem_mobile:hover{
+        transition: 0.5s;
+        cursor: pointer;
+        transform:  scale(1.05);
+    }
+
+    .produto_caixa_descricao{
+        display: none;
+    }
+    
+    .produto_caixa_descricao_mobile{
+        width: inherit;
+        height: 400px;
+        padding-left: 5px;
+        box-sizing: border-box;
+        /*font*/
+        font-size: 50px;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        line-height: 1.3;
+    }
+    
+    .produto_caixa_detalhes{
+       display: none;
+    }
+    
+    .produto_caixa_detalhes_mobile{
+        width: inherit;
+        height: 90px;
+        padding-left: 760px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        /*font*/
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        line-height: 8px;
+    }
+
+    .botao_detalhes{
+        display: none;
+    }
+
+    .botao_detalhes_mobile{
+        width: 210px;
+        height: 70px;
+        border-radius: 10px; 
+        padding-left: 15px;
+        padding-top: 30px;
+        box-sizing: border-box;
+        background-color: rgb(133, 131, 131); 
+    }
+
+    .botao_detalhes_mobile:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }   
+
+    p{
+        margin-bottom: 5px;
+    }
+
+/*FIM DO CAR DOS PRODUTOS E DA PAGINA PRICIPAL*/
+
+    /**********************Atores do filme*************************/
+
+    #caixa_atores{
+       display: none;
+    }
+
+    #caixa_atores_mobile{
+        width: 1400px;
+        min-height: 1000px;
+        height: auto;
+        box-sizing: border-box;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        border-radius: 20px;
+        background-color:  rgb(22, 22, 22);
+    }
+
+    #caixa_imagem_ator{
+       display: none;
+    }
+    #caixa_imagem_ator_mobile{
+        width: 1100px;
+        height: 1000px;;
+
+        box-sizing: border-box;
+    }
+
+
+    #imagem_ator{
+        display: none;
+    }
+    #imagem_ator_mobile{
+        width: 1100px;
+        height: 1000px;
+        margin-top: 50px;
+        overflow: hidden;    
+        border-radius: 50px;
+    }
+    #caixa_historico_ator{
+       display: none;
+    }
+    #caixa_historico_ator_mobile{
+        width: inherit;
+        height: 1000px;
+        margin-top: 25px;
+        padding-top: 5px;
+        box-sizing: border-box;
+    }
+
+    .historico_ator{
+        display: none;
+    }
+    
+    .historico_ator_mobile{
+        width: 1350px;
+        height: 165px;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding-top: 20px;
+        padding-left: 20px;
+        border-bottom: solid 2px white;
+        /*fonte*/
+        font-size: 60px;
+        color: rgb(212, 211, 211);
+        font-family: baronBold;
+    }
+
+    .titulo_topico{
+       display: none;
+    } 
+    .titulo_topico_mobile{
+        font-size: 70px;
+        color: rgb(226, 223, 223);
+        font-family: baronBold;
+        font-weight: bold;
+    }   
+
+    /* cass para caixa retratio*/
+    .linha_historico{
+        vertical-align: top;
+        min-height: 80px;
+        height: auto !important;
+        margin-bottom: 20px;
+    }
+    /*class que vai tirar o conteúdo*/
+    .caixa_conteudo_hide {
+        display:none; 
+        box-sizing: border-box;
+    }
+    /*class parar organizar o conteúdo*/
+    .conteudo_topico_mobile{
+        width: inherit;
+        height: inherit;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        text-align: justify;
+        word-wrap: break-word;
+        font-family: CabinMedium;
+        font-size: 75px;
+        line-height: 130px;
+    }
+    .conteudo_topico{
+        display: none;
+    }
+    /*caixa que segura os filmes participados*/
+    .filme_participado{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    /*filmes de participação em cartaz*/
+    .filmes_participados{
+       display: none;
+    }
+    .filmes_participados_mobile{
+        width: 950px;
+        height: 1350px;
+        margin-top: 50px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 0px 0px 40px 40px;
+        border: solid 3px rgb(96, 96, 99);
+    }
+
+    /*Class para menu retratio*/
+
+    .show {
+        display: none; 
+    }
+    .hide:target + .show {
+    display: inline; 
+    }
+    .hide:target {
+        display: none; 
+    }
+    .hide:target ~ .caixa_conteudo_hide {
+        display:inline; 
+    }
+
+    @media print{ 
+        .hide, .show{ 
+            display: none; 
+        }
+    }
+
+    /*fim de class para menu retratio*/
+    #caixa_retratio_ator{
+       display: none;
+    }
+    #caixa_retratio_ator_mobile{
+        width: 1400px;
+        min-height: 400px;
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+        border-radius: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color:  rgb(22, 22, 22);
+    }
+
+    /*MENU RETRATIO GRANDE*/
+    .historico_ator_retratio{
+      display: none;
+    }
+
+    .historico_ator_retratio_mobile{
+        width: 1250px;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-bottom: solid 2px white;
+        /*fonte*/
+        font-size: 25px;
+        color: rgb(212, 211, 211);
+        font-family: baronBold;
+    }
+
+    /*********************FIM DO ATOR******************/
+
+
+
+
+}
 
 

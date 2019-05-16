@@ -68,18 +68,20 @@
         ?>
         <!-- cards do menu -->
         <div class='cardMenu'>  
-            <!-- imagem da pagina -->
-            <div class='caixa_img_menu'>
-                <figure>
-                    <div class='img_menu_cms center'>
-                        <img class='img-size' src='./img/icon_produto.png' alt='Produtos' title='Produtos'>
-                    </div>
-                </figure>
-            </div>
-            <!-- titulo da pagina -->
-            <div class='caixa_nome'>
-                Adm. Produtos
-            </div>
+            <a href="cms_produtos.php">
+                <!-- imagem da pagina -->
+                <div class='caixa_img_menu'>
+                    <figure>
+                        <div class='img_menu_cms center'>
+                            <img class='img-size' src='./img/icon_produto.png' alt='Produtos' title='Produtos'>
+                        </div>
+                    </figure>
+                </div>
+                <!-- titulo da pagina -->
+                <div class='caixa_nome'>
+                    Adm. Produtos
+                </div>
+            </a>
         </div>
         <?php
             }
