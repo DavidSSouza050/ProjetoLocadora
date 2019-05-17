@@ -932,6 +932,7 @@ body{
     #capa_filme_do_mes{
         width: 650px;
         height: 700px;
+        overflow: hidden;
         margin-left: 20px;
         border-radius: 20px;
     }
@@ -963,6 +964,28 @@ body{
         background-color: rgb(22, 22, 22);
         border-radius: 20px;
     }
+
+    #caixa_fimel_do_mes_mobile{
+        display: none;
+    }
+    #caixa_capa_filme_do_mes_mobile{
+        display: none;
+    }
+    #caixa_informacoes_filme_do_mes_mobile{
+        display: none;
+    }
+    .menu_retratio_filme_do_mes{
+        display: none;
+    }
+    #informacoes_filme_do_mes_mobile{
+        display: none;
+    }
+    #historico_ator_retratio_mobile{
+        display: none;
+    }
+
+
+
 /*************FIM DO FILME DO MÊS**************/
 
 }
@@ -996,9 +1019,6 @@ body{
     }
 
     /*fIM DAS REDES SOCIAIS*/
-
-
-
 
     /* caixa slider*/
     .slider{
@@ -1371,6 +1391,91 @@ body{
 
     /*********************FIM DO ATOR******************/
 
+    
+    /***********************Filme do mes***********************/
+
+    #caixa_fimel_do_mes{
+        display: none;
+    }
+    #caixa_fimel_do_mes_mobile{
+        width: 1400px;
+        min-height: 800px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color: rgb(22, 22, 22);
+    }
+
+    #caixa_capa_filme_do_mes{
+        display: none;
+    }
+
+    #caixa_capa_filme_do_mes_mobile{
+        width: 900px; 
+        height: 1160PX;
+        padding-top: 50px;
+        box-sizing: border-box;
+    }
+
+    #capa_filme_do_mes{
+        display: none;
+    }
+
+    #capa_filme_do_mes_mobile{
+        width: 850px;
+        height: 1060px;
+        overflow: hidden;
+        margin-left: 20px;
+        border-radius: 20px;
+    }
+
+    #caixa_informacoes_filme_do_mes{
+        display: none;
+    }
+    
+    #caixa_informacoes_filme_do_mes_mobile{
+        width: 1300px;
+        height: 1400px;
+        box-sizing: border-box;
+        padding-bottom: 50px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    .informacoes_filme_do_mes{
+        display: none;
+    }
+
+    .informacoes_filme_do_mes_mobile{
+        width: 1250px;
+        height: 200px;
+        margin-top: 35px;
+        box-sizing: border-box;
+        padding-top: 25px;
+        border-bottom: solid 2px white; 
+        /*font*/
+        font-family: baronBold;
+        font-size: 54px;
+        line-height: 1.2;
+        color: white;
+    }
+
+    #menu_retratio_filme_do_mes{
+        display: none;
+    }
+
+    #menu_retratio_filme_do_mes_mobile{
+        width: 1400px;
+        min-height: 400px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: rgb(22, 22, 22);
+        border-radius: 20px;
+    }
+
+/*************FIM DO FILME DO MÊS**************/
 
 
 

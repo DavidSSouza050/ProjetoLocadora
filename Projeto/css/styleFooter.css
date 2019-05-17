@@ -324,18 +324,18 @@
 
     .caixa_rede_social_mobile{
         width: 300px;
-        height: 850px;
+        height: 700px;
         margin-left: 800px;
-        margin-top: 200px;
+        margin-top: 90px;
         box-sizing: border-box;
         position: absolute;
     }
 
     .rede_social_mobile{
-        width: 265px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
         margin-top: 20px;
-        margin-left: 20px;
+        margin-left: 60px;
         background-color: black;
         border: solid 2px black;
         border-radius: 100%;

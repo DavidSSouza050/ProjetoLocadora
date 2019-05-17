@@ -56,15 +56,15 @@
         <?php require_once('./header.php')?>
 
         <div id="caixa_fimel_do_mes" class="center">
-            <div id="caixa_capa_filme_do_mes">
+            <div id="caixa_capa_filme_do_mes" class="center">
                 <!-- imagem do filme do mês -->
                 <figure>
                     <div id="capa_filme_do_mes" >
-                       <img class="img-size" style="border-radius: 20px;" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
+                       <img class="img-size" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
                     </div>
                 </figure>
             </div>
-            <div id="caixa_informacoes_filme_do_mes">
+            <div id="caixa_informacoes_filme_do_mes" >
                 <!-- detalhes do filme do mês -->
                 <div class="informacoes_filme_do_mes center">
                     <span class="titulo_topico">Nome:</span> <?php echo($titulo)?>
@@ -118,6 +118,76 @@
 
 
         </div>
+
+
+
+        <!-- mobile -->
+
+        <div id="caixa_fimel_do_mes_mobile" class="center">
+            <div id="caixa_capa_filme_do_mes_mobile" class="center">
+                <!-- imagem do filme do mês -->
+                <figure>
+                    <div id="capa_filme_do_mes_mobile" >
+                       <img class="img-size" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
+                    </div>
+                </figure>
+            </div>
+            <div id="caixa_informacoes_filme_do_mes_mobile" class="center">
+                <!-- detalhes do filme do mês -->
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Nome:</span> <?php echo($titulo)?>
+                </div>
+
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Duração:</span> <?php echo($duracao)?>
+                </div>
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Diretor:</span>  
+                        <?php
+                            $sqlDiretor = "SELECT group_concat(diretor.diretor SEPARATOR '/')  as diretor_filme FROM tbl_diretor as diretor
+                            INNER JOIN tbl_filme_diretor as filme_diretor
+                            ON diretor.cod_diretor = filme_diretor.cod_diretor WHERE filme_diretor.cod_filme =".$cod_filme;
+                            $selectDiretor = mysqli_query($conexao, $sqlDiretor);
+                            while($rsdiretor_filme_mes = mysqli_fetch_array($selectDiretor)){
+                                $diretor = $rsdiretor_filme_mes['diretor_filme'];
+                        ?>
+                        <?php echo($diretor)?>
+                        <?php
+                            }
+                        ?>
+                </div>
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Gênero:</span> <?php echo($genero)?>
+                </div>
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Distribuidora:</span>  <?php echo($distribuidora)?>
+                </div>
+                <div class="informacoes_filme_do_mes_mobile center">
+                    <span class="titulo_topico_mobile">Classificação:</span> <?php echo($classificacao)?>
+                </div>
+                <!-- fim detalhes -->
+            
+            </div>
+        </div>
+            <!-- caixa com menu retratio -->
+        <div id="menu_retratio_filme_do_mes_mobile" class="center">
+
+            <div class="historico_ator_retratio_mobile linha_historico center"> <!-- criando uma div 'linha' para concentrar o conteúdo da div retratio -->
+                <a href="#esconde_sinopse_mobile" class="hide" id="esconde_sinopse_mobile"><span class="titulo_topico_mobile">▼ Sinopse</span></a> <!-- a com o link para aparecer o conteúdo -->
+                <a href="#aparece_sinopse_mobile" class="show" id="aparece_sinopse_mobile"><span class="titulo_topico_mobile">▲ Sinopse</span></a><!-- a com o link para tirar o conteúdo -->
+                <div class="caixa_conteudo_hide"><!--Div que vai ser chamado para aparecer-->
+                    <div class="conteudo_topico_mobile"><!--Div criada para onganizar os tópicos corretamente-->
+                        <p><?php echo(nl2br($descricao))?></p>
+                    </div>
+                </div>
+
+            </div>
+            
+
+
+        </div>
+
+
 
         <!-- footer em outra pagina -->
         <?php require_once('./footer.php')?>
