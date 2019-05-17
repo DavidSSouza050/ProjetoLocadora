@@ -71,7 +71,7 @@
                           filme.imagem_filme,
                           promocao.status as status_promocao
                           FROM tbl_promocao as promocao right JOIN tbl_filme as filme
-                          ON filme.cod_filme = promocao.cod_filme";
+                          ON filme.cod_filme = promocao.cod_filme ORDER BY RAND()";
                             $select = mysqli_query($conexao, $sql);
                   
                     while($rsFilme = mysqli_fetch_array($select)){

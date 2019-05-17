@@ -149,7 +149,7 @@
                             ON diretor.cod_diretor = filme_diretor.cod_diretor WHERE filme_diretor.cod_filme =".$cod_filme;
                             $selectDiretor = mysqli_query($conexao, $sqlDiretor);
                             while($rsdiretor_filme_mes = mysqli_fetch_array($selectDiretor)){
-                                $diretor = $rsdiretor_filme_mes['diretor_filme'];
+                                $diretor = $rsdiretor_filme_mes['diretor_filme'] == null ? "": $rsdiretor_filme_mes['diretor_filme'];
                         ?>
                         <?php echo($diretor)?>
                         <?php

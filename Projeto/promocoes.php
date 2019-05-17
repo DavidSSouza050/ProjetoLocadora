@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+        <meta charset="utf-8" />
         <title>Promoções</title>
         <script  src="js/jquery-1.11.3.min.js"></script>
         <script  src="js/jssor.slider-27.5.0.min.js"></script>
