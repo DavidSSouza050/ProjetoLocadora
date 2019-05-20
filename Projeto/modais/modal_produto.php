@@ -30,5 +30,14 @@
         <div class="especificacao center">
             <span class="titulo_topico">Classificação:</span> O predador
         </div>
+        <div class="especificacao center">
+            <span class="titulo_topico">Preço:</span> 30,0
+        </div>
     </div>
+
+    <div>
+    
+    </div>
+
+
 </div>

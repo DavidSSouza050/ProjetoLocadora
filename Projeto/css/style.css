@@ -1116,11 +1116,11 @@ body{
         height: auto;
         overflow: hidden;
         border-radius: 20px;
-        background-color: rgb(22, 22, 22);
+        background-color: rgb(92, 92, 92);
     }
     #caixa_imagem_produto{
         width: 400px;
-        height: 500px;
+        height: 600px;
         float: left;
         box-sizing: border-box;
         padding-top: 20px;
@@ -1131,10 +1131,9 @@ body{
     }
     #caixa_especificacao_produto{
         width: 600px;
-        height: 500px;
+        height: 600px;
         float: left;
         box-sizing: border-box;
-        background-color: #b30000;
     }
 
     .especificacao{
@@ -1144,11 +1143,15 @@ body{
         box-sizing: border-box;
         padding-top: 25px;
         /*font*/
-        color: rgb(187, 187, 187);
+        color: rgb(197, 197, 197);
         font-family: baronBold;
         font-size: 25px;
     }
-    
+    #sinopse_modal{
+        width: 1000px;
+        height: 50px;
+        background-color: aliceblue;
+    }
 
 
 
@@ -1196,7 +1199,7 @@ body{
  /*conteudo*/
 
     .conteudo{
-        width: 1400px;
+        width: 100%;
         /*para a div espandir*/
         min-height: 700px;
         height: auto;
@@ -1227,7 +1230,7 @@ body{
     }
 
     #imagem_mobile{
-        width: 1400px;
+        width: 100%;
         height: 800px;
     }
     /*FIM DA CAIXA SLIDER*/
@@ -1334,7 +1337,7 @@ body{
        display: none;
     }
     .produto_mobile{
-        width: 1000px;
+        width: 800px;
         height: 1100px;
         margin-top: 50px;
         margin-bottom: 25px;
@@ -1395,7 +1398,7 @@ body{
     .produto_caixa_detalhes_mobile{
         width: inherit;
         height: 90px;
-        padding-left: 760px;
+        padding-left: 300px;
         box-sizing: border-box;
         padding-top: 10px;
         /*font*/
@@ -1523,7 +1526,7 @@ body{
     }
 
     #caixa_atores_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 1000px;
         height: auto;
         box-sizing: border-box;
@@ -1537,10 +1540,10 @@ body{
        display: none;
     }
     #caixa_imagem_ator_mobile{
-        width: 1100px;
-        height: 1000px;;
-
+        width: 700px;
+        height: 700px;;
         box-sizing: border-box;
+        margin-top: 10px;
     }
 
 
@@ -1548,9 +1551,8 @@ body{
         display: none;
     }
     #imagem_ator_mobile{
-        width: 1100px;
-        height: 1000px;
-        margin-top: 50px;
+        width: 700px;
+        height: 700px;
         overflow: hidden;    
         border-radius: 50px;
     }
@@ -1559,7 +1561,9 @@ body{
     }
     #caixa_historico_ator_mobile{
         width: inherit;
-        height: 1000px;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
         margin-top: 25px;
         padding-top: 5px;
         box-sizing: border-box;
@@ -1570,15 +1574,15 @@ body{
     }
     
     .historico_ator_mobile{
-        width: 1350px;
-        height: 165px;
+        width: 900px;
+        height: 100px;
         box-sizing: border-box;
         margin-top: 30px;
-        padding-top: 20px;
+        padding-top: 15px;
         padding-left: 20px;
         border-bottom: solid 2px white;
         /*fonte*/
-        font-size: 60px;
+        font-size: 35px;
         color: rgb(212, 211, 211);
         font-family: baronBold;
     }
@@ -1587,7 +1591,7 @@ body{
        display: none;
     } 
     .titulo_topico_mobile{
-        font-size: 70px;
+        font-size: 45px;
         color: rgb(226, 223, 223);
         font-family: baronBold;
         font-weight: bold;
@@ -1614,8 +1618,8 @@ body{
         text-align: justify;
         word-wrap: break-word;
         font-family: CabinMedium;
-        font-size: 75px;
-        line-height: 130px;
+        font-size: 45px;
+        line-height: 70px;
     }
     .conteudo_topico{
         display: none;
@@ -1668,7 +1672,7 @@ body{
        display: none;
     }
     #caixa_retratio_ator_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 400px;
         height: auto;
         overflow: hidden;
@@ -1685,7 +1689,7 @@ body{
     }
 
     .historico_ator_retratio_mobile{
-        width: 1250px;
+        width: 900px;
         box-sizing: border-box;
         margin-top: 30px;
         padding-top: 20px;
@@ -1790,7 +1794,7 @@ body{
         display: none;
     }
     #caixa_lojas_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 700px;
         height: auto;
         overflow: hidden;
@@ -1845,9 +1849,9 @@ body{
 
 
     .coodernadas_mobile{
-        width: 1300px;
-        height: 200px;
-        margin-top: 60px;
+        width: 900px;
+        height: 160px;
+        margin-top: 30px;
         margin-bottom: 60px;
         box-sizing: border-box;
         padding-top: 40px;
@@ -1855,7 +1859,7 @@ body{
         border-radius: 15px;
         box-shadow: 2px 4px 10px rgb(185, 182, 182);
         /*font*/
-        font-size: 50px;
+        font-size: 2.5em;
         font-family: robotoLight;
         color: white;
     }

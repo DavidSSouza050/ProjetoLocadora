@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" media="screen" href="css/styleHeader.css" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/menu_responsivo.js"></script>
 <header id="header_computador">
     <div class="conteudo_header center">
        <!-- logo do site na header -->
@@ -65,9 +67,29 @@
 <header id="header_modile">
 
     <nav class="segura_menu_mobile back-size">
-        <!-- <ul id="ul_menu_mobile">
-           
-        </ul> -->
+        <ul id="ul_menu_mobile">
+            <li class="itens" >
+               <a href="index.php" class="link_menu">Página Principal</a>
+            </li>
+            <li class="itens" >
+               <a href="ator.php" class="link_menu">Ator</a>
+            </li>
+            <li class="itens">
+                <a href="lojas.php" class="link_menu">Lojas</a>
+            </li>
+            <li class="itens">
+                <a href="promocoes.php" class="link_menu">Promoções</a>
+            </li>
+            <li class="itens">
+                <a href="filmeDoMes.php" class="link_menu">Filme do mes</a>
+            </li>
+            <li class="itens">
+                <a href="contato.php" class="link_menu">Fale Conosco</a>
+            </li>
+            <li class="itens">
+                <a href="sobre.php" class="link_menu">Sobre</a>
+            </li>
+        </ul>
     </nav>
     
     <figure>

@@ -145,8 +145,8 @@
     </div>
 
 
-    
-    <div id="caixa_atores_mobile" class="center">
+    <!-- mobile -->
+    <div id="caixa_atores_mobile">
         <!-- foto do ator -->
         <div id="caixa_imagem_ator_mobile" class="center">
             <figure>
@@ -186,7 +186,7 @@
     <!-- DIV COM MENU RETRATIO -->
     <div id="caixa_retratio_ator_mobile" class="center">
 
-        <div class="historico_ator_retratio_mobile linha_historico center">
+       <div class="historico_ator_retratio_mobile linha_historico center">
             <a href="#saividamobile" class="hide" id="saividamobile"><span class="titulo_topico_mobile">▼ Biografia</span></a>
             <a href="#entravidamobile" class="show" id="entravidamobile"><span class="titulo_topico_mobile">▲ Biografia</span></a>
             <div class="caixa_conteudo_hide">
@@ -203,7 +203,7 @@
             <a href="#entrafotomobile" class="show" id="entrafotomobile"><span class="titulo_topico_mobile">▲ Participações</span></a>
             <div class="caixa_conteudo_hide">
                 <div class="filme_participado">
-                    <!-- pegando a imagem de participações dos filmes desse ator -->
+                     <!-- pegando a imagem de participações dos filmes desse ator -->
                     <?php 
           
                         $sql = "SELECT filme.cod_filme,
@@ -229,9 +229,9 @@
                 </div>
             </div>
             
-        </div>
+        </div> 
 
-    </div>
+    </div> 
 
 
 

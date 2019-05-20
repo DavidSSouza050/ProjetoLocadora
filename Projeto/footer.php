@@ -76,7 +76,7 @@
 <footer id="footer_mobile">
     
     <!-- caixas com horario de funcionamento -->
-    <div class="caixa_horario_mobile center">
+    <div class="caixa_horario_mobile">
         <div class="caixa_rede_social_mobile">
             <figure>
                 <div class="rede_social_mobile">
@@ -113,7 +113,7 @@
             </p>
         </div>
     </div>
-    <div class="caixa_contatos_mobile center">
+    <div class="caixa_contatos_mobile ">
         <!-- caixas com os contatos -->
         <figure>
             <div class="iconFooter_mobile">
@@ -137,7 +137,7 @@
             
         </div>
     </div>
-    <div class="caixa_endereco_mobile center">
+    <div class="caixa_endereco_mobile ">
         <!-- caixa com o lugar da cidade -->
         <figure>
             <div class="iconFooter_mobile">

@@ -108,14 +108,14 @@
 
         <!-- mobile -->
         <div id="caixa_lojas_mobile">            
-            <div id="caixa_iFrame_maps_mobile">
-                <!-- coordenadas frame para pqgar as coodenadas -->
+             <div id="caixa_iFrame_maps_mobile">
+            <!-- coordenadas frame para pqgar as coodenadas  -->
                 <div id="iFrame_maps_mobile" class="center">
                     <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($endereco_pronto);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps_mobile"  allowfullscreen></iframe>
                 </div>
             </div>
             <div id="caixa_coodernadas_mobile" class="scrollTexto">
-                <!-- a com cada codernada das lojas cadastradas -->
+                <!-- a com cada codernada das lojas cadastradas  -->
                 
                 <?php
                     $sql = "SELECT endereco.logradouro,
@@ -146,7 +146,7 @@
                 }
                 ?>
                
-                <!-- fim das coodernadas -->
+               
                        
             </div>
         </div>
