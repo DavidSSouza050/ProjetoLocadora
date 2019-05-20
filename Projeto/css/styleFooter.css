@@ -3,7 +3,6 @@
 
 @media screen and (min-device-width:1000px){
     #footer_pc{
-        margin-top: 50px;
         width: 100%;
         height: 200px;
         background-color: rgb(14, 13, 13);
@@ -165,7 +164,7 @@
 }
 
 
-@media screen and (max-device-width:680px){
+@media screen and (max-device-width:880px){
     #footer_pc{
         display: none;
     }

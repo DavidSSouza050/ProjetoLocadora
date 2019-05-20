@@ -26,6 +26,13 @@
             <?php require_once('./sliderPromocoes.php');?>
         </div>
 
+        <!-- mobile -->
+        <figure>
+            <div id="imagem_mobile">
+                <img src="./img/maxresdefault.jpg" class="img-size" alt="imagem_mobile">
+            </div>    
+        </figure>
+
         <div class="conteudo center">
             <!-- aqui começa a sessação dos filmes  -->
             <div class="item_conteudo">
@@ -54,7 +61,7 @@
                                 promocao.status as status_promocao,
                                 promocao.porcentagem_desconto as desconto
                                 FROM tbl_promocao as promocao INNER JOIN tbl_filme as filme
-                                ON filme.cod_filme = promocao.cod_filme";
+                                ON filme.cod_filme = promocao.cod_filme ORDER BY RAND()";
                         $select = mysqli_query($conexao, $sql);
                         //for para colocar as cards rapidamente
                         while($rsPromocao = mysqli_fetch_array($select)){
@@ -72,7 +79,7 @@
                             <div class='produto_caixa_descricao_promocao'>
                                 <p><span class='formata_atributo'>Nome:</span> <?php echo($rsPromocao['titulo_filme'])?></p>
                                 <p><span class='formata_atributo'>Descrição:</span> <?php echo($rsPromocao['descricao'])?></p>
-                                <div class='preco_promocoes'>
+                                <div class='caixa_preco_promocoes'>
                                     <div class='preco_promocoes'>
                                         <?php
                                             //Tirando o ponto e adicionando a virgula
@@ -98,11 +105,53 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- cards dos filmes a venda e em promoção mobile -->
+                        <div class='produto_promocao_mobile center'>
+                            <div class='produto_caixa_imagem_mobile'>
+                                <figure>
+                                    <div class='produto_imagem_mobile center'>
+                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class='produto_caixa_descricao_promocao_mobile'>
+                                <p><span class='formata_atributo_mobile'>Nome:</span> <?php echo($rsPromocao['titulo_filme'])?></p>
+                                <p><span class='formata_atributo_mobile'>Descrição:</span> <?php echo($rsPromocao['descricao'])?></p>
+                                <div class='caixa_preco_promocoes_mobile'>
+                                    <div class='preco_promocoes_mobile'>
+                                        <?php
+                                            //Tirando o ponto e adicionando a virgula
+                                            $preco = colocar_virgula($rsPromocao['preco_filme']);
+                                            
+                                        ?>
+                                        <span class='formata_atributo_mobile'>De:</span> <del><?php echo($preco);?></del>
+                                    </div>
+                                    <div class='preco_promocoes_mobile'>
+                                        <?php 
+                                            //atribuindo o desconto para o preco do produtop
+                                            $preco_com_desconto = calcular_preco($rsPromocao['desconto'], $rsPromocao['preco_filme']);
+                                        ?>
+                                        <span class='formata_atributo_mobile'>Por:</span> <?php echo( $preco_com_desconto);?>
+                                    </div>                            
+                                </div>
+                            </div>
+                            <div class='produto_caixa_detalhes_mobile'>
+                                <div class='botao_detalhes_mobile formata_atributo_mobile'>
+                                    <a href=''>    
+                                        Detalhes
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
                     <?php
                             }
                         }
                     ?>
-
                 </div>
             </div>
         </div>

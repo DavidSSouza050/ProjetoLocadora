@@ -9,14 +9,14 @@
         $conexao = null;
         
         //Variavaeis para estabelacer a conexão com o banco
-        //$server = "localhost";
-        $server = "192.168.0.2";
-        //$user = "root";
-        $user = "pc1020191";
-        //$password= "bcd127";
-        $password= "senai127";
-        //$database = "db_locadora";
-        $database = "dbpc1020191";
+        $server = "localhost";
+        //$server = "192.168.0.2";
+        $user = "root";
+        //$user = "pc1020191";
+        $password= "bcd127";
+        //$password= "senai127";
+        $database = "db_locadora";
+        //$database = "dbpc1020191";
 
         $conexao = mysqli_connect($server, $user, $password, $database);
         

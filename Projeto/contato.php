@@ -37,8 +37,9 @@
 
         //  depois execulta o codigo sql   
         $sql = " INSERT INTO tbl_fale_conosco (nome, telefone, celular, email, homePage, facebook, assunto, mensagem, sexo, profissao)
-                    VALUES ('".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."', '".$facebook."', '".$cmb_assunto."',
-                    '".$mensagem."', '".$rdoSexo."', '".$profissao."');";
+                    VALUES ('".addslashes($nome)."', '".addslashes($telefone)."', '".addslashes($celular)."', 
+                    '".addslashes($email)."', '".addslashes($homePage)."', '".addslashes($facebook)."', '".addslashes($cmb_assunto)."',
+                    '".addslashes($mensagem)."', '".addslashes($rdoSexo)."', '".addslashes($profissao)."');";
 
         // echo($sql);
 
@@ -169,6 +170,113 @@
                 </div>
            </form>
         </div>
+
+
+
+
+        <!-- mobile -->
+
+        <div id="caixa_segura_contato_mobile" class="center">
+           <form name="frm_contato" method="POST" action="contato.php" >
+               <!-- caixas apara digitação -->
+                <div id="caixa_contato_mobile" class="center">
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div pra cadastrar o nome -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/user.png" alt="Icone de usuario">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="text" id="txt_nome_mobile" name="txt_nome" required placeholder="Nome*" maxLength="100" >
+                    </div>
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div para cadastrar o telefone se for preciso -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/telefoneContato.png" alt="Icone de Telefone">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" maxLength="14"  type="tel" name="txt_telefone" id="txt_telefone_mobile" placeholder="Tel.:00 00000000"  onkeypress="return PermitirNumero(event);">
+                    </div>
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div para cadastrar o celular -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size"  src="./img/icon/celular.png" alt="Icone de Celular">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="tel" required name="txt_celular" id="txt_celular_mobile" placeholder="Cel.:00 900000000*" maxLength="15"   onkeypress="return PermitirNumero(event);">
+                    </div>
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div para cadastrar o email -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/email.png" alt="Icone de Email">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="email" name="txt_email" id="txt_email_mobile" required placeholder="Email*">
+                    </div>
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div para cadastrar a home de uma pagina web -->
+                        <figure>                     
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/home.png" alt="Icone de Home">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="url" maxLength="140" name="txt_home" id="txt_home_mobile" placeholder="URL De uma pagina">
+                    </div>
+                    <div class="caixa_Input_text_mobile">
+                        <!-- div para cadastrar o facebook -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/facebook-logo.png" alt="Icone de facebook">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="url" maxLength="140" name="txt_facebook" id="txt_facebook_mobile" placeholder="URL da pagina facebook">
+                    </div>
+                </div>
+
+                <!-- segunda div de cadastro -->
+                <div id="caixa_contato_esquerda_mobile" class="center">
+                    <div class="caixa_Input_radio_mobile center">
+                        <!-- radios para saber o sexo -->
+                       <input  type="radio" name="rdo_sexo" required  value="M" id="masculino_mobile" class="radio"><label for="masculino_mobile" class="radio_contato_mobile">Masculino</label>
+                       <input type="radio" name="rdo_sexo"  required value="F" id="feminino_mobile"  class="radio"><label for="feminino_mobile" class="radio_contato_mobile" >Feminino</label>
+                    </div>
+                    <div class="caixa_Input_text_mobile center">
+                        <!-- div de cadastro de profissão -->
+                        <figure>
+                            <div class="iconContatos_mobile">
+                                <img class="img-size" src="./img/icon/grupo.png" alt="Icone de Profissão">
+                            </div>
+                        </figure>
+                        <input class="inputContato_mobile" type="text" maxLength="90" name="txt_profissao" id="txt_profissao_mobile" required placeholder="Profissão*">
+                    </div>
+                    <div class="caixa_cmb_mobile">
+                        <!-- select para saber o tipo da mensagem -->
+                        <select name="cmb_assunto" id="selectAssunto_mobile" required>
+                            <option value="">Assunto*</option>
+                            <option value="Sugestao ou Critica">Sugestao ou Critica</option>
+                            <option value="Informação do Produto">Informação do Produto</option>
+                        </select>
+                    </div>
+                    <div class="caixa_text_area_mobile center">
+                        <!-- textarea para a mensagem -->
+                        <textarea class="textArea_cotato_mobile center scrollTexto" name="txtArea_mensagem" required id="txtArea_observacao_mobile" placeholder="Mensagem"></textarea>
+                    </div>
+                    <div id="caixa_boato_contato_mobile" class="center">
+                        <!-- botaoes de cadastro -->
+                        <input type="submit"  class="botao_contato_mobile" id="btn_enviar_contato_mobile" name="btn_enviar_contato"  value="Enviar→">
+                        <input type="submit"  class="botao_contato_mobile" name="btn_limpar_contato"  value="Limpar">
+                    </div>                    
+                </div>
+           </form>
+        </div>
+
+
+
+
+
 
         <!-- footer que esta em outro php -->
         <?php require_once('./footer.php')?>

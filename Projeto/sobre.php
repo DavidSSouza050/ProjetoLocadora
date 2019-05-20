@@ -53,6 +53,38 @@
             </div>
 
         </div>
+
+
+
+
+        <!-- MOBILE -->
+        <div id="conteudo_sobre_mobile" class="center"> 
+            <!-- div quem somos  contando a história da locadora-->
+            <div id="quemSomos_sobre_mobile">
+                <div id="titulo_sobre_mobile">
+                    <?php 
+                        if($titulo_sobre != null){
+                            echo($titulo_sobre);
+                        }else{
+                            echo("Nenhum sobre definido");
+                        }
+                    ?>
+                </div>
+                <div id="caixa_texto_quemSomos_mobile"  class="center">
+                    <div id="texto_quemSomos_mobile" class="scrollTexto center">
+                        <?php echo(nl2br($texto_sobre));?>
+                    </div>
+                </div>
+                <figure>
+                    <div id="imagem_quemSomos" class="center">
+                       <img id="lojaAntiga" class="img-size" src="./cms/img/imagem_sobre/<?php echo($nome_imagem_sobre) ?>" alt="<?php echo($nome_imagem_sobre) ?>"> 
+                    </div>
+                </figure>
+            </div>
+
+        </div>
+
+
         <!-- footer em outra pagina -->
         <?php require_once('./footer.php'); ?>
     </body>

@@ -9,13 +9,59 @@
     <head>
         <meta charset="utf-8" />
         <title>Locadora Acme Tunes</title>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/jssor.slider-27.5.0.min.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/styleFonte.css" />
         <link rel="shortcut icon" href="img/iconeDeAbaACME.png" type="image/x-png">
+        <script src="js/jssor.slider-27.5.0.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script>
+            //abrindo a modal
+            $(document).ready(function(){
+                // ativando modal
+                $(document).ready(function(){
+                    $('.visualizar').click(function(){
+                        $('#conteiner_produto').fadeIn(300);
+                    });
+                });
+
+            });
+
+            function visualizarProduto(codigo){
+                $.ajax({
+                    type: "GET",
+                    url: "./modais/modal_produto.php",
+                    data:{codigo:codigo},
+                    success: function(dados){
+                        $('#modal_produto').html(dados);
+                    }
+                });
+            }
+        
+        </script>
+
     </head>
     <body>
+
+
+        <!-- contender da modal que vai abrir para mostrar o cliente por completo -->
+        <div id="conteiner_produto">
+            <!-- div com o objetivo de fechar a modal -->
+            <!-- <div id="segurar_fechar_modal" class="center">
+                <figure>
+                    <div id="fechar_modal">
+                        <a href="#" class="img-size" id="fachar_modal_fale_conosco">
+                            <img   class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
+                        </a>
+                    </div>
+                </figure>
+            </div> -->
+            <!-- modal que vai suportar tudo o conteudo -->
+            <div id="modal_produto" class="center">
+                
+            </div>
+        </div>
+
+
         <!-- header em outra pagina -->
         <?php require_once('./header.php')?>
 
@@ -42,14 +88,16 @@
             </div>
         </div>
 
-        <div id="imagem_mobile">
-            <img src="./img/imagem_mobile.jpg" class="img-size" alt="imagem_mobile">
-        </div>    
-
+        <!-- mobile -->
+        <figure>
+            <div id="imagem_mobile">
+                <img src="./img/imagem_mobile.jpg" class="img-size" alt="imagem_mobile">
+            </div>    
+        </figure>
+        
         <div class="conteudo center">
             <!-- aqui começa a sessação dos filmes  -->
             <div class="item_conteudo">
-                <h6 hidden>sessão dos filmes</h6>
                 <div class="caixa_item">
                     <!-- menu de filtro  -->
                     <nav class="menu_item">
@@ -65,8 +113,9 @@
                 <div class="caixa_produto">
 
                     <?php
-                          $sql = "SELECT filme.titulo_filme,
-                          filme.preco_filme,
+                          $sql = "SELECT filme.cod_filme,
+                          filme.titulo_filme,
+                          filme.preco_filme,                          
                           concat(SUBSTRING(filme.descricao, 1, 120), ' ...') as descricao,
                           filme.imagem_filme,
                           promocao.status as status_promocao
@@ -96,11 +145,9 @@
                                     echo($preco);
                                  ?></p>
                             </div>
-                            <div class='produto_caixa_detalhes'>
-                                <div class='botao_detalhes formata_atributo'>
-                                    <a href=''>    
-                                        Detalhes
-                                    </a>
+                            <div class='produto_caixa_detalhes visualizar'>
+                                <div class='botao_detalhes formata_atributo visualizar' onclick="visualizarProduto(<?php echo($rsFilme['cod_filme']) ?>)">
+                                    Detalhes
                                 </div>
                             </div>
                         </div>
@@ -108,7 +155,7 @@
 
 
                         <!-- mobile  -->
-                        <div class='produto_mobile'>
+                        <div class='produto_mobile center'>
                             <div class='produto_caixa_imagem_mobile'>
                                 <figure>
                                     <div class='produto_imagem_mobile center'>
@@ -126,10 +173,8 @@
                                  ?></p>
                             </div>
                             <div class='produto_caixa_detalhes_mobile'>
-                                <div class='botao_detalhes_mobile formata_atributo_mobile'>
-                                    <a href=''>    
-                                        Detalhes
-                                    </a>
+                                <div class='botao_detalhes_mobile formata_atributo_mobile'>   
+                                    Detalhes
                                 </div>
                             </div>
                         </div>

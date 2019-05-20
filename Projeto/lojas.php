@@ -64,7 +64,7 @@
         <div id="caixa_lojas" class="center">            
             <div id="caixa_iFrame_maps">
                 <!-- coordenadas frame para pqgar as coodenadas -->
-                <div id="iFrame_maps">
+                <div id="iFrame_maps" class="center">
                     <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($endereco_pronto);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps"  allowfullscreen></iframe>
                 </div>
             </div>
@@ -92,6 +92,52 @@
                 ?>
                 <a href='?cod_loja=<?php echo($rsLoja['cod_loja'])?>'>
                     <div class='coodernadas center'>
+                       <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($cidade)?>, <?php echo($rsLoja['estado'])?>, Nº <?php echo($rsLoja['numero'])?>
+                    </div>
+                </a>    
+                <?php
+                    }
+                }
+                ?>
+               
+                <!-- fim das coodernadas -->
+                       
+            </div>
+        </div>
+
+
+        <!-- mobile -->
+        <div id="caixa_lojas_mobile">            
+            <div id="caixa_iFrame_maps_mobile">
+                <!-- coordenadas frame para pqgar as coodenadas -->
+                <div id="iFrame_maps_mobile" class="center">
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=<?php echo($endereco_pronto);?>&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" id="maps_mobile"  allowfullscreen></iframe>
+                </div>
+            </div>
+            <div id="caixa_coodernadas_mobile" class="scrollTexto">
+                <!-- a com cada codernada das lojas cadastradas -->
+                
+                <?php
+                    $sql = "SELECT endereco.logradouro,
+                                    endereco.bairro,
+                                    cidade.cidade,
+                                    estado.estado,
+                                    loja.cod_loja,
+                                    loja.status,
+                                    endereco.numero
+                                    FROM tbl_loja as loja INNER JOIN tbl_endereco AS endereco 
+                                    ON loja.cod_endereco = endereco.cod_endereco INNER JOIN tbl_cidade as cidade
+                                    ON endereco.cod_cidade = cidade.cod_cidade INNER JOIN tbl_estado as estado
+                                    ON cidade.cod_estado = estado.cod_estado";
+
+                    $select = mysqli_query($conexao, $sql);
+                while($rsLoja = mysqli_fetch_array($select)){
+                    if($rsLoja['status'] == 1){
+                        $cidade = strtolower($rsLoja['cidade']);
+                        $cidade = ucwords($cidade);            
+                ?>
+                <a href='?cod_loja=<?php echo($rsLoja['cod_loja'])?>'>
+                    <div class='coodernadas_mobile center'>
                        <?php echo($rsLoja['logradouro'])?>, <?php echo($rsLoja['bairro'])?>, <?php echo($cidade)?>, <?php echo($rsLoja['estado'])?>, Nº <?php echo($rsLoja['numero'])?>
                     </div>
                 </a>    
