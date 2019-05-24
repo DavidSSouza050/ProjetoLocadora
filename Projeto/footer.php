@@ -74,9 +74,77 @@
 </footer>
 <!-- mobile -->
 <footer id="footer_mobile">
-    
-    <!-- caixas com horario de funcionamento -->
-    <div class="caixa_horario_mobile">
+    <div id="segura_conteudo_direita_footer_mobile">
+        <!-- caixas com horario de funcionamento -->
+        <div class="caixa_horario_mobile">
+            <figure>
+                <div class="iconFooter_mobile">
+                    <img class="img-footer-mobile" src="./img/icon/icons8-alarm-clock-filled-48.png" alt="Horario de trabalho">
+                </div>
+            </figure>
+
+            <div class="horarioAtendimento_mobile">
+                Horario de Atendimento
+            </div>
+            <div class="horarios_mobile">
+                <p> 
+                    Terça à Sexta | 08:30h  às 18h 
+                </p>
+                <p>
+                    Sábados | 10h às 14h
+                </p>
+            </div>
+        </div>
+        <div class="caixa_contatos_mobile ">
+            <!-- caixas com os contatos -->
+            <figure>
+                <div class="iconFooter_mobile">
+                    <img class="img-footer-mobile" src="./img/icon/telefone.png" alt="Contatos">
+                </div>
+            </figure>
+        
+            <div class="tituloContatos_mobile">
+                Contatos
+            </div>
+            <div class="numeros_mobile">
+                <p> 
+                    Acme_toones@gmail.com
+                </p>
+                <p> 
+                    (11) 9 9452-1320 
+                </p>
+                <p> 
+                    (11) 4513-4652
+                </p>
+                
+            </div>
+        </div>
+        <div class="caixa_endereco_mobile ">
+            <!-- caixa com o lugar da cidade -->
+            <figure>
+                <div class="iconFooter_mobile">
+                    <img class="img-footer" src="./img/icon/local.png" alt="Endereco">
+                </div>
+            </figure>
+            
+            <div class="tituloEndereco_mobile">
+                Endereço
+            </div>
+            <div class="enredeco_mobile">
+                <p>
+                    Av. Luis Carlos Berrini, nº 666
+                </p>
+                <p>
+                    Americanas - São Paulo - SP
+                </p>
+                <p>
+                    CEP: 05523-001
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div id="segura_conteudo_esqueda_footer_mobile">
         <div class="caixa_rede_social_mobile">
             <figure>
                 <div class="rede_social_mobile">
@@ -94,72 +162,6 @@
                 </div>
             </figure>
         </div>
-    
-        <figure>
-            <div class="iconFooter_mobile">
-                <img class="img-footer-mobile" src="./img/icon/icons8-alarm-clock-filled-48.png" alt="Horario de trabalho">
-            </div>
-        </figure>
-
-        <div class="horarioAtendimento_mobile">
-            Horario de Atendimento
-        </div>
-        <div class="horarios_mobile">
-            <p> 
-                Terça à Sexta | 08:30h  às 18h 
-            </p>
-            <p>
-                Sábados | 10h às 14h
-            </p>
-        </div>
-    </div>
-    <div class="caixa_contatos_mobile ">
-        <!-- caixas com os contatos -->
-        <figure>
-            <div class="iconFooter_mobile">
-                <img class="img-footer-mobile" src="./img/icon/telefone.png" alt="Contatos">
-                </div>
-        </figure>
-    
-        <div class="tituloContatos_mobile">
-            Contatos
-        </div>
-        <div class="numeros_mobile">
-            <p> 
-                Acme_toones@gmail.com
-            </p>
-            <p> 
-                (11) 9 9452-1320 
-            </p>
-            <p> 
-                (11) 4513-4652
-            </p>
-            
-        </div>
-    </div>
-    <div class="caixa_endereco_mobile ">
-        <!-- caixa com o lugar da cidade -->
-        <figure>
-            <div class="iconFooter_mobile">
-                <img class="img-footer" src="./img/icon/local.png" alt="Endereco">
-            </div>
-        </figure>
-        
-        <div class="tituloEndereco_mobile">
-            Endereço
-        </div>
-        <div class="enredeco_mobile">
-            <p>
-                Av. Luis Carlos Berrini, nº 666
-            </p>
-            <p>
-                Americanas - São Paulo - SP
-            </p>
-            <p>
-                CEP: 05523-001
-            </p>
-        </div>
-
     </div>
 
 </footer>

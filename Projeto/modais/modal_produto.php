@@ -33,8 +33,29 @@
         $preco_filme = $rsProduto['preco_filme'];
     }
 ?>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    //abrindo a modal
+    $(document).ready(function(){
+        $(document).ready(function(){
+        $('#fechar_modal_produto').click(function(){
+            $('#conteiner_produto').fadeOut(300);
+        });
+    });
 
+    });
+</script>
 <div id="card_produto">
+    <!-- div com o objetivo de fechar a modal -->
+
+    <figure>
+        <div id="fechar_modal_produto">
+            <a href="#" class="img-size" id="fachar_modal_produto">
+                <img class="img-size" src="./cms/img/icone_sair.png" alt="sair da modal" title="sair da modal">
+            </a>
+        </div>
+    </figure>
+
     <div id="caixa_imagem_produto">
         <figure>
             <div id="imagem_produto" class="center">
@@ -85,16 +106,13 @@
 
     
     <div id="sinopse_modal">
-        <div id="sinopse_filme_retratio" class="linha_historico center"> <!-- criando uma div 'linha' para concentrar o conteúdo da div retratio -->
-            <a href="#esconde_sinopse_filme" class="hide" id="esconde_sinopse_filme"><span class="titulo_topico">▼ Sinopse</span></a> <!-- a com o link para aparecer o conteúdo -->
-            <a href="#aparece_sinopse_filme" class="show" id="aparece_sinopse_filme"><span class="titulo_topico">▲ Sinopse</span></a><!-- a com o link para tirar o conteúdo -->
-            <div class="caixa_conteudo_hide"><!--Div que vai ser chamado para aparecer-->
-                <div class="conteudo_topico"><!--Div criada para onganizar os tópicos corretamente-->
-                    <p><?php echo(nl2br($descricao))?></p>
-                </div>
-            </div>
-
-        </div> 
+       <div id="titulo_sinopse">
+           Sinopse
+       </div>
+        <div id="texto_sinopse" class="scrollTexto">
+            <?php echo(nl2br($descricao))?>
+        </div>
+            
     </div>
   
 

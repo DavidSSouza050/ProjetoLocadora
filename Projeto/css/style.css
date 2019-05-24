@@ -224,6 +224,9 @@ body{
         color: rgb(187, 48, 48);
         border: solid 2px white;  
     }
+    #open_categoria{
+        display: none;
+    }
     /*********************FIM MEU INTERNO DA PAGINA PRINCIPAL**************************/
 
 
@@ -1132,19 +1135,20 @@ body{
         box-sizing: border-box;
         padding-top: 25px;
         /*font*/
-        color: rgb(197, 197, 197);
+        color: rgb(214, 214, 214);
         font-family: baronBold;
         font-size: 25px;
     }
     #sinopse_modal{
         width: inherit;
-        min-height: 10px;
-        height: auto;
-        overflow: hidden;
-        margin-top: 620px;
-      
-        
+        height: 200px;
+        margin-top: 630px;
+        /*font*/
+        color: rgb(214, 214, 214);
+        font-size: 25px;
+        font-family: baronBold;
     }
+
     #sinopse_filme_retratio{
         width: 800px;
         /*fonte*/
@@ -1154,6 +1158,28 @@ body{
         border-bottom: solid 3px white;   
     }
 
+    #titulo_sinopse{
+        width: 200px;
+        height: 40px;
+        color: rgb(214, 214, 214);
+        font-size: 35px;
+        font-family: baronBold;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        padding-left: 10px;
+    }
+    #texto_sinopse{
+        width: 1000px;
+        height: 200px;
+        overflow: auto;
+        color: rgb(230, 228, 228);
+        font-size: 25px;
+        font-family: baronBold;
+        box-sizing: border-box;
+        padding-left: 20px;
+        line-height: 1.5;
+    }
 
     /*modal produto*/
 
@@ -1185,13 +1211,15 @@ body{
     }
 
     #fechar_modal_produto{
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         position: fixed;
-        margin-left: 900px;
+        margin-left: 950px;
     }
 
-
+    .caixa_sinopse{
+        overflow: auto !important; 
+    }
 }
 
 
@@ -1315,6 +1343,16 @@ body{
         display: none;
     }
 
+    #open_categoria{
+        width: 130px;
+        height: 130px;
+        position: fixed;
+        margin-left: 25px;
+        margin-top: 20px;
+        z-index: 1;
+        
+        border-radius: 100%;
+    }
 
 
 

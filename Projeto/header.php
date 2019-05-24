@@ -60,6 +60,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 </header>
 
@@ -67,8 +68,11 @@
 <header id="header_modile">
 
     <nav class="segura_menu_mobile back-size">
-      
+       
     </nav>
+    <div class="fecha_menu back-size">
+
+    </div>
     <figure>
         <div class="logo_site_mobile">
             <img class="img-size zindexzero" src="./img/logoAcme.png" alt="logo Acme" title="Voltar para a pagina inicial">

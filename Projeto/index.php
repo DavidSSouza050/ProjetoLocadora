@@ -51,16 +51,6 @@
 
         <!-- contender da modal que vai abrir para mostrar o cliente por completo -->
         <div id="conteiner_produto">
-            <!-- div com o objetivo de fechar a modal -->
-            <div id="segurar_fechar_modal_produto" class="center">
-                <figure>
-                    <div id="fechar_modal_produto">
-                        <a href="#" class="img-size" id="fachar_modal_produto">
-                            <img class="img-size" src="./cms/img/icone_sair.png" alt="sair da modal" title="sair da modal">
-                        </a>
-                    </div>
-                </figure>
-            </div>
             <!-- modal que vai suportar tudo o conteudo -->
             <div id="modal_produto" class="center">
                 
@@ -115,6 +105,14 @@
                         </ul>
                     </nav>  
                 </div>
+                
+                <div id="open_categoria" class="back-size">
+                    <img src="./img/iconfinder_filter_299094.png" class="border-radius-img img-size" alt="Filtrar" >
+                </div>
+
+
+
+
                 <!-- caixa que segura as card -->
                 <div class="caixa_produto">
 

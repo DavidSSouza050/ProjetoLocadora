@@ -220,7 +220,18 @@
         height: inherit;
         background-image: url(../img/icon_menu_mobile.png);
         float: left;
+        position: absolute;
         margin-left: 10px;
+    }
+
+    .fecha_menu{
+        width: 153px;
+        height: 153px;
+        background-image: url(../img/close_menu.png);
+        float: left;
+        position: absolute;
+        margin-left: 10px;
+        display: none;
     }
 
     #ul_menu_mobile{
@@ -231,7 +242,7 @@
         padding-top: 5px;
         display: none;
         background-color: rgba(0, 0, 0, 0.966);
-        z-index: 996;
+        z-index: 9;
     }
     
     .itens{
@@ -271,7 +282,7 @@
         width: 330px;
         height: 135px;
         float: left;
-        margin-left: 200px;
+        margin-left: 350px;
     }
 
 }
