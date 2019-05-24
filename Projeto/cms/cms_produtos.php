@@ -66,7 +66,7 @@
                             <div class="segura_txt_produto">
                                 <h4>Titulo Do Filme</h4>
                                 <input type="text" class="txt_produto"  placeholder="Ex: A vida dos mortos" name="titulo_filme" id="titulo-produto">
-
+                               
                             </div>
                             <div class="segura_txt_produto">
                                 <h4>Duração</h4>

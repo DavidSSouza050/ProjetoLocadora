@@ -125,15 +125,14 @@
 
         <div id="caixa_fimel_do_mes_mobile" class="center">
             <div id="caixa_capa_filme_do_mes_mobile" class="center">
-                <!-- imagem do filme do mês -->
-                <figure>
-                    <div id="capa_filme_do_mes_mobile" >
+                 <figure>
+                    <div id="capa_filme_do_mes_mobile" class="center">
                        <img class="img-size" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
                     </div>
                 </figure>
             </div>
             <div id="caixa_informacoes_filme_do_mes_mobile" class="center">
-                <!-- detalhes do filme do mês -->
+                
                 <div class="informacoes_filme_do_mes_mobile center">
                     <span class="titulo_topico_mobile">Nome:</span> <?php echo($titulo)?>
                 </div>
@@ -164,19 +163,19 @@
                 </div>
                 <div class="informacoes_filme_do_mes_mobile center">
                     <span class="titulo_topico_mobile">Classificação:</span> <?php echo($classificacao)?>
-                </div>
-                <!-- fim detalhes -->
+                </div> 
+             
             
-            </div>
-        </div>
-            <!-- caixa com menu retratio -->
+            </div> 
+        </div> 
+            
         <div id="menu_retratio_filme_do_mes_mobile" class="center">
 
-            <div class="historico_ator_retratio_mobile linha_historico center"> <!-- criando uma div 'linha' para concentrar o conteúdo da div retratio -->
+            <div class="historico_ator_retratio_mobile linha_historico center">
                 <a href="#esconde_sinopse_mobile" class="hide" id="esconde_sinopse_mobile"><span class="titulo_topico_mobile">▼ Sinopse</span></a> <!-- a com o link para aparecer o conteúdo -->
                 <a href="#aparece_sinopse_mobile" class="show" id="aparece_sinopse_mobile"><span class="titulo_topico_mobile">▲ Sinopse</span></a><!-- a com o link para tirar o conteúdo -->
-                <div class="caixa_conteudo_hide"><!--Div que vai ser chamado para aparecer-->
-                    <div class="conteudo_topico_mobile"><!--Div criada para onganizar os tópicos corretamente-->
+                <div class="caixa_conteudo_hide">
+                    <div class="conteudo_topico_mobile">
                         <p><?php echo(nl2br($descricao))?></p>
                     </div>
                 </div>

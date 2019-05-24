@@ -23,7 +23,12 @@
                         $('#conteiner_produto').fadeIn(300);
                     });
                 });
-
+                
+                $(document).ready(function(){
+                $('#fechar_modal_produto').click(function(){
+                    $('#conteiner_produto').fadeOut(300);
+                });
+            });
 
             });
 
@@ -47,15 +52,15 @@
         <!-- contender da modal que vai abrir para mostrar o cliente por completo -->
         <div id="conteiner_produto">
             <!-- div com o objetivo de fechar a modal -->
-            <!-- <div id="segurar_fechar_modal" class="center">
+            <div id="segurar_fechar_modal_produto" class="center">
                 <figure>
-                    <div id="fechar_modal">
-                        <a href="#" class="img-size" id="fachar_modal_fale_conosco">
-                            <img   class="img-size" src="./img/icone_sair.png" alt="sair da modal" title="sair da modal">
+                    <div id="fechar_modal_produto">
+                        <a href="#" class="img-size" id="fachar_modal_produto">
+                            <img class="img-size" src="./cms/img/icone_sair.png" alt="sair da modal" title="sair da modal">
                         </a>
                     </div>
                 </figure>
-            </div> -->
+            </div>
             <!-- modal que vai suportar tudo o conteudo -->
             <div id="modal_produto" class="center">
                 

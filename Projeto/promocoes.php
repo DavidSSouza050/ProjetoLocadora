@@ -139,9 +139,7 @@
                             </div>
                             <div class='produto_caixa_detalhes_mobile'>
                                 <div class='botao_detalhes_mobile formata_atributo_mobile'>
-                                    <a href=''>    
-                                        Detalhes
-                                    </a>
+                                    Detalhes
                                 </div>
                             </div>
                         </div>

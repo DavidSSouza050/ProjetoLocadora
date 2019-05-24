@@ -917,7 +917,7 @@ body{
     .imagem_ator_mobile{
         display: none;
     }
-    .caixa_historico_ator_mobile{
+    #caixa_historico_ator_mobile{
         display: none;
     }
     .historico_ator_mobile{
@@ -935,15 +935,7 @@ body{
     .caixa_retratio_ator_mobile{
         display: none;
     }
-    .historico_ator_retratio_mobile{
-        display: none;
-    }
-    .titulo_topico_mobile{
-        display: none;
-    }
-    .conteudo_topico_mobile{
-        display: none;
-    }
+
 
     .filmes_participados_mobile{
         display: none;
@@ -1102,9 +1094,6 @@ body{
     #informacoes_filme_do_mes_mobile{
         display: none;
     }
-    #historico_ator_retratio_mobile{
-        display: none;
-    }
 
     /*************FIM DO FILME DO MÊS**************/
 
@@ -1112,7 +1101,7 @@ body{
 
     #card_produto{
         width: inherit;
-        min-height: 700px;
+        min-height: 830px;
         height: auto;
         overflow: hidden;
         border-radius: 20px;
@@ -1137,8 +1126,8 @@ body{
     }
 
     .especificacao{
-        width: 500px;
-        height: 80px;
+        width: 560px;
+        height: 90px;
         border-bottom: solid 3px rgb(58, 57, 57);
         box-sizing: border-box;
         padding-top: 25px;
@@ -1148,11 +1137,22 @@ body{
         font-size: 25px;
     }
     #sinopse_modal{
-        width: 1000px;
-        height: 50px;
-        background-color: aliceblue;
+        width: inherit;
+        min-height: 10px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 620px;
+      
+        
     }
-
+    #sinopse_filme_retratio{
+        width: 800px;
+        /*fonte*/
+        font-size: 25px;
+        color: rgb(212, 211, 211);
+        font-family: baronBold;
+        border-bottom: solid 3px white;   
+    }
 
 
     /*modal produto*/
@@ -1164,7 +1164,7 @@ body{
         background-color: rgba(24, 23, 23, 0.664);
         position: fixed;
         box-sizing: border-box;
-        padding-top: 130px;
+        padding-top: 10px;
         z-index: 999;
         display: none;
     }   
@@ -1178,17 +1178,17 @@ body{
     }
 
 
-    #segurar_fechar_modal{
-        width: 600px;
-        height: 70px;
+    #segurar_fechar_modal_produto{
+        width: 1000px;
+        height: 80px;
         margin-top: 40px;
     }
 
-    #fechar_modal{
-        width: 70px;
-        height: 70px;
+    #fechar_modal_produto{
+        width: 80px;
+        height: 80px;
         position: fixed;
-        margin-left: 530px;
+        margin-left: 900px;
     }
 
 
@@ -1231,7 +1231,7 @@ body{
 
     #imagem_mobile{
         width: 100%;
-        height: 800px;
+        height: 500px;
     }
     /*FIM DA CAIXA SLIDER*/
 
@@ -1401,6 +1401,7 @@ body{
         padding-left: 300px;
         box-sizing: border-box;
         padding-top: 10px;
+        margin-bottom: 10px;
         /*font*/
         font-size: 20px;
         letter-spacing: 1.5px;
@@ -1439,7 +1440,7 @@ body{
 
 
     .produto_promocao_mobile{
-        width: 1000px;
+        width: 800px;
         min-height: 700px;
         height: auto;
         overflow: hidden;
@@ -1478,7 +1479,9 @@ body{
 
     .produto_caixa_descricao_promocao_mobile{
         width: inherit;
-        height: 550px;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
         padding-left: 5px;
         box-sizing: border-box;
         padding-right: 10px;
@@ -1575,14 +1578,14 @@ body{
     
     .historico_ator_mobile{
         width: 900px;
-        height: 100px;
+        height: 130px;
         box-sizing: border-box;
         margin-top: 30px;
         padding-top: 15px;
         padding-left: 20px;
         border-bottom: solid 2px white;
         /*fonte*/
-        font-size: 35px;
+        font-size: 41px;
         color: rgb(212, 211, 211);
         font-family: baronBold;
     }
@@ -1591,7 +1594,7 @@ body{
        display: none;
     } 
     .titulo_topico_mobile{
-        font-size: 45px;
+        font-size: 55px;
         color: rgb(226, 223, 223);
         font-family: baronBold;
         font-weight: bold;
@@ -1618,8 +1621,8 @@ body{
         text-align: justify;
         word-wrap: break-word;
         font-family: CabinMedium;
-        font-size: 45px;
-        line-height: 70px;
+        font-size: 40px;
+        line-height: 100px;
     }
     .conteudo_topico{
         display: none;
@@ -1638,8 +1641,8 @@ body{
        display: none;
     }
     .filmes_participados_mobile{
-        width: 950px;
-        height: 1350px;
+        width: 800px;
+        height: 1050px;
         margin-top: 50px;
         background-color: rgb(0, 0, 0);
         border-radius: 0px 0px 40px 40px;
@@ -1695,7 +1698,7 @@ body{
         padding-top: 20px;
         border-bottom: solid 2px white;
         /*fonte*/
-        font-size: 25px;
+        font-size: 30px;
         color: rgb(212, 211, 211);
         font-family: baronBold;
     }
@@ -1708,8 +1711,9 @@ body{
     #caixa_fimel_do_mes{
         display: none;
     }
+
     #caixa_fimel_do_mes_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 800px;
         height: auto;
         overflow: hidden;
@@ -1723,8 +1727,8 @@ body{
 
     #caixa_capa_filme_do_mes_mobile{
         width: 900px; 
-        height: 1160PX;
-        padding-top: 50px;
+        height: 1000PX;
+        padding-top: 20px;
         box-sizing: border-box;
     }
 
@@ -1733,10 +1737,9 @@ body{
     }
 
     #capa_filme_do_mes_mobile{
-        width: 850px;
-        height: 1060px;
+        width: 800px;
+        height: 950px;
         overflow: hidden;
-        margin-left: 20px;
         border-radius: 20px;
     }
 
@@ -1745,7 +1748,7 @@ body{
     }
     
     #caixa_informacoes_filme_do_mes_mobile{
-        width: 1300px;
+        width: 900px;
         height: 1400px;
         box-sizing: border-box;
         padding-bottom: 50px;
@@ -1758,15 +1761,17 @@ body{
     }
 
     .informacoes_filme_do_mes_mobile{
-        width: 1250px;
-        height: 200px;
+        width: 900px;
+        min-height: 165px;
+        height: auto;
+        overflow: hidden;
         margin-top: 35px;
         box-sizing: border-box;
         padding-top: 25px;
         border-bottom: solid 2px white; 
         /*font*/
         font-family: baronBold;
-        font-size: 54px;
+        font-size: 45px;
         line-height: 1.2;
         color: white;
     }
@@ -1776,7 +1781,7 @@ body{
     }
 
     #menu_retratio_filme_do_mes_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 400px;
         height: auto;
         overflow: hidden;
@@ -1879,7 +1884,7 @@ body{
     }
 
     #caixa_segura_contato_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 600px;
         height: auto;
         overflow: hidden;
@@ -1896,7 +1901,7 @@ body{
     }
 
     #caixa_contato_mobile{
-        width: 1300px;
+        width: 900px;
         min-height: 800px;
         height: auto;
         overflow: hidden;
@@ -1912,8 +1917,8 @@ body{
     }
 
     .caixa_Input_text_mobile{
-        width: 1250px;
-        height: 200px;
+        width: 850px;
+        height: 150px;
         margin-left: 20px;
         margin-top: 25px;
         box-sizing: border-box;
@@ -1926,8 +1931,8 @@ body{
         display: none;
     }
     .iconContatos_mobile{
-        width: 190px;
-        height: 190px;
+        width: 130px;
+        height: 130px;
         box-sizing: border-box;
         float: left;
     }
@@ -1935,11 +1940,12 @@ body{
         display: none;
     }
     .inputContato_mobile{
-        width: 930px;
-        height: 190px;
+        width: 700px;
+        height: 130px;
         float: left;
         border: none;
         margin-left: 10px;
+        background-color: #b30000;
         /*font*/
         font-family: MeganJune;
         font-size: 80px;
@@ -1954,7 +1960,7 @@ body{
     }
 
     #caixa_contato_esquerda_mobile{
-        width: 1300px;
+        width: 900px    ;
         min-height: 800px;
         height: auto;
         overflow: hidden;
@@ -1970,17 +1976,17 @@ body{
     }
 
     .caixa_Input_radio_mobile{
-        width: 1250px;
-        height: 200px;
-        margin-top: 30px;
+        width: 850px;
+        height: 180px;
+        margin-top: 20px;
         box-sizing: border-box;
         padding-top: 40px;
-        padding-left: 100px;
+        padding-left: 70px;
         background-color: rgb(238, 238, 238);
     }
     .radio{
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
     }
 
     .radio_contato{
@@ -1988,8 +1994,8 @@ body{
     }
 
     .radio_contato_mobile{
-        font-size: 120px;
-        margin-left: 50px;
+        font-size: 86px;
+        margin-left: 20px;
         font-weight: bold;
         font-family: MeganJune;
         cursor: pointer;
@@ -2000,17 +2006,17 @@ body{
      display: none;
     }
     .caixa_text_area_mobile{
-        width: 1000px;
+        width: 900px;
         height: 350px;
         margin-top: 20px;
         box-sizing: border-box;
         padding-top: 10px;
-        padding-left: 40px;
+        padding-left: 30px;
     }
 
     .caixa_cmb_mobile{
         width: inherit;
-        height: 270px;
+        height: 235px;
         margin-top: 30px;
         padding-top: 16px;
         box-sizing: border-box;
@@ -2023,12 +2029,12 @@ body{
 
     #selectAssunto_mobile{
         width: 800px;
-        height: 230px;
+        height: 200px;
         padding-left: 5px;
         border-radius: 50px;
-        margin-left: 250px;
+        margin-left: 40px;
         font-family:  MeganJune;
-        font-size: 83px;
+        font-size: 70px;
     }
 
     #selectAssunto{
@@ -2036,7 +2042,7 @@ body{
     }
 
     .textArea_cotato_mobile{
-        width: 900px;
+        width: 840px;
         height: 300px;
         resize: none;
         border-radius: 10px;
@@ -2098,7 +2104,7 @@ body{
     }
 
     #conteudo_sobre_mobile{
-        width: 1400px;
+        width: 100%;
         min-height: 800px;
         height: auto;
         overflow: hidden;
@@ -2117,14 +2123,14 @@ body{
         width: inherit;
         height: 150px;
         box-sizing: border-box;
-        padding-top: 35px;
+        padding-top: 30px;
         border-radius: 20px 20px 0px 0px;
         background-color: rgb(253, 61, 61);
         /*fonte*/
         text-align: center;
         color: rgb(255, 255, 255);
         font-family: baronBold;
-        font-size: 100px;
+        font-size: 70px;
         font-weight: bold;
     }
 
@@ -2154,7 +2160,7 @@ body{
         height: auto;
         overflow: hidden;
         box-sizing: border-box;
-        padding-left: 20px;
+        padding-left: 5px;
         padding-top: 20px;
         padding-bottom: 20px;
         margin-bottom: 50px;
@@ -2166,7 +2172,7 @@ body{
     }
 
     #texto_quemSomos_mobile{
-        width: 1250px;
+        width: 900px;
         height: 1100px;
         overflow: auto;
         box-sizing: border-box;
@@ -2185,8 +2191,8 @@ body{
 
 
     #imagem_quemSomos{
-        width: 1250px;
-        height: 1000px;
+        width: 900px;
+        height: 800px;
         border-radius: 20px;
     }
 
