@@ -120,7 +120,7 @@
                           $sql = "SELECT filme.cod_filme,
                           filme.titulo_filme,
                           filme.preco_filme,                          
-                          concat(SUBSTRING(filme.descricao, 1, 120), ' ...') as descricao,
+                          concat(SUBSTRING(filme.descricao, 1, 110), ' ...') as descricao,
                           filme.imagem_filme,
                           promocao.status as status_promocao
                           FROM tbl_promocao as promocao right JOIN tbl_filme as filme
@@ -136,7 +136,7 @@
                             <div class='produto_caixa_imagem'>
                                 <figure>
                                     <div class='produto_imagem center'>
-                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
+                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>
@@ -163,7 +163,7 @@
                             <div class='produto_caixa_imagem_mobile'>
                                 <figure>
                                     <div class='produto_imagem_mobile center'>
-                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
+                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>

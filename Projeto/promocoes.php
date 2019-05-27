@@ -72,7 +72,7 @@
                             <div class='produto_caixa_imagem'>
                                 <figure>
                                     <div class='produto_imagem center'>
-                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
+                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>
@@ -112,7 +112,7 @@
                             <div class='produto_caixa_imagem_mobile'>
                                 <figure>
                                     <div class='produto_imagem_mobile center'>
-                                        <img class='img-size' src='img/ator/Arold/participacoes/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
+                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsPromocao['imagem_filme'])?>' alt='<?php echo($rsPromocao['imagem_filme'])?>'>
                                     </div>
                                 </figure>
                             </div>

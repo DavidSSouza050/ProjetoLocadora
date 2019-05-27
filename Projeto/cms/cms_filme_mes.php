@@ -98,7 +98,7 @@
                     <div class="card_filme_mes center">
                         <figure>
                             <div class="img_filme_mes">
-                                <img src="../img/ator/Arold/participacoes/<?php echo($rsFilme_mes['imagem_filme'])?>" class="img-size" alt="gerenciar ator">
+                                <img src="./img/imagem_filme/<?php echo($rsFilme_mes['imagem_filme'])?>" class="img-size" alt="gerenciar ator">
                             </div>
                         </figure>
                         <!-- div que vai segurar os atributos da filme -->
