@@ -181,8 +181,8 @@
                 $duracao = $rsEditar['duracao'];
                 $cod_classificacao = $rsEditar['cod_classificacao'];
                 $classificacao = $rsEditar['classificacao'];
-                $cod_distibuidora = $rsEditar['cod_distribuidora'];
-                $distibuidora = $rsEditar['distribuidora'];
+                $cod_distribuidora = $rsEditar['cod_distribuidora'];
+                $distribuidora = $rsEditar['distribuidora'];
                 $cod_filme = $rsEditar['cod_filme'];
                 $btn = 'Atualizar';
                 $btnLimpar = 'Cancelar';
@@ -428,17 +428,16 @@
                                         <?php
                                             if($modo == "editar"){
                                         ?>
-                                        <option  value="<?php echo($cod_distibuidora)?>"><?php echo($distibuidora)?></option>
-                                    
+                                        <option  value="<?php echo($cod_distribuidora)?>"><?php echo($distribuidora)?></option>
+
                                         <?php
                                             }else{
                                         ?>
-                                           <option value="null">Distribuidora</option>
+                                        <option value="null">Distribuidora</option>
                                         <?php
                                             }
-                                            $sql = "SELECT cod_distribuidora, distribuidora FROM tbl_ditribuidora WHERE cod_distribuidora <> ".$cod_distibuidora;
-                                            $select = mysqli_query($conexao, $sql);
-
+                                            $sqlDistribuidora = "SELECT cod_distribuidora, distribuidora FROM tbl_ditribuidora WHERE cod_distribuidora <> ".$cod_distribuidora;
+                                            $select = mysqli_query($conexao, $sqlDistribuidora);
                                             while($rsDistribuidora = mysqli_fetch_array($select)){
                                         ?>
                                         <option value="<?php echo($rsDistribuidora['cod_distribuidora'])?>"><?php echo($rsDistribuidora['distribuidora'])?></option>

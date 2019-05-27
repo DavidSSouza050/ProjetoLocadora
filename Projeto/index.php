@@ -106,10 +106,39 @@
                     </nav>  
                 </div>
                 
+                <!-- imagem que vai chamar o menu de categoria -->
                 <div id="open_categoria" class="back-size">
                     <img src="./img/iconfinder_filter_299094.png" class="border-radius-img img-size" alt="Filtrar" >
                 </div>
 
+                <!-- div que vai segurar as categorias -->
+                <div class="segura_categoria" class="scrollTexto">
+                    <div class="fecha_categoria">
+                        <img src="img/close_menu.png" class="img-size" alt="Volta">
+                    </div>
+                    <div class="categoria_item">
+                        Filmes em DVD
+                            <div class="segura_subCategoria">
+                                <div class="fecha_subcategoria">
+                                    <img src="img/icon_arrow.png" class="img-size" alt="Volta">
+                                </div>
+                                <div class="subcategoria_item">
+                                        Blu-ray 
+                                </div>
+                                        
+                            </div>
+                    </div>
+                    <div class="categoria_item">
+                        Blu-ray 
+                    </div>
+                    <div class="categoria_item">
+                        Jogo
+                    </div>
+                    <div class="categoria_item">
+                        Fita k7
+                    </div>
+                    
+                </div>
 
 
 

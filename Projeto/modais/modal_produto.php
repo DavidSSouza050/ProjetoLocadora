@@ -59,7 +59,7 @@
     <div id="caixa_imagem_produto">
         <figure>
             <div id="imagem_produto" class="center">
-                <img src="./img/ator/Arold/participacoes/<?php echo($imagem_filme) ?>" class="img-size" alt="não tem">
+                <img src="./cms/img/imagem_filme/<?php echo($imagem_filme) ?>" class="img-size" alt="não tem">
             </div>
         </figure>   
     </div>
