@@ -557,7 +557,11 @@ td{
     box-shadow: 0px 0px 9px rgb(180, 180, 180);
     font-weight: bold;
 }
-
+.formataDiv_cadadostro{
+    padding-left: 0px !important;
+    padding-top: 2px !important;
+    text-align: center;
+}
 
 #segura_table_conteudo{
     width: 1100px;
@@ -908,14 +912,18 @@ td{
 /*MODAL COLOCAR ATOR EM FILME*/
 #card_colocar_ator{
     width: 400px;
-    height: 295px;
+    min-height: 295px;
+    height: auto;
+    overflow: hidden;
     box-sizing: border-box;
     border-radius: 25px;
     background-color: rgb(153, 152, 150);
 }
 .segura_combo_colocar_ator_filme{
     width: inherit;
-    height: 90px;
+    min-height: 90px;
+    height: auto;
+    overflow: hidden;
     border-radius: 20px;
     box-sizing: border-box;
     padding-left: 65px;
@@ -1385,6 +1393,7 @@ td{
     font-family: MeganJune;
     color: black !important;
 }
+
 #reacionaGenero:hover{
     transform: scale(1.01);
     box-shadow: 0px 0px 9px rgb(180, 180, 180);

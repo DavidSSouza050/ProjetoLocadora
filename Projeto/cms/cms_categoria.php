@@ -1,4 +1,4 @@
-        <?php
+<?php
     //Ativa o recurso de variavel de sessão
     require_once('./usuario_verificado.php');
     //pegando as permissões
@@ -102,6 +102,27 @@
     }
 
 
+
+
+    if(isset($_POST['Salvar_adicionar_genero_categoria'])){
+        $cod_genero = $_POST['sle_genero'];
+        $cod_categoria = $_POST['sle_categoria'];
+
+        $sql="INSERT INTO tbl_subcategoria_categoria (cod_genero, cod_categoria)
+        VALUES (".$cod_genero.", ".$cod_categoria.")";
+
+        if(mysqli_query($conexao, $sql)){
+            header('Location: cms_categoria.php');
+        }else{
+            echo($sql);
+        }
+
+    }
+
+
+
+
+
     //ativar e desativar com verificação
     if(isset($_GET['status'])){
         $status = $_GET['status'];
@@ -133,6 +154,33 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
         <link rel="shortcut icon" href="../img/iconeDeAbaACME.png" type="image/x-png">
         <script src="../js/jquery-1.11.3.min.js"></script>
+        <script>
+            //desativando modal
+            $(document).ready(function(){
+                $('#fachar_modal_fale_conosco').click(function(){
+                    $('#conteiner').fadeOut(300);
+                });
+            });
+            // ativando modal
+            $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#conteiner').fadeIn(300);
+                });
+            });
+
+//          atribuindo um genero a categoria
+            function colocargenero_categoria(modo, codigo){
+                $.ajax({
+                    type:'GET',
+                    url: "./modais/cms_modal_colocar_genero_na_categoria.php",
+                    data:{modo:modo, codigo:codigo},
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    },
+                })
+            }
+
+        </script>
     </head>
     <body>
        <!-- contender da modal que vai abrir para mostrar o cliente por completo -->
@@ -162,6 +210,14 @@
                 </div>
             </figure>
 
+            <!-- Adicionar genero para o filme -->
+            <figure>
+                <div id="reacionaGenero" class="visualizar" onclick="colocargenero_categoria('Salvar', 0)" >
+                    Adicionar Genero
+                </div>
+            </figure>
+
+
             <div id="cadastro_distribuidora">
                 <form name="frm_direto" method="POST" action="cms_categoria.php">
                     <h3>categoria</h3>
@@ -172,7 +228,6 @@
                     </div>
                 <form>
             </div>
-
             <div id="segura_cadastrados" class="scrollTexto">
                 <table id="table_modal_nivel">
                     <tr id="thead">
@@ -207,7 +262,7 @@
                                 ?>
                                 <img src="./img/<?php echo($img)?>" class="icon img-size" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
                             </a>
-
+                            <img src="./img/icon_view.png" class="icon img-size" alt="visualizar Generos" title="visualizar Generos">
 
                         </td>
                     </tr>

@@ -100,16 +100,23 @@
                         <ul class="ul_menu_item">
                             <li class="li_menu_item">
                                 Filme em DVD
-
-                                <ul class="ul_subMenu">
+                                
+                                <div class="aparece_subCategoria">
+                                    <img src="./img/icon_seta_submenu.png" class="img-size" alt="Mostra Sub Menu" title="Submenu">
+                                </div>
+                            
+                                <ul class="ul_subMenu esconder_subMenu scrollTexto">
                                     <li class="li_subMenu">
                                         Ação
                                     </li>
                                     <li class="li_subMenu">
                                         Aventura
                                     </li>
+                                   
+                                    
+                                    
                                 </ul>    
-
+                                
                             </li>
                             
                             
@@ -129,7 +136,7 @@
                 </div>
 
                 <!-- div que vai segurar as categorias -->
-                <div class="segura_categoria" class="scrollTexto">
+                <div class="segura_categoria scrollTexto">
                     <div class="fecha_categoria">
                         <img src="img/close_menu.png" class="img-size" alt="Volta">
                     </div>

@@ -26,7 +26,9 @@
 
 
                 $carregarImagem = array_search('spin.svg', $imagens);//acha o indice da imagem de carregar o slider
+                $tirarPonto = array_search('.', $imagens);
                 unset($imagens[$carregarImagem]); // exclui da array o indice da imagem de carregamento
+                unset($imagens[$tirarPonto]);
                 $imagens = array_slice($imagens, 2); // Faz que a array comece pela a posição 2 tirando dois itens (./ e ../)
                 $numDeImagens = count($imagens); // conta o total de de numeros da array, que corresponde as imagens
 

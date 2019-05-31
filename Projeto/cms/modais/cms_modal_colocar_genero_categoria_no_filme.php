@@ -10,6 +10,7 @@
     $id_filme = null;
     $cod_genero = 0;
     $cod_filme = 0;
+    $cod_categoria = 0;
 
     if($modo == 'Salvar'){ // passando modal para cadastra
         $btn = $modo;
@@ -17,6 +18,7 @@
         $btn = $modo;
         $id_filme = $_GET['codigo_filme'];
         $id_genero = $_GET['codigo_genero'];
+        $id_categoria = $_GET['cod_categoria'];
 
         //fazendo select para trazer o genero eo filme
         $sql = "SELECT filme.titulo_filme,
@@ -100,6 +102,37 @@
         
             </select>
             
+        </div>
+
+        <div class="segura_combo_colocar_ator_filme">
+            <select name="sle_categoria" class="txt_ator">
+
+                <?php
+                    if($modo == 'Atualizar'){
+                ?>
+                    <option value="<?php echo($cod_categoria)?>"><?php echo($nome_categoria)?></option>        
+                <?php
+                }else{
+                ?>
+                    <option value=null>Selecione uma categoria</option>
+                <?php
+                    }
+                    //trzendo os atores do banco
+                    $sqlcategoria = "SELECT cod_categoria,categoria FROM tbl_categoria WHERE cod_categoria <> ".$cod_categoria." AND status = 1";
+                    $selectcategoria= mysqli_query($conexao, $sqlcategoria);
+                while($rsNomecategoria = mysqli_fetch_array($selectcategoria)){
+                ?>
+                    <option value="<?php echo($rsNomecategoria['cod_categoria']);?>"><?php echo($rsNomecategoria['categoria']);?></option>
+                <?php
+                    }
+                ?>
+        
+            </select>
+            <div class="adicionar icon iconSemMargin">
+               <a href="cms_categoria.php">
+                    <img src="./img/icon_add.png" class="img-size" alt="Adicionar" title="Adicionar categoria">
+               </a>
+            </div>
         </div>
 
         <div class="segura_combo_colocar_ator_filme">

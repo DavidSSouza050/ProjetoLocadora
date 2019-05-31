@@ -469,7 +469,7 @@
             function colocargenero(modo, codigo_filme, codigo_genero){
                 $.ajax({
                     type:'GET',
-                    url: "./modais/cms_modal_colocar_genero.php",
+                    url: "./modais/cms_modal_colocar_genero_categoria_no_filme.php",
                     data:{modo:modo, codigo_filme:codigo_filme, codigo_genero:codigo_genero},
                     success: function(dados){
                         $('#modal').html(dados);
@@ -542,12 +542,9 @@
                     <div class="itens_card_cadastro visualizar" onclick="colocardiretor('Salvar', 0)">
                         Adicionar Diretor
                     </div>      
-                    <div class="itens_card_cadastro visualizar" onclick="colocargenero('Salvar', 0, 0)">
-                        Adicionar Genero
+                    <div class="itens_card_cadastro formataDiv_cadadostro visualizar" onclick="colocargenero('Salvar', 0, 0)">
+                        Adicionar Genero e Categoria
                     </div>
-                    <div class="itens_card_cadastro visualizar" onclick="colocarcategoria('Salvar', 0)">
-                        Adicionar  Categoria 
-                    </div>      
 
                 </div>
                 

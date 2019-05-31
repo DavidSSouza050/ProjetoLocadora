@@ -28,14 +28,14 @@ $(document).ready(function(){
     //abre o menu de categoria
     $('#open_categoria').click(function(){
         $('.segura_categoria').css({"transform":"translateX(0)"});
-        $('.tampa_menu').css({"display":"block"});
+        $('.menublock').css({"display":"block"});
         $('html body').css({"overflow":"hidden"});
     });
 
     //fechar o menu de categoria
     $('.fecha_categoria').click(function(){
         $('.segura_categoria').css({"transform":"translateX(-100%)"});
-        $('.tampa_menu').css({"display":"none"});
+        $('.menublock').css({"display":"none"});
         $('html body').css({"overflow":"auto"});
     });
 
@@ -55,5 +55,21 @@ $(document).ready(function(){
         $('.categoria_item').css({"transition-delay":"500ms"});
         // $('.segura_subCategoria').css({"display":"none"});
     });
+
+
+
+    //submenu desktop
+    $(document).on('click','.aparece_subCategoria', function(){
+       if($(this).parent().find('ul').hasClass('esconder_subMenu')){
+            $(this).parent().find('ul').removeClass('esconder_subMenu');
+            $(this).parent().find('ul').addClass('mostrar_subMenu');
+        }else{
+            $(this).parent().find('ul').removeClass('mostrar_subMenu');
+            $(this).parent().find('ul').addClass('esconder_subMenu');
+       }
+    });
+
+
+
 
 });
