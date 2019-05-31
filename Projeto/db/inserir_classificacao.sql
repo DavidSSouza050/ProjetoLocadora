@@ -39,6 +39,10 @@ INSERT INTO tbl_genero (genero) VALUES ('Romance');
 INSERT INTO tbl_genero (genero) VALUES ('Seriado');
 INSERT INTO tbl_genero (genero) VALUES ('Suspense');
 INSERT INTO tbl_genero (genero) VALUES ('Terror (ou horror)');
+INSERT INTO tbl_genero (genero) VALUES ('Épico');
+INSERT INTO tbl_genero (genero) VALUES ('Cyberpunk');
+INSERT INTO tbl_genero (genero) VALUES ('Tech noir');
+INSERT INTO tbl_genero (genero) VALUES ('Épico');
 
 -- DISTRIBUIDORA DO FILME EXTERMINADOR DO FUTURO E PREDADOR
 
@@ -82,10 +86,27 @@ INSERT INTO tbl_filme_genero (cod_filme, cod_genero) VALUES (2, 24);
 -- colocando os diretores
 INSERT INTO tbl_filme_diretor (cod_filme, cod_diretor) values (2, 1);
 
+-- 
+INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 25);
+INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 23);
+INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 24);
 
-
-SELECT * FROM tbl_ditribuidora;
-
+SELECT filme.titulo_filme as filme_titulo,
+                    filme.cod_filme as filme,
+                    categoria.cod_categoria as cod_categoria
+                    FROM tbl_filme_genero_categoria as filme_categoria inner JOIN tbl_categoria as categoria
+                    ON filme_categoria.cod_categoria = categoria.cod_categoria left join tbl_filme as filme
+                    ON filme_categoria.cod_filme =  filme.cod_filme
+                    WHERE categoria.cod_categoria = 1;
+                    
+                    select * from tbl_categoria;
+   SELECT filme.titulo_filme as filme_titulo,
+                    filme.cod_filme as filme,
+                    categoria.cod_categoria as cod_categoria
+                    FROM tbl_filme as filme right JOIN tbl_filme_genero_categoria as filme_categoria
+                    ON filme.cod_filme = filme_categoria.cod_filme inner JOIN tbl_categoria as categoria
+                    ON filme_categoria.cod_categoria = categoria.cod_categoria 
+                    WHERE categoria.cod_categoria = 1;
 SELECT  filme.cod_filme,
 		filme.titulo_filme,
 		filme.status_produto,
@@ -160,33 +181,20 @@ INSERT INTO tbl_genero_categoria VALUES (8, 18, 2);
 
 UPDATE tbl_genero_categoria set cod_genero = 1 WHERE cod_genero_categoria = 1;
 
-SELECT filme.titulo_filme,
-		group_concat(genero.genero separator '/'),
-		categoria.categoria
-        FROM tbl_categoria as categoria INNER JOIN tbl_genero_categoria as genero_categoria
-        ON categoria.cod_categoria = genero_categoria.cod_categoria INNER JOIN tbl_genero as genero
-        ON genero.cod_genero = genero_categoria.cod_genero INNER JOIN  tbl_filme_genero as filme_genero
-        ON genero.cod_genero = filme_genero.cod_genero INNER JOIN tbl_filme as filme
-        ON filme_genero.cod_filme = filme.cod_filme WHERE categoria.cod_categoria = 2 AND categoria.status = 1 group by filme.cod_filme ;
+DROP TABLE tbl_filme_genero;
+
+CREATE TABLE tbl_filme_genero_categoria(
+	cod_relacao_filme_genero_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    cod_filme INT NOT NULL,
+    cod_genero INT NOT NULL,
+    cod_categoria INT,
+     FOREIGN key (cod_filme) REFERENCES tbl_filme (cod_filme),
+    FOREIGN key (cod_genero) REFERENCES tbl_genero (cod_genero),
+     FOREIGN key (cod_categoria) REFERENCES tbl_categoria (cod_categoria)
+);
+
+DELETE FROM tbl_filme_genero where cod_filme > 0;
+         
+         
+         
         
-        
-        SELECT filme.titulo_filme as filme_titulo,
-			filme.cod_filme as filme,
-			diretor.cod_diretor as cod_diretor
-			FROM tbl_filme as filme right JOIN tbl_filme_diretor as filme_diretor
-			ON filme.cod_filme = filme_diretor.cod_filme inner JOIN tbl_diretor as diretor
-			ON filme_diretor.cod_diretor = diretor.cod_diretor 
-			WHERE diretor.cod_diretor = 6;
-		
-SELECT * FROM tbl_filme_diretor;
-
-
-SELECT filme.titulo_filme,
-		filme.cod_filme,
-		diretor.cod_diretor,
-		diretor.diretor
-        FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
-        ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
-        ON filme_diretor.cod_diretor = diretor.cod_diretor WHERE filme.cod_filme = 4;
-
-

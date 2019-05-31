@@ -66,7 +66,7 @@
                     FROM tbl_filme as filme right JOIN tbl_filme_diretor as filme_diretor
                     ON filme.cod_filme = filme_diretor.cod_filme inner JOIN tbl_diretor as diretor
                     ON filme_diretor.cod_diretor = diretor.cod_diretor 
-                    WHERE diretor.cod_diretor = 6;".$codigo;
+                    WHERE diretor.cod_diretor =".$codigo;
             $select = mysqli_query($conexao, $sql); 
 
             if($rsDistribuidoraExcluir = mysqli_fetch_array($select)){

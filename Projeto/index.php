@@ -97,11 +97,28 @@
                 <div class="caixa_item">
                     <!-- menu de filtro  -->
                     <nav class="menu_item">
-                        <ul>
-                            <li>Ação</li>
-                            <li>Aventura</li>
-                            <li>Suspense</li>
-                            <li>Terror</li>
+                        <ul class="ul_menu_item">
+                            <li class="li_menu_item">
+                                Filme em DVD
+
+                                <ul class="ul_subMenu">
+                                    <li class="li_subMenu">
+                                        Ação
+                                    </li>
+                                    <li class="li_subMenu">
+                                        Aventura
+                                    </li>
+                                </ul>    
+
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="li_menu_item">Aventura</li>
+                            <li class="li_menu_item">Suspense</li>
+                            <li class="li_menu_item">Terror</li>
                         </ul>
                     </nav>  
                 </div>
@@ -118,15 +135,15 @@
                     </div>
                     <div class="categoria_item">
                         Filmes em DVD
-                            <div class="segura_subCategoria">
-                                <div class="fecha_subcategoria">
-                                    <img src="img/icon_arrow.png" class="img-size" alt="Volta">
-                                </div>
-                                <div class="subcategoria_item">
-                                        Blu-ray 
-                                </div>
-                                        
+                        <div class="segura_subCategoria">
+                            <div class="fecha_subcategoria">
+                                <img src="img/icon_arrow.png" class="img-size" alt="Volta">
                             </div>
+                            <div class="subcategoria_item">
+                                    Blu-ray 
+                            </div>
+                                    
+                        </div>
                     </div>
                     <div class="categoria_item">
                         Blu-ray 
@@ -153,7 +170,7 @@
                           filme.imagem_filme,
                           promocao.status as status_promocao
                           FROM tbl_promocao as promocao right JOIN tbl_filme as filme
-                          ON filme.cod_filme = promocao.cod_filme ORDER BY RAND()";
+                          ON filme.cod_filme = promocao.cod_filme WHERE filme.status_produto = 1 ORDER BY RAND()";
                             $select = mysqli_query($conexao, $sql);
                   
                     while($rsFilme = mysqli_fetch_array($select)){

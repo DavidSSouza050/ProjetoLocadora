@@ -146,13 +146,23 @@
 
         }elseif($modo == 'excluirRelacao'){ //← RELAÇÃO COM O FILME
             $codigo_diretor = $_GET['id_diretor'];
-            //excluindo a relção entre filme e ator
+            //excluindo a relção entre filme e diretor
             $sql = "DELETE FROM tbl_filme_diretor WHERE cod_diretor =".$codigo_diretor." AND cod_filme =".$codigo_produto;  
             
             if(mysqli_query($conexao, $sql)){
                 header('Location: cms_produtos.php');
             }else{
                 //echo $sql;
+            }
+        }elseif($modo == 'excluirRelacaoGenero'){ //← RELAÇÃO COM O FILME
+            $codigo_genero = $_GET['id_genero'];
+            //excluindo a relção entre filme e genero
+            $sql = "DELETE FROM tbl_filme_genero_categoria WHERE cod_genero =".$codigo_genero." AND cod_filme =".$codigo_produto;  
+            
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_produtos.php');
+            }else{
+                echo $sql;
             }
         }elseif($modo == 'editar'){
 
@@ -197,36 +207,46 @@
 
 
 
-    // ADICIONAR E ATUALIZAR A RELAÇÃO COM O FILME
+    // ADICIONAR E ATUALIZAR A RELAÇÃO COM O FILME do diretor
     if(isset($_POST['Salvar_adicionar'])){ // ← ADICIONAR FILME AO DIRETOR 
         $cod_filme = $_POST['sle_filme'];
         $cod_diretor = $_POST['sle_diretor'];
        
-        //Verificando se o diretor já está com aquele filme
-        $sqlBuscarFilmeDiretor = "SELECT cod_filme, cod_diretor FROM tbl_filme_diretor WHERE cod_filme =".$cod_filme." AND cod_ator diretor=".$cod_ator;
-        $select = mysqli_query($conexao, $sqlBuscarFilmeDiretor);
-        if($rsResposta = mysqli_fetch_array($select)){
-            if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_diretor'] == $cod_diretor){  
-                echo("<script>
-                        alert('Não pode cadastrar o mesmo filme.'); 
-                        window.location ='cms_produtos.php';        
-                    </script>");
-            } 
+       
+        //Verificando se não há caixa nula
+        if($cod_filme != null || $cod_diretor != null){
+            //Verificando se o diretor já está com aquele filme
+            $sqlBuscarFilmeDiretor = "SELECT cod_filme, cod_diretor FROM tbl_filme_diretor WHERE cod_filme =".$cod_filme." AND cod_diretor=".$cod_diretor;
+            $select = mysqli_query($conexao, $sqlBuscarFilmeDiretor);
+            if($rsResposta = mysqli_fetch_array($select)){
+                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_diretor'] == $cod_diretor){  
+                    echo("<script>
+                            alert('Não pode cadastrar o mesmo filme.'); 
+                            window.location ='cms_produtos.php';        
+                        </script>");
+                } 
 
-        }else{
-
-            $sql = "INSERT INTO tbl_filme_diretor (cod_filme, cod_diretor) 
-                                VALUES  (".$cod_filme.",".$cod_diretor.")";
-            if(mysqli_query($conexao, $sql)){
-                    header('Location: cms_produtos.php');
             }else{
-                //se nada disso for ele valida o cadastramento que deu invalido
-                echo("<script>
-                    alert('Selecione um diretor e um filme que não estejam cadastrados');
-                    window.location.href = 'cms_produtos.php';
-                </script>");
+
+                $sql = "INSERT INTO tbl_filme_diretor (cod_filme, cod_diretor) 
+                                    VALUES  (".$cod_filme.",".$cod_diretor.")";
+                if(mysqli_query($conexao, $sql)){
+                        header('Location: cms_produtos.php');
+                }else{
+                    //se nada disso for ele valida o cadastramento que deu invalido
+                    echo("<script>
+                        alert('Selecione um diretor e um filme que não estejam cadastrados');
+                        window.location.href = 'cms_produtos.php';
+                    </script>");
+                }
             }
+        }else{
+            echo("<script>
+                        alert('Selecione um diretor e um filme');
+                        window.location.href = 'cms_produtos.php';
+                    </script>");
         }
+       
 
         
     }elseif(isset($_POST['Atualizar_adicionar'])){ // ← Atualizar relçao com o filme  
@@ -242,7 +262,7 @@
         }else{
             //Verificando se ja essiste essa relação do a diretor com o filme
             $sqlBuscarFilmeDiretor = "SELECT cod_filme, cod_diretor FROM tbl_filme_diretor WHERE cod_filme =".$cod_filme." AND cod_diretor =".$cod_diretor;
-            $select = mysqli_query($conexao, $sqlBuscarFilmeAotr);
+            $select = mysqli_query($conexao, $sqlBuscarFilmeDiretor);
             if($rsResposta = mysqli_fetch_array($select)){
                 if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_diretor'] == $cod_diretor){  
                 echo("<script>
@@ -269,7 +289,131 @@
     }
 
 
+    //ADICIONAL UM GENERO PARA O FILME
+    if(isset($_POST['Salvar_adicionar_genero'])){ // ← ADICIONAR FILME AO GENRO 
+        $cod_filme = $_POST['sle_filme'];
+        $cod_genero = $_POST['sle_genero'];
+       
+        if($cod_filme != null || $cod_genero != null){
+            //Verificando se o genero já está com aquele filme
+            $sqlBuscarFilmeGenero = "SELECT cod_filme, cod_genero FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme." AND cod_genero =".$cod_genero;
+            $select = mysqli_query($conexao, $sqlBuscarFilmeGenero);
+            if($rsResposta = mysqli_fetch_array($select)){
+                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_genero'] == $cod_genero){  
+                    echo("<script>
+                            alert('Não pode cadastrar dois generos iguais.'); 
+                            window.location ='cms_produtos.php';        
+                        </script>");
+                } 
 
+            }else{
+
+                $sql = "INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) 
+                                    VALUES  (".$cod_filme.",".$cod_genero.")";
+                if(mysqli_query($conexao, $sql)){
+                        header('Location: cms_produtos.php');
+                }else{
+                    //se nada disso for ele valida o cadastramento que deu invalido
+                    echo("<script>
+                        alert('Selecione um genero e um filme que não estejam cadastrados');
+                        window.location.href = 'cms_produtos.php';
+                    </script>");
+                }
+            }
+        }else{
+            echo("<script>
+                        alert('Selecione um genero e um');
+                        window.location.href = 'cms_produtos.php';
+                    </script>");
+        }
+        
+
+        
+    }elseif(isset($_POST['Atualizar_adicionar_genero'])){ // ← Atualizar relçao com o filme  
+        $cod_filme = $_POST['sle_filme'];
+        $cod_genero = $_POST['sle_genero'];
+
+        //varificando se as caixas estão vazias
+        if($cod_filme == null || $cod_genero == null){
+                echo("<script>
+                    alert('Selecione um filme e um genero');
+                    window.location.href = 'cms_produtos.php';
+                </script>");
+        }else{
+            //Verificando se ja essiste essa relação do a genero com o filme
+            $sqlBuscarFilmeGenero = "SELECT cod_filme, cod_genero FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme." AND cod_genero =".$cod_genero;
+            $select = mysqli_query($conexao, $sqlBuscarFilmeGenero);
+            if($rsResposta = mysqli_fetch_array($select)){
+                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_genero'] == $cod_genero){  
+                    echo("<script>
+                            alert('Não pode atualizar filme com um genero ja relacionado.'); 
+                            window.location='cms_produtos.php';        
+                        </script>");
+                } 
+            }else{
+                $sql = "UPDATE tbl_filme_genero_categoria SET cod_genero =".$cod_genero."
+                                                WHERE cod_genero =".$_SESSION['id_genero']." AND cod_filme =".$_SESSION['id_filme'];
+
+                if(mysqli_query($conexao, $sql)){
+                    //Limpando as variaveis de sessão apos o up date
+                    unset($_SESSION['id_genero']);
+                    unset($_SESSION['id_filme']);
+                    header('Location: cms_produtos.php');                   
+                }else{
+                    echo $sql;
+                }  
+                
+            }                          
+
+        }
+                     
+    }
+
+
+    if(isset($_POST['Salvar_adicionar_categoria'])){
+        $cod_filme = $_POST['sle_filme'];
+        $cod_categoria = $_POST['sle_categoria'];
+
+        if($cod_categoria != null || $cod_filme != null){
+            //Verificando se o categoria já está com aquele filme
+            $sqlBuscarFilmeCategoria = "SELECT cod_filme, cod_genero, cod_categoria FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme;
+            $select = mysqli_query($conexao, $sqlBuscarFilmeCategoria);
+            if($rsResposta = mysqli_fetch_array($select)){
+                if($rsResposta['cod_filme'] != null && $rsResposta['cod_genero'] != null){  
+                    if($rsResposta['cod_categoria'] != $cod_categoria){
+                        $sql = "UPDATE tbl_filme_genero_categoria set cod_categoria = ".$cod_categoria." WHERE cod_filme =".$cod_filme;
+                        if(mysqli_query($conexao, $sql)){
+                                header('Location: cms_produtos.php');
+                        }else{
+                            //se nada disso for ele valida o cadastramento que deu invalido
+                            echo("<script>
+                                alert('Selecione uma categoria e um filme que não estejam Relacionados');
+                                window.location.href = 'cms_produtos.php';
+                            </script>");
+                        }
+                    }else{
+                        echo("<script>
+                            alert('Já existe Este relacionamento.'); 
+                            window.location ='cms_produtos.php';        
+                        </script>");
+                    }
+                   
+                } 
+
+            }else{
+                echo("<script>
+                    alert('Primeiro coloque um genero no filme.'); 
+                    window.location ='cms_produtos.php';        
+                </script>");
+            }
+        }else{
+            echo("<script>
+                alert('Selecione um filme e uma categoria');
+                window.location.href = 'cms_produtos.php';
+            </script>");
+        }
+
+    }
 
 
 
@@ -299,33 +443,68 @@
             });
 
 //          atribuindo um filme a um diretor
-            function colocardiretor(modo, codigo_diretor){
+            function colocardiretor(modo, codigo){
                 $.ajax({
                     type:'GET',
                     url: "./modais/cms_modal_colocar_filme_diretor.php",
-                    data:{modo:modo, codigo:codigo_diretor},
+                    data:{modo:modo, codigo:codigo},
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    },
+                })
+            }
+            // função que vai consultar os diretores de um filme
+            function consultarDiretor(codigo){
+                $.ajax({
+                    type:'GET',
+                    url: "./modais/cms_modal_consultar_diretor.php",
+                    data:{codigo:codigo},
                     success: function(dados){
                         $('#modal').html(dados);
                     },
                 })
             }
 
-            function consultarDiretor(codigo_filme){
+//          atribuindo um filme a um genero
+            function colocargenero(modo, codigo_filme, codigo_genero){
                 $.ajax({
                     type:'GET',
-                    url: "./modais/cms_modal_consultar_diretor.php",
-                    data:{codigo:codigo_filme},
+                    url: "./modais/cms_modal_colocar_genero.php",
+                    data:{modo:modo, codigo_filme:codigo_filme, codigo_genero:codigo_genero},
                     success: function(dados){
                         $('#modal').html(dados);
                     },
                 })
             }
+//          consultando os generos de um filme
+            function consultarGenero(codigo){
+                $.ajax({
+                    type:'GET',
+                    url: "./modais/cms_modal_consultar_genero.php",
+                    data:{codigo:codigo},
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    },
+                })
+            }
+//          colocancando a categoria
+            function colocarcategoria(modo, codigo){
+                $.ajax({
+                    type:'GET',
+                    url: "./modais/cms_modal_colocar_categoria.php",
+                    data:{modo:modo, codigo:codigo},
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    },
+                })
+            }
+
 
 
         </script>
     </head>
     <body>
-        <!-- cnotender da modal que vai abrir para mostrar o cliente por completo -->
+        <!-- contender da modal que vai abrir para mostrar o cliente por completo -->
         <div id="conteiner">
             <!-- div com o objetivo de fechar a modal -->
             <div id="segurar_fechar_modal" class="center">
@@ -363,7 +542,7 @@
                     <div class="itens_card_cadastro visualizar" onclick="colocardiretor('Salvar', 0)">
                         Adicionar Diretor
                     </div>      
-                    <div class="itens_card_cadastro visualizar" onclick="colocargenero('Salvar', 0)">
+                    <div class="itens_card_cadastro visualizar" onclick="colocargenero('Salvar', 0, 0)">
                         Adicionar Genero
                     </div>
                     <div class="itens_card_cadastro visualizar" onclick="colocarcategoria('Salvar', 0)">
@@ -479,7 +658,7 @@
                                     <img src="./img/imagem_filme/<?php echo($img_filme)?>" class="img-size" alt="Produto">
                                 </div>
                                 <div id="segura_botoes_filme">
-                                    <div class="ver_atributos_filme visualizar center">
+                                    <div class="ver_atributos_filme visualizar center" onclick="consultarGenero(<?php echo($cod_filme)?>)">
                                        Generos 
                                     </div>
                                     <div class="ver_atributos_filme visualizar center" onclick="consultarDiretor(<?php echo($cod_filme)?>)">

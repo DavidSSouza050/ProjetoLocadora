@@ -46,6 +46,31 @@ INSERT INTO `tbl_ator` VALUES (3,'Arnold Alois Schwarzenegger','Austríaco, Nort
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_categoria`
+--
+
+DROP TABLE IF EXISTS `tbl_categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_categoria` (
+  `cod_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`cod_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_categoria`
+--
+
+LOCK TABLES `tbl_categoria` WRITE;
+/*!40000 ALTER TABLE `tbl_categoria` DISABLE KEYS */;
+INSERT INTO `tbl_categoria` VALUES (1,'Blu-Ray',1),(2,'Filmes DVD',0);
+/*!40000 ALTER TABLE `tbl_categoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_cidade`
 --
 
@@ -107,7 +132,7 @@ CREATE TABLE `tbl_diretor` (
   `cod_diretor` int(11) NOT NULL AUTO_INCREMENT,
   `diretor` varchar(70) NOT NULL,
   PRIMARY KEY (`cod_diretor`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +141,7 @@ CREATE TABLE `tbl_diretor` (
 
 LOCK TABLES `tbl_diretor` WRITE;
 /*!40000 ALTER TABLE `tbl_diretor` DISABLE KEYS */;
-INSERT INTO `tbl_diretor` VALUES (1,'James Cameron'),(2,'John McTiernan'),(3,'Anthony Russo'),(4,'Joe Russo');
+INSERT INTO `tbl_diretor` VALUES (1,'James Cameron'),(2,'John McTiernan'),(3,'Anthony Russo'),(4,'Joe Russo'),(5,'Peter Jackson');
 /*!40000 ALTER TABLE `tbl_diretor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +156,7 @@ CREATE TABLE `tbl_ditribuidora` (
   `cod_distribuidora` int(11) NOT NULL AUTO_INCREMENT,
   `distribuidora` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_distribuidora`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +165,7 @@ CREATE TABLE `tbl_ditribuidora` (
 
 LOCK TABLES `tbl_ditribuidora` WRITE;
 /*!40000 ALTER TABLE `tbl_ditribuidora` DISABLE KEYS */;
-INSERT INTO `tbl_ditribuidora` VALUES (1,'Orion Pictures'),(2,'TriStar Pictures'),(3,'20th Century Fox'),(4,'Walt Disney Studios Motion Pictures');
+INSERT INTO `tbl_ditribuidora` VALUES (1,'Orion Pictures'),(2,'TriStar Pictures'),(3,'20th Century Fox'),(4,'Walt Disney Studios Motion Pictures'),(5,' Warner Home Video');
 /*!40000 ALTER TABLE `tbl_ditribuidora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +244,7 @@ CREATE TABLE `tbl_fale_conosco` (
   `sexo` char(1) NOT NULL,
   `profissao` varchar(100) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +253,7 @@ CREATE TABLE `tbl_fale_conosco` (
 
 LOCK TABLES `tbl_fale_conosco` WRITE;
 /*!40000 ALTER TABLE `tbl_fale_conosco` DISABLE KEYS */;
-INSERT INTO `tbl_fale_conosco` VALUES (12,'David mobile','46349464946797','799467979649464','faga@gmail.com','','','Informação do Produto','Uahshsbshisbskajaisbsja','M','Não tenho');
+INSERT INTO `tbl_fale_conosco` VALUES (14,'David','19467979797979','466787676976797','david-birutinha@hotmail.com','','','Sugestao ou Critica','Bsjs sjsjsksbsisjsoapajsbdhhdjdksaldjhdhd','M','Programador');
 /*!40000 ALTER TABLE `tbl_fale_conosco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,6 +271,7 @@ CREATE TABLE `tbl_filme` (
   `preco_filme` decimal(6,3) NOT NULL,
   `imagem_filme` varchar(150) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status_produto` tinyint(1) NOT NULL DEFAULT '0',
   `duracao` varchar(30) NOT NULL,
   `cod_classificacao` int(11) NOT NULL,
   `cod_distribuidora` int(11) NOT NULL,
@@ -254,7 +280,7 @@ CREATE TABLE `tbl_filme` (
   KEY `fk_filme_distribuidora_idx` (`cod_distribuidora`),
   CONSTRAINT `fk_filme_classificacao` FOREIGN KEY (`cod_classificacao`) REFERENCES `tbl_classificacao` (`cod_classificacao`),
   CONSTRAINT `fk_filme_distribuidora` FOREIGN KEY (`cod_distribuidora`) REFERENCES `tbl_ditribuidora` (`cod_distribuidora`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +289,7 @@ CREATE TABLE `tbl_filme` (
 
 LOCK TABLES `tbl_filme` WRITE;
 /*!40000 ALTER TABLE `tbl_filme` DISABLE KEYS */;
-INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.800,'esterminador_do_futuro.png',0,'107 minutos',4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.300,'exterminador_do_futuro_2.jpg',0,'136 minutos',3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.000,'o_predador.jpg',1,'107 minutos',5,3),(4,'Vingadores: Guerra Infinita','O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',100.600,'vingadoresguerrainfinita.jpg',0,'149 minutos',3,4);
+INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.800,'0a162dfa577844185c85e8cd1684aed941a3d641.jpg',0,0,'107 minutos',4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.300,'exterminador_do_futuro_2.jpg',0,0,'136 minutos',3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.000,'o_predador.jpg',0,0,'107 minutos',5,3),(4,'Vingadores: Guerra Infinita','O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',100.600,'vingadoresguerrainfinita.jpg',1,0,'149 minutos',3,4),(6,'O Senhor dos Anéis: A Sociedade do Anel','Numa terra fantástica e única, chamada Terra-Média, um hobbit (seres de estatura entre 80 cm e 1,20 m, com pés peludos e bochechas um pouco avermelhadas) recebe de presente de seu tio o Um Anel, um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso o hobbit Frodo (Elijah Woods) terá um caminho árduo pela frente, onde encontrará perigo, medo e personagens bizarros. Ao seu lado para o cumprimento desta jornada aos poucos ele poderá contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando 9 pessoas que formarão a Sociedade do Anel.',120.120,'0bc6174350106b6b012ed09fed373cc73893bea3.jpg',0,0,'178 Minutos',3,5);
 /*!40000 ALTER TABLE `tbl_filme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -317,35 +343,40 @@ CREATE TABLE `tbl_filme_diretor` (
 
 LOCK TABLES `tbl_filme_diretor` WRITE;
 /*!40000 ALTER TABLE `tbl_filme_diretor` DISABLE KEYS */;
-INSERT INTO `tbl_filme_diretor` VALUES (1,1),(2,1),(3,2),(4,3),(4,4);
+INSERT INTO `tbl_filme_diretor` VALUES (3,2),(4,3),(4,4),(6,5),(1,1),(2,1);
 /*!40000 ALTER TABLE `tbl_filme_diretor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbl_filme_genero`
+-- Table structure for table `tbl_filme_genero_categoria`
 --
 
-DROP TABLE IF EXISTS `tbl_filme_genero`;
+DROP TABLE IF EXISTS `tbl_filme_genero_categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `tbl_filme_genero` (
+CREATE TABLE `tbl_filme_genero_categoria` (
+  `cod_relacao_filme_genero_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `cod_filme` int(11) NOT NULL,
   `cod_genero` int(11) NOT NULL,
-  KEY `fk_filme_genero_idx` (`cod_filme`),
-  KEY `fk_genero_filme_idx` (`cod_genero`),
-  CONSTRAINT `fk_filme_genero` FOREIGN KEY (`cod_filme`) REFERENCES `tbl_filme` (`cod_filme`),
-  CONSTRAINT `fk_genero_filme` FOREIGN KEY (`cod_genero`) REFERENCES `tbl_genero` (`cod_genero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `cod_categoria` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cod_relacao_filme_genero_categoria`),
+  KEY `fk_filme_cateoria` (`cod_filme`),
+  KEY `fk_genero_categoria` (`cod_genero`),
+  KEY `fk_categoria_categoria` (`cod_categoria`),
+  CONSTRAINT `fk_categoria_categoria` FOREIGN KEY (`cod_categoria`) REFERENCES `tbl_categoria` (`cod_categoria`),
+  CONSTRAINT `fk_filme_cateoria` FOREIGN KEY (`cod_filme`) REFERENCES `tbl_filme` (`cod_filme`),
+  CONSTRAINT `fk_genero_categoria` FOREIGN KEY (`cod_genero`) REFERENCES `tbl_genero` (`cod_genero`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_filme_genero`
+-- Dumping data for table `tbl_filme_genero_categoria`
 --
 
-LOCK TABLES `tbl_filme_genero` WRITE;
-/*!40000 ALTER TABLE `tbl_filme_genero` DISABLE KEYS */;
-INSERT INTO `tbl_filme_genero` VALUES (1,18),(1,24),(2,18),(2,25),(3,25),(3,24),(3,18),(3,23),(4,25),(4,3),(4,17),(4,18);
-/*!40000 ALTER TABLE `tbl_filme_genero` ENABLE KEYS */;
+LOCK TABLES `tbl_filme_genero_categoria` WRITE;
+/*!40000 ALTER TABLE `tbl_filme_genero_categoria` DISABLE KEYS */;
+INSERT INTO `tbl_filme_genero_categoria` VALUES (5,1,24,1),(6,1,25,1);
+/*!40000 ALTER TABLE `tbl_filme_genero_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -359,7 +390,7 @@ CREATE TABLE `tbl_genero` (
   `cod_genero` int(11) NOT NULL AUTO_INCREMENT,
   `genero` varchar(30) NOT NULL,
   PRIMARY KEY (`cod_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +399,7 @@ CREATE TABLE `tbl_genero` (
 
 LOCK TABLES `tbl_genero` WRITE;
 /*!40000 ALTER TABLE `tbl_genero` DISABLE KEYS */;
-INSERT INTO `tbl_genero` VALUES (1,'Animação'),(2,'Filmes de guerra'),(3,'Aventura'),(4,'Cinema de arte'),(5,'Chanchada'),(6,'Cinema catástrofe'),(7,'Comédia'),(8,'Comédia romântica'),(9,'Comédia dramática'),(10,'Comédia de ação'),(11,'Dança'),(12,'Documentário'),(13,'Docuficção'),(14,'Drama'),(15,'Espionagem'),(16,'Faroeste (ou western)'),(17,'Fantasia'),(18,'Ficção científica'),(19,'Musical'),(20,'Filme policial'),(21,'Romance'),(22,'Seriado'),(23,'Terror (ou horror)'),(24,'Suspense'),(25,'Ação');
+INSERT INTO `tbl_genero` VALUES (1,'Animação'),(2,'Filmes de guerra'),(3,'Aventura'),(4,'Cinema de arte'),(5,'Chanchada'),(6,'Cinema catástrofe'),(7,'Comédia'),(8,'Comédia romântica'),(9,'Comédia dramática'),(10,'Comédia de ação'),(11,'Dança'),(12,'Documentário'),(13,'Docuficção'),(14,'Drama'),(15,'Espionagem'),(16,'Faroeste (ou western)'),(17,'Fantasia'),(18,'Ficção científica'),(19,'Musical'),(20,'Filme policial'),(21,'Romance'),(22,'Seriado'),(23,'Terror (ou horror)'),(24,'Suspense'),(25,'Ação'),(26,'Épico'),(27,'Cyberpunk'),(28,'Tech noir');
 /*!40000 ALTER TABLE `tbl_genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -452,7 +483,7 @@ CREATE TABLE `tbl_promocao` (
 
 LOCK TABLES `tbl_promocao` WRITE;
 /*!40000 ALTER TABLE `tbl_promocao` DISABLE KEYS */;
-INSERT INTO `tbl_promocao` VALUES (1,1,50,1),(5,0,15,2),(8,1,10,3);
+INSERT INTO `tbl_promocao` VALUES (1,0,50,1),(5,0,15,2),(8,0,10,3);
 /*!40000 ALTER TABLE `tbl_promocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -470,7 +501,7 @@ CREATE TABLE `tbl_sobre` (
   `imagem_sobre` varchar(150) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`cod_sobre`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,7 +510,7 @@ CREATE TABLE `tbl_sobre` (
 
 LOCK TABLES `tbl_sobre` WRITE;
 /*!40000 ALTER TABLE `tbl_sobre` DISABLE KEYS */;
-INSERT INTO `tbl_sobre` VALUES (10,'Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.\r\n\r\n','quem nós somos?','d7f8ffad4fc173847bf339282cef277367cbf398.jpg',1);
+INSERT INTO `tbl_sobre` VALUES (10,'Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.\r\n\r\n','quem nós somos?','d7f8ffad4fc173847bf339282cef277367cbf398.jpg',1),(15,'dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf \r\ndsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf dsifhgPSDHGfpUSHDFpuhSD fsdhfuHSDUf isudhfUSHDF ozsduhfdushfo dHSUfSDGFOSDGfSGDFSDf','lzhdgfvlksdhfgUSGDFoSYGDFYSGBD','4e69046e1a74420177ef86dd1fb255204ba9d728.jpg',0);
 /*!40000 ALTER TABLE `tbl_sobre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,7 +540,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (12,'David Silva','david_silva@gmail.com','55fc5b709962876903785fd64a6961e5',1,8),(13,'Magna Cassia','magna_cassia@gmail.com','d2a7375d845d55a9889e51cd55a65a45',1,11),(21,'David Silva Souza','david_silva_souza@gmail.com','e99a18c428cb38d5f260853678922e03',1,10),(23,'Jeremias Souza Santos','jeremias_santos@gmail.com','2f37df98db1ff6733fdf244c67c375dd',1,13),(27,'123','123@gmail.com','202cb962ac59075b964b07152d234b70',1,8);
+INSERT INTO `tbl_usuario` VALUES (12,'David Silva','david_silva@gmail.com','202cb962ac59075b964b07152d234b70',1,8),(13,'Magna Cassia','magna_cassia@gmail.com','d2a7375d845d55a9889e51cd55a65a45',1,11),(21,'David Silva Souza','david_silva_souza@gmail.com','e99a18c428cb38d5f260853678922e03',1,10),(23,'Jeremias Souza Santos','jeremias_santos@gmail.com','2f37df98db1ff6733fdf244c67c375dd',1,13),(27,'123','123@gmail.com','202cb962ac59075b964b07152d234b70',1,8);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -522,4 +553,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-20 11:27:50
+-- Dump completed on 2019-05-31  1:55:04

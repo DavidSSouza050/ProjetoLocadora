@@ -93,13 +93,14 @@
             
         }
 
+        
 
         $sql = "UPDATE ".$tabela." SET status = ".$status." WHERE ".$campo_tabela." = ".$codigo;
 
         if(mysqli_query($conexao, $sql)){
             echo("Dnao sei");
         }else{
-           // echo($sql);
+           //echo($sql);
         }
     }
 

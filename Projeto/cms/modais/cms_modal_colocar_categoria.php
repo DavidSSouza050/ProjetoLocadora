@@ -6,9 +6,9 @@
     $conexao = conexaoMysql();
 
     $modo = $_GET['modo'];
-    $id_diretor = null;
+    $id_categoria = null;
     $id_filme = null;
-    $cod_diretor = 0;
+    $cod_categoria = 0;
     $cod_filme = 0;
 
     if($modo == 'Salvar'){ // passando modal para cadastra
@@ -17,23 +17,26 @@
         $btn = $modo;
         $id_filme = $_GET['codigo'];
 
-        //fazendo select para trazer o diretor eo filme
+        //fazendo select para trazer o categoria eo filme
         $sql = "SELECT filme.titulo_filme,
-                filme.cod_filme,
-                diretor.cod_diretor,
-                diretor.diretor
-                FROM tbl_filme as filme INNER JOIN tbl_filme_diretor as filme_diretor
-                ON filme.cod_filme = filme_diretor.cod_filme INNER JOIN tbl_diretor as diretor
-                ON filme_diretor.cod_diretor = diretor.cod_diretor WHERE filme.cod_filme =".$id_filme;
+		filme.cod_filme,
+		categoria.cod_categoria,
+		categoria.categoria
+		FROM tbl_genero as genero INNER JOIN tbl_genero_categoria as genero_categoria
+		ON genero.cod_genero = genero_categoria.cod_genero INNER JOIN tbl_categoria as categoria
+		ON genero_categoria.cod_categoria = categoria.cod_categoria INNER JOIN tbl_filme_genero as filme_genero
+        ON genero.cod_genero = filme_genero.cod_genero INNER JOIN tbl_filme as filme
+        ON filme_genero.cod_filme = filme.cod_filme  WHERE filme.cod_filme = ".$id_filme." group by categoria.cod_categoria";
+
         $select = mysqli_query($conexao, $sql);
-        if($rsFilme_diretor = mysqli_fetch_array($select)){//← pegando o diretor e o filme
-            $cod_diretor = $rsFilme_diretor['cod_diretor'];
-            $nome_diretor = $rsFilme_diretor['diretor'];
-            $cod_filme = $rsFilme_diretor['cod_filme'];          
-            $titulo_filme = $rsFilme_diretor['titulo_filme'];
+        if($rsFilme_categoria = mysqli_fetch_array($select)){//← pegando o categoria e o filme
+            $cod_categoria = $rsFilme_categoria['cod_categoria'];
+            $nome_categoria = $rsFilme_categoria['categoria'];
+            $cod_filme = $rsFilme_categoria['cod_filme'];          
+            $titulo_filme = $rsFilme_categoria['titulo_filme'];
 
             //selecionando ator e filme para edição
-            $_SESSION['id_diretor'] = $cod_diretor;
+            $_SESSION['id_categoria'] = $cod_categoria;
             $_SESSION['id_filme'] = $cod_filme;
         }
 
@@ -43,7 +46,7 @@
 
 <!-- card que vai colocar ator em um filme -->
 <div id="card_colocar_ator" class="center">
-    <form name="frm_adicionar_diretor" method="POST" action="cms_produtos.php">
+    <form name="frm_adicionar_ator" method="POST" action="cms_produtos.php">
         <!-- div que vai segurar os atores e os filmes cadastrados -->
         <div class="segura_combo_colocar_ator_filme">
             <select name="sle_filme" class="txt_ator">
@@ -58,7 +61,7 @@
                     <option value="null">Selecione um filme</option>
                 <?php
                 }
-                 //verificando se não é para atualizar para atualizar se for para atulizar ele coloca o id que vem da modal cms_modal_cadastrar_diretor.php
+                 //verificando se não é para atualizar para atualizar se for para atulizar ele coloca o id que vem da modal cms_modal_cadastrar_categoria.php
                  if($modo != 'Atualizar'){
                 //trazendo os filmes do banco
                     $sql = "SELECT cod_filme, titulo_filme FROM tbl_filme WHERE cod_filme <> ".$cod_filme;
@@ -73,39 +76,39 @@
             </select>
         </div>
         <div class="segura_combo_colocar_ator_filme">
-            <select name="sle_diretor" class="txt_ator">
+            <select name="sle_categoria" class="txt_ator">
 
                 <?php
                     if($modo == 'Atualizar'){
                 ?>
-                    <option value="<?php echo($cod_diretor)?>"><?php echo($nome_diretor)?></option>        
+                    <option value="<?php echo($cod_categoria)?>"><?php echo($nome_categoria)?></option>        
                 <?php
                 }else{
                 ?>
-                    <option value=null>Selecione um(a) diretor(a)</option>
+                    <option value=null>Selecione um(a) categoria(a)</option>
                 <?php
                     }
                    
                     //trzendo os atores do banco
-                    $sqldiretor = "SELECT cod_diretor,diretor FROM tbl_diretor WHERE cod_diretor <> ".$cod_diretor;
-                    $selectdiretor= mysqli_query($conexao, $sqldiretor);
-                while($rsNomeDiretor = mysqli_fetch_array($selectdiretor)){
+                    $sqlcategoria = "SELECT cod_categoria,categoria FROM tbl_categoria WHERE cod_categoria <> ".$cod_categoria." AND status = 1";
+                    $selectcategoria= mysqli_query($conexao, $sqlcategoria);
+                while($rsNomecategoria = mysqli_fetch_array($selectcategoria)){
                 ?>
-                    <option value="<?php echo($rsNomeDiretor['cod_diretor']);?>"><?php echo($rsNomeDiretor['diretor']);?></option>
+                    <option value="<?php echo($rsNomecategoria['cod_categoria']);?>"><?php echo($rsNomecategoria['categoria']);?></option>
                 <?php
                     }
                 ?>
         
             </select>
             <div class="adicionar icon iconSemMargin">
-               <a href="cms_diretor.php">
-                    <img src="./img/icon_add.png" class="img-size" alt="Adicionar" title="Adicionar Diretor">
+               <a href="cms_categoria.php">
+                    <img src="./img/icon_add.png" class="img-size" alt="Adicionar" title="Adicionar categoria">
                </a>
             </div>
         </div>
 
         <div class="segura_combo_colocar_ator_filme">
-            <input type="submit" value="<?php echo($btn)?>" name="<?php echo($btn)?>_adicionar" class="botao_adicionar_filme">
+            <input type="submit" value="<?php echo($btn)?>" name="<?php echo($btn)?>_adicionar_categoria" class="botao_adicionar_filme">
         </div>
     </form>
 
