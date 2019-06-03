@@ -63,9 +63,13 @@ $(document).ready(function(){
        if($(this).parent().find('ul').hasClass('esconder_subMenu')){
             $(this).parent().find('ul').removeClass('esconder_subMenu');
             $(this).parent().find('ul').addClass('mostrar_subMenu');
+            $(this).css({"transform":"rotate(90deg)"});
+            $(this).css({"margin-right":"5px"});
         }else{
             $(this).parent().find('ul').removeClass('mostrar_subMenu');
             $(this).parent().find('ul').addClass('esconder_subMenu');
+            $(this).css({"margin-right":"0px"});
+            $(this).css({"transform":"rotate(0deg)"});
        }
     });
 

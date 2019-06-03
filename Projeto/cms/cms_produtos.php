@@ -297,13 +297,13 @@
        
         if($cod_filme != null || $cod_genero != null || $cod_categoria != null){
             //Verificando se o genero já está com aquele filme
-            $sqlBuscarFilmeGenero = "SELECT cod_filme, cod_genero, cod_categoria FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme." AND (cod_genero =".$cod_genero." OR cod_categoria =".$cod_categoria.")";
+            $sqlBuscarFilmeGenero = "SELECT cod_filme, cod_genero, cod_categoria FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme." AND cod_genero =".$cod_genero;
             $select = mysqli_query($conexao, $sqlBuscarFilmeGenero);
             //echo($sqlBuscarFilmeGenero);
             if($rsResposta = mysqli_fetch_array($select)){
-                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_genero'] == $cod_genero || $rsResposta['cod_categoria'] == $cod_categoria){  
+                if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_genero'] == $cod_genero){  
                     echo("<script>
-                            alert('Não pode cadastrar dois generos iguais ou duas categorias iguais.'); 
+                            alert('Não pode cadastrar dois generos iguais.'); 
                             window.location ='cms_produtos.php';        
                         </script>");
                 } 
@@ -336,7 +336,7 @@
         $cod_genero = $_POST['sle_genero'];
         $cod_categoria = $_POST['sle_categoria'];
         //varificando se as caixas estão vazias
-        if($cod_filme == null || $cod_genero == null){
+        if($cod_filme == null || $cod_genero == null || $cod_genero == null){
                 echo("<script>
                     alert('Selecione um filme e um genero e uma categoria');
                     window.location.href = 'cms_produtos.php';

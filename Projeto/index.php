@@ -128,8 +128,8 @@
                             <?php 
                                 $sql="SELECT cod_categoria, categoria 
                                       FROM tbl_categoria WHERE status = 1";
-                                $select = mysqli_query($conexao, $sql);
-                                while($rsCategoria = mysqli_fetch_array($select)){
+                                $select1 = mysqli_query($conexao, $sql);
+                                while($rsCategoria = mysqli_fetch_array($select1)){
                                     $cod_categoria = $rsCategoria['cod_categoria'];
                             ?>
 
@@ -142,15 +142,15 @@
                             
                                 <ul class="ul_subMenu esconder_subMenu scrollTexto">
                                     <?php
-                                    $sqlsubcategoria = "SELECT genero.cod_genero, genero.genero
+                                    $sqlsubcategoria1 = "SELECT genero.cod_genero, genero.genero
                                                         FROM tbl_subcategoria_categoria as subCat INNER JOIN tbl_genero as genero
                                                         ON subCat.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
                                                         ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria;
-                                    $selectSubCetgoria = mysqli_query($conexao, $sqlsubcategoria);
-                                    while($rsSubcategoria = mysqli_fetch_array($selectSubCetgoria)){                                                        
+                                    $selectSubCetgoria1 = mysqli_query($conexao, $sqlsubcategoria1);
+                                    while($rsSubcategoria1 = mysqli_fetch_array($selectSubCetgoria1)){                                                        
                                     ?>
                                     <li class="li_subMenu center">
-                                        <span onclick="test(<?php echo($rsSubcategoria['cod_genero'])?>)"><?=$rsSubcategoria['genero']?></span>
+                                        <span onclick="test(<?php echo($rsSubcategoria1['cod_genero'])?>)"><?=$rsSubcategoria1['genero']?></span>
                                     </li>
                                     <?php
                                     }
@@ -181,34 +181,34 @@
                     </div>
 
                     <?php
-                     $sql="SELECT cod_categoria, categoria 
+                     $sql2="SELECT cod_categoria, categoria 
                      FROM tbl_categoria WHERE status = 1";
-                    $select = mysqli_query($conexao, $sql);
-                    while($rsCategoria = mysqli_fetch_array($select)){
-                        $cod_categoria = $rsCategoria['cod_categoria'];
+                    $select2 = mysqli_query($conexao, $sql2);
+                    while($rsCategoria2 = mysqli_fetch_array($select2)){
+                        $cod_categoria2 = $rsCategoria2['cod_categoria'];
                     ?>
                     <div class="categoria_item">
-                        <span onclick="test(<?php echo($rsCategoria['cod_categoria'])?>)" ><?=$rsCategoria['categoria']?></span>
+                        <span onclick="test(<?php echo($rsCategoria2['cod_categoria'])?>)" ><?=$rsCategoria2['categoria']?></span>
                         <div class="segura_subCategoria">
                             <?php 
-                            //if($rsCategoria['cod_categoria'] == 1){
+                            if($rsCategoria2['cod_categoria'] == 1){
                             ?>
                             <div class="fecha_subcategoria">
                                 <img src="img/icon_arrow.png" class="img-size" alt="Volta">
                             </div>
                             <?php
-                            //} 
+                            } 
                             ?>
                             <?php 
-                                $sqlsubcategoria = "SELECT genero.cod_genero, genero.genero
+                                $sqlsubcategoria2 = "SELECT genero.cod_genero, genero.genero
                                                         FROM tbl_subcategoria_categoria as subCat INNER JOIN tbl_genero as genero
                                                         ON subCat.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
-                                                        ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria;
-                                $selectSubCetgoria = mysqli_query($conexao, $sqlsubcategoria);
-                                while($rsSubcategoria = mysqli_fetch_array($selectSubCetgoria)){    
+                                                        ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria2;
+                                $selectSubCategoria2 = mysqli_query($conexao, $sqlsubcategoria2);
+                                while($rsSubcategoria2 = mysqli_fetch_array($selectSubCategoria2)){    
                             ?>
                             <div class="subcategoria_item">
-                                <span onclick="test(<?php echo($rsSubcategoria['cod_genero'])?>)"><?=$rsSubcategoria['genero']?></span>
+                                <span onclick="test(<?php echo($rsSubcategoria2['cod_genero'])?>)"><?=$rsSubcategoria2['genero']?></span>
                             </div>
                             <?php
                                 }

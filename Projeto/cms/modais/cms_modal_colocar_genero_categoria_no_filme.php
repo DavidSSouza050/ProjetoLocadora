@@ -83,18 +83,35 @@
     }
 
 ?>
-<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery-1.11.3.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#sleCategoria').live('change', function(){
-            alet('Ola mundo');
+        //var categoria = $("#sleCategoria option:select").val();
+
+        $('#sleCategoria').change(function(){
+            $('#sleCategoria option:selected').each(function(){
+                
+                var categoria = $(this).val();
+                
+                trazSubCategoria(categoria);
+
+                function trazSubCategoria(categoria){
+                    $.ajax({
+                        type: 'GET',
+                        url:'util/traz_subcategoria.php',
+                        data:{categoria:categoria},
+                        success: function(dados){
+                            //var subcategoria = JSON.parse(response.responseText);
+                            // console.log(response.responseText);
+                            $('#sleGenero').html(dados);
+                        }
+                    });
+                }
+            });
+            
         });
     });
-    // const select = document.getElementById('sleCategoria') ;
-
-    // select.addEventListener('change', function(){
-    //     $('#sleCategoria').css({"backackground-color":"red"});
-    // });
+ 
    
 </script>
 
@@ -148,7 +165,7 @@
                         
                     }else{
                 ?>
-                    <option value=null>Selecione uma categoria</option>
+                    <option value="null">Selecione uma categoria</option>
                 <?php
                     }
                     if($modo != 'AtualizarGenero'){
@@ -173,7 +190,7 @@
         </div>
 
         <div class="segura_combo_colocar_ator_filme">
-            <select name="sle_genero" class="txt_ator">
+            <select name="sle_genero" id="sleGenero" class="txt_ator">
 
                 <?php
                     if($modo == 'AtualizarGenero' || $modo == 'AtualizarCategoria'){
@@ -185,16 +202,6 @@
                 ?>
                     <option value=null>Selecione um genero</option>
                 <?php
-                    }
-                   if($modo != 'AtualizarCategoria'){
-                    //trzendo os atores do banco
-                    $sqlGenero = "SELECT cod_genero,genero FROM tbl_genero WHERE cod_genero <> ".$cod_genero;
-                    $selectgenero= mysqli_query($conexao, $sqlGenero);
-                        while($rsNomegenero = mysqli_fetch_array($selectgenero)){
-                ?>
-                    <option value="<?php echo($rsNomegenero['cod_genero']);?>"><?php echo($rsNomegenero['genero']);?></option>
-                <?php
-                        }
                     }
                 ?>
         

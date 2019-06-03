@@ -10,14 +10,23 @@
                 ON categoria.cod_categoria = subCategoria_categoria.cod_categoria INNER JOIN tbl_genero as genero
                 ON genero.cod_genero = subCategoria_categoria.cod_genero WHERE categoria.cod_categoria =".$cod_categoria;
 
-        $subcategoria = (array) [];
+
+
+
+        // $subcategoria = (array) [];
+        // $subcategorias = (array) [];
+        $dados= null;
         $select = mysqli_query($conexao, $sql);
         while($rsSubcategoria = mysqli_fetch_array($select)){
-            $subcategoria = $rsSubcategoria['genero'];
-            $cod_subcategoria = $rsSubcategoria['cod_genero'];
+            // $subcategoria = array(
+            //     'cod_subcategoria' => $rsSubcategoria['cod_genero'],
+            //     'subcategoria' => $rsSubcategoria['genero']
+            // );
+            // array_push($subcategorias, $subcategoria);
+            $dados = $dados . "<option value=".$rsSubcategoria['cod_genero'].">".$rsSubcategoria['genero']."</option>";
         }
-
-        
+        echo($dados);
+        // print_r(json_encode(array_filter($subcategorias)));
     }
 
 
