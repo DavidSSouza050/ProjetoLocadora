@@ -130,7 +130,7 @@
                                 <img src="./img/icon_delete.png" class="img-size icon" onclick="return confirm('Deseja reamente excluir essa relação?')" alt="Excluir Relação" title="Excluir Relação">
                             </a>
 
-                            <img src="./img/icon_edit.png"  onclick="colocarAtor_filme('Atualizar', <?php echo($rsFilmeAtor['cod_ator'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
+                            <img src="./img/icon_edit.png"  onclick="colocarAtor_filme('Atualizar', <?php echo($rsFilmeAtor['cod_ator'])?>, <?php  echo($rsFilmeAtor['cod_filme'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
 
                         </td>
                     </tr>

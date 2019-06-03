@@ -14,7 +14,12 @@
     }
     //variaveis
     $btn_categoria = 'Cadastrar';
+    $btn_limpar = 'Limpar';
     $categoria = null;
+
+    if(isset($_POST['btn_limpar'])){
+        Header('Location: cms_categoria.php');
+    }
 
     //cadastrar categoria
     if(isset($_POST['Cadastrar_categoria'])){
@@ -70,21 +75,31 @@
 
             $select = mysqli_query($conexao, $sql); 
 
-            if($rsExcluirCategoria = mysqli_fetch_array($select)){
-                if($rsExcluirCategoria['cod_filme'] != null){
-                    echo("<script>alert('Está categoria esta relacionada com um filme, Não pode excluir-la.')</script>");
-                    echo("<script>window.location='cms_categoria.php';</script>");
+            if($rsExcluirCategoria = mysqli_fetch_array($select)){                
+                echo("<script>alert('Está categoria esta relacionada com um filme, Não pode excluir-la.');
+                            window.location='cms_categoria.php';</script>");
+
+            }else{
+                $sqlDeletar = "DELETE FROM tbl_categoria WHERE cod_categoria = ".$codigo;
+                
+                if(mysqli_query($conexao, $sqlDeletar)){
+                    header('Location: cms_categoria.php');
                 }else{
-                    $sqlDeletar = "DELETE FROM tbl_categoria WHERE cod_categoria = ".$codigo;
-                    
-                    if(mysqli_query($conexao, $sqlDeletar)){
-                        header('Location: cms_categoria.php');
-                    }else{
-                        echo($sqlDeletar);
-                    }
+                    echo($sqlDeletar);
                 }
             }
 
+        }elseif($modo == 'excluirRelacao'){ //← RELAÇÃO COM O FILME
+            $codigo_genero = $_GET['id_genero'];
+            //excluindo a relção entre filme e genero
+            $sql = "DELETE FROM tbl_subcategoria_categoria WHERE cod_genero =".$codigo_genero." AND cod_categoria =".$codigo;  
+            
+            if(mysqli_query($conexao, $sql)){
+                header('Location: cms_categoria.php');
+                //echo($sql);
+            }else{
+                echo $sql;
+            }
         }elseif($modo == 'editar'){
             
             $sql = "SELECT cod_categoria, categoria FROM tbl_categoria WHERE cod_categoria = ".$codigo;
@@ -94,6 +109,7 @@
                 $categoria = $rsEditar['categoria'];
 
                 $btn_categoria = 'Atualizar';
+                $btn_limpar = 'Cancelar';
                 $_SESSION['cod_categoria'] = $rsEditar['cod_categoria'];
             }
 
@@ -103,20 +119,78 @@
 
 
 
-
+    // editando e cadastrando relação entre o genero e categoria
     if(isset($_POST['Salvar_adicionar_genero_categoria'])){
         $cod_genero = $_POST['sle_genero'];
         $cod_categoria = $_POST['sle_categoria'];
-
-        $sql="INSERT INTO tbl_subcategoria_categoria (cod_genero, cod_categoria)
-        VALUES (".$cod_genero.", ".$cod_categoria.")";
-
-        if(mysqli_query($conexao, $sql)){
-            header('Location: cms_categoria.php');
+        
+        //verifica se as caixas estão nulas
+        if($cod_categoria == "null" || $cod_genero == "null"){
+            echo("<script>alert('Selecione uma categoria e um genero para ser relacionados.')</script>");
+            echo("<script>window.location='cms_categoria.php';</script>");
         }else{
-            echo($sql);
+                
+            //verificando se existe a relação entre genero e categoria
+            $sqlVerificar = "SELECT cod_categoria, cod_genero FROM tbl_subcategoria_categoria 
+            WHERE cod_genero =".$cod_genero." AND cod_categoria =".$cod_categoria;
+            $select = mysqli_query($conexao, $sqlVerificar);
+            if($rsRelacao = mysqli_fetch_array($select)){
+                if($rsRelacao['cod_categoria'] == $cod_categoria && $rsRelacao['cod_genero'] == $cod_genero){
+                    echo("<script>
+                            alert('Não pode relacionar esta categoria com este genero, pois ja estão relacionados.');
+                            window.location='cms_categoria.php';
+                        </script>");
+                                 
+                }
+            }else{
+                    
+                $sqlCategoria = "INSERT INTO tbl_subcategoria_categoria (cod_genero, cod_categoria)
+                VALUES (".$cod_genero.", ".$cod_categoria.")";
+    
+                if(mysqli_query($conexao, $sqlCategoria)){
+                    header('Location: cms_categoria.php');
+                }else{
+                     echo($sqlCategoria);
+                }
+            }
         }
+        
+        
 
+    }elseif(isset($_POST['Atualizar_adicionar_genero_categoria'])){
+        $cod_genero = $_POST['sle_genero'];
+        $cod_categoria = $_POST['sle_categoria'];
+        
+        //verifica se as caixas estão nulas
+        if($cod_categoria == "null" || $cod_genero == "null"){
+            echo("<script>alert('Selecione uma categoria e um genero para ser relacionados.')</script>");
+            echo("<script>window.location='cms_categoria.php';</script>");
+        }else{
+                
+            //verificando se existe a relação entre genero e categoria
+            $sqlVerificar = "SELECT cod_categoria, cod_genero FROM tbl_subcategoria_categoria 
+            WHERE cod_genero =".$cod_genero." AND cod_categoria =".$cod_categoria;
+            $select = mysqli_query($conexao, $sqlVerificar);
+            if($rsRelacao = mysqli_fetch_array($select)){
+                if($rsRelacao['cod_categoria'] == $cod_categoria && $rsRelacao['cod_genero'] == $cod_genero){
+                    echo("<script>
+                            alert('Não pode relacionar esta categoria com este genero, pois ja estão relacionados.');
+                            window.location='cms_categoria.php';
+                        </script>");
+                                 
+                }
+            }else{
+                    
+                $sqlUpdateCategoria = "UPDATE tbl_subcategoria_categoria SET cod_genero =".$cod_genero."
+                                    WHERE cod_categoria =".$_SESSION['id_categoria'] ." AND cod_genero =".$_SESSION['id_genero']." ";
+    
+                if(mysqli_query($conexao, $sqlUpdateCategoria)){
+                    header('Location: cms_categoria.php');
+                }else{
+                     echo($sqlCategoria);
+                }
+            }
+        }
     }
 
 
@@ -128,17 +202,31 @@
         $status = $_GET['status'];
         $id = $_GET['id'];
 
-        if($status == 0){
-            $sqlAtivarDesativar = "UPDATE tbl_categoria SET status = 1 WHERE cod_categoria =".$id;
-        }else{
-            $sqlAtivarDesativar = "UPDATE tbl_categoria SET status = 0 WHERE cod_categoria =".$id;
+        $sql = "SELECT cod_categoria FROM tbl_subcategoria_categoria where cod_categoria =".$id;
+        $select = mysqli_query($conexao, $sql);
+        if($rsAvivar = mysqli_fetch_array($select)){
+            // if($rsAvivar['cod_categoria'] != $id){
+                
+            // }
+            if($status == 0){
+                $sqlAtivarDesativar = "UPDATE tbl_categoria SET status = 1 WHERE cod_categoria =".$id;
+            }else{
+                $sqlAtivarDesativar = "UPDATE tbl_categoria SET status = 0 WHERE cod_categoria =".$id;
+            }
+    
+            if(mysqli_query($conexao, $sqlAtivarDesativar)){
+                header("Location: cms_categoria.php");
+            }else{
+                echo $sqlAtivarDesativar;
+            }
+        }else{   
+            echo("<script>alert('Não pode ativar está categoria, pois ela está sem um genero (subcategoria).');
+            window.location='cms_categoria.php';</script>");
         }
 
-        if(mysqli_query($conexao, $sqlAtivarDesativar)){
-            header("Location: cms_categoria.php");
-        }else{
-            echo $sqlAtivarDesativar;
-        }
+
+
+        
 
     }
 
@@ -169,16 +257,29 @@
             });
 
 //          atribuindo um genero a categoria
-            function colocargenero_categoria(modo, codigo){
+            function colocargenero_categoria(modo, codigo_genero, codigo_categoria){
                 $.ajax({
                     type:'GET',
                     url: "./modais/cms_modal_colocar_genero_na_categoria.php",
-                    data:{modo:modo, codigo:codigo},
+                    data:{modo:modo, codigo_genero:codigo_genero, codigo_categoria:codigo_categoria },
                     success: function(dados){
                         $('#modal').html(dados);
                     },
                 })
             }
+
+            //          atribuindo um genero a categoria
+            function consultarGeneros_categoria(codigo_categoria){
+                $.ajax({
+                    type:'GET',
+                    url: "./modais/cms_modal_consultar_genero_categoria.php",
+                    data:{codigo_categoria:codigo_categoria},
+                    success: function(dados){
+                        $('#modal').html(dados);
+                    },
+                })
+            }
+
 
         </script>
     </head>
@@ -212,7 +313,7 @@
 
             <!-- Adicionar genero para o filme -->
             <figure>
-                <div id="reacionaGenero" class="visualizar" onclick="colocargenero_categoria('Salvar', 0)" >
+                <div id="reacionaGenero" class="visualizar" onclick="colocargenero_categoria('Salvar', 0, 0)" >
                     Adicionar Genero
                 </div>
             </figure>
@@ -225,6 +326,7 @@
 
                     <div id="segura_botao_ator">
                         <input type="submit" value="<?php echo($btn_categoria);?>" name="<?php echo($btn_categoria.'_categoria');?>"  class="botao_cadastro_usuario"> 
+                        <input type="submit" value="<?php echo($btn_limpar);?>" name="btn_limpar"  class="botao_cadastro_usuario"> 
                     </div>
                 <form>
             </div>
@@ -262,7 +364,8 @@
                                 ?>
                                 <img src="./img/<?php echo($img)?>" class="icon img-size" alt="<?php echo($altEtitle)?>" title="<?php echo($altEtitle)?>">
                             </a>
-                            <img src="./img/icon_view.png" class="icon img-size" alt="visualizar Generos" title="visualizar Generos">
+
+                            <img src="./img/icon_view.png" class="icon visualizar img-size" onclick="consultarGeneros_categoria(<?= $rscategoria['cod_categoria'] ?>)" alt="visualizar Generos" title="visualizar Generos">
 
                         </td>
                     </tr>

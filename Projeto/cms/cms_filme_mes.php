@@ -85,10 +85,10 @@
                                 concat(SUBSTRING(group_concat(genero.genero SEPARATOR '/'), 1, 35), '...')as generos_filme,
                                 filme.imagem_filme as imagem_filme,
                                 distribuidora.distribuidora as distribuidora
-                                FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
-                                ON filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero as genero
-                                ON filme_genero.cod_genero =  genero.cod_genero INNER JOIN	tbl_ditribuidora as distribuidora
-                                ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme; ";
+                                FROM tbl_filme as filme INNER JOIN tbl_filme_genero_categoria as filme_genero_categoria
+                                ON filme.cod_filme = filme_genero_categoria.cod_filme INNER JOIN tbl_genero as genero
+                                ON filme_genero_categoria.cod_genero =  genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
+                                ON distribuidora.cod_distribuidora = filme.cod_distribuidora GROUP BY filme.cod_filme";
                         $select = mysqli_query($conexao, $sql);
                         while($rsFilme_mes = mysqli_fetch_array($select)){
                             $cod_filme = $rsFilme_mes['cod_filme'];

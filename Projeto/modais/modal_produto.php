@@ -4,34 +4,70 @@
     //formatando o preco
     require_once('../cms/util/formatar_preco.php');
     $cod_produto = $_GET['codigo'];
+    $modo = $_GET['modo'];
 
-    $sql = "SELECT filme.titulo_filme, 
-                    filme.cod_filme, 
-                    filme.descricao,
-                    filme.imagem_filme,
-                    filme.status as status_filme,
-                    filme.duracao,
-                    filme.preco_filme,
-                    group_concat(genero.genero separator '/') as genero,
-                    distribuidora.distribuidora,
-                    classificacao.classificacao
-                    FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
-                    ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
-                    ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
-                    ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
-                    ON filme.cod_classificacao = classificacao.cod_classificacao WHERE filme.cod_filme =".$cod_produto;
-    $select = mysqli_query($conexao,$sql);
-    if($rsProduto = mysqli_fetch_array($select)){
-        $titulo_filme = $rsProduto['titulo_filme'];
-        $cod_filme = $rsProduto['cod_filme'];
-        $descricao = $rsProduto['descricao'];
-        $imagem_filme = $rsProduto['imagem_filme'];
-        $duracao = $rsProduto['duracao'];
-        $genero = $rsProduto['genero'];
-        $distribuidora = $rsProduto['distribuidora'];
-        $classificacao = $rsProduto['classificacao'];
-        $preco_filme = $rsProduto['preco_filme'];
+    if($modo == 'normal'){
+        $sql = "SELECT filme.titulo_filme, 
+        filme.cod_filme, 
+        filme.descricao,
+        filme.imagem_filme,
+        filme.status_produto as status_filme,
+        filme.duracao,
+        filme.preco_filme,
+        group_concat(genero.genero separator '/') as genero,
+        distribuidora.distribuidora,
+        classificacao.classificacao
+        FROM tbl_filme as filme INNER JOIN tbl_filme_genero_categoria as filme_genero
+        ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
+        ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
+        ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
+        ON filme.cod_classificacao = classificacao.cod_classificacao WHERE filme.cod_filme =".$cod_produto;
+        $select = mysqli_query($conexao,$sql);
+        if($rsProduto = mysqli_fetch_array($select)){
+            $titulo_filme = $rsProduto['titulo_filme'];
+            $cod_filme = $rsProduto['cod_filme'];
+            $descricao = $rsProduto['descricao'];
+            $imagem_filme = $rsProduto['imagem_filme'];
+            $duracao = $rsProduto['duracao'];
+            $genero = $rsProduto['genero'];
+            $distribuidora = $rsProduto['distribuidora'];
+            $classificacao = $rsProduto['classificacao'];
+            $preco_filme = $rsProduto['preco_filme'];
+        }
+    }elseif($modo == 'promocao'){
+        $sql = "SELECT filme.titulo_filme, 
+        filme.cod_filme, 
+        filme.descricao,
+        filme.imagem_filme,
+        filme.status_produto as status_filme,
+        filme.duracao,
+        filme.preco_filme,
+        promocao.porcentagem_desconto as desconto,
+        group_concat(genero.genero separator '/') as genero,
+        distribuidora.distribuidora,
+        classificacao.classificacao
+        FROM tbl_filme as filme INNER JOIN tbl_filme_genero_categoria as filme_genero
+        ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
+        ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
+        ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
+        ON filme.cod_classificacao = classificacao.cod_classificacao INNER JOIN tbl_promocao as promocao
+        ON filme.cod_filme = promocao.cod_filme
+        WHERE filme.cod_filme =".$cod_produto;
+        $select = mysqli_query($conexao,$sql);
+        if($rsProduto = mysqli_fetch_array($select)){
+            $titulo_filme = $rsProduto['titulo_filme'];
+            $cod_filme = $rsProduto['cod_filme'];
+            $descricao = $rsProduto['descricao'];
+            $imagem_filme = $rsProduto['imagem_filme'];
+            $desconto = $rsProduto['desconto'];
+            $duracao = $rsProduto['duracao'];
+            $genero = $rsProduto['genero'];
+            $distribuidora = $rsProduto['distribuidora'];
+            $classificacao = $rsProduto['classificacao'];
+            $preco_filme = $rsProduto['preco_filme'];
+        }
     }
+    
 ?>
 <script src="js/jquery-1.11.3.min.js"></script>
 <script>
@@ -50,7 +86,7 @@
 
     <figure>
         <div id="fechar_modal_produto">
-            <a href="#" class="img-size" id="fachar_modal_produto">
+            <a href="#" class="img-size" id="fechar_modal_produto">
                 <img class="img-size" src="./cms/img/icone_sair.png" alt="sair da modal" title="sair da modal">
             </a>
         </div>
@@ -98,8 +134,17 @@
         <div class="especificacao center">
             <span class="titulo_topico">Preço:</span> 
             <?php
-                $preco = colocar_virgula($preco_filme);
-                echo($preco);
+                if($modo == 'normal'){
+                    $preco = colocar_virgula($preco_filme);
+                    echo($preco);
+                }else{
+                    $preco = colocar_virgula($preco_filme);
+                    $preco_promocao = calcular_preco($desconto, $preco_filme);
+            ?>
+              De: <del><?php echo $preco; ?></del>
+              Por: <?php echo $preco_promocao; ?>
+            <?php
+                }
             ?>
         </div>
     </div>

@@ -256,7 +256,7 @@
                                         promocao.status as status_promocao,
                                         promocao.porcentagem_desconto as desconto
                                         FROM tbl_promocao as promocao INNER JOIN tbl_filme as filme
-                                        ON promocao.cod_filme = filme.cod_filme";
+                                        ON promocao.cod_filme = filme.cod_filme WHERE filme.status_produto = 1";
                                 $select = mysqli_query($conexao, $sql);
 
                                 while($rsPromocao = mysqli_fetch_array($select)){

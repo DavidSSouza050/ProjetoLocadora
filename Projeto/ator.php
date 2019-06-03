@@ -219,7 +219,7 @@
 
                     <figure> 
                         <div class="filmes_participados_mobile center">
-                            <img class="img-size border-radius-img" src="./cms/img/imagem_filme/<?php echo($rsImagem_filme['imagem_filme'])?>" alt="<?php echo($rsImagem_filme['imagem_filme'])?>" title="<?php echo($rsImagem_filme['imagem_filme'])?>">
+                            <img class="img-size border-radius-img" src="./cms/img/imagem_filme/<?php echo($rsImagem_filme['imagem_filme'])?>" alt="<?php echo($rsImagem_filme['imagem_filme'])?>">
                         </div>
                     </figure>
                     <?php

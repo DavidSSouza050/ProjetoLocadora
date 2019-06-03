@@ -14,20 +14,22 @@
         $btn = $modo;
     }elseif($modo == 'Atualizar'){// passando modal para atualizar primeiro ele busca depois na pagina que a modal foi chamada ele atualiza
         $btn = $modo;
-        $id_genero = $_GET['codigo'];
+        $id_genero = $_GET['codigo_genero'];
+        $id_categoria = $_GET['codigo_categoria'];
 
         //fazendo select para trazer o categoria eo filme
         $sql = "SELECT genero.cod_genero, genero.genero,
                         categoria.cod_categoria, categoria.categoria
-                        FROM tbl_categoria as categoria INNER JOIN tbl_subcategoria_categoria as subCa
-                        ON categoria.cod_categoria = subCa.cod_categoria INNER JOIN tbl_genero
-                        ON genero.cod_genero = subCa.cod_categoria WHERE genero.cod_genero =".$id_genero;
+                        FROM tbl_genero as genero INNER JOIN tbl_subcategoria_categoria as subcategoria_categoria
+                        ON genero.cod_genero = subcategoria_categoria.cod_genero INNER JOIN tbl_categoria as categoria
+                        ON subcategoria_categoria.cod_categoria = categoria.cod_categoria WHERE categoria.cod_categoria = ".$id_categoria." AND genero.cod_genero =".$id_genero;
+
         $select = mysqli_query($conexao, $sql);
         if($rsgenero_categoria = mysqli_fetch_array($select)){//← pegando o categoria e o filme
             $cod_categoria = $rsgenero_categoria['cod_categoria'];
             $nome_categoria = $rsgenero_categoria['categoria'];
             $cod_genero = $rsgenero_categoria['cod_genero'];          
-            $titulo_genero = $rsgenero_categoria['genero'];
+            $nome_genero = $rsgenero_categoria['genero'];
 
             //selecionando ator e genero para edição
             $_SESSION['id_categoria'] = $cod_categoria;
@@ -52,7 +54,7 @@
                 <?php
                 }else{
                 ?>
-                    <option value=null>Selecione um genero</option>
+                    <option value="null">Selecione um genero</option>
                 <?php
                     }
                    
@@ -78,10 +80,10 @@
                 <?php
                 }else{
                 ?>
-                    <option value=null>Selecione uma categoria</option>
+                    <option value= "null" >Selecione uma categoria</option>
                 <?php
                     }
-                   
+                   if($modo != 'Atualizar'){
                     //trzendo os atores do banco
                     $sqlcategoria = "SELECT cod_categoria,categoria FROM tbl_categoria WHERE cod_categoria <> ".$cod_categoria;
                     $selectcategoria= mysqli_query($conexao, $sqlcategoria);
@@ -90,6 +92,7 @@
                     <option value="<?php echo($rsNomecategoria['cod_categoria']);?>"><?php echo($rsNomecategoria['categoria']);?></option>
                 <?php
                     }
+                   }
                 ?>
         
             </select>

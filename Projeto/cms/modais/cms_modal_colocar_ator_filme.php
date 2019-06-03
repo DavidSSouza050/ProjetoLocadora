@@ -16,6 +16,7 @@
     }elseif($modo == 'Atualizar'){// passando modal para atualizar primeiro ele busca depois na pagina que a modal foi chamada ele atualiza
         $btn = $modo;
         $id_ator = $_GET['codigo_ator'];
+        $id_filme = $_GET['codigo_filme'];
 
         //fazendo select para trazer o ator eo filme
         $sql = "SELECT ator.cod_ator,
@@ -24,7 +25,7 @@
                 filme.cod_filme
                 FROM tbl_ator AS ator INNER JOIN tbl_filme_ator as filme_ator
                 ON ator.cod_ator = filme_ator.cod_ator INNER JOIN tbl_filme AS filme
-                ON filme.cod_filme = filme_ator.cod_filme WHERE ator.cod_ator =".$id_ator;
+                ON filme.cod_filme = filme_ator.cod_filme WHERE ator.cod_ator =".$id_ator." AND filme.cod_filme =".$id_filme;
         $select = mysqli_query($conexao, $sql);
         if($rsFilme_ator = mysqli_fetch_array($select)){//← pegando o ator e o filme
             $cod_ator = $rsFilme_ator['cod_ator'];

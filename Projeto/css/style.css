@@ -173,9 +173,41 @@ body{
         display: flex;
 
     }
-
+    /*barra de pesquisa*/
+    #divBusca{
+        background-color:rgb(44, 44, 44);
+        border:solid 1px;
+        border-radius:15px;
+        margin-left: 300px;
+        width: 460px;
+        height: 50px;
+        box-sizing: border-box;
+        padding-top: 1px;
+        position: absolute;
+        margin-top: 8px;
+    }
+    #btnBusca{
+        width: 45px;
+        height: 45px;
+        margin-top: 1px;
+    }
+    #txtBusca{
+        float:left;
+        background-color:transparent;
+        padding-left:5px;
+        font-size:18px;
+        border:none;
+        height:50px;
+        width: 400px;
+        color: white;
+        font-family: MeganJune;
+        font-size: 30px;
+    }
+    #txtBusca:focus{
+        outline: none;
+    }
     .caixa_item{
-        width: 200px;
+        width: 250px;
         float: left;
         border: solid 3px rgba(122, 15, 15, 0.801);
     }
@@ -197,7 +229,7 @@ body{
     }
 
     .li_menu_item{
-        width: 190px;
+        width: 240px;
         min-height: 50px;
         height: auto;
         overflow: hidden;
@@ -206,6 +238,7 @@ body{
         box-sizing: border-box;
         padding-left: 10px;
         margin-left: 5px;
+        overflow: hidden;
         padding-top: 10px;
         box-sizing: border-box;
         z-index: 2;
@@ -233,8 +266,9 @@ body{
     }
 
     .ul_subMenu{
-        width: 190px;
+        width: inherit;
         height: 0px;
+        overflow: hidden;
         z-index: 998;
         margin-top: 6px;
         margin-left: -10px;
@@ -274,6 +308,7 @@ body{
     #open_categoria{
         display: none;
     }
+
     .segura_categoria{
         display: none;
     }
@@ -297,7 +332,7 @@ body{
 
 
     .caixa_produto{
-        width: 1186px;
+        width: 1136px;
         /**/
         min-height: 451px;
         height: auto;
@@ -314,7 +349,7 @@ body{
         width: 350px;
         height: 450px;
         margin-left: 25px;
-        margin-top: 50px;
+        margin-top: 70px;
         margin-bottom: 25px;
         float: left;
         border: solid 4px rgb(177, 13, 13);
@@ -1171,7 +1206,7 @@ body{
         height: auto;
         overflow: hidden;
         border-radius: 20px;
-        background-color: rgb(92, 92, 92);
+        background-color: rgb(59, 59, 59);
     }
     #caixa_imagem_produto{
         width: 400px;
@@ -1194,7 +1229,7 @@ body{
     .especificacao{
         width: 560px;
         height: 90px;
-        border-bottom: solid 3px rgb(58, 57, 57);
+        border-bottom: solid 3px rgb(102, 102, 102);
         box-sizing: border-box;
         padding-top: 25px;
         /*font*/
@@ -1277,7 +1312,7 @@ body{
         width: 50px;
         height: 50px;
         position: fixed;
-        margin-left: 950px;
+        margin-left: 475px;
     }
 
     .caixa_sinopse{
@@ -2297,15 +2332,107 @@ body{
         min-height: 1500px;
         margin-left: -6.08%;
         margin-top: -30%;
+        box-sizing: border-box;
+        padding-top: 10px;
         transform: translateX(-100%);
         transition: transform 500ms linear;
         background-color: #3a3939;
     }
 
+    .subcategoria_item{
+        width: 540px;
+        height: 130px;
+        margin-left: 80px;
+        margin-top: 20px;
+        border: solid 3px  rgb(187, 48, 48);
+        box-sizing: border-box;
+        padding-top: 20px;
+        /*font*/
+        font-size: 70px;
+        transition: transform 400ms linear;
+        text-align: center;
+        color: white;
+        font-family: MeganJune;
+    }
     
-    
+    /*MODAL DE FILME DAS PAGINAS INICAIS*/
+    #card_produto{
+        width: 100%;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color: #1d1d1d;
+    }
+    #caixa_imagem_produto{
+        width: 100%;
+        height: 700px;
+        box-sizing: border-box;
+        padding-top: 30px;
+    }
+    #imagem_produto{
+        width: 490px;
+        height: 640px;
+    }
+    #caixa_especificacao_produto{
+        width: 100%;
+        height: 1000px;
+        box-sizing: border-box;
+        padding-top: 10px;
+    }
+
+    .especificacao{
+        width: 860px;
+        height: 100px;
+        border-bottom: solid 5px rgb(102, 102, 102);
+        box-sizing: border-box;
+        padding-top: 25px;
+        margin-top: 25PX;
+        /*font*/
+        color: rgb(214, 214, 214);
+        font-family: baronBold;
+        font-size: 42px;
+    }
+    #sinopse_modal{
+        width: inherit;
+        height: 800px;
+        /*font*/
+        color: rgb(214, 214, 214);
+        font-size: 25px;
+        font-family: baronBold;
+    }
 
 
+    #titulo_sinopse{
+        width: 300px;
+        height: 100px;
+        color: rgb(214, 214, 214);
+        font-size: 70px;
+        font-family: baronBold;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+    #texto_sinopse{
+        width: 900px;
+        height: 600px;
+        overflow: auto;
+        color: rgb(230, 228, 228);
+        font-size: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: baronBold;
+        box-sizing: border-box;
+        padding-left: 20px;
+        line-height: 1.5;
+    }
+    
+    #fechar_modal_produto{
+        width: 200px;
+        height: 200px;
+        position: fixed;
+        
+    }
 
 
 }

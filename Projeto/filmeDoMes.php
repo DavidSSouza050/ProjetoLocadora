@@ -23,9 +23,9 @@
             group_concat(genero.genero separator '/') as genero,
             distribuidora.distribuidora,
             classificacao.classificacao
-            FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
-            ON filme_genero.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
-            ON filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
+            FROM tbl_filme as filme INNER JOIN tbl_filme_genero_categoria as filme_genero_categoria
+            ON filme_genero_categoria.cod_filme = filme.cod_filme INNER JOIN tbl_genero as genero
+            ON filme_genero_categoria.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
             ON filme.cod_distribuidora = distribuidora.cod_distribuidora INNER JOIN tbl_classificacao as classificacao
             ON filme.cod_classificacao = classificacao.cod_classificacao WHERE filme.status = 1";
 
@@ -60,7 +60,7 @@
                 <!-- imagem do filme do mês -->
                 <figure>
                     <div id="capa_filme_do_mes" >
-                       <img class="img-size" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
+                       <img src="./cms/img/imagem_filme/<?php echo($imagem);?>" class="img-size"  alt="<?php echo($imagem);?>" >
                     </div>
                 </figure>
             </div>
@@ -127,7 +127,7 @@
             <div id="caixa_capa_filme_do_mes_mobile" class="center">
                  <figure>
                     <div id="capa_filme_do_mes_mobile" class="center">
-                       <img class="img-size" src="./img/ator/Arold/participacoes/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
+                       <img class="img-size" src="./cms/img/imagem_filme/<?php echo($imagem);?>" alt="<?php echo($imagem);?>" >
                     </div>
                 </figure>
             </div>

@@ -14,7 +14,12 @@
     }
     //variaveis
     $btn_distribuidora = 'Cadastrar';
+    $btn_limpar = 'Limpar';
     $distribuidora = null;
+
+    if(isset($_POST['btn_limpar'])){
+        header('Location: cms_distribuidora.php');
+    }
 
     if(isset($_POST['Cadastrar_distribuidora'])){
         $distribuidora = trim($_POST['nome_distribuidora']);
@@ -90,6 +95,7 @@
                 $distribuidora = $rsEditar['distribuidora'];
 
                 $btn_distribuidora = 'Atualizar';
+                $btn_limpar = 'Cancelar';
                 $_SESSION['cod_distribuidora'] = $rsEditar['cod_distribuidora'];
             }
 
@@ -128,6 +134,7 @@
 
                     <div id="segura_botao_ator">
                         <input type="submit" value="<?php echo($btn_distribuidora);?>" name="<?php echo($btn_distribuidora.'_distribuidora');?>" id="cadastrar_produto" class="botao_cadastro_usuario"> 
+                        <input type="submit" value="<?php echo($btn_limpar);?>" name="btn_limpar" id="cadastrar_produto" class="botao_cadastro_usuario"> 
                     </div>
                 <form>
             </div>

@@ -19,7 +19,7 @@
         </tr>
         <?php
             $sql = "SELECT genero.cod_genero,
-                    genero.genero,
+                    categoria.categoria,
                     categoria.cod_categoria
                     FROM tbl_filme as filme INNER JOIN tbl_filme_genero_categoria as filme_genero_categoria
                     ON filme.cod_filme = filme_genero_categoria.cod_filme INNER JOIN tbl_genero as genero
@@ -28,25 +28,25 @@
                     WHERE filme.cod_filme = ".$cod_filme;
 
             $select = mysqli_query($conexao, $sql);                    
-            while($rsgenero = mysqli_fetch_array($select)){
+            while($rscategoria = mysqli_fetch_array($select)){
         ?>
         <tr class="tbody">
             <td>
-                <?= $rsgenero['genero']?>
+                <?= $rscategoria['categoria']?>
                 <?php
                     //varivaeis para atualização
                     $_SESSION['id_filme'] = $cod_filme;
-                    $_SESSION['id_genero'] = $rsgenero['cod_genero'];
-                    $_SESSION['id_categoria'] = $rsgenero['cod_categoria'];
+                    $_SESSION['id_genero'] = $rscategoria['cod_genero'];
+                    $_SESSION['id_categoria'] = $rscategoria['cod_categoria'];
                 ?>
             </td>
             <td>
                  
-            <a href="?modo=excluirRelacaoGenero&id_genero=<?php echo($rsgenero['cod_genero']);?>&id=<?php  echo($cod_filme);?>">
+            <a href="?modo=excluirRelacaoCategoria&id_categoria=<?php echo($rscategoria['cod_genero']);?>&id=<?php  echo($cod_filme);?>">
                 <img src="./img/icon_delete.png" class="img-size icon" onclick="return confirm('Deseja reamente excluir está relação?')" alt="Excluir Relação" title="Excluir Relação">
             </a>
 
-            <img src="./img/icon_edit.png"  onclick="colocargenero('AtualizarGenero', <?php echo($cod_filme)?>, <?php echo($rsgenero['cod_genero'])?>, <?php echo($rsgenero['cod_categoria'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
+            <img src="./img/icon_edit.png"  onclick="colocargenero('AtualizarCategoria', <?php echo($cod_filme)?>, <?php echo($rscategoria['cod_genero'])?>, <?php echo($rscategoria['cod_categoria'])?>)" class="img-size icon" alt="Editar relação" title="Editar Relação"> 
 
             </td>
         </tr>

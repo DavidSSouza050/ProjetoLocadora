@@ -209,7 +209,7 @@
             if($rsResposta = mysqli_fetch_array($select)){
                 if($rsResposta['cod_filme'] == $cod_filme && $rsResposta['cod_ator'] == $cod_ator){  
                 echo("<script>
-                        alert('Não pode atualizar com o mesmo filme.'); 
+                        alert('Não pode atualizar com um filme que já esteja cadastrado.'); 
                         window.location='cms_atores.php';        
                     </script>");
                 } 
@@ -271,11 +271,11 @@
                 });
             }
 //          atribuindo um filme a um ator
-            function colocarAtor_filme(modo, codigo_ator){
+            function colocarAtor_filme(modo, codigo_ator, codigo_filme){
                 $.ajax({
                     type:'GET',
                     url: "./modais/cms_modal_colocar_ator_filme.php",
-                    data:{modo:modo, codigo_ator:codigo_ator},
+                    data:{modo:modo, codigo_ator:codigo_ator, codigo_filme:codigo_filme},
                     success: function(dados){
                         $('#modal_larga').html(dados);
                     },
@@ -334,7 +334,7 @@
                     <div class="itens_card_cadastro visualizar" onclick="cadastrarEvisualizarator('Cadastrar', 0)">
                         Cadastrar ator
                     </div>      
-                    <div class="itens_card_cadastro visualizar" onclick="colocarAtor_filme('Salvar', 0)">
+                    <div class="itens_card_cadastro visualizar" onclick="colocarAtor_filme('Salvar', 0, 0)">
                         Adicionar filme
                     </div>      
 
