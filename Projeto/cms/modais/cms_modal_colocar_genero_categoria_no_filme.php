@@ -200,7 +200,7 @@
                 <?php
                     }else{
                 ?>
-                    <option value=null>Selecione um genero</option>
+                    <option value="null">Selecione um genero</option>
                 <?php
                     }
                 ?>

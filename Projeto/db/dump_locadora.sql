@@ -57,7 +57,7 @@ CREATE TABLE `tbl_categoria` (
   `categoria` varchar(100) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`cod_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `tbl_categoria` (
 
 LOCK TABLES `tbl_categoria` WRITE;
 /*!40000 ALTER TABLE `tbl_categoria` DISABLE KEYS */;
-INSERT INTO `tbl_categoria` VALUES (1,'Blu-Ray',1),(2,'Filmes DVD',0);
+INSERT INTO `tbl_categoria` VALUES (1,'Blu-Ray',1),(3,'Fita K7',1),(4,'Filmes em DVD',1),(5,'Filmes em disquete',1),(6,'Digital',0);
 /*!40000 ALTER TABLE `tbl_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,6 +273,7 @@ CREATE TABLE `tbl_filme` (
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `status_produto` tinyint(1) NOT NULL DEFAULT '0',
   `duracao` varchar(30) NOT NULL,
+  `clicks` int(11) DEFAULT '0',
   `cod_classificacao` int(11) NOT NULL,
   `cod_distribuidora` int(11) NOT NULL,
   PRIMARY KEY (`cod_filme`),
@@ -289,7 +290,7 @@ CREATE TABLE `tbl_filme` (
 
 LOCK TABLES `tbl_filme` WRITE;
 /*!40000 ALTER TABLE `tbl_filme` DISABLE KEYS */;
-INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.800,'0a162dfa577844185c85e8cd1684aed941a3d641.jpg',0,0,'107 minutos',4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.300,'exterminador_do_futuro_2.jpg',0,0,'136 minutos',3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.000,'o_predador.jpg',0,0,'107 minutos',5,3),(4,'Vingadores: Guerra Infinita','O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',100.600,'vingadoresguerrainfinita.jpg',1,0,'149 minutos',3,4),(6,'O Senhor dos Anéis: A Sociedade do Anel','Numa terra fantástica e única, chamada Terra-Média, um hobbit (seres de estatura entre 80 cm e 1,20 m, com pés peludos e bochechas um pouco avermelhadas) recebe de presente de seu tio o Um Anel, um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso o hobbit Frodo (Elijah Woods) terá um caminho árduo pela frente, onde encontrará perigo, medo e personagens bizarros. Ao seu lado para o cumprimento desta jornada aos poucos ele poderá contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando 9 pessoas que formarão a Sociedade do Anel.',120.120,'0bc6174350106b6b012ed09fed373cc73893bea3.jpg',0,0,'178 Minutos',3,5);
+INSERT INTO `tbl_filme` VALUES (1,'O Exterminador do Futuro','Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um androide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar um representante para proteger a mulher e tentar garantir o futuro da humanidade.',50.800,'00a20ffd160ba5fb110885bbba83337aa983a5e2.jpg',1,1,'107 minutos',7,4,1),(2,'O Exterminador do Futuro 2','Uma criança destinada a ser líder (Edward Furlong) já nasceu, mas é infeliz por viver com pais adotivos, pois foi privado da companhia da mãe (Linda Hamilton), que foi considerada louca quando falou de um exterminador vindo do futuro. Neste contexto, um andróide (Arnold Schwarzenegger) vem do futuro, mais exatamente um modelo T-800 igual ao filme original, para proteger o garoto, mas existe um problema: o mais avançado andróide existente no futuro, um modelo T-1000 (Robert Patrick), que é feito de \"metal líquido\", não pode ter nenhum dano permanente e pode assumir a forma que desejar, também veio para o passado com a missão de matar o menino.',70.300,'exterminador_do_futuro_2.jpg',0,1,'136 minutos',4,3,2),(3,'O Predador','Um grupo de soldados especiais americanos liderados pelo Major Alan \"Dutch\" Schaefer (Arnold Schwarzenegger) é enviado a uma selva na América Central para resgatar um ministro estrangeiro e funcionários do governo que estão sendo mantidos reféns por guerrilheiros. A missão é cumprida, mas o que Dutch e seus homens não sabem é que algo além dos guerrilheiros os espreita na floresta.',30.000,'o_predador.jpg',0,1,'107 minutos',2,5,3),(4,'Vingadores: Guerra Infinita','O maior e mais mortal confronto de todos os tempos. Os Vingadores e seus aliados Super Heróis devem se dispor a sacrificar tudo em uma tentativa de derrotar o poderoso Thanos antes que seu ataque de devastação e ruína dê um fim ao universo.',100.600,'vingadoresguerrainfinita.jpg',0,0,'149 minutos',0,3,4),(6,'O Senhor dos Anéis: A Sociedade do Anel','Numa terra fantástica e única, chamada Terra-Média, um hobbit (seres de estatura entre 80 cm e 1,20 m, com pés peludos e bochechas um pouco avermelhadas) recebe de presente de seu tio o Um Anel, um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso o hobbit Frodo (Elijah Woods) terá um caminho árduo pela frente, onde encontrará perigo, medo e personagens bizarros. Ao seu lado para o cumprimento desta jornada aos poucos ele poderá contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando 9 pessoas que formarão a Sociedade do Anel.',120.120,'0bc6174350106b6b012ed09fed373cc73893bea3.jpg',0,1,' 178 Minutos',6,3,5);
 /*!40000 ALTER TABLE `tbl_filme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +317,7 @@ CREATE TABLE `tbl_filme_ator` (
 
 LOCK TABLES `tbl_filme_ator` WRITE;
 /*!40000 ALTER TABLE `tbl_filme_ator` DISABLE KEYS */;
-INSERT INTO `tbl_filme_ator` VALUES (3,3),(1,3),(2,3);
+INSERT INTO `tbl_filme_ator` VALUES (3,3),(2,3),(1,3);
 /*!40000 ALTER TABLE `tbl_filme_ator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,7 +367,7 @@ CREATE TABLE `tbl_filme_genero_categoria` (
   CONSTRAINT `fk_categoria_categoria` FOREIGN KEY (`cod_categoria`) REFERENCES `tbl_categoria` (`cod_categoria`),
   CONSTRAINT `fk_filme_cateoria` FOREIGN KEY (`cod_filme`) REFERENCES `tbl_filme` (`cod_filme`),
   CONSTRAINT `fk_genero_categoria` FOREIGN KEY (`cod_genero`) REFERENCES `tbl_genero` (`cod_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,7 +376,7 @@ CREATE TABLE `tbl_filme_genero_categoria` (
 
 LOCK TABLES `tbl_filme_genero_categoria` WRITE;
 /*!40000 ALTER TABLE `tbl_filme_genero_categoria` DISABLE KEYS */;
-INSERT INTO `tbl_filme_genero_categoria` VALUES (5,1,24,1),(6,1,25,1);
+INSERT INTO `tbl_filme_genero_categoria` VALUES (5,1,3,1),(7,2,25,1),(8,1,24,3),(9,6,25,1),(10,6,3,1),(11,6,24,1),(12,3,3,4);
 /*!40000 ALTER TABLE `tbl_filme_genero_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,7 +391,7 @@ CREATE TABLE `tbl_genero` (
   `cod_genero` int(11) NOT NULL AUTO_INCREMENT,
   `genero` varchar(30) NOT NULL,
   PRIMARY KEY (`cod_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -474,7 +475,7 @@ CREATE TABLE `tbl_promocao` (
   PRIMARY KEY (`cod_promocao`),
   KEY `fk_promocao_filme_idx` (`cod_filme`),
   CONSTRAINT `fk_promocao_filme` FOREIGN KEY (`cod_filme`) REFERENCES `tbl_filme` (`cod_filme`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -483,7 +484,7 @@ CREATE TABLE `tbl_promocao` (
 
 LOCK TABLES `tbl_promocao` WRITE;
 /*!40000 ALTER TABLE `tbl_promocao` DISABLE KEYS */;
-INSERT INTO `tbl_promocao` VALUES (1,0,50,1),(5,0,15,2),(8,0,10,3);
+INSERT INTO `tbl_promocao` VALUES (1,0,50,1),(5,1,15,2),(8,0,10,3);
 /*!40000 ALTER TABLE `tbl_promocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -515,6 +516,35 @@ INSERT INTO `tbl_sobre` VALUES (10,'Uma criança destinada a ser líder (Edward 
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_subcategoria_categoria`
+--
+
+DROP TABLE IF EXISTS `tbl_subcategoria_categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_subcategoria_categoria` (
+  `cod_relacao_subcategoria_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_categoria` int(11) NOT NULL,
+  `cod_genero` int(11) NOT NULL,
+  PRIMARY KEY (`cod_relacao_subcategoria_categoria`),
+  KEY `fk_genero_idx` (`cod_genero`),
+  KEY `fk_categoria_subcategoria_idx` (`cod_categoria`),
+  CONSTRAINT `fk_categoria_subcategoria` FOREIGN KEY (`cod_categoria`) REFERENCES `tbl_categoria` (`cod_categoria`),
+  CONSTRAINT `fk_genero_subcategoria` FOREIGN KEY (`cod_genero`) REFERENCES `tbl_genero` (`cod_genero`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_subcategoria_categoria`
+--
+
+LOCK TABLES `tbl_subcategoria_categoria` WRITE;
+/*!40000 ALTER TABLE `tbl_subcategoria_categoria` DISABLE KEYS */;
+INSERT INTO `tbl_subcategoria_categoria` VALUES (1,1,7),(3,3,10),(5,4,3),(6,4,26),(7,3,25),(8,5,5),(9,1,3),(10,1,25),(11,1,24);
+/*!40000 ALTER TABLE `tbl_subcategoria_categoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_usuario`
 --
 
@@ -540,7 +570,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (12,'David Silva','david_silva@gmail.com','202cb962ac59075b964b07152d234b70',1,8),(13,'Magna Cassia','magna_cassia@gmail.com','d2a7375d845d55a9889e51cd55a65a45',1,11),(21,'David Silva Souza','david_silva_souza@gmail.com','e99a18c428cb38d5f260853678922e03',1,10),(23,'Jeremias Souza Santos','jeremias_santos@gmail.com','2f37df98db1ff6733fdf244c67c375dd',1,13),(27,'123','123@gmail.com','202cb962ac59075b964b07152d234b70',1,8);
+INSERT INTO `tbl_usuario` VALUES (12,'admin','admin@gmail.com','202cb962ac59075b964b07152d234b70',1,8),(13,'Magna Cassia','magna_cassia@gmail.com','d2a7375d845d55a9889e51cd55a65a45',1,11),(21,'David Silva Souza','david_silva_souza@gmail.com','e99a18c428cb38d5f260853678922e03',1,10),(23,'Jeremias Souza Santos','jeremias_santos@gmail.com','2f37df98db1ff6733fdf244c67c375dd',1,13),(27,'123','123@gmail.com','202cb962ac59075b964b07152d234b70',1,8);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -553,4 +583,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-31  1:55:04
+-- Dump completed on 2019-06-07  3:29:30

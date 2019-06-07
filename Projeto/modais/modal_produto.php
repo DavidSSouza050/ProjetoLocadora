@@ -14,6 +14,7 @@
         filme.status_produto as status_filme,
         filme.duracao,
         filme.preco_filme,
+        filme.clicks,
         group_concat(genero.genero separator '/') as genero,
         distribuidora.distribuidora,
         classificacao.classificacao
@@ -33,6 +34,10 @@
             $distribuidora = $rsProduto['distribuidora'];
             $classificacao = $rsProduto['classificacao'];
             $preco_filme = $rsProduto['preco_filme'];
+
+            $sqlclick = "UPDATE tbl_filme set clicks = clicks + 1 WHERE cod_filme =".$cod_filme;
+            mysqli_query($conexao, $sqlclick);
+
         }
     }elseif($modo == 'promocao'){
         $sql = "SELECT filme.titulo_filme, 
@@ -65,6 +70,9 @@
             $distribuidora = $rsProduto['distribuidora'];
             $classificacao = $rsProduto['classificacao'];
             $preco_filme = $rsProduto['preco_filme'];
+
+            $sqlclick = "UPDATE tbl_filme set clicks = clicks + 1 WHERE cod_filme =".$cod_filme;
+            mysqli_query($conexao, $sqlclick);
         }
     }
     

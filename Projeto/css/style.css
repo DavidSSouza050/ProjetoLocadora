@@ -12,6 +12,7 @@ title{
     width: 15px;
 }
 
+
 /* Track */
 .scrollTexto::-webkit-scrollbar-track {
     box-shadow: inset 0 0 50px rgb(255, 255, 255); 
@@ -47,6 +48,9 @@ a{
 .zindexzero{
     z-index: 2 !important;
     
+}
+.displayNome{
+    display: none;
 }
 
 .espaco_entre_paragrafos{
@@ -178,13 +182,10 @@ body{
         background-color:rgb(44, 44, 44);
         border:solid 1px;
         border-radius:15px;
-        margin-left: 300px;
         width: 460px;
         height: 50px;
         box-sizing: border-box;
         padding-top: 1px;
-        position: absolute;
-        margin-top: 8px;
     }
     #btnBusca{
         width: 45px;
@@ -193,7 +194,7 @@ body{
     }
     #txtBusca{
         float:left;
-        background-color:transparent;
+        background-color: transparent;
         padding-left:5px;
         font-size:18px;
         border:none;
@@ -207,7 +208,7 @@ body{
         outline: none;
     }
     .caixa_item{
-        width: 250px;
+        width: 230px;
         float: left;
         border: solid 3px rgba(122, 15, 15, 0.801);
     }
@@ -229,18 +230,15 @@ body{
     }
 
     .li_menu_item{
-        width: 240px;
+        width: 220px;
         min-height: 50px;
         height: auto;
         overflow: hidden;
         margin-top: 20px;
         list-style: none;
         box-sizing: border-box;
-        padding-left: 10px;
         margin-left: 5px;
-        overflow: hidden;
         padding-top: 10px;
-        box-sizing: border-box;
         z-index: 2;
         margin-bottom: 15px;
         border: solid 1px rgb(39, 39, 39);
@@ -252,6 +250,14 @@ body{
         color: white;
         transition: 1s;
     }
+    .categoria_segura_item{
+        width: 185px;
+        height: 30px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        float: left;
+    }
+
     .aparece_subCategoria{
         width: 28px;
         height: 28px;
@@ -271,16 +277,12 @@ body{
         overflow: hidden;
         z-index: 998;
         margin-top: 6px;
-        margin-left: -10px;
         transition: 1s;
     }
     .li_subMenu{
         width: 190px;
         height: 50px;
         list-style: none;
-        box-sizing: border-box;
-        padding-top: 10px;
-        padding-left:20px;
         margin-top: 10px;
         margin-bottom: 10px;
         background-color: #1d1d1d;
@@ -289,6 +291,13 @@ body{
     }
     .li_subMenu:hover{
         color:  rgb(133, 20, 20) !important;
+    }
+    .segura_subcategoria{
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left:20px;
     }
     .mostrar_subMenu{
         transition: width 5s; 
@@ -332,7 +341,7 @@ body{
 
 
     .caixa_produto{
-        width: 1136px;
+        width: 1166px;
         /**/
         min-height: 451px;
         height: auto;
@@ -343,14 +352,26 @@ body{
         border: solid 3px rgba(138, 7, 7, 0.589);
         background-color: rgb(14, 13, 13);
     }
+    #segura_barra_pesquisa{
+        width: inherit;
+        height: 60px;
+        box-sizing: border-box;
+        padding-top: 5px;
+    }
+    #segura_podutos{
+        width: inherit;
+        min-height: 401px;
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
 
     /*Card dos produtos*/    
     .produto{
         width: 350px;
         height: 450px;
-        margin-left: 25px;
-        margin-top: 70px;
-        margin-bottom: 25px;
+        margin-left: 20px;
+        margin-top: 20px;
         float: left;
         border: solid 4px rgb(177, 13, 13);
         border-radius: 15px; 
@@ -538,6 +559,10 @@ body{
 
     #lojaAntiga{
         border-radius: 20px;
+    }
+    
+    #lojaAntiga_mobile{
+        display: none;
     }
     /*********************SOBRE*********************************/
 
@@ -2277,29 +2302,107 @@ body{
     
 
 
-    #imagem_quemSomos{
+    #imagem_quemSomos_mobile{
         width: 900px;
         height: 800px;
         border-radius: 20px;
     }
 
-    #lojaAntiga{
+    #lojaAntiga_mobile{
         border-radius: 20px;
+    }
+    #lojaAntiga{
+        display: none;
     }
     /*********************SOBRE*********************************/
 
 
     /*MENU CATEGORIA*/
+    .segura_menu_categoria{
+        width: 100%;
+        height: 100%;
+        z-index: 995;
+        position: fixed;
+        transform: translateX(-100%);
+        transition: transform 400ms linear;
+    }
     .segura_categoria{
         width: 80%;
         height: 100%;
         background-color: #3a3939;
-        z-index: 999;
-        position: fixed;
-        transform: translateX(-100%);
-        transition: transform 400ms linear;
         overflow: auto;
+        float: left;
     }
+    .fechar_menu_mobile{
+        width: 20%;
+        height: 100%;
+        background-color: #333232e5;
+        float: left;
+    }
+    .categoria_item{
+        width: 710px;
+        min-height: 150px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-left: 30px;
+        border: solid 3px  rgb(187, 48, 48);
+        box-sizing: border-box;   
+    }
+    .segura_categoria_item{
+        width: 580px;
+        height: 145px;
+        box-sizing: border-box;
+        padding-left: 50px;
+        padding-top: 30px;
+        float: left;
+        /*font*/
+        font-size: 70px;
+        transition: transform 400ms linear;
+        color: rgb(255, 255, 255);
+        font-family: MeganJune;
+    }
+    .aparece_subcategoria_mobile{
+        width: 120px;
+        height: 120px;
+        margin-top: 10px;
+        float: left;
+    }
+
+    .segura_subcategoria{
+        width: 700px;
+        height: 0px;
+        box-sizing: border-box;
+        padding-top: 10px;
+    }
+
+    .mostrar_subMenu_mobile{
+        transition: width 5s; 
+        min-height: 100px;
+        height: auto;
+        max-height: 400px;
+        overflow-Y: auto;
+    }
+
+    .esconder_subMenu_mobile{
+        transition: width 5s; 
+        height: 0px;
+    }
+    .subcategoria_item{
+        width: 540px;
+        height: 130px;
+        margin-bottom: 30px;
+        border: solid 3px  rgb(187, 48, 48);
+        box-sizing: border-box;
+        padding-top: 20px;
+        /*font*/
+        font-size: 70px;
+        text-align: center;
+        color: white;
+        font-family: MeganJune;
+    }
+
+
     .fecha_categoria{
         width: 150px;
         height: 150px;
@@ -2311,49 +2414,8 @@ body{
         margin-right: -20% ; 
         float: right;
     }
-    .categoria_item{
-        width: 540px;
-        height: 130px;
-        margin-top: 30px;
-        margin-left: 30px;
-        border: solid 3px  rgb(187, 48, 48);
-        box-sizing: border-box;
-        padding-top: 20px;
-        /*font*/
-        font-size: 70px;
-        transition: transform 400ms linear;
-        text-align: center;
-        color: white;
-        font-family: MeganJune;
-    }
 
-    .segura_subCategoria{
-        width: 170%;
-        min-height: 1500px;
-        margin-left: -6.08%;
-        margin-top: -30%;
-        box-sizing: border-box;
-        padding-top: 10px;
-        transform: translateX(-100%);
-        transition: transform 500ms linear;
-        background-color: #3a3939;
-    }
-
-    .subcategoria_item{
-        width: 540px;
-        height: 130px;
-        margin-left: 80px;
-        margin-top: 20px;
-        border: solid 3px  rgb(187, 48, 48);
-        box-sizing: border-box;
-        padding-top: 20px;
-        /*font*/
-        font-size: 70px;
-        transition: transform 400ms linear;
-        text-align: center;
-        color: white;
-        font-family: MeganJune;
-    }
+    
     
     /*MODAL DE FILME DAS PAGINAS INICAIS*/
     #card_produto{
@@ -2434,5 +2496,16 @@ body{
         
     }
 
+    /*barra de pesquisa*/
+    #divBusca{
+       display: none;
+    }
+    #btnBusca{
+        display: none;
+    }
+    
+    #txtBusca{
+        display: none;
+    }
 
 }

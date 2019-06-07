@@ -33,6 +33,10 @@
             $distribuidora = $rsProduto['distribuidora'];
             $classificacao = $rsProduto['classificacao'];
             $preco_filme = $rsProduto['preco_filme'];
+
+            $sqlclick = "UPDATE tbl_filme set clicks = clicks + 1 WHERE cod_filme =".$cod_filme;
+            mysqli_query($conexao, $sqlclick);
+
         }
     }elseif($modo == 'promocao'){
         $sql = "SELECT filme.titulo_filme, 
@@ -65,6 +69,10 @@
             $distribuidora = $rsProduto['distribuidora'];
             $classificacao = $rsProduto['classificacao'];
             $preco_filme = $rsProduto['preco_filme'];
+
+            $sqlclick = "UPDATE tbl_filme set clicks = clicks + 1 WHERE cod_filme =".$cod_filme;
+            mysqli_query($conexao, $sqlclick);
+
         }
     }
     

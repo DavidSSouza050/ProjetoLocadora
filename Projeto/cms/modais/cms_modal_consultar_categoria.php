@@ -25,7 +25,7 @@
                     ON filme.cod_filme = filme_genero_categoria.cod_filme INNER JOIN tbl_genero as genero
                     ON filme_genero_categoria.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
                     ON filme_genero_categoria.cod_categoria = categoria.cod_categoria
-                    WHERE filme.cod_filme = ".$cod_filme;
+                    WHERE filme.cod_filme = ".$cod_filme." GROUP BY categoria.cod_categoria";
 
             $select = mysqli_query($conexao, $sql);                    
             while($rscategoria = mysqli_fetch_array($select)){

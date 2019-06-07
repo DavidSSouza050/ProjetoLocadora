@@ -197,9 +197,10 @@
                                         // está sendo editado
                                         if($modo != 'buscar'){
                                         $sql=" SELECT filme.titulo_filme, filme.cod_filme as filme_cod, 
-                                                promocao.cod_filme as promocao_cod_filme 
+                                                promocao.cod_filme as promocao_cod_filme,
+                                                filme.status_produto
                                                 FROM tbl_filme as filme left JOIN tbl_promocao as promocao 
-                                                ON filme.cod_filme = promocao.cod_filme WHERE filme.cod_filme <> ".$cod_filme." ORDER BY filme.cod_filme;";
+                                                ON filme.cod_filme = promocao.cod_filme WHERE filme.cod_filme <> ".$cod_filme." AND status_produto = 1 ORDER BY filme.cod_filme;";
                                         $select = mysqli_query($conexao, $sql);
 
                                             while($rsfilmepromocao = mysqli_fetch_array($select)){

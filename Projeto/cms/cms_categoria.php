@@ -328,7 +328,7 @@
                         <input type="submit" value="<?php echo($btn_categoria);?>" name="<?php echo($btn_categoria.'_categoria');?>"  class="botao_cadastro_usuario"> 
                         <input type="submit" value="<?php echo($btn_limpar);?>" name="btn_limpar"  class="botao_cadastro_usuario"> 
                     </div>
-                <form>
+                </form>
             </div>
             <div id="segura_cadastrados" class="scrollTexto">
                 <table id="table_modal_nivel">

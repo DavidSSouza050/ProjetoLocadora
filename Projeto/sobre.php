@@ -76,8 +76,8 @@
                     </div>
                 </div>
                 <figure>
-                    <div id="imagem_quemSomos" class="center">
-                       <img id="lojaAntiga" class="img-size" src="./cms/img/imagem_sobre/<?php echo($nome_imagem_sobre) ?>" alt="<?php echo($nome_imagem_sobre) ?>"> 
+                    <div id="imagem_quemSomos_mobile" class="center">
+                       <img id="lojaAntiga_mobile" class="img-size" src="./cms/img/imagem_sobre/<?php echo($nome_imagem_sobre) ?>" alt="<?php echo($nome_imagem_sobre) ?>"> 
                     </div>
                 </figure>
             </div>

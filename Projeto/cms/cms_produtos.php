@@ -26,6 +26,7 @@
     $preco_filme = null;
     $sinopse = null;
     $img_filme = null;
+    $modo = null;
 
     //Limpar caixas
     if(isset($_POST['limpar_produto'])){
@@ -79,11 +80,11 @@
             echo("<script>window.location='cms_produtos.php';</script>");
         }else{
             if($img_filme != null){
-                $sql = "UPDATE tbl_filme SET titulo_filme = '".$titulo_filme."',
-                                             descricao = '".$sinopse."',
+                $sql = "UPDATE tbl_filme SET titulo_filme = '".addslashes($titulo_filme)."',
+                                             descricao = '".addslashes($sinopse)."',
                                              preco_filme = REPLACE('".$preco_filme."', ',', '.' ),
-                                             imagem_filme = '".$img_filme."',
-                                             duracao = '".$duracao."',
+                                             imagem_filme = '".addslashes($img_filme)."',
+                                             duracao = '".addslashes($duracao)."',
                                              cod_classificacao = ".$cod_classificacao.",
                                              cod_distribuidora = ".$cod_distribuidora."
                                              WHERE cod_filme =".$_SESSION['atualizar_filme'];  
@@ -98,10 +99,10 @@
                     echo($sql);
                 }
             }else{
-                $sql = "UPDATE tbl_filme SET titulo_filme = '".$titulo_filme."',
-                descricao = '".$sinopse."',
+                $sql = "UPDATE tbl_filme SET titulo_filme = '".addslashes($titulo_filme)."',
+                descricao = '".addslashes($sinopse)."',
                 preco_filme = REPLACE('".$preco_filme."', ',', '.' ),
-                duracao = '".$duracao."',
+                duracao = '".addslashes($duracao)."',
                 cod_classificacao = ".$cod_classificacao.",
                 cod_distribuidora = ".$cod_distribuidora."
                 WHERE cod_filme =".$_SESSION['atualizar_filme'];  
@@ -295,7 +296,7 @@
         $cod_genero = $_POST['sle_genero'];
         $cod_categoria = $_POST['sle_categoria'];
        
-        if($cod_filme != null || $cod_genero != null || $cod_categoria != null){
+        if($cod_filme != "null" || $cod_genero != "null" || $cod_categoria != "null"){
             //Verificando se o genero já está com aquele filme
             $sqlBuscarFilmeGenero = "SELECT cod_filme, cod_genero, cod_categoria FROM tbl_filme_genero_categoria WHERE cod_filme =".$cod_filme." AND cod_genero =".$cod_genero;
             $select = mysqli_query($conexao, $sqlBuscarFilmeGenero);
@@ -317,14 +318,14 @@
                 }else{
                     //se nada disso for ele valida o cadastramento que deu invalido
                     echo("<script>
-                        alert('Selecione um genero e um filme que não estejam cadastrados');
+                        alert('Selecione um genero, um filme que não estejam cadastrados');
                         window.location.href = 'cms_produtos.php';
                     </script>");
                 }
             }
         }else{
             echo("<script>
-                        alert('Selecione um genero e um');
+                        alert('Selecione um genero e um filme e uma categoria');
                         window.location.href = 'cms_produtos.php';
                     </script>");
         }
@@ -586,12 +587,12 @@
                             <div class="segura_caixas_produto">
                                 <div class="segura_txt_produto">
                                     <h4>Titulo Do Filme</h4>
-                                    <input type="text" class="txt_produto" value="<?php echo($titulo_filme)?>" placeholder="Ex: A vida dos mortos" name="titulo_filme" id="titulo-produto">
+                                    <input type="text" class="txt_produto"  maxlength="100" value="<?php echo($titulo_filme)?>" placeholder="Ex: A vida dos mortos" name="titulo_filme" id="titulo-produto">
                                 
                                 </div>
                                 <div class="segura_txt_produto">
                                     <h4>Duração</h4>
-                                    <input type="text" class="txt_produto"  value="<?php echo($duracao)?>" placeholder="Ex: 150 Minutos"  name="duracao_filme" id="duracao-filme">
+                                    <input type="text" class="txt_produto" maxlength="25"  value="<?php echo($duracao)?>" placeholder="Ex: 150 Minutos"  name="duracao_filme" id="duracao-filme">
 
                                 </div>
                             </div>
@@ -665,7 +666,7 @@
                             <div class="segura_caixas_produto">
                                 <div class="segura_txt_produto">
                                     <h4>Preço</h4>
-                                    <input type="text" value="<?php echo($preco_filme)?>" class="txt_produto" placeholder="Ex: 35,20"  name="preco_filme" id="preco-filme">
+                                    <input type="text" maxlength="6" value="<?php echo($preco_filme)?>" class="txt_produto" placeholder="Ex: 35,20"  name="preco_filme" id="preco-filme">
                                 
                                 </div>
                                 <div class="segura_txt_produto">
@@ -698,7 +699,7 @@
                                     }
                                 ?>
 
-                                <textarea id="txt_produto_sinopse" placeholder="Sinopse" class="center scrollTexto" name="txt_sinopse"><?php echo($sinopse)?></textarea>
+                                <textarea id="txt_produto_sinopse" maxlength="10000" placeholder="Sinopse" class="center scrollTexto" name="txt_sinopse"><?php echo($sinopse)?></textarea>
 
                                 <div id="segura_botao_ator">
                                     <input type="submit" value="<?php echo($btn);?>" name="<?php echo($btn.'_produto');?>" id="cadastrar_produto" class="botao_cadastro_usuario"> 

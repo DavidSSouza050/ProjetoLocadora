@@ -276,13 +276,13 @@
         transition: 1s;
     }
 
-    .menublock{
+    /* .menublock{
         width: 100%;
         height: 100%;
         position: absolute;
         z-index: 9999999;
         display: none;
-    }
+    } */
 
     .logo_site_mobile{
         width: 330px;
@@ -290,5 +290,36 @@
         float: left;
         margin-left: 350px;
     }
+    /*Barra de pesquisa mobile*/
+    .btnBusca{
+        width: 150px;
+        height: inherit;
+        float: right;
+    }
 
+    .barraPesquisa_mobile{
+        width: 0px;
+        height: inherit;
+        position: absolute;
+        z-index: 999999;
+    }
+
+    .escondeBarraPesquisa_mobile{
+        width: 0px;
+    }
+
+    #txtBusca_mobile{
+        width: inherit;
+        height: inherit;
+        background-color: rgb(22, 22, 22);
+        border-radius: 20px;
+        box-sizing: border-box;
+        padding-left: 60px;
+        margin-left: -50px;
+        border: none;
+        /*font*/
+        font-family: MeganJune;
+        font-size: 70px;
+        color: white;
+    }
 }

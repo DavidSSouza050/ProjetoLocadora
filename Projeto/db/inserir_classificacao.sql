@@ -91,110 +91,11 @@ INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 25);
 INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 23);
 INSERT INTO tbl_filme_genero_categoria (cod_filme, cod_genero) VALUES (1, 24);
 
-SELECT filme.titulo_filme as filme_titulo,
-                    filme.cod_filme as filme,
-                    categoria.cod_categoria as cod_categoria
-                    FROM tbl_filme_genero_categoria as filme_categoria inner JOIN tbl_categoria as categoria
-                    ON filme_categoria.cod_categoria = categoria.cod_categoria left join tbl_filme as filme
-                    ON filme_categoria.cod_filme =  filme.cod_filme
-                    WHERE categoria.cod_categoria = 1;
-                    
-                    select * from tbl_categoria;
-   SELECT filme.titulo_filme as filme_titulo,
-                    filme.cod_filme as filme,
-                    categoria.cod_categoria as cod_categoria
-                    FROM tbl_filme as filme right JOIN tbl_filme_genero_categoria as filme_categoria
-                    ON filme.cod_filme = filme_categoria.cod_filme inner JOIN tbl_categoria as categoria
-                    ON filme_categoria.cod_categoria = categoria.cod_categoria 
-                    WHERE categoria.cod_categoria = 1;
-SELECT  filme.cod_filme,
-		filme.titulo_filme,
-		filme.status_produto,
-		filme.preco_filme,
-        group_concat(genero.genero SEPARATOR '/'),
-        distribuidora.distribuidora
-		FROM tbl_filme as filme INNER JOIN tbl_filme_genero as filme_genero
-        ON	filme.cod_filme = filme_genero.cod_filme INNER JOIN tbl_genero AS genero
-        ON 	filme_genero.cod_genero = genero.cod_genero INNER JOIN tbl_ditribuidora as distribuidora
-        ON filme.cod_distribuidora = distribuidora.cod_distribuidora GROUP BY cod_filme;
+-- user 
+desc tbl_nivel_usuario;
+INSERT INTO tbl_nivel_usuario (nome_nivel, adm_conteudo, adm_fale_conosco, adm_produto, adm_usuairo) VALUES ('root', 1, 1, 1, 1);
+INSERT INTO tbl_usuario (nome_usuario, email, senha, status, cod_nivel) VALUES ('admin', 'admin.127@gmail.com', '123', 1);
 
-
-UPDATE tbl_filme set status_produto = 0 WHERE cod_filme > 0;
-
-
-SELECT filme.cod_filme,
-		filme.titulo_filme, 
-        filme.descricao, 
-        filme.preco_filme, 
-        filme.imagem_filme, 
-        filme.duracao, 
-		classificacao.cod_classificacao, 
-        classificacao.classificacao, 
-        distribuidora.cod_distribuidora, 
-        distribuidora.distribuidora
-		FROM tbl_filme as filme INNER JOIN tbl_classificacao as classificacao
-		ON filme.cod_classificacao = classificacao.cod_classificacao INNER JOIN tbl_ditribuidora as distribuidora
-		ON filme.cod_distribuidora = distribuidora.cod_distribuidora
-		WHERE cod_filme = 2;
-
-SELECT filme.cod_distribuidora,
-		distribuidora.cod_distribuidora
-        FROM tbl_filme as filme right JOIN tbl_ditribuidora as distribuidora
-        ON filme.cod_distribuidora = distribuidora.cod_distribuidora WHERE distribuidora.cod_distribuidora = 3;
-
-SELECT cod_distribuidora from tbl_filme;
-
-
-
-
-SELECT * FROM tbl_filme WHERE cod_filme = 1;
-
-SELECT diretor.cod_diretor,
-                diretor.diretor,
-                filme.titulo_filme,
-                filme.cod_filme
-                FROM tbl_diretor AS diretor INNER JOIN tbl_filme_diretor as filme_diretor
-                ON diretor.cod_diretor = filme_diretor.cod_diretor INNER JOIN tbl_filme AS filme
-                ON filme.cod_filme = filme_diretor.cod_filme WHERE diretor.cod_diretor = 2;
-
-
-SELECT * FROM tbl_filme_diretor;
-
-
-
-select * from tbl_categoria;
-DESC tbl_categoria;
-INSERT INTO tbl_categoria VALUES (1, 'DVD', 0);
-INSERT INTO tbl_categoria VALUES (2, 'VHS', 0);
-
-select * from tbl_genero_categoria;
-DESC tbl_genero_categoria;
-INSERT INTO tbl_genero_categoria VALUES (1, 1, 1);
-INSERT INTO tbl_genero_categoria VALUES (2, 23, 1);
-INSERT INTO tbl_genero_categoria VALUES (3, 25, 1);
-INSERT INTO tbl_genero_categoria VALUES (4, 24, 1);
-INSERT INTO tbl_genero_categoria VALUES (5, 18, 1);
-
-INSERT INTO tbl_genero_categoria VALUES (6, 25, 2);
-INSERT INTO tbl_genero_categoria VALUES (7, 24, 2);
-INSERT INTO tbl_genero_categoria VALUES (8, 18, 2);
-
-UPDATE tbl_genero_categoria set cod_genero = 1 WHERE cod_genero_categoria = 1;
-
-DROP TABLE tbl_filme_genero;
-
-CREATE TABLE tbl_filme_genero_categoria(
-	cod_relacao_filme_genero_categoria INT AUTO_INCREMENT PRIMARY KEY,
-    cod_filme INT NOT NULL,
-    cod_genero INT NOT NULL,
-    cod_categoria INT,
-     FOREIGN key (cod_filme) REFERENCES tbl_filme (cod_filme),
-    FOREIGN key (cod_genero) REFERENCES tbl_genero (cod_genero),
-     FOREIGN key (cod_categoria) REFERENCES tbl_categoria (cod_categoria)
-);
-
-DELETE FROM tbl_filme_genero where cod_filme > 0;
-         
          
          
         

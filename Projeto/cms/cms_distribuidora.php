@@ -130,13 +130,13 @@
             <div id="cadastro_distribuidora">
                 <form name="frm_distribuidora" method="POST" action="cms_distribuidora.php">
                     <h3>Distribuidora</h3>
-                    <input type="text" value="<?=$distribuidora?>"id="text_distribuidora" maxlength="45" name="nome_distribuidora">
+                    <input type="text" value="<?=$distribuidora?>" id="text_distribuidora" maxlength="45" name="nome_distribuidora">
 
                     <div id="segura_botao_ator">
-                        <input type="submit" value="<?php echo($btn_distribuidora);?>" name="<?php echo($btn_distribuidora.'_distribuidora');?>" id="cadastrar_produto" class="botao_cadastro_usuario"> 
-                        <input type="submit" value="<?php echo($btn_limpar);?>" name="btn_limpar" id="cadastrar_produto" class="botao_cadastro_usuario"> 
+                        <input type="submit" value="<?php echo($btn_distribuidora);?>" name="<?php echo($btn_distribuidora.'_distribuidora');?>" class="botao_cadastro_usuario"> 
+                        <input type="submit" value="<?php echo($btn_limpar);?>" name="btn_limpar"  class="botao_cadastro_usuario"> 
                     </div>
-                <form>
+                </form>
             </div>
 
             <div id="segura_cadastrados" class="scrollTexto">

@@ -69,6 +69,11 @@
                 ?>
         
             </select>     
+            <div class="adicionar icon iconSemMargin">
+               <a href="cms_genero.php">
+                    <img src="./img/icon_add.png" class="img-size" alt="Adicionar" title="Adicionar genero">
+               </a>
+            </div>
         </div>
         <div class="segura_combo_colocar_ator_filme">
             <select name="sle_categoria" class="txt_ator">

@@ -139,6 +139,17 @@
     background-color: rgb(65, 64, 64);
     padding-top: 20px
 }
+#chartDiv{
+    width: 1300px; 
+    height: auto;  
+    overflow: hidden; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: white; 
+    padding: 10px;
+}
 
 .conteudo_editavel{
     width: 600px;

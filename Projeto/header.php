@@ -67,20 +67,26 @@
 <!-- esponsivo -->
 <header id="header_modile">
 
-    <div class="menublock">
-
-    </div>
     <nav class="segura_menu_mobile back-size">
        
     </nav>
     <div class="fecha_menu back-size">
 
     </div>
-    <figure>
-        <div class="logo_site_mobile">
-            <img class="img-size zindexzero" src="./img/logoAcme.png" alt="logo Acme" title="Voltar para a pagina inicial">
-        </div>
-    </figure>
+    
+    <a href="./index.php">
+        <figure>
+            <div class="logo_site_mobile">
+                <img class="img-size zindexzero" src="./img/logoAcme.png" alt="logo Acme" title="Voltar para a pagina inicial">
+            </div>
+        </figure>
+    </a>
+    <div class="barraPesquisa_mobile escondeBarraPesquisa_mobile">
+        <input type="text" id="txtBusca_mobile" placeholder="Buscar...">
+    </div>
+    <div class="btnBusca">
+        <img src="./img/icon_lupa.png" class="img-size" alt="Pesquisar">
+    </div>
 
     <ul id="ul_menu_mobile">
         <li class="itens">
@@ -105,6 +111,8 @@
             <a href="sobre.php" class="link_menu">Sobre</a>
         </li>
     </ul>
+
+
 </header>
 
 <!-- segurando o conteudo -->

@@ -18,37 +18,65 @@
             //abrindo a modal
             $(document).ready(function(){
                 // ativando modal
-                $(document).ready(function(){
-                    $('.visualizar').click(function(){
-                        $('#conteiner_produto').fadeIn(300);
-                    });
-                });
                 
-                $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#conteiner_produto').fadeIn(300);
+                });
+
                 $('#fechar_modal_produto').click(function(){
                     $('#conteiner_produto').fadeOut(300);
+                });    
+
+                $('#txtBusca').on('keyup', function(){
+                    if($(this).val() != ""){
+                        if($(this).val().length > 3){
+                            pesquisar($(this).val(), 'normal');
+                        }
+                    }else{
+                        filtrar(0,0, 'normal');  
+                    }
                 });
+
+                $('#txtBusca_mobile').on('keyup', function(){
+                    if($(this).val() != ""){
+                        if($(this).val().length > 3){
+                            pesquisar($(this).val(), 'normal');
+                        }
+                    }else{
+                        filtrar(0,0, 'normal');  
+                    }
+                });
+
+     
+                filtrar(0,0,'normal');
+                
             });
 
-            });
+            function filtrar(categoria, subcategoria, modo){
+                    $.ajax({
+                        type: "GET",
+                        url: "./util/filtrar_filmes.php",
+                        data:{categoria:categoria, subcategoria:subcategoria, modo:modo},
+                        success: function(dados){
+                            $('#segura_podutos').html(dados);
+                            // console.log(dados);
+                        }
+                    });
+                }
 
-            function visualizarProduto(modo, codigo){
+            function pesquisar(texto, modo){
                 $.ajax({
-                    type: "GET",
-                    url: "./modais/modal_produto.php",
-                    data:{modo:modo, codigo:codigo},
+                    type:"GET",
+                    url: "./util/pesquisa.php",
+                    data:{texto:texto, modo:modo},
                     success: function(dados){
-                        $('#modal_produto').html(dados);
+                        $('#segura_podutos').html(dados);
+                       // console.log(dados);
                     }
                 });
             }
 
-
-            function test(codigo){
-                
-                alert(codigo);
-                
-            }
+           
 
             function executar(){
                 var texto = document.getElementById('txtBusca').value;//pegnado o valor da caixa
@@ -85,6 +113,62 @@
         </div>
 
 
+        <!-- div que vai segurar as categorias -->
+        <div class="segura_menu_categoria">
+            <div class="segura_categoria scrollTexto">
+
+                <div class="categoria_item">
+                    <div class="segura_categoria_item" onclick="filtrar(0, 0, 'normal')" >
+                        Todos
+                    </div>                      
+                </div>
+
+                <?php
+                    $sql = "SELECT cod_categoria, categoria
+                            FROM tbl_categoria WHERE status = 1";
+                    $select = mysqli_query($conexao, $sql);
+
+                    while($rsCategoria = mysqli_fetch_array($select)){
+                        $cod_categoria = $rsCategoria['cod_categoria'];
+                ?>
+                <div class="categoria_item">
+                    <div class="segura_categoria_item" onclick="filtrar(<?php echo($cod_categoria)?>, 0, 'normal')" >
+                        <?=$rsCategoria['categoria']?>
+                    </div>
+                    <div class="aparece_subcategoria_mobile">
+                        <img src="./img/icon_seta_submenu.png" class="img-size" alt="Mostra Sub Menu" title="Submenu">
+                    </div>
+
+                    <div class="segura_subcategoria esconder_subMenu_mobile scrollTexto center">
+                        <?php
+                            $sqlsubcategoria = "SELECT genero.cod_genero, genero.genero
+                            FROM tbl_filme_genero_categoria as subCat INNER JOIN tbl_genero as genero
+                            ON subCat.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
+                            ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria." GROUP BY genero.cod_genero";
+                            
+                            $selectSubCategoria = mysqli_query($conexao, $sqlsubcategoria);
+
+                            while($rsSubcategoria = mysqli_fetch_array($selectSubCategoria)){
+                        ?>
+                        <div class="subcategoria_item displayNome center" onclick="filtrar(<?php echo($cod_categoria)?>, <?=$rsSubcategoria['cod_genero']?>, 'normal')" >
+                           <?= $rsSubcategoria['genero']?>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    </div>                        
+
+                </div>
+            <?php
+                }
+            ?>
+            </div>
+            <div class="fechar_menu_mobile">
+
+            </div>
+        </div>
+
+
         <!-- header em outra pagina -->
         <?php require_once('./header.php')?>
 
@@ -117,6 +201,7 @@
                 <img src="./img/imagem_mobile.jpg" class="img-size" alt="imagem_mobile">
             </div>    
         </figure>
+        <!-- fim fa imagem mobile-->
         
         <div class="conteudo center">
             <!-- aqui começa a sessação dos filmes  -->
@@ -125,6 +210,11 @@
                     <!-- menu de filtro  -->
                     <nav class="menu_item">
                         <ul class="ul_menu_item">
+                            <li class="li_menu_item">
+                                <div class="categoria_segura_item" onclick="filtrar(0, 0, 'normal')" >
+                                    Todos
+                                </div>
+                            </li>
                             <?php 
                                 $sql="SELECT cod_categoria, categoria 
                                       FROM tbl_categoria WHERE status = 1";
@@ -134,8 +224,9 @@
                             ?>
 
                             <li class="li_menu_item">
-                                <span onclick="test(<?php echo($rsCategoria['cod_categoria'])?>)" ><?=$rsCategoria['categoria']?></span>
-                                
+                                <div class="categoria_segura_item" onclick="filtrar(<?php echo($rsCategoria['cod_categoria'])?>, 0, 'normal')" >
+                                    <?=$rsCategoria['categoria']?>
+                                </div>
                                 <div class="aparece_subCategoria">
                                     <img src="./img/icon_seta_submenu.png" class="img-size" alt="Mostra Sub Menu" title="Submenu">
                                 </div>
@@ -143,14 +234,16 @@
                                 <ul class="ul_subMenu esconder_subMenu scrollTexto">
                                     <?php
                                     $sqlsubcategoria1 = "SELECT genero.cod_genero, genero.genero
-                                                        FROM tbl_subcategoria_categoria as subCat INNER JOIN tbl_genero as genero
+                                                        FROM tbl_filme_genero_categoria as subCat INNER JOIN tbl_genero as genero
                                                         ON subCat.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
-                                                        ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria;
+                                                        ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria." GROUP BY genero.cod_genero";
                                     $selectSubCetgoria1 = mysqli_query($conexao, $sqlsubcategoria1);
                                     while($rsSubcategoria1 = mysqli_fetch_array($selectSubCetgoria1)){                                                        
                                     ?>
                                     <li class="li_subMenu center">
-                                        <span onclick="test(<?php echo($rsSubcategoria1['cod_genero'])?>)"><?=$rsSubcategoria1['genero']?></span>
+                                        <div class="segura_subcategoria" onclick="filtrar(<?=$cod_categoria?>, <?=$rsSubcategoria1['cod_genero']?>, 'normal')">
+                                            <?=$rsSubcategoria1['genero']?>
+                                        </div>
                                     </li>
                                     <?php
                                     }
@@ -174,144 +267,30 @@
                     <img src="./img/iconfinder_filter_299094.png" class="border-radius-img img-size" alt="Filtrar" >
                 </div>
 
-                <!-- div que vai segurar as categorias -->
-                <div class="segura_categoria scrollTexto">
-                    <div class="fecha_categoria">
-                        <img src="img/close_menu.png" class="img-size" alt="Volta">
-                    </div>
+               
 
-                    <?php
-                     $sql2="SELECT cod_categoria, categoria 
-                     FROM tbl_categoria WHERE status = 1";
-                    $select2 = mysqli_query($conexao, $sql2);
-                    while($rsCategoria2 = mysqli_fetch_array($select2)){
-                        $cod_categoria2 = $rsCategoria2['cod_categoria'];
-                    ?>
-                    <div class="categoria_item">
-                        <span onclick="test(<?php echo($rsCategoria2['cod_categoria'])?>)" ><?=$rsCategoria2['categoria']?></span>
-                        <div class="segura_subCategoria">
-                            <?php 
-                            if($rsCategoria2['cod_categoria'] == 1){
-                            ?>
-                            <div class="fecha_subcategoria">
-                                <img src="img/icon_arrow.png" class="img-size" alt="Volta">
-                            </div>
-                            <?php
-                            } 
-                            ?>
-                            <?php 
-                                $sqlsubcategoria2 = "SELECT genero.cod_genero, genero.genero
-                                                        FROM tbl_subcategoria_categoria as subCat INNER JOIN tbl_genero as genero
-                                                        ON subCat.cod_genero = genero.cod_genero INNER JOIN tbl_categoria as categoria
-                                                        ON categoria.cod_categoria = subCat.cod_categoria WHERE categoria.cod_categoria = ".$cod_categoria2;
-                                $selectSubCategoria2 = mysqli_query($conexao, $sqlsubcategoria2);
-                                while($rsSubcategoria2 = mysqli_fetch_array($selectSubCategoria2)){    
-                            ?>
-                            <div class="subcategoria_item">
-                                <span onclick="test(<?php echo($rsSubcategoria2['cod_genero'])?>)"><?=$rsSubcategoria2['genero']?></span>
-                            </div>
-                            <?php
-                                }
-                            ?>     
-                        </div>
-
-
-                    </div>
-                    <?php
-                    }
-                    ?>
-                    
-                </div>
-
-
-
+               
                 <!-- caixa que segura as card -->
                 <div class="caixa_produto">
-                    <div id="divBusca">
-                        <input type="text" id="txtBusca" list="historico" placeholder="Buscar..."/>
-                        <input type="image" src="./img/icon_lupa.png" id="btnBusca" onclick="executar()" alt="Submit" title="Pesquisar"/>
-                        <datalist id="historico">
-                            <option value="Era"></option>
-                            <option value="Ação"></option>
-                            <option value="Comédia"></option>
-                            <option value="Romantica"></option>
-                            <option value="Romance"></option>
-                        </datalist>
+                    <div id="segura_barra_pesquisa">
+                        <!-- barra de pesquisa -->
+                        <div id="divBusca" class="center">
+                            <input type="text" id="txtBusca" list="historico" placeholder="Buscar..."/>
+                            <input type="image" src="./img/icon_lupa.png" id="btnBusca" onclick="executar()" alt="Submit" title="Pesquisar"/>
+                            <datalist id="historico">
+                                <option value="Era"></option>
+                                <option value="Ação"></option>
+                                <option value="Comédia"></option>
+                                <option value="Romantica"></option>
+                                <option value="Romance"></option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div id="segura_podutos">
+                        
                     </div>
 
-                    <?php
-                          $sql = "SELECT filme.cod_filme,
-                          filme.titulo_filme,
-                          filme.preco_filme,                          
-                          concat(SUBSTRING(filme.descricao, 1, 110), ' ...') as descricao,
-                          filme.imagem_filme,
-                          promocao.status as status_promocao
-                          FROM tbl_promocao as promocao right JOIN tbl_filme as filme
-                          ON filme.cod_filme = promocao.cod_filme WHERE filme.status_produto = 1 ORDER BY RAND()";
-                            $select = mysqli_query($conexao, $sql);
-                  
-                    while($rsFilme = mysqli_fetch_array($select)){
-                      if($rsFilme['status_promocao'] == null || $rsFilme['status_promocao'] == 0){        
-                        
-                    ?>
-                        <!-- cards para mostruario pc -->
-                        <div class='produto'>
-                            <div class='produto_caixa_imagem'>
-                                <figure>
-                                    <div class='produto_imagem center'>
-                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class='produto_caixa_descricao'>
-                                <p><span class='formata_atributo'>Nome:</span> <?php echo($rsFilme['titulo_filme'])?> </p>
-                                <p><span class='formata_atributo'>Descrição:</span> <?php echo($rsFilme['descricao'])?> </p>
-                                <p><span class='formata_atributo'>Preço:</span> <?php 
-                                    //formatando o preco
-                                    $preco = colocar_virgula($rsFilme['preco_filme']);
-                                    echo($preco);
-                                 ?></p>
-                            </div>
-                            <div class='produto_caixa_detalhes visualizar'>
-                                <div class='botao_detalhes formata_atributo visualizar' onclick="visualizarProduto('normal', <?php echo($rsFilme['cod_filme']) ?>)">
-                                    Detalhes
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <!-- mobile  -->
-                        <div class='produto_mobile center'>
-                            <div class='produto_caixa_imagem_mobile'>
-                                <figure>
-                                    <div class='produto_imagem_mobile center'>
-                                        <img class='img-size' src='./cms/img/imagem_filme/<?php echo($rsFilme['imagem_filme'])?>' alt='<?php echo($rsFilme['imagem_filme'])?>'>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class='produto_caixa_descricao_mobile'>
-                                <p><span class='formata_atributo_mobile'>Nome:</span> <?php echo($rsFilme['titulo_filme'])?> </p>
-                                <p><span class='formata_atributo_mobile'>Descrição:</span> <?php echo($rsFilme['descricao'])?> </p>
-                                <p><span class='formata_atributo_mobile'>Preço:</span> <?php 
-                                    //formatando o preco
-                                    $preco = colocar_virgula($rsFilme['preco_filme']);
-                                    echo($preco);
-                                 ?></p>
-                            </div>
-                            <div class='produto_caixa_detalhes_mobile'>
-                                <a href="./modais/pagina_modal_responsivo.php?modo=normal&codigo=<?=$rsFilme['cod_filme']?>">
-                                    <div class='botao_detalhes_mobile formata_atributo_mobile'>   
-                                        Detalhes
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                    <?php 
-                        }
-                    }
-                    ?>
+                   
                 </div>  
             </div>
         </div>
